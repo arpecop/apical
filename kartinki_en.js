@@ -63,7 +63,7 @@
        }, function done() {
          var count = 0;
          if (process.env['PORT']) {
-           async.eachSeries(arr.chunk(50), function (chunk, cb) {
+           async.each(arr.chunk(50), function (chunk, cb) {
              request.post({
                url: 'https://graph.facebook.com/',
                form: {

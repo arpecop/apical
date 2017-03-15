@@ -63,7 +63,7 @@
    pouch.users.get('count', function (e, count) {
      let rd = Math.floor(Math.random() * count.count) + 0;
      pouch.users.get('' + rd + '', function (err, docs) {
-       async.eachSeries(docs.docs, function (fr, cb) {
+       async.each(docs.docs, function (fr, cb) {
          arr.push({
            "method": "POST",
            "relative_url": fr.id + "/notifications?href=" + url + "&template=" + template
