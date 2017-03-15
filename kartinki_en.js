@@ -78,8 +78,8 @@ function post_promo(url, callback) {
             });
           }, function done() {
             console.log('🚨' + count + 'ен posted ' + url);
-            callback();
           });
+          callback();
         } else {
           console.log('posting en posts on localhost');
           callback();

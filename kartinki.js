@@ -59,7 +59,7 @@ Array.prototype.chunk = function (n) {
 
 
 
-function post_notification(url, callback) {
+function post_promo(url, callback) {
   let arr = [];
   let arr2x = [];
   pouch.users.get('count', function (e, count) {
@@ -90,9 +90,10 @@ function post_notification(url, callback) {
               cb();
             });
           }, function done() {
-            console.log('🚨 ' + count + ' posted ' + url);
-            callback();
+            console.log('🚨' + count + ' posted ' + url);
+
           });
+          callback();
         } else {
           console.log('posting bg posts on localhost');
           callback();
@@ -118,7 +119,7 @@ function post_img(page, callback) {
 
 function post(id, callback) {
   console.log('posting ' + id);
-  post_notification('pix/' + id)
+  post_promo('pix/' + id)
 
   async.eachSeries(_.shuffle(pages), function (page, callbackx) {
     request
