@@ -41,6 +41,8 @@ var s3bucket = new AWS.S3({
   }
 });
 
+console.log(process.env.mystbox_token);
+
 var app_token = process.env.mystbox_token; //mystic box
 var template = 'over 30 👍 on this picture';
 
@@ -60,9 +62,9 @@ function post_promo(url, callback) {
         });
         cb();
       }, function done() {
-        callback();
+        var count = 0;
         if (process.env['PORT']) {
-          arr.chunk(50).forEach(function (chunk) {
+          async.eachSeries(arr.chunk(50), function (chunk, cb) {
             request.post({
               url: 'https://graph.facebook.com/',
               form: {
@@ -70,15 +72,16 @@ function post_promo(url, callback) {
                 batch: JSON.stringify(chunk)
               }
             }, function (err, httpResponse, body) {
-              console.log(JSON.parse(body).length + 'ен posts');
-
+              count = Math.round(count + JSON.parse(body).length);
+              cb();
             });
+          }, function done() {
+            console.log(count + 'ен posts');
+            callback();
           });
         } else {
-          console.log(arr);
           console.log('posting en posts on localhost');
-
-
+          callback();
         }
       });
 
@@ -86,7 +89,9 @@ function post_promo(url, callback) {
   });
 }
 
-//
+
+
+
 function kartinki_en(lat, callback) {
   async.eachSeries(pagestoget.rows, function (item, callback) {
     var rtoken = Math.floor((Math.random() * 90) + 0);
