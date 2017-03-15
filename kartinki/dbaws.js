@@ -1,5 +1,5 @@
 //let lambda = require('/root/serve/core/lambda');
-"use strict";
+
 let shortid = require('shortid');
 let extend = require('extend');
 
