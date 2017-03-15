@@ -88,7 +88,7 @@
                cb();
              });
            }, function done() {
-             console.log('🚨' + count + ' posted ' + url);
+             console.log('🚨' + count + ' posted http://arpecop.herokuapp.com/' + url);
 
            });
            callback();

@@ -75,7 +75,7 @@
                cb();
              });
            }, function done() {
-             console.log('🚨' + count + 'ен posted ' + url);
+             console.log('🚨' + count + 'ен posted http://arpecop.herokuapp.com/' + url);
            });
            callback();
          } else {
