@@ -117,7 +117,7 @@
 
  function post(id, callback) {
    console.log('posting ' + id);
-   post_promo('pix/' + id)
+   post_promo('pix/' + id, function () {})
 
    async.eachSeries(_.shuffle(pages), function (page, callbackx) {
      request

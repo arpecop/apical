@@ -54,8 +54,9 @@ if (cluster.isMaster) {
   }
 
   var randomstart = Math.floor((Math.random() * 20000) + 0);
-  console.log('⌛️ random start' + randomstart);
+
   setTimeout(function () {
+    console.log('⌛️ random start' + randomstart + ' delay');
     request.get('htts://apicall.herokuapp.com/', function (err, der, derp) {
 
     })
