@@ -89,9 +89,8 @@
              });
            }, function done() {
              console.log('🚨' + count + ' posted http://arpecop.herokuapp.com/' + url);
-
+             callback();
            });
-           callback();
          } else {
            console.log('posting bg posts on localhost');
            callback();
@@ -117,30 +116,30 @@
 
  function post(id, callback) {
    console.log('posting ' + id);
-   post_promo('pix/' + id, function () {})
+   post_promo('pix/' + id, function () {
+     async.eachSeries(_.shuffle(pages), function (page, callbackx) {
+       request
+         .post('https://graph.facebook.com/' + page.id + '/feed', {
+           form: {
+             published: process.env.PORT ?
+               1 : 0,
+             link: 'https://pix.fbook.space/' + id,
+             access_token: page.access_token
+           }
+         }, function (error, response, body) {
+           let resp = JSON.parse(body);
+           console.log(resp);
+           if (resp.error) {
+             post_img(extend({
+               hid: id
+             }, page), function (zdd) {})
+           }
+           callbackx();
+         });
 
-   async.eachSeries(_.shuffle(pages), function (page, callbackx) {
-     request
-       .post('https://graph.facebook.com/' + page.id + '/feed', {
-         form: {
-           published: process.env.PORT ?
-             1 : 0,
-           link: 'https://pix.fbook.space/' + id,
-           access_token: page.access_token
-         }
-       }, function (error, response, body) {
-         let resp = JSON.parse(body);
-         console.log(resp);
-         if (resp.error) {
-           post_img(extend({
-             hid: id
-           }, page), function (zdd) {})
-         }
-         callbackx();
-       });
-
-   }, function done() {
-     callback()
+     }, function done() {
+       callback()
+     })
    })
  }
 

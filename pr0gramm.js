@@ -34,8 +34,7 @@ var s3bucket = new AWS.S3({
 //var
 var post = async.queue(function (task, callback) {
   kartinki.downloadnprocess(task.imagex, 'enimages', function (shortie) {
-    console.log(shortie);
-
+    console.log('posting' + shortie);
     kartinki_en.post_promo('box/' + shortie, function (d) {
       callback();
     });
