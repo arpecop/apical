@@ -39,7 +39,7 @@ if (cluster.isMaster) {
               console.log('📦 delivered 9gag trending');
               pr0gramm.ninegag('hot', function () {
                 console.log('📦 delivered 9gag hot');
-                pr0gramm.mashable('mashable', function () {
+                mash.mashable('mashable', function () {
                   console.log('📦 delivered mashable');
                   setTimeout(function () {
                     process.exit(0)
