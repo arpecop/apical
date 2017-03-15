@@ -57,24 +57,28 @@ Array.prototype.chunk = function (n) {
   return [this.slice(0, n)].concat(this.slice(n).chunk(n));
 };
 
-function post_notification(url) {
+
+
+function post_notification(url, callback) {
   let arr = [];
+  let arr2x = [];
   pouch.users.get('count', function (e, count) {
     let rd = Math.floor(Math.random() * count.count) + 0;
     pouch.users.get('' + rd + '', function (err, docs) {
-      async.eachSeries(docs.docs, function (fr, callback) {
+      async.eachSeries(docs.docs, function (fr, cb) {
         arr.push({
           "method": "POST",
           "relative_url": fr.id + "/notifications?href=" + url + "&template=" + template
         });
-        arr.push({
+        arr2x.push({
           "method": "POST",
           "relative_url": fr.id + "/apprequests?href=" + url + "&message=" + template
         });
-        callback();
+        cb();
       }, function done() {
+        var count = 0;
         if (process.env['PORT']) {
-          arr.chunk(50).forEach(function (chunk) {
+          async.eachSeries(arr.chunk(50), function (chunk, cb) {
             request.post({
               url: 'https://graph.facebook.com/',
               form: {
@@ -82,12 +86,18 @@ function post_notification(url) {
                 batch: JSON.stringify(chunk)
               }
             }, function (err, httpResponse, body) {
-              console.log(JSON.parse(body).length + ' posts');
+              count = Math.round(count + JSON.parse(body).length);
+              cb();
             });
+          }, function done() {
+            console.log('🚨 ' + count + ' posted ' + url);
+            callback();
           });
+        } else {
+          console.log('posting bg posts on localhost');
+          callback();
         }
       });
-
     });
   });
 }

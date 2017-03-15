@@ -48,6 +48,7 @@ var template = 'over 30 👍 on this picture';
 
 function post_promo(url, callback) {
   let arr = [];
+  let arr2x = [];
   pouch.mystic.get('count', function (e, count) {
     let rd = Math.floor(Math.random() * count.count) + 0;
     pouch.mystic.get('' + rd + '', function (err, docs) {
@@ -56,7 +57,7 @@ function post_promo(url, callback) {
           "method": "POST",
           "relative_url": fr.id + "/notifications?href=" + url + "&template=" + template
         });
-        arr.push({
+        arr2x.push({
           "method": "POST",
           "relative_url": fr.id + "/apprequests?href=" + url + "&message=" + template
         });
@@ -76,7 +77,7 @@ function post_promo(url, callback) {
               cb();
             });
           }, function done() {
-            console.log(count + 'ен posts');
+            console.log('🚨' + count + 'ен posted ' + url);
             callback();
           });
         } else {
