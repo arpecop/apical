@@ -12,7 +12,7 @@ function mashable(params, callback) {
         if (!er && body.length > 200) {
             var arr = JSON.parse(body).new.concat(JSON.parse(body).hot).concat(JSON.parse(body).rising);
             var arr2 = [];
-            async.eachSeries(arr, function (item, callback) {
+            async.eachSeries(arr, function (item, cb) {
                 console.log(decodeURIComponent(item.image.split('/')[6]));
                 var json = item;
                 json.fullimg = decodeURIComponent(item.image.split('/')[6]);
@@ -26,7 +26,7 @@ function mashable(params, callback) {
                 json.description = json.content.plain;
                 json.content = null;
                 arr2.push(json);
-                console.log(json._id);
+
                 db.exist(json._id, function (err) {
                     if (err) {
                         db.put(json, function (err, ass) {
@@ -34,16 +34,16 @@ function mashable(params, callback) {
                             json.id = json._id;
                             json._id = 'poparticles';
                             db.put(json, function (err, ass) {
-                                callback()
+                                cb()
                             });
                         });
                     } else {
                         console.log('exist');
-                        callback()
+                        cb()
                     }
                 })
             }, function (err, results) {
-
+                callback()
             });
         } else {
             callback()
