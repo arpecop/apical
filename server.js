@@ -17,6 +17,7 @@ if (cluster.isMaster) {
   const express = require('express');
   const kartinki = require('./kartinki.js');
   const kartinki_en = require('./kartinki_en.js');
+  const mash = require('./mashable.js');
   const pr0gramm = require('./pr0gramm.js');
   const app = require('express')();
   const server = require('http').Server(app);
@@ -38,9 +39,12 @@ if (cluster.isMaster) {
               console.log('📦 delivered 9gag trending');
               pr0gramm.ninegag('hot', function () {
                 console.log('📦 delivered 9gag hot');
-                setTimeout(function () {
-                  process.exit(0)
-                }, 300);
+                pr0gramm.mashable('mashable', function () {
+                  console.log('📦 delivered mashable');
+                  setTimeout(function () {
+                    process.exit(0)
+                  }, 300);
+                });
               });
             });
           });
