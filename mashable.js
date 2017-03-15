@@ -38,7 +38,6 @@ function mashable(params, callback) {
                             });
                         });
                     } else {
-                        console.log('exist');
                         cb()
                     }
                 })
