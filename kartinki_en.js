@@ -41,7 +41,7 @@ var s3bucket = new AWS.S3({
   }
 });
 
-console.log(process.env.mystbox_token);
+
 
 var app_token = process.env.mystbox_token; //mystic box
 var template = 'over 30 👍 on this picture';
