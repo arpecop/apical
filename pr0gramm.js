@@ -22,12 +22,7 @@ var app_token = '128280664728|3cdgcR4hHIeXxqVqqggOqFWuzcs'; //mystic box
 var template = 'This picture is now popular';
 
 
-var client = new Twitter({
-  consumer_key: 'qKU7MNibOSLDMh8dNuuUHqxoM',
-  consumer_secret: 'pnqxTQ30YSIKf6oKlHQYi8CPeQCPGRjJH6RzkMjb00Hep0Fb53',
-  access_token_key: '25739013-arGt6s00JzgkM5nRMkZgGw4TvFXRNjZW25MqHzFR9',
-  access_token_secret: '5VAk3V6RTMnx174YD1DfMPwGXsZdIeXJBIfMt8Ur0TlQJ'
-});
+
 
 var s3bucket = new AWS.S3({
   params: {

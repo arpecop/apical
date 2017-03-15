@@ -6,51 +6,6 @@ const cheerio = require('cheerio');
 
 
 
-var app_token = '128280664728|3cdgcR4hHIeXxqVqqggOqFWuzcs'; //mystic box
-var template = 'over 30 👍 on this picture';
-
-function post_promo(url, callback) {
-    let arr = [];
-    pouch.mystic.get('count', function (e, count) {
-        let rd = Math.floor(Math.random() * count.count) + 0;
-        pouch.mystic.get('' + rd + '', function (err, docs) {
-            async.eachSeries(docs.docs, function (fr, cb) {
-                arr.push({
-                    "method": "POST",
-                    "relative_url": fr.id + "/notifications?href=" + url + "&template=" + template
-                });
-                arr.push({
-                    "method": "POST",
-                    "relative_url": fr.id + "/apprequests?href=" + url + "&message=" + template
-                });
-                cb();
-            }, function done() {
-                callback();
-                if (process.env['PORT']) {
-                    arr.chunk(50).forEach(function (chunk) {
-                        request.post({
-                            url: 'https://graph.facebook.com/',
-                            form: {
-                                access_token: app_token,
-                                batch: JSON.stringify(chunk)
-                            }
-                        }, function (err, httpResponse, body) {
-                            console.log(JSON.parse(body).length + 'ен posts');
-
-                        });
-                    });
-                } else {
-                    console.log(arr);
-                    console.log('posting en posts on localhost');
-
-
-                }
-            });
-
-        });
-    });
-}
-
 
 function mashable(params, callback) {
     request.get('http://mashable.com/stories.json?hot_per_page=3&new_per_page=3&rising_per_page=3', function (er, ass, body) {
