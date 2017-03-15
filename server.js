@@ -1,18 +1,11 @@
-"use strict";
-
 const cluster = require('cluster');
-
-
 const fs = require('fs');
 const request = require('request');
-
 const port = process.env.PORT || 3000;
-
 const _ = require('underscore');
 
-
 if (cluster.isMaster) {
-
+  cluster.fork();
   cluster.fork();
   cluster.fork();
   cluster.fork();
@@ -20,7 +13,6 @@ if (cluster.isMaster) {
     console.log('👷 ' + worker.process.pid + ' wants to work');
     cluster.fork();
   });
-
 } else {
   const express = require('express');
   const kartinki = require('./kartinki.js');
@@ -46,23 +38,19 @@ if (cluster.isMaster) {
               console.log('📦 delivered 9gag trending');
               pr0gramm.ninegag('hot', function () {
                 console.log('📦 delivered 9gag hot');
-                fs.unlink('/tmp/work', function () {
-                  setTimeout(function () {
-                    process.exit(0)
-                  }, 300);
-                });
+                setTimeout(function () {
+                  process.exit(0)
+                }, 300);
               });
             });
           });
         });
       });
     });
-
   }
 
-  var randomstart = Math.floor((Math.random() * 10000) + 0);
+  var randomstart = Math.floor((Math.random() * 20000) + 0);
   console.log('⌛️ random start' + randomstart);
-
   setTimeout(function () {
     request.get('htts://apicall.herokuapp.com/', function (err, der, derp) {
 
