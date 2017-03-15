@@ -9,8 +9,8 @@ var sizeOf = require('image-size');
 //pages
 var shortid = require('shortid');
 let cred = {
-	"accessKeyId": process.env.user,
-	"secretAccessKey": process.env.pass,
+	"accessKeyId": process.env.awsuser,
+	"secretAccessKey": process.env.awspass,
 	"region": "eu-west-1"
 }
 let AWS = require('aws-sdk');
