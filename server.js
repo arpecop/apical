@@ -27,30 +27,36 @@ if (cluster.isMaster) {
       console.log('💀 killing stuck worker 5 min ');
       process.exit(0)
     }, 300000);
-    kartinki.kartinki('1', function () {
-      console.log('📦 delivered kartinki');
-      kartinki_en.kartinki_en('1', function () {
-        console.log('📦 delivered kartinki_en');
-        pr0gramm.pr0gramm('1', function () {
-          console.log('📦 delivered pr0gramm');
-          pr0gramm.imgur('1', function () {
-            console.log('📦 delivered imgur');
-            pr0gramm.ninegag('trending', function () {
-              console.log('📦 delivered 9gag trending');
-              pr0gramm.ninegag('hot', function () {
-                console.log('📦 delivered 9gag hot');
-                mash.mashable('mashable', function () {
-                  console.log('📦 delivered mashable');
-                  setTimeout(function () {
-                    process.exit(0)
-                  }, 300);
-                });
-              });
+    if (process.env.appslug === 'apicall') {
+      kartinki.kartinki('1', function () {
+        console.log('📦 delivered kartinki');
+        kartinki_en.kartinki_en('1', function () {
+          console.log('📦 delivered kartinki_en');
+          pr0gramm.pr0gramm('1', function () {
+            console.log('📦 delivered pr0gramm');
+            pr0gramm.imgur('1', function () {
+              console.log('📦 delivered imgur');
+              setTimeout(function () {
+                process.exit(0)
+              }, 300);
             });
           });
         });
       });
-    });
+    } else if (process.env.appslug === 'apicall2') {
+      pr0gramm.ninegag('trending', function () {
+        console.log('📦 delivered 9gag trending');
+        pr0gramm.ninegag('hot', function () {
+          console.log('📦 delivered 9gag hot');
+          mash.mashable('mashable', function () {
+            console.log('📦 delivered mashable');
+            setTimeout(function () {
+              process.exit(0)
+            }, 300);
+          });
+        });
+      });
+    }
   }
 
   var randomstart = Math.floor((Math.random() * 20000) + 0);
