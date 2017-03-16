@@ -7,8 +7,7 @@ const _ = require('underscore');
 if (cluster.isMaster) {
   cluster.fork();
   cluster.fork();
-  cluster.fork();
-  cluster.fork();
+
   cluster.on('exit', function (worker) {
     console.log('👷 ' + worker.process.pid + ' wants to work');
     cluster.fork();
