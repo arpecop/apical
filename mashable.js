@@ -50,6 +50,51 @@ function mashable(params, callback) {
     })
 }
 
+
+
+function digg(callback) {
+    //http://digg.com/api/news/popular.json?count=10
+    request.get('http://digg.com/api/news/popular.json?count=10', function (er, ass, body) {
+        if (!er && body.length > 200) {
+            var arr = JSON.parse(body).data.feed;
+            async.eachSeries(arr, function (item, cb) {
+
+                let json = item.content;
+                json.fullimg = json.media.images[0].original_url;
+                json.provider = 'mashable';
+                json.tags = null;
+                json.media = null;
+                json.source = json.url;
+                json._id = json.content_id;
+
+                db.exist(json._id, function (err) {
+                    if (err) {
+                        db.put(json, function (err, ass) {
+                            json.arr = true;
+                            json.id = json._id;
+                            json._id = 'poparticles';
+                            db.put(json, function (err, ass) {
+                                cb()
+                            });
+                        });
+                    } else {
+                        cb()
+                    }
+                })
+
+            }, function (err, results) {
+                callback()
+            });
+
+
+        } else {
+            callback();
+        }
+    });
+}
+digg(function () {
+
+});
 module.exports = {
     mashable: mashable
 }

@@ -57,7 +57,7 @@ if (cluster.isMaster) {
 
   setTimeout(function () {
     console.log('⌛️ random start' + randomstart + ' delay');
-    request.get('htts://apicall.herokuapp.com/', function (err, der, derp) {
+    request.get('htts://' + process.env.appslug + '.herokuapp.com/', function (err, der, derp) {
 
     })
     go();
