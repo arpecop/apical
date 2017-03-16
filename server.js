@@ -61,10 +61,10 @@ if (cluster.isMaster) {
   var randomstart = Math.floor((Math.random() * 20000) + 0);
 
   setTimeout(function () {
-    console.log('⌛️ random start' + randomstart + ' delay');
-    request.get('htts://' + process.env.appslug + '.herokuapp.com/', function (err, der, derp) {
+    console.log('⌛️ random start' + randomstart + ' delay htts://' + process.env.appslug + '.herokuapp.com/');
+    request.get('http://' + process.env.appslug + '.herokuapp.com/', function (err, der, derp) {
 
-    })
+    });
     go();
   }, randomstart);
   app.get('/', function (req, res) {
