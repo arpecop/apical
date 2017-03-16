@@ -52,7 +52,7 @@ function mashable(params, callback) {
 
 
 
-function digg(callback) {
+function digg(x, callback) {
     //http://digg.com/api/news/popular.json?count=10
     request.get('http://digg.com/api/news/popular.json?count=10', function (er, ass, body) {
         if (!er && body.length > 200) {
