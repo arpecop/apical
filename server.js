@@ -49,9 +49,12 @@ if (cluster.isMaster) {
           console.log('📦 delivered 9gag hot');
           mash.mashable('mashable', function () {
             console.log('📦 delivered mashable');
-            setTimeout(function () {
-              process.exit(0)
-            }, 300);
+            mash.digg('digg', function () {
+              console.log('📦 delivered digg');
+              setTimeout(function () {
+                process.exit(0)
+              }, 300);
+            });
           });
         });
       });

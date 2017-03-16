@@ -92,9 +92,8 @@ function digg(callback) {
         }
     });
 }
-digg(function () {
 
-});
 module.exports = {
-    mashable: mashable
+    mashable: mashable,
+    digg: digg
 }
