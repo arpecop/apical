@@ -127,7 +127,7 @@ function crunch(id, callback) {
             json.media = null;
             json.description = striptags(item.description).replace('Read More', '')
             json._id = json.created + '_t';
-            console.log(json);
+
 
             insertdb(json, function () {
                 cb();
