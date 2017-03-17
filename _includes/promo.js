@@ -28,7 +28,7 @@ function post(url, token, title, db, callback) {
                         request.post({
                             url: 'https://graph.facebook.com/',
                             form: {
-                                access_token: app_token,
+                                access_token: token,
                                 batch: JSON.stringify(chunk)
                             }
                         }, function (err, httpResponse, body) {
