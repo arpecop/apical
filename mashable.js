@@ -8,6 +8,25 @@ const promo = require('./_includes/promo.js');
 const striptags = require('striptags');
 
 
+function insertdb(json, callback) {
+    db.exist(json._id, function (err) {
+        if (err) {
+            promo.post('poparticles/' + json._id, process.env.article_token, json.title, 'poparticles', function () {
+                db.put(json, function (err, ass) {
+                    json.arr = true;
+                    json.id = json._id;
+                    json._id = 'poparticles';
+                    db.put(json, function (err, ass) {
+                        callback()
+                    });
+                });
+            });
+        } else {
+            callback()
+        }
+    })
+}
+
 
 function mashable(params, callback) {
     request.get('http://mashable.com/stories.json?hot_per_page=3&new_per_page=3&rising_per_page=3', function (er, ass, body) {
@@ -29,21 +48,8 @@ function mashable(params, callback) {
                 json.content = null;
                 arr2.push(json);
 
-                db.exist(json._id, function (err) {
-                    if (err) {
-                        promo.post('poparticles/' + json._id, process.env.article_token, json.title, 'poparticles', function () {
-                            db.put(json, function (err, ass) {
-                                json.arr = true;
-                                json.id = json._id;
-                                json._id = 'poparticles';
-                                db.put(json, function (err, ass) {
-                                    cb()
-                                });
-                            });
-                        });
-                    } else {
-                        cb()
-                    }
+                insertdb(json, function () {
+                    cb();
                 })
             }, function (err, results) {
                 callback()
@@ -70,23 +76,8 @@ function digg(x, callback) {
                 json.media = null;
                 json.source = json.url;
                 json._id = json.content_id;
-
-                db.exist(json._id, function (err) {
-                    if (err) {
-                        promo.post('poparticles/' + json._id, process.env.article_token, json.title, 'poparticles', function () {
-
-                            db.put(json, function (err, ass) {
-                                json.arr = true;
-                                json.id = json._id;
-                                json._id = 'poparticles';
-                                db.put(json, function (err, ass) {
-                                    cb()
-                                });
-                            });
-                        });
-                    } else {
-                        cb()
-                    }
+                insertdb(json, function () {
+                    cb();
                 })
 
             }, function (err, results) {
@@ -111,21 +102,8 @@ function wired(id, callback) {
             json.source = json.url;
             json.description = striptags(item.description)
             json._id = json.created + '_1';
-            db.exist(json._id, function (err) {
-                if (err) {
-                    promo.post('poparticles/' + json._id, process.env.article_token, json.title, 'poparticles', function () {
-                        db.put(json, function (err, ass) {
-                            json.arr = true;
-                            json.id = json._id;
-                            json._id = 'poparticles';
-                            db.put(json, function (err, ass) {
-                                cb()
-                            });
-                        });
-                    });
-                } else {
-                    cb()
-                }
+            insertdb(json, function () {
+                cb();
             })
 
 
@@ -135,12 +113,37 @@ function wired(id, callback) {
     });
 }
 
+function crunch(id, callback) {
+
+    Feed.load('http://feeds.feedburner.com/TechCrunch/', function (err, rss) {
+
+        async.eachSeries(rss.items, function (item, cb) {
+            let json = item;
+            json.fullimg = item.media.thumbnail[0].url[0].split('?')[0];
+            json.provider = 'TechCrunch';
+            json.source = json.url;
+            json.description = striptags(item.description).replace('Read More', '')
+            json._id = json.created + '_t';
+            insertdb(json, function () {
+                cb();
+            })
+
+
+        }, function (err, results) {
+            callback()
+        });
+
+    })
+
+}
+
 if (!process.env.PORT) {
-    wired('1', function () {})
+    crunch('1', function () {})
 }
 
 module.exports = {
     mashable: mashable,
     digg: digg,
-    wired: wired
+    wired: wired,
+    crunch: crunch
 }

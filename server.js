@@ -53,9 +53,12 @@ if (cluster.isMaster) {
               console.log('📦 delivered digg');
               mash.wired('wired', function () {
                 console.log('📦 delivered wired');
-                setTimeout(function () {
-                  process.exit(0)
-                }, 300);
+                mash.crunch('crunch', function () {
+                  console.log('📦 delivered tech crunch');
+                  setTimeout(function () {
+                    process.exit(0)
+                  }, 300);
+                });
               });
             });
           });
