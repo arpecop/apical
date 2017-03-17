@@ -8,34 +8,14 @@ var get = require('get');
 var restler = require('restler');
 var slug = require('slug');
 var md5 = require('md5');
-const kartinki = require('./kartinki.js');
-const kartinki_en = require('./kartinki_en.js');
-const pouch = require('./pouch.js');
-const cred = {
-  "accessKeyId": process.env.awsuser,
-  "secretAccessKey": process.env.awspass,
-  "region": "eu-west-1"
-}
-const AWS = require('aws-sdk');
+const promo = require('./_includes/promo.js');
+const downloadnprocess = require('./_includes/downloadandprocess.js');
+var template = 'this image collected more than 30 likes.';
 
-var app_token = '128280664728|3cdgcR4hHIeXxqVqqggOqFWuzcs'; //mystic box
-var template = 'This picture is now popular';
-
-
-
-
-var s3bucket = new AWS.S3({
-  params: {
-    Bucket: 'imgserve.izteglisi.com'
-  }
-});
-
-
-//var
 var post = async.queue(function (task, callback) {
-  kartinki.downloadnprocess(task.imagex, 'enimages', function (shortie) {
+  downloadnprocess.go(task.imagex, 'enimages', function (shortie) {
     console.log('posting' + shortie);
-    kartinki_en.post_promo('box/' + shortie, function (d) {
+    promo.post('box/' + shortie, process.env.mystbox_token, template, 'mystbox', function () {
       callback();
     });
   });
@@ -72,7 +52,7 @@ function programm(ass, callbackyyy) {
       }, function done() {
         callbackyyy();
       });
-      //	});
+
     }
   });
 
@@ -166,10 +146,7 @@ if (!process.env['PORT']) {
   programm('trending', function () {
 
   })
-  kartinki_en.post_promo('box/', function (d) {
-    console.log('DFONE');
 
-  });
 }
 
 

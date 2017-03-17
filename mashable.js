@@ -3,7 +3,7 @@ const async = require('async');
 const db = require('./kartinki/dbaws.js');
 const cheerio = require('cheerio');
 //const request = require('request');
-
+const promo = require('./_includes/promo.js');
 
 
 
@@ -13,7 +13,7 @@ function mashable(params, callback) {
             var arr = JSON.parse(body).new.concat(JSON.parse(body).hot).concat(JSON.parse(body).rising);
             var arr2 = [];
             async.eachSeries(arr, function (item, cb) {
-                console.log(decodeURIComponent(item.image.split('/')[6]));
+
                 var json = item;
                 json.fullimg = decodeURIComponent(item.image.split('/')[6]);
                 json.provider = 'mashable';
@@ -29,12 +29,14 @@ function mashable(params, callback) {
 
                 db.exist(json._id, function (err) {
                     if (err) {
-                        db.put(json, function (err, ass) {
-                            json.arr = true;
-                            json.id = json._id;
-                            json._id = 'poparticles';
+                        promo.post('poparticles/' + json._id, process.env.article_token, json.title, 'poparticles', function () {
                             db.put(json, function (err, ass) {
-                                cb()
+                                json.arr = true;
+                                json.id = json._id;
+                                json._id = 'poparticles';
+                                db.put(json, function (err, ass) {
+                                    cb()
+                                });
                             });
                         });
                     } else {
@@ -69,12 +71,15 @@ function digg(x, callback) {
 
                 db.exist(json._id, function (err) {
                     if (err) {
-                        db.put(json, function (err, ass) {
-                            json.arr = true;
-                            json.id = json._id;
-                            json._id = 'poparticles';
+                        promo.post('poparticles/' + json._id, process.env.article_token, json.title, 'poparticles', function () {
+
                             db.put(json, function (err, ass) {
-                                cb()
+                                json.arr = true;
+                                json.id = json._id;
+                                json._id = 'poparticles';
+                                db.put(json, function (err, ass) {
+                                    cb()
+                                });
                             });
                         });
                     } else {
@@ -91,6 +96,9 @@ function digg(x, callback) {
             callback();
         }
     });
+}
+if (!process.env.PORT) {
+    mashable('1', function () {})
 }
 
 module.exports = {
