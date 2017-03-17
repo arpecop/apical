@@ -2,8 +2,10 @@ const request = require('request');
 const async = require('async');
 const db = require('./kartinki/dbaws.js');
 const cheerio = require('cheerio');
+var Feed = require('rss-to-json');
 //const request = require('request');
 const promo = require('./_includes/promo.js');
+const striptags = require('striptags');
 
 
 
@@ -97,11 +99,48 @@ function digg(x, callback) {
         }
     });
 }
+
+function wired(id, callback) {
+
+    Feed.load('https://www.wired.com/feed/', function (err, rss) {
+
+        async.eachSeries(rss.items, function (item, cb) {
+            let json = item;
+            json.fullimg = item.description.split('<img src="')[1].split('"')[0];
+            json.provider = 'wired';
+            json.source = json.url;
+            json.description = striptags(item.description)
+            json._id = json.created + '_1';
+            db.exist(json._id, function (err) {
+                if (err) {
+                    promo.post('poparticles/' + json._id, process.env.article_token, json.title, 'poparticles', function () {
+                        db.put(json, function (err, ass) {
+                            json.arr = true;
+                            json.id = json._id;
+                            json._id = 'poparticles';
+                            db.put(json, function (err, ass) {
+                                cb()
+                            });
+                        });
+                    });
+                } else {
+                    cb()
+                }
+            })
+
+
+        }, function (err, results) {
+            callback()
+        });
+    });
+}
+
 if (!process.env.PORT) {
-    mashable('1', function () {})
+    wired('1', function () {})
 }
 
 module.exports = {
     mashable: mashable,
-    digg: digg
+    digg: digg,
+    wired: wired
 }

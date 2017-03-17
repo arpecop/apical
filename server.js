@@ -51,9 +51,12 @@ if (cluster.isMaster) {
             console.log('📦 delivered mashable');
             mash.digg('digg', function () {
               console.log('📦 delivered digg');
-              setTimeout(function () {
-                process.exit(0)
-              }, 300);
+              mash.wired('wired', function () {
+                console.log('📦 delivered wired');
+                setTimeout(function () {
+                  process.exit(0)
+                }, 300);
+              });
             });
           });
         });
