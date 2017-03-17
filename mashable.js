@@ -118,12 +118,17 @@ function crunch(id, callback) {
     Feed.load('http://feeds.feedburner.com/TechCrunch/', function (err, rss) {
 
         async.eachSeries(rss.items, function (item, cb) {
+
+
             let json = item;
-            json.fullimg = item.media.thumbnail[0].url[0].split('?')[0];
+            json.fullimg = item.media.thumbnail ? item.media.thumbnail[0].url[0].split('?')[0] : 'https://tctechcrunch2011.files.wordpress.com/2017/03/tc-equity-podcast-ios.jpg';
             json.provider = 'TechCrunch';
             json.source = json.url;
+            json.media = null;
             json.description = striptags(item.description).replace('Read More', '')
             json._id = json.created + '_t';
+            console.log(json);
+
             insertdb(json, function () {
                 cb();
             })
