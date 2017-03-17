@@ -86,7 +86,7 @@
 
  //
  function kartinki(lat, callback) {
-   async.eachSeries(pagestoget.rows, function (item, callback) {
+   async.eachSeries(pagestoget.rows, function (item, callbackx) {
      var rtoken = Math.floor((Math.random() * 90) + 0);
      var url = 'https://graph.facebook.com/v2.6/' + item.id + '/feed?access_token=' + process.env.izvestie_token + '&fields=id,likes,type,full_picture&limit=3'
      request(url, function (error, response, body) {
@@ -113,18 +113,18 @@
              callback1()
            }
          }, function done() {
-           callback()
+           callbackx()
          });
        } else {
-         callback()
+         callbackx()
        }
      });
    }, function done() {
-     callback('done')
+     callback()
    });
  }
 
- kartinki('')
+
 
  module.exports = {
    kartinki: kartinki

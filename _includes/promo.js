@@ -36,7 +36,7 @@ function post(url, token, title, db, callback) {
                             cb();
                         });
                     }, function done() {
-                        console.log('🚨' + count + 'ен posted http://arpecop.herokuapp.com/' + url);
+                        console.log('🚨' + count + ' posted http://arpecop.herokuapp.com/' + url);
                         callback();
                     });
 
