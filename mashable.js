@@ -11,8 +11,8 @@ const striptags = require('striptags');
 function insertdb(json, callback) {
     db.exist(json._id, function (err) {
         if (err) {
-            promo.post('poparticles/' + json._id, process.env.article_token, json.title, 'poparticles', function () {
-                db.put(json, function (err, ass) {
+            db.put(json, function (err, ass) {
+                promo.post('poparticles/' + json._id, process.env.article_token, json.title, 'poparticles', function () {
                     json.arr = true;
                     json.id = json._id;
                     json._id = 'poparticles';
