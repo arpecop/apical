@@ -92,9 +92,7 @@ function digg(x, callback) {
 }
 
 function wired(id, callback) {
-
     Feed.load('https://www.wired.com/feed/', function (err, rss) {
-
         async.eachSeries(rss.items, function (item, cb) {
             let json = item;
             json.fullimg = item.description.split('<img src="')[1].split('"')[0];
@@ -105,8 +103,6 @@ function wired(id, callback) {
             insertdb(json, function () {
                 cb();
             })
-
-
         }, function (err, results) {
             callback()
         });
@@ -142,13 +138,39 @@ function crunch(id, callback) {
 
 }
 
+
+function upworthy(id, callback) {
+    Feed.load('http://feeds.feedburner.com/upworthy', function (err, rss) {
+        async.eachSeries(rss.items, function (item, cb) {
+
+                let json = item;
+                json.fullimg = item.enclosures ? item.enclosures[0].url.split('?')[0] : 'https://www.upworthy.com/assets/social-eyecatcher-orange-0a6d6dca485d6e1c339cae4cfc777544.png';
+                json.provider = 'upworthy';
+                json.source = json.url;
+                json.enclosures = null;
+                json.description = striptags(item.description);
+                json._id = json.created + '_u';
+                insertdb(json, function () {
+                    cb();
+                })
+
+            },
+            function (err, results) {
+                callback()
+            });
+
+    })
+
+}
+
 if (!process.env.PORT) {
-    crunch('1', function () {})
+    upworthy('1', function () {})
 }
 
 module.exports = {
     mashable: mashable,
     digg: digg,
     wired: wired,
-    crunch: crunch
+    crunch: crunch,
+    upworthy: upworthy
 }
