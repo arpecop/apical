@@ -57,9 +57,12 @@ if (cluster.isMaster) {
                   console.log('📦 delivered tech crunch');
                   mash.upworthy('upworthy', function () {
                     console.log('📦 delivered upworthy');
-                    setTimeout(function () {
-                      process.exit(0)
-                    }, 300);
+                    mash.distractify('distractify', function () {
+                      console.log('📦 delivered distractify');
+                      setTimeout(function () {
+                        process.exit(0)
+                      }, 300);
+                    });
                   });
                 });
               });

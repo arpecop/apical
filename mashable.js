@@ -150,6 +150,7 @@ function upworthy(id, callback) {
                 json.enclosures = null;
                 json.description = striptags(item.description);
                 json._id = json.created + '_u';
+
                 insertdb(json, function () {
                     cb();
                 })
@@ -163,8 +164,39 @@ function upworthy(id, callback) {
 
 }
 
+
+function distractify(x, callback) {
+    request.get('http://distractify.com/api/0.1/channels/slug/trending/resources/latest/1/10', function (er, ass, body) {
+        if (!er && body.length > 200) {
+
+            async.eachSeries(JSON.parse(body).pkg.resources[0][1], function (item, cb) {
+                    //console.log(item);
+                    var json = {};
+                    json.title = item.title;
+                    json.description = item.facebookDesc
+                    json.provider = "Distractify";
+                    json.fullimg = item.featuredImage.originalFileUrl;
+                    json.source = 'http://distractify.com' + item.permalink;
+                    json._id = item.sid;
+                    insertdb(json, function () {
+                        cb();
+                    })
+
+
+
+                },
+                function (err, results) {
+                    callback()
+                });
+
+        } else {
+            callback();
+        }
+    })
+}
+
 if (!process.env.PORT) {
-    upworthy('1', function () {})
+    distractify('1', function () {})
 }
 
 module.exports = {
@@ -172,5 +204,6 @@ module.exports = {
     digg: digg,
     wired: wired,
     crunch: crunch,
-    upworthy: upworthy
+    upworthy: upworthy,
+    distractify: distractify
 }
