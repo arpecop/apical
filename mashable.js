@@ -195,9 +195,41 @@ function distractify(x, callback) {
     })
 }
 
-if (!process.env.PORT) {
-    distractify('1', function () {})
+
+//boingboing.net/feed
+
+function boing(id, callback) {
+    Feed.load('http://boingboing.net/feed', function (err, rss) {
+        async.eachSeries(rss.items, function (item, cb) {
+
+                let json = item;
+                json.fullimg = item.description.split('src="')[1].split('"')[0];
+                json.provider = 'BoingBoing';
+                json.source = json.url;
+
+                json.description = striptags(item.description);
+                json._id = json.created + '_b';
+
+                //console.log(json);
+                insertdb(json, function () {
+                    cb();
+                })
+
+            },
+            function (err, results) {
+                callback()
+            });
+
+    })
+
 }
+
+
+if (!process.env.PORT) {
+    boing('1', function () {})
+}
+
+//https://medium.com/browse/49c2507259ba?format=json
 
 module.exports = {
     mashable: mashable,
@@ -205,5 +237,6 @@ module.exports = {
     wired: wired,
     crunch: crunch,
     upworthy: upworthy,
-    distractify: distractify
+    distractify: distractify,
+    boing: boing
 }
