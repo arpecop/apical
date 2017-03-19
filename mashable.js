@@ -225,8 +225,51 @@ function boing(id, callback) {
 }
 
 
+
+function buzz(x, callback) {
+    request.get('https://www.buzzfeed.com/site-component/v1/en-us/morebuzz?page_size=5&page=1', function (er, ass, body) {
+        if (!er && body.length > 100) {
+
+            async.eachSeries(JSON.parse(body).results, function (item, cb) {
+                    //console.log(item);
+                    var json = {};
+                    json.title = item.name;
+                    json.provider = "Buzzfeed";
+                    json.source = 'https://www.buzzfeed.com' + item.url;
+                    json.fullimg = item.image;
+                    json._id = item.id + '_buzz';
+
+
+                    db.exist(json._id, function (err, doc) {
+                        if (err) {
+                            request.get('https://graph.facebook.com/?id=' + json.source + '&access_token=' + process.env.article_token, function (er, ass, body) {
+                                json.description = JSON.parse(body).og_object.description;
+                                console.log(json);
+                            });
+                        } else {
+                            console.log('whaa');
+
+                            cb();
+                        }
+                    })
+
+
+
+                },
+                function (err, results) {
+                    callback()
+                });
+
+        } else {
+            callback();
+        }
+    })
+}
+
+
+
 if (!process.env.PORT) {
-    boing('1', function () {})
+    buzz('1', function () {})
 }
 
 //https://medium.com/browse/49c2507259ba?format=json
@@ -238,5 +281,6 @@ module.exports = {
     crunch: crunch,
     upworthy: upworthy,
     distractify: distractify,
-    boing: boing
+    boing: boing,
+    buzz: buzz
 }

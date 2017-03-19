@@ -61,9 +61,12 @@ if (cluster.isMaster) {
                       console.log('📦 delivered distractify');
                       mash.boing('boing', function () {
                         console.log('📦 delivered boing boing');
-                        setTimeout(function () {
-                          process.exit(0)
-                        }, 300);
+                        mash.buzz('buzz', function () {
+                          console.log('📦 delivered boing boing');
+                          setTimeout(function () {
+                            process.exit(0)
+                          }, 300);
+                        });
                       });
                     });
                   });
