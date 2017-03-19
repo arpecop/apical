@@ -268,10 +268,36 @@ function buzz(x, callback) {
     })
 }
 
+//
 
+
+function huffingtonpost(id, callback) {
+    Feed.load('http://www.huffingtonpost.com/feeds/index.xml', function (err, rss) {
+        async.eachSeries(rss.items, function (item, cb) {
+
+                let json = item;
+                json.fullimg = item.enclosures ? item.enclosures[0].url : 'https://www.upworthy.com/assets/social-eyecatcher-orange-0a6d6dca485d6e1c339cae4cfc777544.png';
+                json.provider = 'huffingtonpost';
+                json.source = json.url;
+                json.enclosures = null;
+                json.description = striptags(item.description);
+                json._id = json.created + '_huff';
+                insertdb(json, function () {
+                    cb();
+                })
+
+
+            },
+            function (err, results) {
+                callback()
+            });
+
+    })
+
+}
 
 if (!process.env.PORT) {
-    buzz('1', function () {})
+    huffingtonpost('1', function () {})
 }
 
 //https://medium.com/browse/49c2507259ba?format=json
@@ -284,5 +310,6 @@ module.exports = {
     upworthy: upworthy,
     distractify: distractify,
     boing: boing,
-    buzz: buzz
+    buzz: buzz,
+    huffingtonpost: huffingtonpost
 }

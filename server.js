@@ -63,9 +63,12 @@ if (cluster.isMaster) {
                         console.log('📦 delivered boing boing');
                         mash.buzz('buzz', function () {
                           console.log('📦 delivered boing boing');
-                          setTimeout(function () {
-                            process.exit(0)
-                          }, 300);
+                          mash.huffingtonpost('buzz', function () {
+                            console.log('📦 delivered huffingtonpost');
+                            setTimeout(function () {
+                              process.exit(0)
+                            }, 300);
+                          });
                         });
                       });
                     });
