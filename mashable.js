@@ -296,11 +296,58 @@ function huffingtonpost(id, callback) {
 
 }
 
-if (!process.env.PORT) {
-    huffingtonpost('1', function () {})
+
+//d734ebaa11aa4ad0b2df9e074d202869
+function newsapix(source, sortBy, callback) {
+    request.get('https://newsapi.org/v1/articles?source=' + source + '&sortBy=' + sortBy + '&apiKey=d734ebaa11aa4ad0b2df9e074d202869', function (er, ass, body) {
+        if (!er && body.length > 100) {
+            async.eachSeries(JSON.parse(body).articles, function (item, cb) {
+                    //console.log(item);
+                    var json = {};
+                    json.title = item.title;
+                    json.provider = source;
+                    json.source = item.url;
+                    json.fullimg = item.urlToImage;
+                    json._id = new Date(item.publishedAt).getTime() + '' + source;
+                    insertdb(json, function () {
+                        cb();
+                    })
+                },
+                function (err, results) {
+                    callback(source)
+                });
+        } else {
+            callback(source);
+        }
+    })
+
 }
 
-//https://medium.com/browse/49c2507259ba?format=json
+
+
+
+if (!process.env.PORT) {
+    newsapix('engadget', 'latest', function (src) {
+        newsapi('ars-technica', 'top', function (src) {
+            newsapix('bbc-news', 'top', function (src) {
+                newsapix('bloomberg', 'top', function (src) {
+                    newsapix('daily-mail', 'latest', function (src) {
+                        newsapix('newsweek', 'latest', function (src) {
+                            newsapix('entertainment-weekly', 'latest', function (src) {
+                                newsapix('reddit-r-all', 'latest', function (src) {
+
+                                })
+                            })
+                        })
+                    })
+                })
+            })
+        })
+    })
+
+}
+
+
 
 module.exports = {
     mashable: mashable,
@@ -311,5 +358,6 @@ module.exports = {
     distractify: distractify,
     boing: boing,
     buzz: buzz,
-    huffingtonpost: huffingtonpost
+    huffingtonpost: huffingtonpost,
+    newsapi: newsapi
 }

@@ -65,9 +65,12 @@ if (cluster.isMaster) {
                           console.log('📦 delivered buzzfeed');
                           mash.huffingtonpost('buzz', function () {
                             console.log('📦 delivered huffingtonpost');
-                            setTimeout(function () {
-                              process.exit(0)
-                            }, 300);
+                            mash.newsapi('x', function () {
+                              console.log('📦 delivered all newsapi');
+                              setTimeout(function () {
+                                process.exit(0)
+                              }, 300);
+                            });
                           });
                         });
                       });
