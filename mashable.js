@@ -324,18 +324,24 @@ function newsapix(source, sortBy, callback) {
 }
 
 
-
-
-if (!process.env.PORT) {
+function newsapi(dummy, callback) {
     newsapix('engadget', 'latest', function (src) {
+        console.log('📦 delivered ' + src);
         newsapi('ars-technica', 'top', function (src) {
+            console.log('📦 delivered ' + src);
             newsapix('bbc-news', 'top', function (src) {
+                console.log('📦 delivered ' + src);
                 newsapix('bloomberg', 'top', function (src) {
+                    console.log('📦 delivered ' + src);
                     newsapix('daily-mail', 'latest', function (src) {
+                        console.log('📦 delivered ' + src);
                         newsapix('newsweek', 'latest', function (src) {
+                            console.log('📦 delivered ' + src);
                             newsapix('entertainment-weekly', 'latest', function (src) {
+                                console.log('📦 delivered ' + src);
                                 newsapix('reddit-r-all', 'latest', function (src) {
-
+                                    console.log('📦 delivered ' + src);
+                                    callback();
                                 })
                             })
                         })
@@ -344,6 +350,10 @@ if (!process.env.PORT) {
             })
         })
     })
+}
+
+if (!process.env.PORT) {
+
 
 }
 
