@@ -244,10 +244,12 @@ function buzz(x, callback) {
                         if (err) {
                             request.get('https://graph.facebook.com/?id=' + json.source + '&access_token=' + process.env.article_token, function (er, ass, body) {
                                 json.description = JSON.parse(body).og_object.description;
-                                console.log(json);
+
+                                insertdb(json, function () {
+                                    cb();
+                                })
                             });
                         } else {
-                            console.log('whaa');
 
                             cb();
                         }
