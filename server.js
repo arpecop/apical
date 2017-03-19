@@ -62,7 +62,7 @@ if (cluster.isMaster) {
                       mash.boing('boing', function () {
                         console.log('📦 delivered boing boing');
                         mash.buzz('buzz', function () {
-                          console.log('📦 delivered boing boing');
+                          console.log('📦 delivered buzzfeed');
                           mash.huffingtonpost('buzz', function () {
                             console.log('📦 delivered huffingtonpost');
                             setTimeout(function () {
