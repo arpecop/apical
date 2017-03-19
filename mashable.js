@@ -340,9 +340,12 @@ function newsapi(dummy, callback) {
                             console.log('📦 delivered ' + src);
                             newsapix('entertainment-weekly', 'latest', function (src) {
                                 console.log('📦 delivered ' + src);
-                                newsapix('reddit-r-all', 'latest', function (src) {
-                                    console.log('📦 delivered ' + src);
-                                    callback();
+                                //hacker-news
+                                newsapix('hacker-news', 'latest', function (src) {
+                                    newsapix('reddit-r-all', 'latest', function (src) {
+                                        console.log('📦 delivered ' + src);
+                                        callback();
+                                    })
                                 })
                             })
                         })
