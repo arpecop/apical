@@ -340,20 +340,24 @@ function newsapi(dummy, callback) {
                             console.log('📦 delivered ' + src);
                             newsapix('entertainment-weekly', 'latest', function (src) {
                                 console.log('📦 delivered ' + src);
-                                //hacker-news
+
                                 newsapix('hacker-news', 'latest', function (src) {
+                                    console.log('📦 delivered ' + src);
                                     newsapix('reddit-r-all', 'latest', function (src) {
                                         console.log('📦 delivered ' + src);
-                                        callback();
-                                    })
-                                })
-                            })
-                        })
-                    })
-                })
-            })
-        })
-    })
+                                        newsapix('independent', 'top', function (src) {
+                                            console.log('📦 delivered ' + src);
+                                            callback();
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    });
 }
 
 if (!process.env.PORT) {
