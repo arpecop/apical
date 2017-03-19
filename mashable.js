@@ -309,6 +309,7 @@ function newsapix(source, sortBy, callback) {
                     json.source = item.url;
                     json.fullimg = item.urlToImage;
                     json._id = new Date(item.publishedAt).getTime() + '' + source;
+
                     insertdb(json, function () {
                         cb();
                     })
@@ -327,7 +328,7 @@ function newsapix(source, sortBy, callback) {
 function newsapi(dummy, callback) {
     newsapix('engadget', 'latest', function (src) {
         console.log('📦 delivered ' + src);
-        newsapi('ars-technica', 'top', function (src) {
+        newsapix('ars-technica', 'top', function (src) {
             console.log('📦 delivered ' + src);
             newsapix('bbc-news', 'top', function (src) {
                 console.log('📦 delivered ' + src);
