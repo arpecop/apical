@@ -7,12 +7,27 @@ var Feed = require('rss-to-json');
 const promo = require('./_includes/promo.js');
 const striptags = require('striptags');
 
+const Twitter = require('twitter');
+
+let client = new Twitter({
+    consumer_key: process.env.tconsumer_key,
+    consumer_secret: process.env.tconsumer_secret,
+    access_token_key: process.env.taccess_token_key,
+    access_token_secret: process.env.taccess_token_secret
+});
+
+
+
+
 
 function insertdb(json, callback) {
     db.exist(json._id, function (err) {
         if (err) {
             db.put(json, function (err, ass) {
                 promo.post('poparticles/' + json._id, process.env.article_token, json.title, 'poparticles', function () {
+                    client.post('statuses/update', {
+                        status: 'http://news.fbook.space/poparticles/' + json._id
+                    }, function (error, tweet, response) {});
                     json.arr = true;
                     json.id = json._id;
                     json._id = 'poparticles';
@@ -277,7 +292,6 @@ function newsapix(source, callback) {
                     json.source = item.url;
                     json.fullimg = item.urlToImage;
                     json._id = new Date(item.publishedAt).getTime() + '' + source.src;
-
                     insertdb(json, function () {
                         cb();
                     })
