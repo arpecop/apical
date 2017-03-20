@@ -32,7 +32,7 @@ function mashable(params, callback) {
     request.get('http://mashable.com/stories.json?hot_per_page=3&new_per_page=3&rising_per_page=3', function (er, ass, body) {
         if (!er && body.length > 200) {
             var arr = JSON.parse(body).new.concat(JSON.parse(body).hot).concat(JSON.parse(body).rising);
-            var arr2 = [];
+
             async.eachSeries(arr, function (item, cb) {
 
                 var json = item;
@@ -46,7 +46,8 @@ function mashable(params, callback) {
                 json.source = json.short_url;
                 json.description = json.content.plain;
                 json.content = null;
-                arr2.push(json);
+                console.log(json);
+
 
                 insertdb(json, function () {
                     cb();
@@ -369,7 +370,7 @@ function newsapi(dummy, callback) {
 
 if (!process.env.PORT) {
 
-
+    mashable('', () => {})
 }
 
 

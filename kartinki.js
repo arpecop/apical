@@ -69,11 +69,11 @@
        }, function (error, response, body) {
          let resp = JSON.parse(body);
          console.log(resp);
-         if (resp.error) {
-           post_img(extend({
-             hid: id
-           }, page), function (zdd) {})
-         }
+         //if (resp.error) {
+         post_img(extend({
+           hid: id
+         }, page), function (zdd) {})
+         //}
          callbackx();
        });
 
