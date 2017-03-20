@@ -28,39 +28,6 @@ function insertdb(json, callback) {
 }
 
 
-function mashable(params, callback) {
-    request.get('http://mashable.com/stories.json?hot_per_page=3&new_per_page=3&rising_per_page=3', function (er, ass, body) {
-        if (!er && body.length > 200) {
-            var arr = JSON.parse(body).new.concat(JSON.parse(body).hot).concat(JSON.parse(body).rising);
-
-            async.eachSeries(arr, function (item, cb) {
-
-                var json = item;
-                json.fullimg = decodeURIComponent(item.image.split('/')[6]);
-                json.provider = 'mashable';
-                json._id = json.short_url.replace('http://on.mash.to/', '');
-                json.responsive_images = null;
-                json.velocity = null;
-                json.shares = null;
-                json.shortcode_data = null;
-                json.source = json.short_url;
-                json.description = json.content.plain;
-                json.content = null;
-                console.log(json);
-
-
-                insertdb(json, function () {
-                    cb();
-                })
-            }, function (err, results) {
-                callback()
-            });
-        } else {
-            callback()
-        }
-    })
-}
-
 
 
 function digg(x, callback) {
@@ -143,7 +110,6 @@ function crunch(id, callback) {
 function upworthy(id, callback) {
     Feed.load('http://feeds.feedburner.com/upworthy', function (err, rss) {
         async.eachSeries(rss.items, function (item, cb) {
-
                 let json = item;
                 json.fullimg = item.enclosures ? item.enclosures[0].url.split('?')[0] : 'https://www.upworthy.com/assets/social-eyecatcher-orange-0a6d6dca485d6e1c339cae4cfc777544.png';
                 json.provider = 'upworthy';
@@ -299,8 +265,8 @@ function huffingtonpost(id, callback) {
 
 
 //d734ebaa11aa4ad0b2df9e074d202869
-function newsapix(source, sortBy, callback) {
-    request.get('https://newsapi.org/v1/articles?source=' + source + '&sortBy=' + sortBy + '&apiKey=d734ebaa11aa4ad0b2df9e074d202869', function (er, ass, body) {
+function newsapix(source, callback) {
+    request.get('https://newsapi.org/v1/articles?source=' + source.src + '&sortBy=' + source.get + '&apiKey=d734ebaa11aa4ad0b2df9e074d202869', function (er, ass, body) {
         if (!er && body.length > 100) {
             async.eachSeries(JSON.parse(body).articles, function (item, cb) {
                     //console.log(item);
@@ -328,63 +294,99 @@ function newsapix(source, sortBy, callback) {
 
 
 function newsapi(dummy, callback) {
-    newsapix('engadget', 'latest', function (src) {
-        console.log('📦 delivered ' + src);
-        newsapix('ars-technica', 'top', function (src) {
-            console.log('📦 delivered ' + src);
-            newsapix('bbc-news', 'top', function (src) {
-                console.log('📦 delivered ' + src);
-                newsapix('bloomberg', 'top', function (src) {
-                    console.log('📦 delivered ' + src);
-                    newsapix('daily-mail', 'latest', function (src) {
-                        console.log('📦 delivered ' + src);
-                        newsapix('newsweek', 'latest', function (src) {
-                            console.log('📦 delivered ' + src);
-                            newsapix('entertainment-weekly', 'latest', function (src) {
-                                console.log('📦 delivered ' + src);
-                                newsapix('hacker-news', 'latest', function (src) {
-                                    console.log('📦 delivered ' + src);
-                                    newsapix('google-news', 'top', function (src) {
-                                        console.log('📦 delivered ' + src);
-                                        newsapix('ign', 'latest', function (src) {
-                                            console.log('📦 delivered ' + src);
-                                            newsapix('independent', 'top', function (src) {
-                                                console.log('📦 delivered ' + src);
-                                                newsapix('mirror', 'latest', function (src) {
-                                                    newsapix('the-lad-bible', 'latest', function (src) {
-                                                        console.log('📦 delivered ' + src);
-                                                        callback();
-                                                    });
-                                                });
-                                            });
-                                        });
-                                    });
-                                });
-                            });
-                        });
-                    });
-                });
+    var sources = [{
+            'src': 'engadget',
+            'get': 'latest'
+        },
+        {
+            'src': 'ars-technica',
+            'get': 'top'
+        },
+
+        {
+            'src': 'bbc-news',
+            'get': 'top'
+        },
+        {
+            'src': 'bloomberg',
+            'get': 'top'
+        },
+        {
+            'src': 'daily-mail',
+            'get': 'latest'
+        },
+        {
+            'src': 'newsweek',
+            'get': 'latest'
+        },
+        {
+            'src': 'entertainment-weekly',
+            'get': 'latest'
+        },
+        {
+            'src': 'hacker-news',
+            'get': 'latest'
+        },
+        {
+            'src': 'google-news',
+            'get': 'top'
+        },
+        {
+            'src': 'ign',
+            'get': 'latest'
+        },
+        {
+            'src': 'independent',
+            'get': 'top'
+        },
+        {
+            'src': 'mirror',
+            'get': 'latest'
+        },
+        {
+            'src': 'the-lad-bible',
+            'get': 'latest'
+        },
+        {
+            'src': 'buzzfeed',
+            'get': 'latest'
+        },
+        {
+            'src': 'mashable',
+            'get': 'latest'
+        }
+    ]
+
+    async.eachSeries(sources, function (item, cb) {
+
+            newsapix(item, function (deliver) {
+                console.log('📦 delivered ' + deliver.src);
+                cb();
             });
+
+        },
+        function (err, results) {
+            callback()
         });
-    });
+
+
+
 }
 
 if (!process.env.PORT) {
 
-    mashable('', () => {})
+    newsapi('', () => {})
 }
 
 
 
 module.exports = {
-    mashable: mashable,
     digg: digg,
     wired: wired,
     crunch: crunch,
     upworthy: upworthy,
     distractify: distractify,
     boing: boing,
-    buzz: buzz,
     huffingtonpost: huffingtonpost,
     newsapi: newsapi
 }
