@@ -276,7 +276,7 @@ function newsapix(source, callback) {
                     json.description = item.description;
                     json.source = item.url;
                     json.fullimg = item.urlToImage;
-                    json._id = new Date(item.publishedAt).getTime() + '' + source;
+                    json._id = new Date(item.publishedAt).getTime() + '' + source.src;
 
                     insertdb(json, function () {
                         cb();
