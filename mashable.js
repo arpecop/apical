@@ -272,7 +272,7 @@ function newsapix(source, callback) {
                     //console.log(item);
                     var json = {};
                     json.title = item.title;
-                    json.provider = source;
+                    json.provider = source.src;
                     json.description = item.description;
                     json.source = item.url;
                     json.fullimg = item.urlToImage;
@@ -358,19 +358,14 @@ function newsapi(dummy, callback) {
     ]
 
     async.eachSeries(sources, function (item, cb) {
-
             newsapix(item, function (deliver) {
                 console.log('📦 delivered ' + deliver.src);
                 cb();
             });
-
         },
         function (err, results) {
             callback()
         });
-
-
-
 }
 
 if (!process.env.PORT) {
