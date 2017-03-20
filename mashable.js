@@ -307,6 +307,7 @@ function newsapix(source, sortBy, callback) {
                     var json = {};
                     json.title = item.title;
                     json.provider = source;
+                    json.description = item.description;
                     json.source = item.url;
                     json.fullimg = item.urlToImage;
                     json._id = new Date(item.publishedAt).getTime() + '' + source;
