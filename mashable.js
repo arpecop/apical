@@ -26,7 +26,7 @@ function insertdb(json, callback) {
             db.put(json, function (err, ass) {
                 promo.post('poparticles/' + json._id, process.env.article_token, json.title, 'poparticles', function () {
                     client.post('statuses/update', {
-                        status: 'http://news.fbook.space/poparticles/' + json._id
+                        status: 'http://news.fbook.space/' + json._id
                     }, function (error, tweet, response) {});
                     json.arr = true;
                     json.id = json._id;
@@ -220,8 +220,6 @@ function buzz(x, callback) {
                     json.source = 'https://www.buzzfeed.com' + item.url;
                     json.fullimg = item.image;
                     json._id = item.id + '_buzz';
-
-
                     db.exist(json._id, function (err, doc) {
                         if (err) {
                             request.get('https://graph.facebook.com/?id=' + json.source + '&access_token=' + process.env.article_token, function (er, ass, body) {
