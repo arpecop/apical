@@ -6,26 +6,18 @@ const md5 = require('md5');
 
 const sizeOf = require('image-size');
 const shortid = require('shortid');
-const AWS = require('aws-sdk');
+
 const _ = require('underscore');
 const db = require('../kartinki/dbaws.js');
-const cred = {
-    "accessKeyId": process.env.awsuser,
-    "secretAccessKey": process.env.awspass,
-    "region": "eu-west-1"
-}
 
-AWS.config.update(cred);
+
+
 const gm = require('gm').subClass({
     imageMagick: true
 });
 
 
-var s3bucket = new AWS.S3({
-    params: {
-        Bucket: 'imgserve.izteglisi.com'
-    }
-});
+
 
 function upload(json, callback) {
     dbcdn.get(json.Key.split('/')[0], function (err, old_doc) {
