@@ -1,119 +1,160 @@
-//let lambda = require('/root/serve/core/lambda');
+const shortid = require('shortid');
+const extend = require('extend');
+const async = require('async');
+const request = require('request');
+const fs = require('fs');
+const level = require('./level.js');
 
-let shortid = require('shortid');
-let extend = require('extend');
+//let db = require('dynamodb').ddb(cred);
+var db = require('nano')('http://1:1@95.85.19.37/db');
 
-let async = require('async');
-let request = require('request');
-let _ = require('underscore');
-let fs = require('fs');
-//let levelup = require('levelup')
-let cred = {
-    accessKeyId: process.env.awsuser,
-    secretAccessKey: process.env.awspass,
-    endpoint: 'dynamodb.eu-west-1.amazonaws.com',
-    sslEnabled: false
+function datex() {
+    var coeff = 1000 * 60 * 5;
+    var date = new Date(); //or use any other date
+    var rounded = new Date(Math.round(date.getTime() / coeff) * coeff);
+    var d = rounded.getDate();
+    var m = rounded.getMonth();
+    var h = rounded.getHours();
+    var m1 = rounded.getMinutes();
+    var y = rounded.getFullYear();
+    return '' + y + '' + m + '' + d + '' + h + '' + m1;
 }
-let md5 = require('md5');
-let db = require('dynamodb').ddb(cred);
-//let ldb = levelup('/tmp/' + shortid.generate(), { valueEncoding: 'json' })
+
 function put(jsonx, callback) {
-    if (jsonx) {
+    db.get(jsonx._id, function (err, old_doc) {
         var json = {
-            key: jsonx._id || shortid.generate(),
+            _id: jsonx.arr ? undefined : jsonx._id || shortid.generate(),
             time: jsonx.time ? Math.round(jsonx.time) : 1,
-            value: JSON.stringify(jsonx)
+            value: jsonx,
+            type: jsonx.arr ? jsonx._id : undefined,
+            _rev: err ? undefined : old_doc._rev
         };
         json.time = jsonx.arr ? Math.round(new Date('2151').getTime()) - Math.round(
-            new Date().getTime()) : json.time
-        db.putItem('mydb', json, {}, function (err, res, cap) {
-            if (!err) {
-                callback(null, {
-                    _id: json.key,
-                    id: json.key
-                });
-                json = null;
-            } else {
-                callback({}, {});
-                json = null;
-            }
+            new Date().getTime()) : json.time;
+        db.insert(json, function (err, cap) {
+            callback(null, {
+                _id: json.key,
+                id: json.key
+            });
+            json = null;
         });
-    } else {
-        callback({}, {});
-    }
-}
-var options = {
-    expected: {
-        value: {
-            value: '4',
-            exists: true
-        }
-    },
-    returnValues: 'ALL_OLD'
-};
-
-function get(id, callback) {
-    if (typeof id === 'object') {
-        db.query('mydb', id.id, {
-            limit: isNaN((Math.round(id.limit) > 1 ? Math.round(id.limit) : 30) > 1000 ?
-                1000 : Math.round(id.limit)) ? 30 : (Math.round(id.limit) > 1 ? Math.round(
-                id.limit) : 30) > 1000 ? 1000 : Math.round(id.limit),
-            rangeKeyCondition: {
-                GE: id.gt ? Math.round(id.gt) : 1
-            }
-        }, function (err, res, cap) {
-            if (!err) {
-                if (res.count === 0) {
-                    callback({}, {})
-                } else {
-                    var arr = [];
-                    async.each(res.items, function (item, callback) {
-                        arr.push(extend(JSON.parse(item.value), {
-                            key: item.time
-                        }))
-                        callback()
-                    }, function done() {
-                        callback(null, {
-                            docs: arr
-                        });
-                        arr = null;
-                    });
-                }
-            } else {
-                callback({}, {});
-            }
-        });
-    } else {
-        db.getItem('mydb', id, 1, {
-            attributesToGet: ['value']
-        }, function (err, res, cap) {
-            if (res) {
-                callback(null, JSON.parse(res.value));
-            } else {
-                callback({}, {})
-
-            }
-        });
-
-    }
-}
-
-function exist(id, callback) {
-    db.getItem('mydb', id, 1, {
-        attributesToGet: ['time']
-    }, function (err, res, cap) {
-        if (res) {
-            callback(null, JSON.parse(res.time));
-        } else {
-            callback({}, {})
-        }
     });
 }
 
+function get(id, callback) {
+    let sid = (typeof id === 'object') ? id.id || id._id : id;
+    if (id.limit) {
+        db.view('i', 'i', Object.assign(id, {
+            'descending': true,
+            'startkey': id.gt ? id.gt : undefined,
+            'skip': id.gt ? 0 : 1
+        }), function (err, body) {
+
+
+            if (!err) {
+                var arr = [];
+                Promise.all(body.rows.map(function (item) {
+                    return new Promise(function (cb) {
+                        arr.push(Object.assign(item.value.value, {
+                            id: item.id,
+                            key: item.id,
+                            _date: new Date(Math.round(new Date('2151').getTime() - new Date(item.value.time).getTime()))
+                        }));
+                        cb()
+                    });
+                })).then(function (data) {
+                    callback(null, {
+                        docs: arr
+                    });
+                });
+            }
+        });
+    } else {
+        db.get(sid, function (err, doc) {
+            if (err) {
+                callback({}, {})
+            } else {
+                callback(null, doc.value)
+            }
+        })
+
+    }
+
+}
+
+
+
+function serve(req, res) {
+    //res.header("Access-Control-Allow-Origin", "*");
+    res.writeHead(200, {
+        "Content-Type": "application/json; charset=utf-8",
+        "Access-Control-Allow-Origin": "*",
+        "X-Powered-By": "vault-tec",
+        "Access-Control-Allow-Headers": "X-Requested-With"
+    });
+    if (req.method === "GET") {
+        if (JSON.stringify(req.query).length > 10) {
+            req.json = req.query;
+            req.json.id = req.query.id ? req.query.id : req.params.id;
+            get(req.json, function (err, doc) {
+                res.end(JSON.stringify(doc));
+                req = null;
+                res = null;
+            });
+        } else if (req.params.id) {
+            get(req.params.id, function (err, doc) {
+                res.end(JSON.stringify(doc));
+                req = null;
+                res = null;
+            });
+        } else {
+            res.end('ddb');
+        }
+    } else {
+        put(req.body, function (err, data) {
+            if (!err) {
+                res.end(JSON.stringify(data));
+                req = null;
+                res = null;
+            } else {
+                res.end('{}');
+                req = null;
+                res = null;
+            }
+        });
+    }
+}
+
+
+function getid(id, callback) {
+    level.db.get(id, function (err, cached) {
+        if (err) {
+            db.get(id, function (err, res) {
+                if (res) {
+                    callback(null, res.value);
+                    level.db.put(id, {
+                        err: null,
+                        item: res.value
+                    })
+                } else {
+                    callback({}, {})
+                    level.db.put(id, {
+                        err: {},
+                        item: {}
+                    });
+                }
+            });
+        } else {
+            callback(cached.err, cached.item)
+        }
+    })
+}
 
 module.exports = {
     'get': get,
-    'exist': exist,
+    'exist': get,
+    'getid': getid,
     'insert': put,
-    'put': put
+    'put': put,
+    'serve': serve
 }
