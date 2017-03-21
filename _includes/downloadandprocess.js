@@ -61,7 +61,7 @@ var downloadnprocess = function (id, stack, callback) {
                         Body: filedata,
                         ContentType: 'image/jpeg'
                     }, function (err, dataxssss) {
-                        callback(shortie)
+                        callback('http://db.arpecop.com/cdn/fb/' + doc.id + '.jpg')
                     });
                 });
 
@@ -72,7 +72,8 @@ var downloadnprocess = function (id, stack, callback) {
 }
 
 if (!process.env.PORT) {
-    downloadnprocess('http://95.85.19.37/cdn/fb/S17cAMynx.jpg', 'enimages', function (data) {
+    downloadnprocess('https://external-otp1-1.xx.fbcdn.net/safe_image.php?d=AQCUuKNF93yXupjO&w=284&h=149&url=https%3A%2F%2Fscontent-otp1-1.xx.fbcdn.net%2Ft45.1600-4%2F14965998_6054212277158_5314469451192598528_n.png&cfs=1&_nc_hash=AQBqZfshQ5q73Kik', 'enimages', function (data) {
+        console.log(data);
 
     })
 
