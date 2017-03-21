@@ -33,10 +33,9 @@ function put(jsonx, callback) {
         json.time = jsonx.arr ? Math.round(new Date('2151').getTime()) - Math.round(
             new Date().getTime()) : json.time;
         db.insert(json, function (err, cap) {
-            callback(null, {
-                _id: json.key,
-                id: json.key
-            });
+
+
+            callback(null, cap);
             json = null;
         });
     });
@@ -57,6 +56,7 @@ function get(id, callback) {
                     return new Promise(function (cb) {
                         arr.push(Object.assign(item.value.value, {
                             key: item.id,
+                            id: item.id,
                             _date: new Date(Math.round(new Date('2151').getTime() - new Date(item.value.time).getTime()))
                         }));
                         cb()

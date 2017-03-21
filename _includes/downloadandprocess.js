@@ -45,7 +45,6 @@ var downloadnprocess = function (id, stack, callback) {
     var file = '/tmp/' + shortie + '.jpg';
     dl.toDisk(file, function (err, filename) {
         fs.readFile(file, function (err, filedata) {
-
             sizeOf(file, function (err, dimensions) {
                 db.put({
                     arr: true,
@@ -56,9 +55,9 @@ var downloadnprocess = function (id, stack, callback) {
                     h: dimensions.height,
                     ext: 'jpg',
                     _id: stack
-                }, function (err, ass) {
+                }, function (err, doc) {
                     upload({
-                        Key: 'fb/' + shortie + '.jpg',
+                        Key: 'fb/' + doc.id + '.jpg',
                         Body: filedata,
                         ContentType: 'image/jpeg'
                     }, function (err, dataxssss) {
