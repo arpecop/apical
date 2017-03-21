@@ -151,6 +151,7 @@ function getid(id, callback) {
 
 module.exports = {
     'get': get,
+    'exist': get,
     'getid': getid,
     'insert': put,
     'put': put,
