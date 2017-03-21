@@ -71,9 +71,12 @@ var downloadnprocess = function (id, stack, callback) {
     });
 }
 
-downloadnprocess('http://95.85.19.37/cdn/fb/S17cAMynx.jpg', 'enimages', function (data) {
+if (!process.env.PORT) {
+    downloadnprocess('http://95.85.19.37/cdn/fb/S17cAMynx.jpg', 'enimages', function (data) {
 
-})
+    })
+
+}
 
 module.exports = {
     'go': downloadnprocess
