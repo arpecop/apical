@@ -28,7 +28,7 @@ var s3bucket = new AWS.S3({
 });
 
 function upload(json, callback) {
-    db.get(json.Key.split('/')[0], function (err, old_doc) {
+    dbcdn.get(json.Key.split('/')[0], function (err, old_doc) {
         if (err) {
             dbcdn.attachment.insert(json.Key.split('/')[0], json.Key.split('/')[1], json.Body, json.ContentType, function (err, body) {
                 callback()
