@@ -45,46 +45,36 @@ var downloadnprocess = function (id, stack, callback) {
     var file = '/tmp/' + shortie + '.jpg';
     dl.toDisk(file, function (err, filename) {
         fs.readFile(file, function (err, filedata) {
-            db.exist(md5(filedata), function (err, sox) {
-                if (err) {
-                    sizeOf(file, function (err, dimensions) {
-                        db.put({
-                            kofa: 'imgserve.izteglisi.com',
-                            dir: 'fb',
-                            date: new Date(),
-                            _id: shortie,
-                            w: dimensions.width,
-                            h: dimensions.height,
-                            ext: 'jpg'
-                        }, function (err, ass) {
-                            //   db.put({ _id: md5(filedata) }, function () { })
-                            db.put({
-                                arr: true,
-                                kofa: 'imgserve.izteglisi.com',
-                                dir: 'fb',
-                                id: shortie,
-                                w: dimensions.width,
-                                h: dimensions.height,
-                                ext: 'jpg',
-                                _id: stack
-                            }, function (err, ass) {
-                                upload({
-                                    Key: 'fb/' + shortie + '.jpg',
-                                    Body: filedata,
-                                    ContentType: 'image/jpeg'
-                                }, function (err, dataxssss) {
-                                    callback(shortie)
-                                });
-                            });
-                        });
+
+            sizeOf(file, function (err, dimensions) {
+                db.put({
+                    arr: true,
+                    kofa: 'imgserve.izteglisi.com/cdn/',
+                    dir: 'fb',
+                    id: shortie,
+                    w: dimensions.width,
+                    h: dimensions.height,
+                    ext: 'jpg',
+                    _id: stack
+                }, function (err, ass) {
+                    upload({
+                        Key: 'fb/' + shortie + '.jpg',
+                        Body: filedata,
+                        ContentType: 'image/jpeg'
+                    }, function (err, dataxssss) {
+                        callback(shortie)
                     });
-                } else {
-                    callback(shortie)
-                }
-            })
+                });
+
+            });
+
         });
     });
 }
+
+downloadnprocess('http://95.85.19.37/cdn/fb/S17cAMynx.jpg', 'enimages', function (data) {
+
+})
 
 module.exports = {
     'go': downloadnprocess

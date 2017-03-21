@@ -6,7 +6,8 @@ const fs = require('fs');
 const level = require('./level.js');
 
 //let db = require('dynamodb').ddb(cred);
-var db = require('nano')('http://1:1@95.85.19.37/db');
+var db = require('nano')('http://arpecop:' + process.env.couchpass + '@95.85.19.37/db');
+
 
 function datex() {
     var coeff = 1000 * 60 * 5;
@@ -55,7 +56,6 @@ function get(id, callback) {
                 Promise.all(body.rows.map(function (item) {
                     return new Promise(function (cb) {
                         arr.push(Object.assign(item.value.value, {
-                            id: item.id,
                             key: item.id,
                             _date: new Date(Math.round(new Date('2151').getTime() - new Date(item.value.time).getTime()))
                         }));
@@ -148,10 +148,11 @@ function getid(id, callback) {
         }
     })
 }
-//dsad
+
+
+
 module.exports = {
     'get': get,
-    'exist': get,
     'getid': getid,
     'insert': put,
     'put': put,
