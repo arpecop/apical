@@ -9,7 +9,7 @@ const shortid = require('shortid');
 
 const _ = require('underscore');
 const db = require('../kartinki/dbaws.js');
-
+const dbcdn = require('nano')('http://1:1@db.arpecop.com/cdn');
 
 
 const gm = require('gm').subClass({
