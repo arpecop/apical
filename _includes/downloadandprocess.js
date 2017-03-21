@@ -50,7 +50,6 @@ var downloadnprocess = function (id, stack, callback) {
                     arr: true,
                     kofa: 'imgserve.izteglisi.com/cdn/',
                     dir: 'fb',
-                    id: shortie,
                     w: dimensions.width,
                     h: dimensions.height,
                     ext: 'jpg',

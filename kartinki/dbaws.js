@@ -33,10 +33,8 @@ function put(jsonx, callback) {
         json.time = jsonx.arr ? Math.round(new Date('2151').getTime()) - Math.round(
             new Date().getTime()) : json.time;
         db.insert(json, function (err, cap) {
-
-
             callback(null, cap);
-            json = null;
+
         });
     });
 }
@@ -73,13 +71,14 @@ function get(id, callback) {
             if (err) {
                 callback({}, {})
             } else {
-                callback(null, doc.value)
+                callback(null, Object.assign(doc.value, {
+                    _id: doc._id
+                }))
             }
         })
-
     }
-
 }
+
 
 
 
@@ -153,8 +152,8 @@ function getid(id, callback) {
 
 module.exports = {
     'get': get,
-    'exist': getid,
     'getid': getid,
+    'exist': getid,
     'insert': put,
     'put': put,
     'serve': serve
