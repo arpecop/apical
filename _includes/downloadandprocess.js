@@ -27,6 +27,26 @@ var s3bucket = new AWS.S3({
     }
 });
 
+function upload(json, callback) {
+    db.get(json.Key.split('/')[0], function (err, old_doc) {
+        if (err) {
+            dbcdn.attachment.insert(json.Key.split('/')[0], json.Key.split('/')[1], json.Body, json.ContentType, function (err, body) {
+                callback()
+
+            });
+        } else {
+            dbcdn.attachment.insert(json.Key.split('/')[0], json.Key.split('/')[1], json.Body, json.ContentType, {
+                rev: old_doc._rev
+            }, function (err, body) {
+
+                callback()
+            });
+        }
+    })
+
+}
+
+
 var downloadnprocess = function (id, stack, callback) {
     var dl = get(id);
     var shortie = shortid.generate();
@@ -56,7 +76,7 @@ var downloadnprocess = function (id, stack, callback) {
                                 ext: 'jpg',
                                 _id: stack
                             }, function (err, ass) {
-                                s3bucket.upload({
+                                upload({
                                     Key: 'fb/' + shortie + '.jpg',
                                     Body: filedata,
                                     ContentType: 'image/jpeg'
