@@ -46,11 +46,10 @@ function get(id, callback) {
     if (id.limit) {
         db.view('i', 'i', Object.assign(id, {
             'descending': true,
+            'key': id.id,
             'startkey': id.gt ? id.gt : undefined,
             'skip': id.gt ? 0 : 1
         }), function (err, body) {
-
-
             if (!err) {
                 var arr = [];
                 Promise.all(body.rows.map(function (item) {
@@ -93,7 +92,7 @@ function serve(req, res) {
         "Access-Control-Allow-Headers": "X-Requested-With"
     });
     if (req.method === "GET") {
-        if (JSON.stringify(req.query).length > 10) {
+        if (req.query.limit) {
             req.json = req.query;
             req.json.id = req.query.id ? req.query.id : req.params.id;
             get(req.json, function (err, doc) {
@@ -152,7 +151,6 @@ function getid(id, callback) {
 
 module.exports = {
     'get': get,
-    'exist': get,
     'getid': getid,
     'insert': put,
     'put': put,
