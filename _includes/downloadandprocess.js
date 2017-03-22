@@ -60,12 +60,12 @@ var downloadnprocess = function (id, stack, callback) {
                         Body: filedata,
                         ContentType: 'image/jpeg'
                     }, function (err, dataxssss) {
-                        callback(doc.id)
+                        fs.rename('/tmp/' + shortie + '.jpg', '/tmp/' + doc.id + '.jpg', function (err) {
+                            callback(doc.id)
+                        });
                     });
                 });
-
             });
-
         });
     });
 }
