@@ -60,7 +60,7 @@ var downloadnprocess = function (id, stack, callback) {
                         Body: filedata,
                         ContentType: 'image/jpeg'
                     }, function (err, dataxssss) {
-                        callback('http://db.arpecop.com/cdn/fb/' + doc.id + '.jpg')
+                        callback(doc.id)
                     });
                 });
 
