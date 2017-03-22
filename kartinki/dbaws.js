@@ -38,7 +38,7 @@ function get(id, callback) {
                         arr.push(Object.assign(item.value.value, {
                             key: item.id,
                             id: item.id,
-                            _date: new Date(Math.round(new Date('2151').getTime() - new Date(item.value.time).getTime()))
+                            _date: new Date(item.value.time)
                         }));
                         cb()
                     });
