@@ -70,13 +70,7 @@ var downloadnprocess = function (id, stack, callback) {
     });
 }
 
-if (!process.env.PORT) {
-    downloadnprocess('https://external-otp1-1.xx.fbcdn.net/safe_image.php?d=AQCUuKNF93yXupjO&w=284&h=149&url=https%3A%2F%2Fscontent-otp1-1.xx.fbcdn.net%2Ft45.1600-4%2F14965998_6054212277158_5314469451192598528_n.png&cfs=1&_nc_hash=AQBqZfshQ5q73Kik', 'bgimages', function (data) {
-        console.log(data);
 
-    })
-
-}
 
 module.exports = {
     'go': downloadnprocess

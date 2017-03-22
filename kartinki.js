@@ -94,7 +94,7 @@
        if (!error && response.statusCode == 200) {
          async.eachSeries(JSON.parse(body).data, function (item, callback1) {
            if (item.likes && item.likes.data.length >= 10 && item.type === 'photo') {
-             db.exist(item.id, function (err, data) {
+             db.exist(item.id + 'x', function (err, data) {
                if (err) {
                  db.put({
                    _id: item.id
@@ -124,7 +124,10 @@
    });
  }
 
+ if (!process.env.PORT) {
+   kartinki('')
 
+ }
 
  module.exports = {
    kartinki: kartinki
