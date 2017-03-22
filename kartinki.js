@@ -7,7 +7,6 @@
  const sizeOf = require('image-size');
 
  const shortid = require('shortid');
- const AWS = require('aws-sdk');
 
  const _ = require('underscore');
  const db = require('./kartinki/dbaws.js');

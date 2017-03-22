@@ -53,7 +53,7 @@ var downloadnprocess = function (id, stack, callback) {
                     w: dimensions.width,
                     h: dimensions.height,
                     ext: 'jpg',
-                    _id: stack
+                    type: stack
                 }, function (err, doc) {
                     upload({
                         Key: 'fb/' + doc.id + '.jpg',
