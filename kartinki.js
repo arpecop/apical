@@ -83,8 +83,6 @@
    })
  }
 
-
- //
  function kartinki(lat, callback) {
    async.eachSeries(pagestoget.rows, function (item, callbackx) {
      var rtoken = Math.floor((Math.random() * 90) + 0);
@@ -96,8 +94,6 @@
            if (item.likes && item.likes.data.length >= 10 && item.type === 'photo') {
              db.get(item.id, function (err, data) {
                if (err) {
-                 console.log(err);
-
                  db.put({
                    _id: item.id
                  }, function (dsd, dsdsd) {

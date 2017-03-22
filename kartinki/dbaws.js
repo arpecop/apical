@@ -152,8 +152,8 @@ function getid(id, callback) {
 
 module.exports = {
     'get': get,
-    'getid': getid,
-    'exist': getid,
+    'getid': get,
+    'exist': get,
     'insert': put,
     'put': put,
     'serve': serve
