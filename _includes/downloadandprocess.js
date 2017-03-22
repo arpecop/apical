@@ -53,7 +53,7 @@ var downloadnprocess = function (id, stack, callback) {
                     w: dimensions.width,
                     h: dimensions.height,
                     ext: 'jpg',
-                    type: stack
+                    type: '' + stack + ''
                 }, function (err, doc) {
                     upload({
                         Key: 'fb/' + doc.id + '.jpg',
@@ -71,10 +71,17 @@ var downloadnprocess = function (id, stack, callback) {
 }
 
 if (!process.env.PORT) {
-    downloadnprocess('https://imgserve.izteglisi.com/cdn//fb/92e8edc104f37919d864d7f05000fa37.jpg', 'bgimages', function (data) {
+    downloadnprocess('https://imgserve.izteglisi.com/cdn/fb/92e8edc104f37919d864d7f05000fa37.jpg', 'bgimages', function (data) {
         console.log(data);
 
     })
+
+    db.put({
+        arr: 'true',
+        kofa: 'imgserve.izteglisi.com/cdn/',
+        count: '2',
+        type: 'testx'
+    }, function (err, doc) {});
 }
 
 module.exports = {
