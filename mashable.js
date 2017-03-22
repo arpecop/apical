@@ -21,7 +21,7 @@ let client = new Twitter({
 
 
 function insertdb(json, callback) {
-    db.exist(json._id, function (err) {
+    db.get(json._id, function (err) {
         if (err) {
             db.put(json, function (err, ass) {
                 promo.post('poparticles/' + json._id, process.env.article_token, json.title, 'poparticles', function () {
@@ -220,7 +220,7 @@ function buzz(x, callback) {
                     json.source = 'https://www.buzzfeed.com' + item.url;
                     json.fullimg = item.image;
                     json._id = item.id + '_buzz';
-                    db.exist(json._id, function (err, doc) {
+                    db.get(json._id, function (err, doc) {
                         if (err) {
                             request.get('https://graph.facebook.com/?id=' + json.source + '&access_token=' + process.env.article_token, function (er, ass, body) {
                                 json.description = JSON.parse(body).og_object.description;
