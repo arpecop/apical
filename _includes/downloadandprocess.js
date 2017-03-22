@@ -61,6 +61,8 @@ var downloadnprocess = function (id, stack, callback) {
                         ContentType: 'image/jpeg'
                     }, function (err, dataxssss) {
                         fs.rename('/tmp/' + shortie + '.jpg', '/tmp/' + doc.id + '.jpg', function (err) {
+                            console.log(err);
+
                             callback(doc.id)
                         });
                     });
