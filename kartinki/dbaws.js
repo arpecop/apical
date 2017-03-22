@@ -4,34 +4,18 @@ const async = require('async');
 const request = require('request');
 const fs = require('fs');
 const level = require('./level.js');
-
-//let db = require('dynamodb').ddb(cred);
-var db = require('nano')('http://arpecop:' + process.env.couchpass + '@95.85.19.37/db');
-
-
-function datex() {
-    var coeff = 1000 * 60 * 5;
-    var date = new Date(); //or use any other date
-    var rounded = new Date(Math.round(date.getTime() / coeff) * coeff);
-    var d = rounded.getDate();
-    var m = rounded.getMonth();
-    var h = rounded.getHours();
-    var m1 = rounded.getMinutes();
-    var y = rounded.getFullYear();
-    return '' + y + '' + m + '' + d + '' + h + '' + m1;
-}
+var db = require('nano')('http://1:1@95.85.19.37/db');
 
 function put(jsonx, callback) {
     db.get(jsonx._id, function (err, old_doc) {
         var json = {
-            _id: jsonx.arr ? undefined : jsonx._id || shortid.generate(),
-            time: jsonx.time ? Math.round(jsonx.time) : 1,
-            value: jsonx,
-            type: jsonx.arr ? jsonx.type : undefined,
-            _rev: err ? undefined : old_doc._rev
+            _id: jsonx._id ? jsonx._id : undefined,
+            type: jsonx.type ? (jsonx.type || jsonx._id) : undefined,
+            time: new Date().getTime(),
+            _rev: err ? undefined : old_doc._rev,
+            value: jsonx
         };
-        json.time = jsonx.arr ? Math.round(new Date('2151').getTime()) - Math.round(
-            new Date().getTime()) : json.time;
+
         db.insert(json, function (err, cap) {
             callback(null, cap);
 
@@ -45,8 +29,7 @@ function get(id, callback) {
         db.view('i', 'i', Object.assign(id, {
             'descending': true,
             'key': id.id,
-            'startkey': id.gt ? id.gt : undefined,
-            'skip': id.gt ? 0 : 1
+            'skip': id.skip ? id.skip : 0
         }), function (err, body) {
             if (!err) {
                 var arr = [];
@@ -78,7 +61,14 @@ function get(id, callback) {
         })
     }
 }
+get({
+    limit: '5',
+    skip: 10,
+    id: 'testx'
+}, function (err, doc) {
 
+
+})
 
 
 
@@ -94,6 +84,8 @@ function serve(req, res) {
         if (req.query.limit) {
             req.json = req.query;
             req.json.id = req.query.id ? req.query.id : req.params.id;
+
+
             get(req.json, function (err, doc) {
                 res.end(JSON.stringify(doc));
                 req = null;
@@ -152,8 +144,8 @@ function getid(id, callback) {
 
 module.exports = {
     'get': get,
-    'getid': get,
-    'exist': get,
+    'getid': getid,
+    'exist': getid,
     'insert': put,
     'put': put,
     'serve': serve
