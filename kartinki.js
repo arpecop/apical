@@ -45,7 +45,7 @@
  function post_img(page, callback) {
    request.post('https://graph.facebook.com/' + page.id + '/photos', {
      form: {
-       url: 'http://socketserve.herokuapp.com/image/' + page.hid + '.jpg',
+       url: 'http://db.arpecop.com/cdn/fb/' + page.hid + '.jpg',
        access_token: page.access_token
      }
    }, function (error, response, body) {
