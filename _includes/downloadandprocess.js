@@ -47,7 +47,7 @@ var downloadnprocess = function (id, stack, callback) {
         fs.readFile(file, function (err, filedata) {
             sizeOf(file, function (err, dimensions) {
                 db.put({
-                    arr: true,
+                    arr: 'true',
                     kofa: 'imgserve.izteglisi.com/cdn/',
                     dir: 'fb',
                     w: dimensions.width,
@@ -61,8 +61,6 @@ var downloadnprocess = function (id, stack, callback) {
                         ContentType: 'image/jpeg'
                     }, function (err, dataxssss) {
                         fs.rename('/tmp/' + shortie + '.jpg', '/tmp/' + doc.id + '.jpg', function (err) {
-                            console.log(err);
-
                             callback(doc.id)
                         });
                     });
@@ -72,7 +70,12 @@ var downloadnprocess = function (id, stack, callback) {
     });
 }
 
+if (!process.env.PORT) {
+    downloadnprocess('https://imgserve.izteglisi.com/cdn//fb/92e8edc104f37919d864d7f05000fa37.jpg', 'bgimages', function (data) {
+        console.log(data);
 
+    })
+}
 
 module.exports = {
     'go': downloadnprocess

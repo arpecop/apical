@@ -27,7 +27,7 @@ function put(jsonx, callback) {
             _id: jsonx.arr ? undefined : jsonx._id || shortid.generate(),
             time: jsonx.time ? Math.round(jsonx.time) : 1,
             value: jsonx,
-            type: jsonx.arr ? jsonx._id : undefined,
+            type: jsonx.arr ? jsonx.type : undefined,
             _rev: err ? undefined : old_doc._rev
         };
         json.time = jsonx.arr ? Math.round(new Date('2151').getTime()) - Math.round(
