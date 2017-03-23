@@ -18,13 +18,14 @@ let client = new Twitter({
 
 
 function insertdb(json, callback) {
+    json.type = 'newsen'
+    json.arr = true;
     db.get(json.uid, function (err) {
         if (err) {
             db.put({
                 _id: json.uid
             }, function () {
                 db.put(json, function (err, ass) {
-
                     promo.post('poparticles/' + ass.id, process.env.article_token, json.title, 'poparticles', function () {
                         client.post('statuses/update', {
                             status: 'http://news.fbook.space/' + ass.id
@@ -57,6 +58,7 @@ function digg(x, callback) {
                 json.media = null;
                 json.source = json.url;
                 json.uid = json.content_id;
+
                 insertdb(json, function () {
                     cb();
                 })
@@ -101,12 +103,8 @@ function crunch(id, callback) {
             json.provider = 'TechCrunch';
             json.source = json.url;
             json.media = null;
-            json.arr = true;
             json.description = striptags(item.description).replace('Read More', '')
             json.uid = json.created + '_t';
-            json.type = 'newsen'
-
-
             insertdb(json, function () {
                 cb();
             })
@@ -158,9 +156,7 @@ function distractify(x, callback) {
                     json.provider = "Distractify";
                     json.fullimg = item.featuredImage.originalFileUrl;
                     json.source = 'http://distractify.com' + item.permalink;
-                    json.arr = true;
                     json.uid = item.sid;
-                    json.type = 'newsen'
                     insertdb(json, function () {
                         cb();
                     })
@@ -192,9 +188,6 @@ function boing(id, callback) {
 
                 json.description = striptags(item.description);
                 json.uid = json.created + '_b';
-                json.type = 'newsen'
-                json.arr = true;
-
                 //console.log(json);
                 insertdb(json, function () {
                     cb();
@@ -223,8 +216,6 @@ function buzz(x, callback) {
                     json.source = 'https://www.buzzfeed.com' + item.url;
                     json.fullimg = item.image;
                     json.uid = item.id + '_buzz';
-                    json.type = 'newsen'
-                    json.arr = true;
                     db.get(json.uid, function (err, doc) {
                         if (err) {
                             request.get('https://graph.facebook.com/?id=' + json.source + '&access_token=' + process.env.article_token, function (er, ass, body) {

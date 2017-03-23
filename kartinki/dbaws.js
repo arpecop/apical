@@ -122,13 +122,15 @@ function getid(id, callback) {
             db.get(id, function (err, res) {
                 if (res) {
                     callback(null, res.value);
-                    level.db.put(id, {
+                    level.db.put({
+                        _id: id,
                         err: null,
                         item: res.value
                     })
                 } else {
                     callback({}, {})
-                    level.db.put(id, {
+                    level.db.put({
+                        _id: id,
                         err: {},
                         item: {}
                     });
