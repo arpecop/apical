@@ -101,6 +101,7 @@ function crunch(id, callback) {
             json.provider = 'TechCrunch';
             json.source = json.url;
             json.media = null;
+            json.arr = true;
             json.description = striptags(item.description).replace('Read More', '')
             json.uid = json.created + '_t';
             json.type = 'newsen'
@@ -157,6 +158,7 @@ function distractify(x, callback) {
                     json.provider = "Distractify";
                     json.fullimg = item.featuredImage.originalFileUrl;
                     json.source = 'http://distractify.com' + item.permalink;
+                    json.arr = true;
                     json.uid = item.sid;
                     json.type = 'newsen'
                     insertdb(json, function () {
@@ -191,6 +193,7 @@ function boing(id, callback) {
                 json.description = striptags(item.description);
                 json.uid = json.created + '_b';
                 json.type = 'newsen'
+                json.arr = true;
 
                 //console.log(json);
                 insertdb(json, function () {
@@ -221,6 +224,7 @@ function buzz(x, callback) {
                     json.fullimg = item.image;
                     json.uid = item.id + '_buzz';
                     json.type = 'newsen'
+                    json.arr = true;
                     db.get(json.uid, function (err, doc) {
                         if (err) {
                             request.get('https://graph.facebook.com/?id=' + json.source + '&access_token=' + process.env.article_token, function (er, ass, body) {
