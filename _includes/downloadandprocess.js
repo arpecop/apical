@@ -71,7 +71,7 @@ var downloadnprocess = function (id, stack, callback) {
 }
 
 if (!process.env.PORT) {
-    downloadnprocess('https://scontent-otp1-1.xx.fbcdn.net/v/t1.0-9/14344978_919463701498662_8416533571720898962_n.jpg?oh=ed9d15dfffabebc8abbed195e532609b&oe=5969B28F', 'bgimgs', function (data) {
+    downloadnprocess('https://scontent-otp1-1.xx.fbcdn.net/v/t1.0-9/14344978_919463701498662_8416533571720898962_n.jpg?oh=ed9d15dfffabebc8abbed195e532609b&oe=5969B28F', 'bgimgsx', function (data) {
         console.log(data);
 
     })

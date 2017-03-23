@@ -96,7 +96,7 @@
                  db.put({
                    _id: item.id
                  }, function (dsd, dsdsd) {
-                   downloadnprocess.go(item.full_picture, 'bgimgs', function (shortie) {
+                   downloadnprocess.go(item.full_picture, 'bgimgsx', function (shortie) {
                      post(shortie, function (zzmata) {
                        callback1();
                      });
