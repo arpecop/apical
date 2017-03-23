@@ -24,7 +24,6 @@ function insertdb(json, callback) {
                 _id: json.uid
             }, function () {
                 db.put(json, function (err, ass) {
-                    console.log(ass);
 
                     promo.post('poparticles/' + ass.id, process.env.article_token, json.title, 'poparticles', function () {
                         client.post('statuses/update', {
@@ -104,7 +103,7 @@ function crunch(id, callback) {
             json.media = null;
             json.description = striptags(item.description).replace('Read More', '')
             json.uid = json.created + '_t';
-            json.type = 'poparticles'
+            json.type = 'newsen'
 
 
             insertdb(json, function () {
@@ -159,7 +158,7 @@ function distractify(x, callback) {
                     json.fullimg = item.featuredImage.originalFileUrl;
                     json.source = 'http://distractify.com' + item.permalink;
                     json.uid = item.sid;
-                    json.type = 'poparticles'
+                    json.type = 'newsen'
                     insertdb(json, function () {
                         cb();
                     })
@@ -191,7 +190,7 @@ function boing(id, callback) {
 
                 json.description = striptags(item.description);
                 json.uid = json.created + '_b';
-                json.type = 'poparticles'
+                json.type = 'newsen'
 
                 //console.log(json);
                 insertdb(json, function () {
@@ -221,7 +220,7 @@ function buzz(x, callback) {
                     json.source = 'https://www.buzzfeed.com' + item.url;
                     json.fullimg = item.image;
                     json.uid = item.id + '_buzz';
-                    json.type = 'poparticles'
+                    json.type = 'newsen'
                     db.get(json.uid, function (err, doc) {
                         if (err) {
                             request.get('https://graph.facebook.com/?id=' + json.source + '&access_token=' + process.env.article_token, function (er, ass, body) {
