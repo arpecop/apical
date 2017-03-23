@@ -13,7 +13,7 @@ const downloadnprocess = require('./_includes/downloadandprocess.js');
 var template = 'this image collected more than 30 likes.';
 
 var post = async.queue(function (task, callback) {
-  downloadnprocess.go(task.imagex, 'enimgs', function (shortie) {
+  downloadnprocess.go(task.imagex, 'enimgsx', function (shortie) {
     console.log('posting' + shortie);
     promo.post('box/' + shortie, process.env.mystbox_token, template, 'mystbox', function () {
       callback();
