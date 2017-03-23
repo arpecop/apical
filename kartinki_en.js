@@ -48,7 +48,7 @@
                    _id: item.id
                  }, function (dsd, dsdsd) {
                    console.log(item.full_picture);
-                   downloadnprocess.go(item.full_picture, 'enimgs', function (shortie) {
+                   downloadnprocess.go(item.full_picture, 'enimgsx', function (shortie) {
                      promo.post('box/' + shortie, process.env.mystbox_token, template, 'mystbox', function () {
                        callback1();
                      })
