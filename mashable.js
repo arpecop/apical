@@ -17,25 +17,24 @@ let client = new Twitter({
 });
 
 
-
-
-
 function insertdb(json, callback) {
-    db.get(json._id, function (err) {
+    db.get(json.uid, function (err) {
         if (err) {
-            db.put(json, function (err, ass) {
-                promo.post('poparticles/' + json._id, process.env.article_token, json.title, 'poparticles', function () {
-                    client.post('statuses/update', {
-                        status: 'http://news.fbook.space/' + json._id
-                    }, function (error, tweet, response) {});
-                    json.arr = true;
-                    json.id = json._id;
-                    json._id = 'poparticles';
-                    db.put(json, function (err, ass) {
-                        callback()
+            db.put({
+                _id: json.uid
+            }, function () {
+                db.put(json, function (err, ass) {
+                    console.log(ass);
+
+                    promo.post('poparticles/' + ass.id, process.env.article_token, json.title, 'poparticles', function () {
+                        client.post('statuses/update', {
+                            status: 'http://news.fbook.space/' + ass.id
+                        }, function (error, tweet, response) {
+                            callback()
+                        });
                     });
                 });
-            });
+            })
         } else {
             callback()
         }
@@ -58,11 +57,10 @@ function digg(x, callback) {
                 json.tags = null;
                 json.media = null;
                 json.source = json.url;
-                json._id = json.content_id;
+                json.uid = json.content_id;
                 insertdb(json, function () {
                     cb();
                 })
-
             }, function (err, results) {
                 callback()
             });
@@ -82,7 +80,7 @@ function wired(id, callback) {
             json.provider = 'wired';
             json.source = json.url;
             json.description = striptags(item.description)
-            json._id = json.created + '_1';
+            json.uid = json.created + '_1';
             insertdb(json, function () {
                 cb();
             })
@@ -105,7 +103,8 @@ function crunch(id, callback) {
             json.source = json.url;
             json.media = null;
             json.description = striptags(item.description).replace('Read More', '')
-            json._id = json.created + '_t';
+            json.uid = json.created + '_t';
+            json.type = 'poparticles'
 
 
             insertdb(json, function () {
@@ -131,7 +130,7 @@ function upworthy(id, callback) {
                 json.source = json.url;
                 json.enclosures = null;
                 json.description = striptags(item.description);
-                json._id = json.created + '_u';
+                json.uid = json.created + '_u';
 
                 insertdb(json, function () {
                     cb();
@@ -159,7 +158,8 @@ function distractify(x, callback) {
                     json.provider = "Distractify";
                     json.fullimg = item.featuredImage.originalFileUrl;
                     json.source = 'http://distractify.com' + item.permalink;
-                    json._id = item.sid;
+                    json.uid = item.sid;
+                    json.type = 'poparticles'
                     insertdb(json, function () {
                         cb();
                     })
@@ -190,7 +190,8 @@ function boing(id, callback) {
                 json.source = json.url;
 
                 json.description = striptags(item.description);
-                json._id = json.created + '_b';
+                json.uid = json.created + '_b';
+                json.type = 'poparticles'
 
                 //console.log(json);
                 insertdb(json, function () {
@@ -219,8 +220,9 @@ function buzz(x, callback) {
                     json.provider = "Buzzfeed";
                     json.source = 'https://www.buzzfeed.com' + item.url;
                     json.fullimg = item.image;
-                    json._id = item.id + '_buzz';
-                    db.get(json._id, function (err, doc) {
+                    json.uid = item.id + '_buzz';
+                    json.type = 'poparticles'
+                    db.get(json.uid, function (err, doc) {
                         if (err) {
                             request.get('https://graph.facebook.com/?id=' + json.source + '&access_token=' + process.env.article_token, function (er, ass, body) {
                                 json.description = JSON.parse(body).og_object.description;
@@ -261,7 +263,7 @@ function huffingtonpost(id, callback) {
                 json.source = json.url;
                 json.enclosures = null;
                 json.description = striptags(item.description);
-                json._id = json.created + '_huff';
+                json.uid = json.created + '_huff';
                 insertdb(json, function () {
                     cb();
                 })
@@ -282,14 +284,14 @@ function newsapix(source, callback) {
     request.get('https://newsapi.org/v1/articles?source=' + source.src + '&sortBy=' + source.get + '&apiKey=d734ebaa11aa4ad0b2df9e074d202869', function (er, ass, body) {
         if (!er && body.length > 100) {
             async.eachSeries(JSON.parse(body).articles, function (item, cb) {
-                    //console.log(item);
+
                     var json = {};
                     json.title = item.title;
                     json.provider = source.src;
                     json.description = item.description;
                     json.source = item.url;
                     json.fullimg = item.urlToImage;
-                    json._id = new Date(item.publishedAt).getTime() + '' + source.src;
+                    json.uid = new Date(item.publishedAt).getTime() + '' + source.src;
                     insertdb(json, function () {
                         cb();
                     })
