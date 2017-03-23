@@ -9,7 +9,7 @@ var db = require('nano')('http://1:1@95.85.19.37/db');
 function put(jsonx, callback) {
     db.get(jsonx._id, function (err, old_doc) {
         var json = {
-            _id: jsonx._id ? jsonx._id : undefined,
+            _id: jsonx._id ? jsonx._id : new Date().getTime() + '_' + Math.floor((Math.random() * 10) + 1),
             type: jsonx.type ? (jsonx.type || jsonx._id) : undefined,
             time: new Date().getTime(),
             _rev: err ? undefined : old_doc._rev,
