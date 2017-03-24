@@ -303,7 +303,7 @@ function newsapix(source, callback) {
 
 function newsapi(dummy, callback) {
     db.get({
-        'id': 'poparticles',
+        'id': 'newsen',
         'limit': 1
     }, function (e, doc) {
         promo.post('poparticles/' + doc.docs[0].id, process.env.article_token, json.title, 'poparticles', function () {});
