@@ -308,7 +308,7 @@ function newsapi(dummy, callback) {
     }, function (e, doc) {
         console.log(doc.docs[0].id);
 
-        //promo.post('poparticles/' + doc.docs[0].id, process.env.article_token, doc.docs[0].title, 'poparticles', function () {});
+        promo.post('poparticles/' + doc.docs[0].id, process.env.article_token, doc.docs[0].title, 'poparticles', function () {});
     })
     var sources = [{
             'src': 'engadget',

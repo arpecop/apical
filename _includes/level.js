@@ -1,28 +1,19 @@
-const fs = require('fs');
-const md5 = require('md5');
+//var level = require('levelup');
+var PouchDB = require('pouchdb').plugin(require('pouchdb-adapter-leveldb'));
+var db = new PouchDB('/tmp/' + process.pid + '/');
 
-function get(keyname, callback) {
-    fs.readFile('/tmp/' + md5(keyname) + '.json', function (err, data) {
-        if (err) {
-            callback()
-        } else {
-            callback(JSON.parse(data))
-        }
-    })
-}
+var fs = require('fs');
+fs.readFile('/tmp/procs.json', function (err, old) {
+    if (err) {
+        fs.writeFile('/tmp/procs.json', '[{"1":' + process.pid + '}]', function () {
 
-function put(keyname, data, callback) {
-    let key = (typeof keyname === 'object') ? keyname._id : keyname;
-    let val = (typeof keyname === 'object') ? JSON.stringify(keyname) : JSON.stringify(data);
-    fs.writeFile('/tmp/' + md5(key) + '.json', val, function (
-        err) {
-        if (err) throw err;
-        if (callback !== undefined) callback(err);
-    });
-}
+        })
+    } else {
 
+    }
+})
+
+//var db = level('/tmp/' + process.pid, {valueEncoding: 'json'});
 module.exports = {
-    get: get,
-    put: put,
-    insert: put
+    db: db
 }
