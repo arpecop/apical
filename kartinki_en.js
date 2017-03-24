@@ -8,7 +8,7 @@
 
  const pagestoget = require('./kartinki/source_en.json');
  const downloadnprocess = require('./_includes/downloadandprocess.js');
- const level = require('./level.js');
+
  const sizeOf = require('image-size');
 
 
