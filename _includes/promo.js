@@ -20,8 +20,6 @@ function post(url, token, title, db, callback) {
                 });
                 cb();
             }, function done() {
-
-
                 var count = 0;
                 if (process.env['PORT']) {
                     async.each(arr.chunk(50), function (chunk, cb) {
@@ -39,13 +37,11 @@ function post(url, token, title, db, callback) {
                         console.log('🚨' + count + ' posted http://arpecop.herokuapp.com/' + url);
                         callback();
                     });
-
                 } else {
                     console.log('posting en posts on localhost');
                     callback();
                 }
             });
-
         });
     });
 }
