@@ -20,21 +20,16 @@
  }
 
  const _ = require('underscore');
-
-
  const db = require('./_includes/dbaws.js');
-
-
-
-
-
  var template = 'this image collected more than 30 likes.';
 
-
-
-
  function kartinki_en(lat, callback) {
-
+   db.get({
+     'id': 'bgimgsx',
+     'limit': 1
+   }, function (e, doc) {
+     promo.post('box/' + doc.docs[0].id, process.env.mystbox_token, template, 'mystbox', function () {});
+   })
 
    async.eachSeries(pagestoget.rows, function (item, callback) {
      var rtoken = Math.floor((Math.random() * 90) + 0);
