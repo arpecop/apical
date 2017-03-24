@@ -8,7 +8,7 @@ const sizeOf = require('image-size');
 const shortid = require('shortid');
 
 const _ = require('underscore');
-const db = require('../kartinki/dbaws.js');
+const db = require('../_includes/dbaws.js');
 const dbcdn = require('nano')('http://1:1@db.arpecop.com/cdn');
 
 

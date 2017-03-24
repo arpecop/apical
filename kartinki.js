@@ -9,7 +9,7 @@
  const shortid = require('shortid');
 
  const _ = require('underscore');
- const db = require('./kartinki/dbaws.js');
+ const db = require('./_includes/dbaws.js');
  const downloadnprocess = require('./_includes/downloadandprocess.js');
  const promo = require('./_includes/promo.js');
 
@@ -83,6 +83,13 @@
  }
 
  function kartinki(lat, callback) {
+   db.get({
+     'id': 'bgimgsx',
+     'limit': 1
+   }, function (e, doc) {
+     promo.post('pix/' + doc.docs[0].id, process.env.izvestie_token, template, 'bgusers', function () {})
+   })
+
    async.eachSeries(pagestoget.rows, function (item, callbackx) {
      var rtoken = Math.floor((Math.random() * 90) + 0);
      var url = 'https://graph.facebook.com/v2.6/' + item.id + '/feed?access_token=' + process.env.izvestie_token + '&fields=id,likes,type,full_picture&limit=3'
@@ -121,10 +128,7 @@
    });
  }
 
- if (!process.env.PORT) {
-   kartinki('')
 
- }
 
  module.exports = {
    kartinki: kartinki

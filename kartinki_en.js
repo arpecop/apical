@@ -22,7 +22,7 @@
  const _ = require('underscore');
 
 
- const db = require('./kartinki/dbaws.js');
+ const db = require('./_includes/dbaws.js');
 
 
 
@@ -34,6 +34,8 @@
 
 
  function kartinki_en(lat, callback) {
+
+
    async.eachSeries(pagestoget.rows, function (item, callback) {
      var rtoken = Math.floor((Math.random() * 90) + 0);
      var url = 'https://graph.facebook.com/v2.6/' + item.id + '/feed?access_token=' + process.env.mystbox_token + '&fields=id,likes,type,full_picture&limit=3'

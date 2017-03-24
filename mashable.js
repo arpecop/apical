@@ -1,6 +1,6 @@
 const request = require('request');
 const async = require('async');
-const db = require('./kartinki/dbaws.js');
+const db = require('./_includes/dbaws.js');
 const cheerio = require('cheerio');
 var Feed = require('rss-to-json');
 //const request = require('request');
