@@ -306,7 +306,9 @@ function newsapi(dummy, callback) {
         'id': 'newsen',
         'limit': 1
     }, function (e, doc) {
-        promo.post('poparticles/' + doc.docs[0].id, process.env.article_token, json.title, 'poparticles', function () {});
+        console.log(doc.docs[0].id);
+
+        //promo.post('poparticles/' + doc.docs[0].id, process.env.article_token, doc.docs[0].title, 'poparticles', function () {});
     })
     var sources = [{
             'src': 'engadget',
@@ -384,7 +386,7 @@ function newsapi(dummy, callback) {
 
 if (!process.env.PORT) {
 
-    newsapi('', () => {})
+
 }
 
 
