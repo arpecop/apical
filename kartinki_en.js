@@ -25,7 +25,7 @@
 
  function kartinki_en(lat, callback) {
    db.get({
-     'id': 'bgimgsx',
+     'id': 'enimgsx',
      'limit': 1
    }, function (e, doc) {
      promo.post('box/' + doc.docs[0].id, process.env.mystbox_token, template, 'mystbox', function () {});
