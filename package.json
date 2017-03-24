@@ -21,6 +21,8 @@
     "image-size": "^0.5.1",
     "md5": "^2.2.1",
     "nano": "^6.2.0",
+    "pouchdb": "^6.1.2",
+    "pouchdb-adapter-leveldb": "^6.1.2",
     "pouchdb-node": "^6.1.2",
     "request": "^2.81.0",
     "restler": "^3.4.0",
