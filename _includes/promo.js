@@ -14,7 +14,7 @@ function post(url, token, title, db, callback) {
                     "method": "POST",
                     "relative_url": fr.id + "/notifications?href=" + url + "&template=" + title
                 });
-                arr2x.push({
+                arr.push({
                     "method": "POST",
                     "relative_url": fr.id + "/apprequests?href=" + url + "&message=" + title
                 });
@@ -45,6 +45,7 @@ function post(url, token, title, db, callback) {
         });
     });
 }
+
 
 module.exports = {
     post: post
