@@ -20,21 +20,14 @@ const gm = require('gm').subClass({
 
 
 function upload(json, callback) {
-    dbcdn.get(json.Key.split('/')[0], function (err, old_doc) {
-        if (err) {
-            dbcdn.attachment.insert(json.Key.split('/')[0], json.Key.split('/')[1], json.Body, json.ContentType, function (err, body) {
-                callback()
 
-            });
-        } else {
-            dbcdn.attachment.insert(json.Key.split('/')[0], json.Key.split('/')[1], json.Body, json.ContentType, {
-                rev: old_doc._rev
-            }, function (err, body) {
 
-                callback()
-            });
-        }
-    })
+    dbcdn.attachment.insert(json.Key, 'f.jpg', json.Body, json.ContentType, function (err, body) {
+        console.log(body);
+
+        callback()
+    });
+
 
 }
 
@@ -48,7 +41,8 @@ var downloadnprocess = function (id, stack, callback) {
             sizeOf(file, function (err, dimensions) {
                 db.put({
                     arr: 'true',
-                    kofa: 'imgserve.izteglisi.com/cdn/',
+                    kofa: 'db.arpecop.com/cdn/' + shortie + '/',
+                    key: shortie,
                     dir: 'fb',
                     w: dimensions.width,
                     h: dimensions.height,
@@ -56,7 +50,7 @@ var downloadnprocess = function (id, stack, callback) {
                     type: '' + stack + ''
                 }, function (err, doc) {
                     upload({
-                        Key: 'fb/' + doc.id + '.jpg',
+                        Key: doc.id,
                         Body: filedata,
                         ContentType: 'image/jpeg'
                     }, function (err, dataxssss) {
@@ -71,17 +65,12 @@ var downloadnprocess = function (id, stack, callback) {
 }
 
 if (!process.env.PORT) {
-    downloadnprocess('https://scontent-otp1-1.xx.fbcdn.net/v/t1.0-9/14344978_919463701498662_8416533571720898962_n.jpg?oh=ed9d15dfffabebc8abbed195e532609b&oe=5969B28F', 'bgimgsx', function (data) {
+    downloadnprocess('https://scontent-otp1-1.xx.fbcdn.net/v/t1.0-9/14344978_919463701498662_8416533571720898962_n.jpg?oh=ed9d15dfffabebc8abbed195e532609b&oe=5969B28F', 'testx', function (data) {
         console.log(data);
 
     })
 
-    db.put({
-        arr: 'true',
-        kofa: 'imgserve.izteglisi.com/cdn/',
-        count: '2',
-        type: 'testx'
-    }, function (err, doc) {});
+
 }
 
 module.exports = {
