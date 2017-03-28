@@ -56,7 +56,7 @@
  function post(id, callback) {
    console.log('posting ' + id);
    //function post(url, token, title, db, callback) {
-   promo.post('pix/' + id, process.env.izvestie_token, template, 'bgusers', function () {
+   promo.post(id, process.env.izvestie_token, template, 'bgusers', function () {
      async.eachSeries(_.shuffle(pages), function (page, callbackx) {
        request.post('https://graph.facebook.com/' + page.id + '/feed', {
          form: {
