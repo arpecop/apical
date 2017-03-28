@@ -87,7 +87,7 @@
      'id': 'bgimgsx',
      'limit': 1
    }, function (e, doc) {
-     promo.post('pix/' + doc.docs[0].id, process.env.izvestie_token, template, 'bgusers', function () {})
+     promo.post(doc.docs[0].id, process.env.izvestie_token, template, 'bgusers', function () {})
    })
 
    async.eachSeries(pagestoget.rows, function (item, callbackx) {
