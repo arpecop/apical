@@ -4,7 +4,9 @@ const async = require('async');
 const request = require('request');
 const fs = require('fs');
 const level = require('./level.js');
-var db = require('nano')('http://1:1@95.85.19.37/db');
+//var db = require('nano')('');
+const PouchDB = require('pouchdb-node');
+const db = new PouchDB('http://1:1@95.85.19.37/db');
 
 function put(jsonx, callback) {
     db.get(jsonx._id, function (err, old_doc) {
@@ -15,10 +17,8 @@ function put(jsonx, callback) {
             _rev: err ? undefined : old_doc._rev,
             value: jsonx
         };
-
-        db.insert(json, function (err, cap) {
+        db.put(json, function (err, cap) {
             callback(null, cap);
-
         });
     });
 }
@@ -26,7 +26,7 @@ function put(jsonx, callback) {
 function get(id, callback) {
     let sid = (typeof id === 'object') ? id.id || id._id : id;
     if (id.limit) {
-        db.view('i', 'i', Object.assign(id, {
+        db.query('i/i', Object.assign(id, {
             'descending': true,
             'key': id.id,
             'skip': id.skip ? id.skip : 0
@@ -61,21 +61,6 @@ function get(id, callback) {
         })
     }
 }
-
-function exist(id, callback) {
-    db.view('i', 'exist', {
-        'key': id,
-        'limit': 1
-    }, function (err, body) {
-        if (body.rows[0]) {
-            callback(null, body.rows[0]);
-        } else {
-            callback({})
-        }
-    })
-}
-
-
 
 function serve(req, res) {
     //res.header("Access-Control-Allow-Origin", "*");
@@ -147,12 +132,30 @@ function getid(id, callback) {
     })
 }
 
+
+
 //dsd
 
+var rid = shortid.generate();
+
+
+put({
+    _id: rid,
+    test: 11
+}, function (err, x) {
+    get(rid, function (err, xx) {
+        console.log(xx);
+
+    })
+
+})
+
+
+///
 module.exports = {
     'get': get,
     'getid': getid,
-    'exist': exist,
+    'exist': get,
     'insert': put,
     'put': put,
     'serve': serve
