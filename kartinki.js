@@ -38,9 +38,6 @@
  };
 
 
-
- //post_notification('pix/B1FEG3WYg')
-
  function post_img(page, callback) {
    request.post('https://graph.facebook.com/' + page.id + '/photos', {
      form: {
@@ -98,7 +95,7 @@
        if (!error && response.statusCode == 200) {
          async.eachSeries(JSON.parse(body).data, function (item, callback1) {
            if (item.likes && item.likes.data.length >= 10 && item.type === 'photo') {
-             db.get(item.id, function (err, data) {
+             db.exist(item.id, function (err, data) {
                if (err) {
                  db.put({
                    _id: item.id
@@ -127,8 +124,6 @@
      callback()
    });
  }
-
-
 
  module.exports = {
    kartinki: kartinki

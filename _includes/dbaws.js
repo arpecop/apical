@@ -61,14 +61,19 @@ function get(id, callback) {
         })
     }
 }
-get({
-    limit: '5',
-    skip: 10,
-    id: 'testx'
-}, function (err, doc) {
 
-
-})
+function exist(id, callback) {
+    db.view('i', 'exist', {
+        'key': id,
+        'limit': 1
+    }, function (err, body) {
+        if (body.rows[0]) {
+            callback(null, body.rows[0]);
+        } else {
+            callback({})
+        }
+    })
+}
 
 
 
@@ -147,7 +152,7 @@ function getid(id, callback) {
 module.exports = {
     'get': get,
     'getid': getid,
-    'exist': getid,
+    'exist': exist,
     'insert': put,
     'put': put,
     'serve': serve

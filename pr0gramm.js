@@ -31,7 +31,7 @@ function programm(ass, callbackyyy) {
         item.location = i++;
         var checkmedia = item.image.split('.');
         if (checkmedia[1] === "jpg") {
-          db.get(item.id + 'x', function (err, doc) {
+          db.exist(item.id + 'x', function (err, doc) {
             if (err) {
               db.insert({
                 _id: item.id + 'x'

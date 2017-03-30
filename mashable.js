@@ -20,7 +20,7 @@ let client = new Twitter({
 function insertdb(json, callback) {
     json.type = 'newsen'
     json.arr = true;
-    db.get(json.uid, function (err) {
+    db.exist(json.uid, function (err) {
         if (err) {
             db.put({
                 _id: json.uid
