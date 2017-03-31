@@ -136,19 +136,7 @@ function getid(id, callback) {
 
 //dsd
 
-var rid = shortid.generate();
 
-
-put({
-    _id: rid,
-    test: 11
-}, function (err, x) {
-    get(rid, function (err, xx) {
-        console.log(xx);
-
-    })
-
-})
 
 
 ///
