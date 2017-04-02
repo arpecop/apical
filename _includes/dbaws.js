@@ -6,7 +6,7 @@ const fs = require('fs');
 const level = require('./level.js');
 //var db = require('nano')('');
 const PouchDB = require('pouchdb-node');
-const db = new PouchDB('http://1:1@95.85.19.37/db');
+const db = new PouchDB('http://1:1@95.85.19.37/dc/db');
 
 function put(jsonx, callback) {
     db.get(jsonx._id, function (err, old_doc) {
