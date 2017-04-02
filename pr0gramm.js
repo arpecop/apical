@@ -31,7 +31,7 @@ function programm(ass, callbackyyy) {
         item.location = i++;
         var checkmedia = item.image.split('.');
         if (checkmedia[1] === "jpg") {
-          db.exist(item.id + 'x', function (err, doc) {
+          db.get(item.id + 'x', function (err, doc) {
             if (err) {
               db.insert({
                 _id: item.id + 'x'
@@ -39,7 +39,6 @@ function programm(ass, callbackyyy) {
                 item.imagex = 'http://img.pr0gramm.com/' + item.image;
                 post.push(item, function () {});
                 callbackx();
-
               })
             } else {
               //console.log('exist');
@@ -62,11 +61,15 @@ function programm(ass, callbackyyy) {
 
 function ninegag(params, callback) {
   request.get('http://9gag.com/' + params, function (err, d, body) {
+
+
     let $ = cheerio.load(body)
     var arr = [];
     $('article').each(function (i, elem) {
       arr.push($(this).attr('data-entry-id'));
     });
+
+
     async.eachSeries(arr, function iteratee(item, cb) {
       db.insert({
         _id: item
@@ -143,7 +146,7 @@ function imgur(params, callback) {
 
 
 if (!process.env['PORT']) {
-  programm('trending', function () {
+  imgur('trending', function () {
 
   })
 

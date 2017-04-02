@@ -3,8 +3,6 @@ const extend = require('extend');
 const async = require('async');
 const request = require('request');
 const fs = require('fs');
-const level = require('./level.js');
-//var db = require('nano')('');
 const PouchDB = require('pouchdb-node');
 const db = new PouchDB('http://1:1@95.85.19.37/dc/db');
 
@@ -106,33 +104,6 @@ function serve(req, res) {
 }
 
 
-function getid(id, callback) {
-    level.db.get(id, function (err, cached) {
-        if (err) {
-            db.get(id, function (err, res) {
-                if (res) {
-                    callback(null, res.value);
-                    level.db.put({
-                        _id: id,
-                        err: null,
-                        item: res.value
-                    })
-                } else {
-                    callback({}, {})
-                    level.db.put({
-                        _id: id,
-                        err: {},
-                        item: {}
-                    });
-                }
-            });
-        } else {
-            callback(cached.err, cached.item)
-        }
-    })
-}
-
-
 
 //dsd
 
@@ -142,7 +113,6 @@ function getid(id, callback) {
 ///
 module.exports = {
     'get': get,
-    'getid': getid,
     'exist': get,
     'insert': put,
     'put': put,
