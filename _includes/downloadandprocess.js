@@ -17,18 +17,11 @@ const gm = require('gm').subClass({
 });
 
 
-
-
 function upload(json, callback) {
-
-
     dbcdn.attachment.insert(json.Key, 'f.jpg', json.Body, json.ContentType, function (err, body) {
-        console.log(body);
-
+        //console.log(body);
         callback()
     });
-
-
 }
 
 
@@ -37,6 +30,7 @@ var downloadnprocess = function (id, stack, callback) {
     var shortie = shortid.generate();
     var file = '/tmp/' + shortie + '.jpg';
     dl.toDisk(file, function (err, filename) {
+        var readStream = fs.createReadStream('/tmp/' + shortie + '.jpg');
         fs.readFile(file, function (err, filedata) {
             sizeOf(file, function (err, dimensions) {
                 db.put({
@@ -49,6 +43,52 @@ var downloadnprocess = function (id, stack, callback) {
                     ext: 'jpg',
                     type: '' + stack + ''
                 }, function (err, doc) {
+                    gm(readStream)
+                        .size({
+                            bufferStream: true
+                        }, function (err, size) {
+                            this.resize(375)
+                            this.write('/tmp/' + shortie + '375.jpg', function (err) {
+                                fs.readFile('/tmp/' + shortie + '375.jpg', function (err, filedata) {
+                                    upload({
+                                        Key: doc.id + '375',
+                                        Body: filedata,
+                                        ContentType: 'image/jpeg'
+                                    }, function (err, dataxssss) {})
+                                })
+                            });
+                            this.resize(350)
+                            this.write('/tmp/' + shortie + '350.jpg', function (err) {
+                                fs.readFile('/tmp/' + shortie + '350.jpg', function (err, filedata) {
+                                    upload({
+                                        Key: doc.id + '350',
+                                        Body: filedata,
+                                        ContentType: 'image/jpeg'
+                                    }, function (err, dataxssss) {})
+                                })
+                            });
+                            this.resize(325)
+                            this.write('/tmp/' + shortie + '325.jpg', function (err) {
+                                fs.readFile('/tmp/' + shortie + '325.jpg', function (err, filedata) {
+                                    upload({
+                                        Key: doc.id + '325',
+                                        Body: filedata,
+                                        ContentType: 'image/jpeg'
+                                    }, function (err, dataxssss) {})
+                                })
+                            });
+                            this.resize(283)
+                            this.write('/tmp/' + shortie + '283.jpg', function (err) {
+                                fs.readFile('/tmp/' + shortie + '283.jpg', function (err, filedata) {
+                                    upload({
+                                        Key: doc.id + '283',
+                                        Body: filedata,
+                                        ContentType: 'image/jpeg'
+                                    }, function (err, dataxssss) {})
+                                })
+                            });
+                        });
+
                     upload({
                         Key: doc.id,
                         Body: filedata,
@@ -64,6 +104,11 @@ var downloadnprocess = function (id, stack, callback) {
     });
 }
 
+
+if (!process.env.PORT) {
+    downloadnprocess('https://db.arpecop.com/fc/cdn/1491239343240_8/f.jpg', 'testxx', () => {})
+    //https://db.arpecop.com/fc/cdn/1491239343240_8/f.jpg
+}
 
 
 module.exports = {
