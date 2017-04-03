@@ -47,41 +47,23 @@ var downloadnprocess = function (id, stack, callback) {
                         .size({
                             bufferStream: true
                         }, function (err, size) {
-                            this.resize(375)
-                            this.write('/tmp/' + shortie + '375.jpg', function (err) {
-                                fs.readFile('/tmp/' + shortie + '375.jpg', function (err, filedata) {
+                            this.resize(300)
+                            this.write('/tmp/' + shortie + '_sm.jpg', function (err) {
+                                fs.readFile('/tmp/' + shortie + '_sm.jpg', function (err, filedata) {
                                     upload({
-                                        Key: doc.id + '375',
+                                        Key: doc.id + '300',
                                         Body: filedata,
                                         ContentType: 'image/jpeg'
                                     }, function (err, dataxssss) {})
                                 })
                             });
-                            this.resize(350)
-                            this.write('/tmp/' + shortie + '350.jpg', function (err) {
-                                fs.readFile('/tmp/' + shortie + '350.jpg', function (err, filedata) {
+
+                            this.resize(450)
+                            this.crop(450, 236, 0, 0)
+                            this.write('/tmp/' + shortie + '_feed.jpg', function (err) {
+                                fs.readFile('/tmp/' + shortie + '_feed.jpg', function (err, filedata) {
                                     upload({
-                                        Key: doc.id + '350',
-                                        Body: filedata,
-                                        ContentType: 'image/jpeg'
-                                    }, function (err, dataxssss) {})
-                                })
-                            });
-                            this.resize(325)
-                            this.write('/tmp/' + shortie + '325.jpg', function (err) {
-                                fs.readFile('/tmp/' + shortie + '325.jpg', function (err, filedata) {
-                                    upload({
-                                        Key: doc.id + '325',
-                                        Body: filedata,
-                                        ContentType: 'image/jpeg'
-                                    }, function (err, dataxssss) {})
-                                })
-                            });
-                            this.resize(283)
-                            this.write('/tmp/' + shortie + '283.jpg', function (err) {
-                                fs.readFile('/tmp/' + shortie + '283.jpg', function (err, filedata) {
-                                    upload({
-                                        Key: doc.id + '283',
+                                        Key: doc.id + 'feed',
                                         Body: filedata,
                                         ContentType: 'image/jpeg'
                                     }, function (err, dataxssss) {})
@@ -106,7 +88,7 @@ var downloadnprocess = function (id, stack, callback) {
 
 
 if (!process.env.PORT) {
-    // downloadnprocess('https://db.arpecop.com/fc/cdn/1491239343240_8/f.jpg', 'testxx', () => {})
+    downloadnprocess('https://db.arpecop.com/fc/cdn/1491241021389_9/f.jpg', 'testxx', () => {})
     //https://db.arpecop.com/fc/cdn/1491239343240_8/f.jpg
 }
 
