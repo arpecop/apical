@@ -106,7 +106,7 @@ var downloadnprocess = function (id, stack, callback) {
 
 
 if (!process.env.PORT) {
-    downloadnprocess('https://db.arpecop.com/fc/cdn/1491239343240_8/f.jpg', 'testxx', () => {})
+    // downloadnprocess('https://db.arpecop.com/fc/cdn/1491239343240_8/f.jpg', 'testxx', () => {})
     //https://db.arpecop.com/fc/cdn/1491239343240_8/f.jpg
 }
 
