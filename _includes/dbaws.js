@@ -4,7 +4,7 @@ const async = require('async');
 const request = require('request');
 const fs = require('fs');
 const PouchDB = require('pouchdb-node');
-const db = new PouchDB('http://1:1@95.85.19.37/dc/db');
+const db = new PouchDB('http://1:1@db.arpecop.com/dc/db');
 
 function put(jsonx, callback) {
     db.get(jsonx._id, function (err, old_doc) {
