@@ -3,9 +3,7 @@ const request = require('request');
 const pouch = require('./pouch.js');
 
 function post(url, token, title, db, callback) {
-
     let arr = [];
-    let arr2x = [];
     pouch[db].get('count', function (e, count) {
         let rd = Math.floor(Math.random() * count.count) + 0;
         pouch[db].get('' + rd + '', function (err, docs) {
@@ -14,10 +12,7 @@ function post(url, token, title, db, callback) {
                     "method": "POST",
                     "relative_url": fr.id + "/notifications?href=" + url + "&template=" + title
                 });
-                arr.push({
-                    "method": "POST",
-                    "relative_url": fr.id + "/apprequests?href=" + url + "&message=" + title
-                });
+                //arr.push({"method": "POST","relative_url": fr.id + "/apprequests?href=" + url + "&message=" + title});
                 cb();
             }, function done() {
                 var count = 0;
