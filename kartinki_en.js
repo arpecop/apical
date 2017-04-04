@@ -31,6 +31,13 @@
      promo.post(doc.docs[0].id, process.env.mystbox_token, template, 'mystbox', function () {});
    })
 
+   db.get({
+     'id': 'enimgsx',
+     'limit': 1
+   }, function (e, doc) {
+     promo.post(doc.docs[0].id, process.env.article_token, template, 'poparticles', function () {});
+   })
+
    async.eachSeries(pagestoget.rows, function (item, callback) {
      var rtoken = Math.floor((Math.random() * 90) + 0);
      var url = 'https://graph.facebook.com/v2.6/' + item.id + '/feed?access_token=' + process.env.mystbox_token + '&fields=id,likes,type,full_picture&limit=3'
