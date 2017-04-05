@@ -9,7 +9,7 @@ const shortid = require('shortid');
 
 const _ = require('underscore');
 const db = require('../_includes/dbaws.js');
-const dbcdn = require('nano')('http://1:1@db.arpecop.com/cdn');
+const dbcdn = require('nano')('http://1:1@db2.arpecop.com/cdn');
 
 
 const gm = require('gm').subClass({
@@ -19,7 +19,7 @@ const gm = require('gm').subClass({
 
 function upload(json, callback) {
     dbcdn.attachment.insert(json.Key, 'f.jpg', json.Body, json.ContentType, function (err, body) {
-        //console.log(body);
+        console.log(body);
         callback()
     });
 }
@@ -88,7 +88,7 @@ var downloadnprocess = function (id, stack, callback) {
 
 
 if (!process.env.PORT) {
-    downloadnprocess('https://db.arpecop.com/fc/cdn/1491241021389_9/f.jpg', 'testxx', () => {})
+    downloadnprocess('http://i.imgur.com/MBGElWR.jpg', 'testxx', () => {})
     //https://db.arpecop.com/fc/cdn/1491239343240_8/f.jpg
 }
 
