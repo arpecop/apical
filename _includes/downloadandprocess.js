@@ -9,7 +9,7 @@ const shortid = require('shortid');
 
 const _ = require('underscore');
 const db = require('../_includes/dbaws.js');
-const dbcdn = require('nano')('http://1:1@db.arpecop.com/cdn');
+const dbcdn = require('nano')('http://1:1@162.243.233.186/cdn');
 
 
 const gm = require('gm').subClass({

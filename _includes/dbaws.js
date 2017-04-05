@@ -60,61 +60,10 @@ function get(id, callback) {
     }
 }
 
-function serve(req, res) {
-    //res.header("Access-Control-Allow-Origin", "*");
-    res.writeHead(200, {
-        "Content-Type": "application/json; charset=utf-8",
-        "Access-Control-Allow-Origin": "*",
-        "X-Powered-By": "vault-tec",
-        "Access-Control-Allow-Headers": "X-Requested-With"
-    });
-    if (req.method === "GET") {
-        if (req.query.limit) {
-            req.json = req.query;
-            req.json.id = req.query.id ? req.query.id : req.params.id;
 
-
-            get(req.json, function (err, doc) {
-                res.end(JSON.stringify(doc));
-                req = null;
-                res = null;
-            });
-        } else if (req.params.id) {
-            get(req.params.id, function (err, doc) {
-                res.end(JSON.stringify(doc));
-                req = null;
-                res = null;
-            });
-        } else {
-            res.end('ddb');
-        }
-    } else {
-        put(req.body, function (err, data) {
-            if (!err) {
-                res.end(JSON.stringify(data));
-                req = null;
-                res = null;
-            } else {
-                res.end('{}');
-                req = null;
-                res = null;
-            }
-        });
-    }
-}
-
-
-
-//dsd
-
-
-
-
-///
 module.exports = {
     'get': get,
     'exist': get,
     'insert': put,
-    'put': put,
-    'serve': serve
+    'put': put
 }
