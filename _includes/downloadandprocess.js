@@ -9,18 +9,22 @@ const shortid = require('shortid');
 
 const _ = require('underscore');
 const db = require('../_includes/dbaws.js');
-const dbcdn = require('nano')('http://1:1@db2.arpecop.com/cdn');
-
-
+const dbcdn1 = require('nano')('http://1:1@db2.arpecop.com/cdn');
+const nano = require('nano')('http://1:1@vaultx.herokuapp.com/');
+nano.db.create('cdn');
+var dbcdn = nano.db.use('cdn');
 const gm = require('gm').subClass({
     imageMagick: true
 });
 
 
 function upload(json, callback) {
-    dbcdn.attachment.insert(json.Key, 'f.jpg', json.Body, json.ContentType, function (err, body) {
+    dbcdn1.attachment.insert(json.Key, 'f.jpg', json.Body, json.ContentType, function (err, body) {
         console.log(body);
-        callback()
+        dbcdn.attachment.insert(json.Key, 'f.jpg', json.Body, json.ContentType, function (err, body) {
+            console.log(body);
+            callback()
+        });
     });
 }
 
