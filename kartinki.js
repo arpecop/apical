@@ -41,7 +41,7 @@
  function post_img(page, callback) {
    request.post('https://graph.facebook.com/' + page.id + '/photos', {
      form: {
-       url: 'http://db.arpecop.com/cdn/fb/' + page.hid + '.jpg',
+       url: 'http://db2.arpecop.com/cdn/' + page.hid + '/f.jpg',
        access_token: page.access_token
      }
    }, function (error, response, body) {

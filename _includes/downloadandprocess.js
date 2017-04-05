@@ -47,7 +47,9 @@ var downloadnprocess = function (id, stack, callback) {
                         .size({
                             bufferStream: true
                         }, function (err, size) {
-                            this.resize(300)
+                            this.resize(250)
+                            this.crop(250, 501, 0, 0)
+                            this.quality(70)
                             this.write('/tmp/' + shortie + '_sm.jpg', function (err) {
                                 fs.readFile('/tmp/' + shortie + '_sm.jpg', function (err, filedata) {
                                     upload({
@@ -88,7 +90,9 @@ var downloadnprocess = function (id, stack, callback) {
 
 
 if (!process.env.PORT) {
-    downloadnprocess('http://i.imgur.com/MBGElWR.jpg', 'testxx', () => {})
+
+    downloadnprocess('http://db.arpecop.com/fc/cdn/1491422366380_9/f.jpg', 'testxx', () => {})
+    // downloadnprocess('http://db.arpecop.com/fc/cdn/1491421286645_7/f.jpg', 'testxx', () => {})
     //https://db.arpecop.com/fc/cdn/1491239343240_8/f.jpg
 }
 
