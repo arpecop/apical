@@ -59,7 +59,7 @@
          form: {
            published: process.env.PORT ?
              1 : 0,
-           link: 'https://pix.fbook.space/' + id,
+           link: 'https://pix.fbook.space/?r=' + id,
            access_token: page.access_token
          }
        }, function (error, response, body) {
