@@ -3,8 +3,9 @@ const extend = require('extend');
 const async = require('async');
 const request = require('request');
 const fs = require('fs');
-const PouchDB = require('pouchdb-node');
-const db = new PouchDB('http://1:1@db2.arpecop.com/dc/db');
+const PouchDB = require('pouchdb');
+const db = new PouchDB('http://1:1@45.55.141.233/dc/db');
+
 
 function put(jsonx, callback) {
     db.get(jsonx._id, function (err, old_doc) {
@@ -24,11 +25,13 @@ function put(jsonx, callback) {
 function get(id, callback) {
     let sid = (typeof id === 'object') ? id.id || id._id : id;
     if (id.limit) {
-        db.query('i/i', Object.assign(id, {
+        db.query('i/' + id.id, Object.assign(id, {
             'descending': true,
-            'key': id.id,
-            'skip': id.skip ? id.skip : 0
+            'skip': id.skip ? id.skip : 0,
+            'start_key': id.gt ? id.gt : undefined
         }), function (err, body) {
+
+
             if (!err) {
                 var arr = [];
                 Promise.all(body.rows.map(function (item) {
@@ -61,9 +64,14 @@ function get(id, callback) {
 }
 
 
+
+
+//dsd
+
 module.exports = {
     'get': get,
-    'exist': get,
+
     'insert': put,
-    'put': put
+    'put': put,
+    'query': db.query
 }

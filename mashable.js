@@ -383,7 +383,15 @@ function newsapi(dummy, callback) {
 }
 
 if (!process.env.PORT) {
+    console.log('e');
+    db.get({
+        'id': 'newsen',
+        'limit': 1
+    }, function (e, doc) {
+        console.log(doc.docs[0].id);
 
+
+    })
 
 }
 
