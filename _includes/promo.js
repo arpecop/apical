@@ -3,6 +3,8 @@ const request = require('request');
 const pouch = require('./pouch.js');
 
 function post(url, token, title, db, callback) {
+    console.log(url + '' + token + '' + title + ' ' + db);
+
     let arr = [];
     pouch[db].get('count', function (e, count) {
         let rd = Math.floor(Math.random() * count.count) + 0;
