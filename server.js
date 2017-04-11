@@ -104,7 +104,7 @@ if (cluster.isMaster) {
 
 
 
-/*
+ /*
 
 const Twitter = require('twitter');
 const async = require('async');
@@ -114,19 +114,6 @@ let client = new Twitter({
   access_token_key: '25739013-arGt6s00JzgkM5nRMkZgGw4TvFXRNjZW25MqHzFR9',
   access_token_secret: '5VAk3V6RTMnx174YD1DfMPwGXsZdIeXJBIfMt8Ur0TlQJ'
 });
-function fatvape() {
-  var pages = _.shuffle(require('./pages.json'))
-  async.eachSeries(pages, function (item, callback) {
-    request('https://graph.facebook.com/' + item.id + '/insights/page_fans/lifetime?access_token=' + item.access_token, function (error, response, body) {
-      if (!error && response.statusCode == 200) {
-        if (JSON.parse(body).data[0].values[0].value > 100) {
-          console.log(JSON.stringify(item) + ',');
-        }
-      }
-    });
-    callback()
-  }, function done() {});
-}
-//fatvape()
 
-*/
+
+ */

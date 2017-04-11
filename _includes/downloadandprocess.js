@@ -9,10 +9,8 @@ const shortid = require('shortid');
 
 const _ = require('underscore');
 const db = require('../_includes/dbaws.js');
-const dbcdn1 = require('nano')('http://1:1@db2.arpecop.com/cdn');
-const nano = require('nano')('http://1:1@vaultx.herokuapp.com/');
-nano.db.create('cdn');
-var dbcdn = nano.db.use('cdn');
+const dbcdn = require('nano')('http://1:1@db2.arpecop.com/cdn');
+
 const gm = require('gm').subClass({
     imageMagick: true
 });
@@ -28,18 +26,14 @@ function upload(json, callback) {
         }
     });
     var form = req.form();
-    form.append('file', json.Body, {
-        filename: 'myfile.jpg',
-        contentType: json.ContentType
+    //form.append('file', json.Body, { filename: 'myfile.jpg',contentType: json.ContentType});
+
+
+    dbcdn.attachment.insert(json.Key, 'f.jpg', json.Body, json.ContentType, function (err, body) {
+        console.log(body);
+        callback()
     });
 
-    dbcdn1.attachment.insert(json.Key, 'f.jpg', json.Body, json.ContentType, function (err, body) {
-        console.log(body);
-        dbcdn.attachment.insert(json.Key, 'f.jpg', json.Body, json.ContentType, function (err, body) {
-            console.log(body);
-            callback()
-        });
-    });
 }
 
 
@@ -74,7 +68,7 @@ var downloadnprocess = function (id, stack, callback) {
                                         Key: doc.id + '300',
                                         Body: filedata,
                                         ContentType: 'image/jpeg'
-                                    }, function (err, dataxssss) {})
+                                    }, function (err, dataxssss) { })
                                 })
                             });
 
@@ -86,7 +80,7 @@ var downloadnprocess = function (id, stack, callback) {
                                         Key: doc.id + 'feed',
                                         Body: filedata,
                                         ContentType: 'image/jpeg'
-                                    }, function (err, dataxssss) {})
+                                    }, function (err, dataxssss) { })
                                 })
                             });
                         });
@@ -109,7 +103,7 @@ var downloadnprocess = function (id, stack, callback) {
 
 if (!process.env.PORT) {
 
-    downloadnprocess('http://db.arpecop.com/fc/cdn/1491422366380_9/f.jpg', 'testxx', () => {})
+    downloadnprocess('http://db.arpecop.com/fc/cdn/1491422366380_9/f.jpg', 'testxx', () => { })
     // downloadnprocess('http://db.arpecop.com/fc/cdn/1491421286645_7/f.jpg', 'testxx', () => {})
     //https://db.arpecop.com/fc/cdn/1491239343240_8/f.jpg
 }
