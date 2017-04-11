@@ -70,7 +70,7 @@ function get(id, callback) {
 
 module.exports = {
     'get': get,
-
+    'exist': get,
     'insert': put,
     'put': put,
     'query': db.query
