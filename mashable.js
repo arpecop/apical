@@ -300,14 +300,7 @@ function newsapix(source, callback) {
 
 
 function newsapi(dummy, callback) {
-    db.get({
-        'id': 'newsen',
-        'limit': 1
-    }, function (e, doc) {
-        console.log('posting scheduled promo last post' + doc.docs[0].id);
 
-        promo.post(doc.docs[0].id, process.env.article_token, doc.docs[0].title, 'poparticles', function () { });
-    })
     var sources = [{
         'src': 'engadget',
         'get': 'latest'
@@ -376,10 +369,21 @@ function newsapi(dummy, callback) {
             console.log('📦 delivered ' + deliver.src);
             cb();
         });
-    },
-        function (err, results) {
-            callback()
-        });
+    }, function (err, results) {
+        db.get({
+            'id': 'newsen',
+            'limit': 1
+        }, function (e, doc) {
+            console.log('posting scheduled promo last post' + doc.docs[0].id);
+
+            promo.post(doc.docs[0].id, process.env.article_token, doc.docs[0].title, 'poparticles', function () {
+
+                callback()
+
+            });
+        })
+
+    });
 }
 
 if (!process.env.PORT) {
