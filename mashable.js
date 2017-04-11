@@ -120,19 +120,19 @@ function crunch(id, callback) {
 function upworthy(id, callback) {
     Feed.load('http://feeds.feedburner.com/upworthy', function (err, rss) {
         async.eachSeries(rss.items, function (item, cb) {
-                let json = item;
-                json.fullimg = item.enclosures ? item.enclosures[0].url.split('?')[0] : 'https://www.upworthy.com/assets/social-eyecatcher-orange-0a6d6dca485d6e1c339cae4cfc777544.png';
-                json.provider = 'upworthy';
-                json.source = json.url;
-                json.enclosures = null;
-                json.description = striptags(item.description);
-                json.uid = json.created + '_u';
+            let json = item;
+            json.fullimg = item.enclosures ? item.enclosures[0].url.split('?')[0] : 'https://www.upworthy.com/assets/social-eyecatcher-orange-0a6d6dca485d6e1c339cae4cfc777544.png';
+            json.provider = 'upworthy';
+            json.source = json.url;
+            json.enclosures = null;
+            json.description = striptags(item.description);
+            json.uid = json.created + '_u';
 
-                insertdb(json, function () {
-                    cb();
-                })
+            insertdb(json, function () {
+                cb();
+            })
 
-            },
+        },
             function (err, results) {
                 callback()
             });
@@ -147,21 +147,21 @@ function distractify(x, callback) {
         if (!er && body.length > 200) {
 
             async.eachSeries(JSON.parse(body).pkg.resources[0][1], function (item, cb) {
-                    //console.log(item);
-                    var json = {};
-                    json.title = item.title;
-                    json.description = item.facebookDesc
-                    json.provider = "Distractify";
-                    json.fullimg = item.featuredImage.originalFileUrl;
-                    json.source = 'http://distractify.com' + item.permalink;
-                    json.uid = item.sid;
-                    insertdb(json, function () {
-                        cb();
-                    })
+                //console.log(item);
+                var json = {};
+                json.title = item.title;
+                json.description = item.facebookDesc
+                json.provider = "Distractify";
+                json.fullimg = item.featuredImage.originalFileUrl;
+                json.source = 'http://distractify.com' + item.permalink;
+                json.uid = item.sid;
+                insertdb(json, function () {
+                    cb();
+                })
 
 
 
-                },
+            },
                 function (err, results) {
                     callback()
                 });
@@ -179,19 +179,19 @@ function boing(id, callback) {
     Feed.load('http://boingboing.net/feed', function (err, rss) {
         async.eachSeries(rss.items, function (item, cb) {
 
-                let json = item;
-                json.fullimg = item.description.split('src="')[1].split('"')[0];
-                json.provider = 'BoingBoing';
-                json.source = json.url;
+            let json = item;
+            json.fullimg = item.description.split('src="')[1].split('"')[0];
+            json.provider = 'BoingBoing';
+            json.source = json.url;
 
-                json.description = striptags(item.description);
-                json.uid = json.created + '_b';
-                //console.log(json);
-                insertdb(json, function () {
-                    cb();
-                })
+            json.description = striptags(item.description);
+            json.uid = json.created + '_b';
+            //console.log(json);
+            insertdb(json, function () {
+                cb();
+            })
 
-            },
+        },
             function (err, results) {
                 callback()
             });
@@ -207,31 +207,31 @@ function buzz(x, callback) {
         if (!er && body.length > 100) {
 
             async.eachSeries(JSON.parse(body).results, function (item, cb) {
-                    //console.log(item);
-                    var json = {};
-                    json.title = item.name;
-                    json.provider = "Buzzfeed";
-                    json.source = 'https://www.buzzfeed.com' + item.url;
-                    json.fullimg = item.image;
-                    json.uid = item.id + '_buzz';
-                    db.get(json.uid, function (err, doc) {
-                        if (err) {
-                            request.get('https://graph.facebook.com/?id=' + json.source + '&access_token=' + process.env.article_token, function (er, ass, body) {
-                                json.description = JSON.parse(body).og_object.description;
+                //console.log(item);
+                var json = {};
+                json.title = item.name;
+                json.provider = "Buzzfeed";
+                json.source = 'https://www.buzzfeed.com' + item.url;
+                json.fullimg = item.image;
+                json.uid = item.id + '_buzz';
+                db.get(json.uid, function (err, doc) {
+                    if (err) {
+                        request.get('https://graph.facebook.com/?id=' + json.source + '&access_token=' + process.env.article_token, function (er, ass, body) {
+                            json.description = JSON.parse(body).og_object.description;
 
-                                insertdb(json, function () {
-                                    cb();
-                                })
-                            });
-                        } else {
+                            insertdb(json, function () {
+                                cb();
+                            })
+                        });
+                    } else {
 
-                            cb();
-                        }
-                    })
+                        cb();
+                    }
+                })
 
 
 
-                },
+            },
                 function (err, results) {
                     callback()
                 });
@@ -249,19 +249,19 @@ function huffingtonpost(id, callback) {
     Feed.load('http://www.huffingtonpost.com/feeds/index.xml', function (err, rss) {
         async.eachSeries(rss.items, function (item, cb) {
 
-                let json = item;
-                json.fullimg = item.enclosures ? item.enclosures[0].url : 'https://www.upworthy.com/assets/social-eyecatcher-orange-0a6d6dca485d6e1c339cae4cfc777544.png';
-                json.provider = 'huffingtonpost';
-                json.source = json.url;
-                json.enclosures = null;
-                json.description = striptags(item.description);
-                json.uid = json.created + '_huff';
-                insertdb(json, function () {
-                    cb();
-                })
+            let json = item;
+            json.fullimg = item.enclosures ? item.enclosures[0].url : 'https://www.upworthy.com/assets/social-eyecatcher-orange-0a6d6dca485d6e1c339cae4cfc777544.png';
+            json.provider = 'huffingtonpost';
+            json.source = json.url;
+            json.enclosures = null;
+            json.description = striptags(item.description);
+            json.uid = json.created + '_huff';
+            insertdb(json, function () {
+                cb();
+            })
 
 
-            },
+        },
             function (err, results) {
                 callback()
             });
@@ -277,17 +277,17 @@ function newsapix(source, callback) {
         if (!er && body.length > 100) {
             async.eachSeries(JSON.parse(body).articles, function (item, cb) {
 
-                    var json = {};
-                    json.title = item.title;
-                    json.provider = source.src;
-                    json.description = item.description;
-                    json.source = item.url;
-                    json.fullimg = item.urlToImage;
-                    json.uid = new Date(item.publishedAt).getTime() + '' + source.src;
-                    insertdb(json, function () {
-                        cb();
-                    })
-                },
+                var json = {};
+                json.title = item.title;
+                json.provider = source.src;
+                json.description = item.description;
+                json.source = item.url;
+                json.fullimg = item.urlToImage;
+                json.uid = new Date(item.publishedAt).getTime() + '' + source.src;
+                insertdb(json, function () {
+                    cb();
+                })
+            },
                 function (err, results) {
                     callback(source)
                 });
@@ -304,79 +304,79 @@ function newsapi(dummy, callback) {
         'id': 'newsen',
         'limit': 1
     }, function (e, doc) {
-        console.log(doc.docs[0].id);
+        console.log('posting scheduled promo last post' + doc.docs[0].id);
 
-        promo.post(doc.docs[0].id, process.env.article_token, doc.docs[0].title, 'poparticles', function () {});
+        promo.post(doc.docs[0].id, process.env.article_token, doc.docs[0].title, 'poparticles', function () { });
     })
     var sources = [{
-            'src': 'engadget',
-            'get': 'latest'
-        },
-        {
-            'src': 'ars-technica',
-            'get': 'top'
-        },
+        'src': 'engadget',
+        'get': 'latest'
+    },
+    {
+        'src': 'ars-technica',
+        'get': 'top'
+    },
 
-        {
-            'src': 'bbc-news',
-            'get': 'top'
-        },
-        {
-            'src': 'bloomberg',
-            'get': 'top'
-        },
-        {
-            'src': 'daily-mail',
-            'get': 'latest'
-        },
-        {
-            'src': 'newsweek',
-            'get': 'latest'
-        },
-        {
-            'src': 'entertainment-weekly',
-            'get': 'latest'
-        },
-        {
-            'src': 'hacker-news',
-            'get': 'latest'
-        },
-        {
-            'src': 'google-news',
-            'get': 'top'
-        },
-        {
-            'src': 'ign',
-            'get': 'latest'
-        },
-        {
-            'src': 'independent',
-            'get': 'top'
-        },
-        {
-            'src': 'mirror',
-            'get': 'latest'
-        },
-        {
-            'src': 'the-lad-bible',
-            'get': 'latest'
-        },
-        {
-            'src': 'buzzfeed',
-            'get': 'latest'
-        },
-        {
-            'src': 'mashable',
-            'get': 'latest'
-        }
+    {
+        'src': 'bbc-news',
+        'get': 'top'
+    },
+    {
+        'src': 'bloomberg',
+        'get': 'top'
+    },
+    {
+        'src': 'daily-mail',
+        'get': 'latest'
+    },
+    {
+        'src': 'newsweek',
+        'get': 'latest'
+    },
+    {
+        'src': 'entertainment-weekly',
+        'get': 'latest'
+    },
+    {
+        'src': 'hacker-news',
+        'get': 'latest'
+    },
+    {
+        'src': 'google-news',
+        'get': 'top'
+    },
+    {
+        'src': 'ign',
+        'get': 'latest'
+    },
+    {
+        'src': 'independent',
+        'get': 'top'
+    },
+    {
+        'src': 'mirror',
+        'get': 'latest'
+    },
+    {
+        'src': 'the-lad-bible',
+        'get': 'latest'
+    },
+    {
+        'src': 'buzzfeed',
+        'get': 'latest'
+    },
+    {
+        'src': 'mashable',
+        'get': 'latest'
+    }
     ]
 
     async.eachSeries(sources, function (item, cb) {
-            newsapix(item, function (deliver) {
-                console.log('📦 delivered ' + deliver.src);
-                cb();
-            });
-        },
+        newsapix(item, function (deliver) {
+            console.log('📦 delivered ' + deliver.src);
+            cb();
+        });
+    },
         function (err, results) {
             callback()
         });
