@@ -27,13 +27,11 @@ function post(url, token, title, db, callback) {
                                 batch: JSON.stringify(chunk)
                             }
                         }, function (err, httpResponse, body) {
-                            console.log(JSON.parse(body));
-
                             count = Math.round(count + JSON.parse(body).length);
                             cb();
                         });
                     }, function done() {
-                        console.log('🚨' + count + ' posted http://arpecop.herokuapp.com/' + url);
+                        console.log('🚨' + count + ' posted http://arpecop.herokuapp.com/box/' + url);
                         callback();
                     });
                 } else {
