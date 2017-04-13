@@ -28,7 +28,7 @@ function kartinki_en(lat, callback) {
     'id': 'enimgsx',
     'limit': 1
   }, function (e, doc) {
-    promo.post('?r='doc.docs[0].id, process.env.mystbox_token, template, 'mystbox', function () { });
+    promo.post('?r=' + doc.docs[0].id, process.env.mystbox_token, template, 'mystbox', function () { });
   })
 
 
