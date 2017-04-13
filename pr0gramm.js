@@ -15,7 +15,7 @@ var template = 'this image collected more than 30 likes.';
 var post = async.queue(function (task, callback) {
   downloadnprocess.go(task.imagex, 'enimgsx', function (shortie) {
     console.log('posting' + shortie);
-    promo.post(shortie, process.env.mystbox_token, template, 'mystbox', function () {
+    promo.post('?r=' + shortie, process.env.mystbox_token, template, 'mystbox', function () {
       callback();
     });
   });
@@ -37,7 +37,7 @@ function programm(ass, callbackyyy) {
                 _id: item.id + 'x'
               }, function (err, ass) {
                 item.imagex = 'http://img.pr0gramm.com/' + item.image;
-                post.push(item, function () {});
+                post.push(item, function () { });
                 callbackx();
               })
             } else {
@@ -73,7 +73,7 @@ function ninegag(params, callback) {
     async.eachSeries(arr, function iteratee(item, cb) {
       db.insert({
         _id: item
-      }, function (err, ass) {})
+      }, function (err, ass) { })
       db.exist(item, function (err, doc) {
         if (err) {
           request.get('http://img-9gag-fun.9cache.com/photo/' + item + '_700b.jpg', function (e, h, bodyx) {
