@@ -47,7 +47,7 @@ function kartinki_en(lat, callback) {
                 }, function (dsd, dsdsd) {
                   console.log(item.full_picture);
                   downloadnprocess.go(item.full_picture, 'enimgsx', function (shortie) {
-                    promo.post(shortie, process.env.mystbox_token, template, 'mystbox', function () {
+                    promo.post('?r=' + shortie, process.env.mystbox_token, template, 'mystbox', function () {
                       callback1();
                     })
                   })
