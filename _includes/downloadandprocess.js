@@ -16,26 +16,6 @@ const gm = require('gm').subClass({
 });
 
 
-function upload(json, callback) {
-
-    var req = request.post('http://db2.arpecop.com/up', function (err, resp, body) {
-        if (err) {
-            console.log('Error!');
-        } else {
-            console.log('URL: ' + body);
-        }
-    });
-    var form = req.form();
-    //form.append('file', json.Body, { filename: 'myfile.jpg',contentType: json.ContentType});
-
-
-    dbcdn.attachment.insert(json.Key, 'f.jpg', json.Body, json.ContentType, function (err, body) {
-        console.log(body);
-        callback()
-    });
-
-}
-
 
 var downloadnprocess = function (id, stack, callback) {
     var dl = get(id);

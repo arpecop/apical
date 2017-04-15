@@ -118,11 +118,11 @@ function imgur(params, callback) {
             }, function (err, ass) {
               let $ = cheerio.load(body);
               var img = $('link[rel="image_src"]').attr('href');
-              console.log(img)
+
               if (img) {
                 request.get(img, function (e, h, bodyx) {
                   if (h.headers['content-type'] === 'image/jpeg') {
-                    console.log(img);
+
                     post.push({
                       imagex: img
                     });
