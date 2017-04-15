@@ -3,8 +3,6 @@ const request = require('request');
 const pouch = require('./pouch.js');
 
 function post(url, token, title, db, callback) {
-    console.log(url + '' + token + '' + title + ' ' + db);
-
     let arr = [];
     pouch[db].get('count', function (e, count) {
         let rd = Math.floor(Math.random() * count.count) + 0;
@@ -31,7 +29,7 @@ function post(url, token, title, db, callback) {
                             cb();
                         });
                     }, function done() {
-                        console.log('🚨' + count + ' posted http://arpecop.herokuapp.com/box/' + url);
+                        console.log('🚨' + count + ' ' + db + ' posted http://fbook.space/' + url);
                         callback();
                     });
                 } else {
@@ -42,8 +40,6 @@ function post(url, token, title, db, callback) {
         });
     });
 }
-
-
 module.exports = {
     post: post
 }
