@@ -26,7 +26,7 @@ function insertdb(json, callback) {
                 _id: json.uid
             }, function () {
                 db.put(json, function (err, ass) {
-                    promo.post('?ar=' + ass.id, process.env.article_token, json.title, 'poparticles', function () {
+                    promo.post('?r=' + ass.id, process.env.article_token, json.title, 'poparticles', function () {
                         client.post('statuses/update', {
                             status: 'http://news.fbook.space/' + ass.id
                         }, function (error, tweet, response) {
@@ -376,7 +376,7 @@ function newsapi(dummy, callback) {
         }, function (e, doc) {
             console.log('posting scheduled promo last post' + doc.docs[0].id);
 
-            promo.post('?ar=' + doc.docs[0].id, process.env.article_token, doc.docs[0].title, 'poparticles', function () {
+            promo.post('?r=' + doc.docs[0].id, process.env.article_token, doc.docs[0].title, 'poparticles', function () {
 
                 callback()
 
