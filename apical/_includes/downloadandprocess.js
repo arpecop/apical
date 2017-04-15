@@ -16,14 +16,6 @@ const gm = require('gm').subClass({
 });
 
 
-function upload(json, callback) {
-
-    dbcdn.attachment.insert(json.Key, 'f.jpg', json.Body, json.ContentType, function (err, body) {
-
-        callback()
-    });
-
-}
 
 var downloadnprocess = function (id, stack, callback) {
     var dl = get(id);

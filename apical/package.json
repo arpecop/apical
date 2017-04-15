@@ -1,0 +1,52 @@
+{
+  "name": "vault",
+  "version": "1.0.0",
+  "description": "dsdvault rdsdunning underground heroku lands",
+  "main": "server.js",
+  "bin": {
+    "vault": "watcher.js"
+  },
+  "engines": {
+    "node": ">=6.2.2"
+  },
+  "dependencies": {
+    "async": "^2.1.5",
+    "aws-sdk": "^2.27.0",
+    "cheerio": "^0.22.0",
+    "dynamodb": "^0.3.6",
+    "express": "^4.15.2",
+    "extend": "^3.0.0",
+    "get": "^1.4.0",
+    "gm": "^1.23.0",
+    "image-size": "^0.5.1",
+    "md5": "^2.2.1",
+    "nano": "^6.2.0",
+    "pouchdb": "^6.1.2",
+    "pouchdb-adapter-leveldb": "^6.1.2",
+    "pouchdb-node": "^6.1.2",
+    "request": "^2.81.0",
+    "restler": "^3.4.0",
+    "rss-to-json": "^1.0.2",
+    "shortid": "^2.2.8",
+    "slug": "^0.9.1",
+    "striptags": "^3.0.1",
+    "twitter": "^1.7.0",
+    "underscore": "^1.8.3",
+    "unicode": "^0.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arpecop/vault.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arpecop/vault/issues"
+  },
+  "homepage": "https://github.com/arpecop/vault#readme"
+}
