@@ -59,7 +59,7 @@ function post(id, callback) {
         form: {
           published: process.env.PORT ?
             1 : 0,
-          link: 'https://db.arpecop.com/share/' + id + '',
+          link: 'http://db.arpecop.com/share/' + id + '',
           access_token: page.access_token
         }
       }, function (error, response, body) {
