@@ -53,7 +53,7 @@ function post_img(page, callback) {
 function post(id, callback) {
   console.log('posting ' + id);
   //function post(url, token, title, db, callback) {
-  promo.post('?r=' + id, process.env.izvestie_token, template, 'bgusers', function () {
+  promo.post(id, process.env.izvestie_token, template, 'bgusers', function () {
     async.eachSeries(_.shuffle(pages), function (page, callbackx) {
       request.post('https://graph.facebook.com/' + page.id + '/feed', {
         form: {
@@ -84,7 +84,7 @@ function kartinki(lat, callback) {
     'id': 'bgimgsx',
     'limit': 1
   }, function (e, doc) {
-    promo.post('?r=' + doc.docs[0].id, process.env.izvestie_token, template, 'bgusers', function () { })
+    promo.post(doc.docs[0].id, process.env.izvestie_token, template, 'bgusers', function () { })
   })
 
   async.eachSeries(pagestoget.rows, function (item, callbackx) {
