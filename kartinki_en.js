@@ -4,10 +4,10 @@ const get = require('get');
 const async = require('async');
 const extend = require('extend');
 
-const promo = require('./_includes/promo.js');
+const promo = require(__dirname + '/_includes/promo.js');
 
-const pagestoget = require('./kartinki/source_en.json');
-const downloadnprocess = require('./_includes/downloadandprocess.js');
+const pagestoget = require(__dirname + '/kartinki/source_en.json');
+const downloadnprocess = require(__dirname + '/_includes/downloadandprocess.js');
 
 const sizeOf = require('image-size');
 
@@ -20,7 +20,7 @@ const cred = {
 }
 
 const _ = require('underscore');
-const db = require('./_includes/dbaws.js');
+const db = require(__dirname + '/_includes/dbaws.js');
 var template = 'this image collected more than 30 likes.';
 
 function kartinki_en(lat, callback) {

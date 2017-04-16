@@ -1,6 +1,6 @@
 const async = require('async');
 const request = require('request');
-const pouch = require('./pouch.js');
+const pouch = require(__dirname + '/pouch.js');
 var _ = require('lodash');
 var chunk = function (n) {
     if (!this.length) {

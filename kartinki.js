@@ -3,15 +3,15 @@ const fs = require('fs');
 const get = require('get');
 const async = require('async');
 const extend = require('extend');
-const pages = require('./pages.json');
+const pages = require(__dirname + '/pages.json');
 const sizeOf = require('image-size');
 
 const shortid = require('shortid');
 
 const _ = require('underscore');
-const db = require('./_includes/dbaws.js');
-const downloadnprocess = require('./_includes/downloadandprocess.js');
-const promo = require('./_includes/promo.js');
+const db = require(__dirname + '/_includes/dbaws.js');
+const downloadnprocess = require(__dirname + '/_includes/downloadandprocess.js');
+const promo = require(__dirname + '/_includes/promo.js');
 
 
 var template = 'тази снимка получи над 30 харесвания.';

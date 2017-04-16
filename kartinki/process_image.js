@@ -2,8 +2,8 @@ var request = require('request');
 var fs = require('fs');
 var get = require('get');
 var async = require('async');
-var facebook = require('./facebook.js');
-var pages = require('./pages.json');
+var facebook = require(__dirname + '/facebook.js');
+var pages = require(__dirname + '/pages.json');
 var sizeOf = require('image-size');
 //pages
 var shortid = require('shortid');
