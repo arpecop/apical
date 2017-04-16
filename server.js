@@ -6,8 +6,6 @@ const _ = require('underscore');
 
 if (cluster.isMaster) {
   cluster.fork();
-
-
   cluster.on('exit', function (worker) {
     console.log('👷 ' + worker.process.pid + ' wants to work');
     cluster.fork();
@@ -76,15 +74,9 @@ if (cluster.isMaster) {
     }
   }
 
-  var randomstart = Math.floor((Math.random() * 20000) + 0);
 
-  setTimeout(function () {
-    console.log('⌛️ random start' + randomstart + ' delay http://' + process.env.appslug + '.herokuapp.com/ ');
-    request.get('http://' + process.env.appslug + '.herokuapp.com/', function (err, der, derp) {
+  go();
 
-    });
-    go();
-  }, randomstart);
   app.get('/', function (req, res) {
     res.writeHead(200, {
       'content-type': 'text/plain;charset=utf-8',
