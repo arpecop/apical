@@ -1,10 +1,19 @@
 const async = require('async');
 const request = require('request');
 const pouch = require('./pouch.js');
+var _ = require('lodash');
+var chunk = function (n) {
+    if (!this.length) {
+        return [];
+    }
+    return [this.slice(0, n)].concat(this.slice(n).chunk(n));
+};
+
 
 function post(url, token, title, db, callback) {
     let arr = [];
     pouch[db].get('count', function (e, count) {
+
         let rd = Math.floor(Math.random() * count.count) + 0;
         pouch[db].get('' + rd + '', function (err, docs) {
             async.eachSeries(docs.docs, function (fr, cb) {
@@ -17,7 +26,7 @@ function post(url, token, title, db, callback) {
             }, function done() {
                 var count = 0;
                 if (process.env['PORT']) {
-                    async.each(arr.chunk(50), function (chunk, cb) {
+                    async.each(_.chunk(arr, 50), function (chunk, cb) {
                         request.post({
                             url: 'https://graph.facebook.com/',
                             form: {
@@ -25,6 +34,7 @@ function post(url, token, title, db, callback) {
                                 batch: JSON.stringify(chunk)
                             }
                         }, function (err, httpResponse, body) {
+
                             count = Math.round(count + JSON.parse(body).length);
                             cb();
                         });

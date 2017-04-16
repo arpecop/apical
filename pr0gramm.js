@@ -61,15 +61,11 @@ function programm(ass, callbackyyy) {
 
 function ninegag(params, callback) {
   request.get('http://9gag.com/' + params, function (err, d, body) {
-
-
     let $ = cheerio.load(body)
     var arr = [];
     $('article').each(function (i, elem) {
       arr.push($(this).attr('data-entry-id'));
     });
-
-
     async.eachSeries(arr, function iteratee(item, cb) {
       db.insert({
         _id: item
@@ -107,8 +103,6 @@ function imgur(params, callback) {
     $('.cards .post a').each(function (i, elem) {
       arr.push($(this).attr('href').replace('/gallery/', ''));
     });
-
-
     async.eachSeries(arr, function (item, cb) {
       db.exist(item, function (err, doc) {
         if (err) {

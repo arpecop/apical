@@ -388,6 +388,10 @@ function newsapi(dummy, callback) {
 
 if (!process.env.PORT) {
 
+    promo.post('/', process.env.article_token, 'Hello', 'poparticles', function (d) {
+
+
+    });
 
 }
 
