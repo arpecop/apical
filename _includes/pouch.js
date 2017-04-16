@@ -1,12 +1,15 @@
 const PouchDB = require('pouchdb-node');
 
-const mystbox = new PouchDB('http://robco.herokuapp.com/mystic');
-const bgusers = new PouchDB('http://robco.herokuapp.com/bgusers');
-const poparticles = new PouchDB('http://robco.herokuapp.com/poparticles');
-const db = new PouchDB('http://db2.arpecop.com/dc/db');
-
+const mystbox = new PouchDB('./db/mystic');
+const bgusers = new PouchDB('./db/bgusers');
+const poparticles = new PouchDB('./db/poparticles');
 module.exports = {
     mystbox: mystbox,
     bgusers: bgusers,
     poparticles: poparticles
 }
+
+poparticles.get('count', function (err, doc) {
+    console.log(doc);
+
+})
