@@ -8,8 +8,3 @@ module.exports = {
     bgusers: bgusers,
     poparticles: poparticles
 }
-
-bgusers.get('count', function (err, doc) {
-    console.log(doc);
-
-})

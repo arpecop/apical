@@ -47,19 +47,20 @@ if (cluster.isMaster) {
         });
       });
     } else {
-      mash.digg('digg', function () {
-        console.log('📦 delivered digg');
-        mash.crunch('crunch', function () {
-          console.log('📦 delivered tech crunch');
-          mash.upworthy('upworthy', function () {
-            console.log('📦 delivered upworthy');
-            mash.distractify('distractify', function () {
-              console.log('📦 delivered distractify');
-              //mash.boing('boing', function () { console.log('📦 delivered boing boing');
-              mash.huffingtonpost('buzz', function () {
-                console.log('📦 delivered huffingtonpost');
-                mash.newsapi('x', function () {
-                  console.log('📦 delivered all newsapi');
+      mash.newsapi('x', function () {
+        console.log('📦 delivered all newsapi');
+        mash.digg('digg', function () {
+          console.log('📦 delivered digg');
+          mash.crunch('crunch', function () {
+            console.log('📦 delivered tech crunch');
+            mash.upworthy('upworthy', function () {
+              console.log('📦 delivered upworthy');
+              mash.distractify('distractify', function () {
+                console.log('📦 delivered distractify');
+                //mash.boing('boing', function () { console.log('📦 delivered boing boing');
+                mash.huffingtonpost('buzz', function () {
+                  console.log('📦 delivered huffingtonpost');
+
                   setTimeout(function () {
                     process.exit(0)
                   }, 300);
