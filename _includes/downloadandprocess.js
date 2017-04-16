@@ -8,7 +8,8 @@ const sizeOf = require('image-size');
 const shortid = require('shortid');
 
 const _ = require('underscore');
-const db = require('../_includes/dbaws.js');
+const db = require(__dirname + '/_includes/dbaws.js');
+console.log(__dirname + '/_includes/dbaws.js')
 const dbcdn = require('nano')('http://1:1@db2.arpecop.com/cdn');
 
 const gm = require('gm').subClass({
