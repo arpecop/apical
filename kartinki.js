@@ -88,8 +88,11 @@ function kartinki(lat, callback) {
   })
 
   async.eachSeries(pagestoget.rows, function (item, callbackx) {
-    var rtoken = Math.floor((Math.random() * 90) + 0);
-    var url = 'https://graph.facebook.com/v2.6/' + item.id + '/feed?access_token=' + process.env.izvestie_token + '&fields=id,likes,type,full_picture&limit=1'
+
+    var rtoken = Math.floor((Math.random() * pages.length) + 0);
+
+
+    var url = 'https://graph.facebook.com/v2.6/' + item.id + '/feed?access_token=' + pages[rtoken].access_token + '&fields=id,likes,type,full_picture&limit=1'
     request(url, function (error, response, body) {
       var collect = [];
       if (!error && response.statusCode == 200) {
@@ -126,6 +129,7 @@ function kartinki(lat, callback) {
 }
 
 if (!process.env.PORT) {
+
   kartinki('1', () => {
     console.log('done')
   })

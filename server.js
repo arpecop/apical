@@ -6,7 +6,7 @@ const _ = require('underscore');
 
 if (cluster.isMaster) {
   cluster.fork();
-  cluster.fork();
+
 
   cluster.on('exit', function (worker) {
     console.log('👷 ' + worker.process.pid + ' wants to work');
@@ -48,7 +48,7 @@ if (cluster.isMaster) {
           });
         });
       });
-    } else if (process.env.appslug === 'apicall2') {
+    } else {
       mash.digg('digg', function () {
         console.log('📦 delivered digg');
         mash.crunch('crunch', function () {
