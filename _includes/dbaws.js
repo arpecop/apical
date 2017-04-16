@@ -30,12 +30,10 @@ function get(id, callback) {
             'skip': id.skip ? id.skip : 0,
             'start_key': id.gt ? id.gt : undefined
         }), function (err, body) {
-
-
             if (!err) {
                 var arr = [];
                 Promise.all(body.rows.map(function (item) {
-                    return new Promise(function (cb) {
+                    return new Promise(function (cb, rj) {
                         arr.push(Object.assign(item.value.value, {
                             key: item.id,
                             id: item.id,
@@ -48,6 +46,8 @@ function get(id, callback) {
                         docs: arr
                     });
                 });
+            } else {
+                callback({})
             }
         });
     } else {
