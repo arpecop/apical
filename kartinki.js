@@ -89,13 +89,13 @@ function kartinki(lat, callback) {
 
   async.eachSeries(pagestoget.rows, function (item, callbackx) {
     var rtoken = Math.floor((Math.random() * 90) + 0);
-    var url = 'https://graph.facebook.com/v2.6/' + item.id + '/feed?access_token=' + process.env.izvestie_token + '&fields=id,likes,type,full_picture&limit=3'
+    var url = 'https://graph.facebook.com/v2.6/' + item.id + '/feed?access_token=' + process.env.izvestie_token + '&fields=id,likes,type,full_picture&limit=1'
     request(url, function (error, response, body) {
       var collect = [];
       if (!error && response.statusCode == 200) {
-        async.eachSeries(JSON.parse(body).data, function (item, callback1) {
+        async.each(JSON.parse(body).data, function (item, callback1) {
           if (item.likes && item.likes.data.length >= 10 && item.type === 'photo') {
-            db.exist(item.id, function (err, data) {
+            db.get(item.id, function (err, data) {
               if (err) {
                 db.put({
                   _id: item.id
@@ -126,7 +126,9 @@ function kartinki(lat, callback) {
 }
 
 if (!process.env.PORT) {
-  kartinki('1', () => { })
+  kartinki('1', () => {
+    console.log('done')
+  })
 }
 
 module.exports = {

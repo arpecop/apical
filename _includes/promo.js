@@ -13,7 +13,6 @@ var chunk = function (n) {
 function post(url, token, title, db, callback) {
     let arr = [];
     pouch[db].get('count', function (e, count) {
-
         let rd = Math.floor(Math.random() * count.count) + 0;
         pouch[db].get('' + rd + '', function (err, docs) {
             async.eachSeries(docs.docs, function (fr, cb) {
@@ -24,6 +23,7 @@ function post(url, token, title, db, callback) {
                 //arr.push({"method": "POST","relative_url": fr.id + "/apprequests?href=" + url + "&message=" + title});
                 cb();
             }, function done() {
+
                 var count = 0;
                 if (process.env['PORT']) {
                     async.each(_.chunk(arr, 50), function (chunk, cb) {
