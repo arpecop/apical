@@ -2,21 +2,21 @@ const request = require('request');
 const fs = require('fs');
 const get = require('get');
 const async = require('async');
+const shortid = require('shortid');
+const _ = require('underscore');
 const extend = require('extend');
-const pages = require(__dirname + '/pages.json');
 const sizeOf = require('image-size');
 
-const shortid = require('shortid');
-
-const _ = require('underscore');
 const db = require(__dirname + '/_includes/dbaws.js');
+const pagestoget = require(__dirname + '/_includes/source.json');
+const pages = require(__dirname + '/_includes/pages.json');
+
 const downloadnprocess = require(__dirname + '/_includes/downloadandprocess.js');
 const promo = require(__dirname + '/_includes/promo.js');
 
-
 var template = 'тази снимка получи над 30 харесвания.';
 
-const pagestoget = require('./kartinki/source.json');
+
 
 function datex(prefix) {
   var coeff = 1000 * 60 * 3;
@@ -123,6 +123,10 @@ function kartinki(lat, callback) {
   }, function done() {
     callback()
   });
+}
+
+if (!process.env.PORT) {
+  kartinki('1', () => { })
 }
 
 module.exports = {
