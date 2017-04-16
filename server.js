@@ -49,7 +49,6 @@ if (cluster.isMaster) {
         });
       });
     } else if (process.env.appslug === 'apicall2') {
-
       mash.digg('digg', function () {
         console.log('📦 delivered digg');
         mash.crunch('crunch', function () {
@@ -74,7 +73,6 @@ if (cluster.isMaster) {
           });
         });
       });
-
     }
   }
 
