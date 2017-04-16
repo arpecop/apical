@@ -35,38 +35,38 @@ if (cluster.isMaster) {
             console.log('📦 delivered pr0gramm');
             pr0gramm.imgur('1', function () {
               console.log('📦 delivered imgur');
-              setTimeout(function () {
-                process.exit(0)
-              }, 300);
+              pr0gramm.ninegag('trending', function () {
+                console.log('📦 delivered 9gag trending');
+                pr0gramm.ninegag('hot', function () {
+                  console.log('📦 delivered 9gag hot');
+                  setTimeout(function () {
+                    process.exit(0)
+                  }, 300);
+                });
+              });
             });
           });
         });
       });
     } else if (process.env.appslug === 'apicall2') {
-      pr0gramm.ninegag('trending', function () {
-        console.log('📦 delivered 9gag trending');
-        pr0gramm.ninegag('hot', function () {
-          console.log('📦 delivered 9gag hot');
-          mash.digg('digg', function () {
-            console.log('📦 delivered digg');
 
-            mash.crunch('crunch', function () {
-              console.log('📦 delivered tech crunch');
-              mash.upworthy('upworthy', function () {
-                console.log('📦 delivered upworthy');
-                mash.distractify('distractify', function () {
-                  console.log('📦 delivered distractify');
-                  mash.boing('boing', function () {
-                    console.log('📦 delivered boing boing');
-                    mash.huffingtonpost('buzz', function () {
-                      console.log('📦 delivered huffingtonpost');
-                      mash.newsapi('x', function () {
-                        console.log('📦 delivered all newsapi');
-                        setTimeout(function () {
-                          process.exit(0)
-                        }, 300);
-                      });
-                    });
+      mash.digg('digg', function () {
+        console.log('📦 delivered digg');
+        mash.crunch('crunch', function () {
+          console.log('📦 delivered tech crunch');
+          mash.upworthy('upworthy', function () {
+            console.log('📦 delivered upworthy');
+            mash.distractify('distractify', function () {
+              console.log('📦 delivered distractify');
+              mash.boing('boing', function () {
+                console.log('📦 delivered boing boing');
+                mash.huffingtonpost('buzz', function () {
+                  console.log('📦 delivered huffingtonpost');
+                  mash.newsapi('x', function () {
+                    console.log('📦 delivered all newsapi');
+                    setTimeout(function () {
+                      process.exit(0)
+                    }, 300);
                   });
                 });
               });
@@ -74,29 +74,31 @@ if (cluster.isMaster) {
           });
         });
       });
-    }
+    });
+  });
+}
   }
 
-  var randomstart = Math.floor((Math.random() * 20000) + 0);
+var randomstart = Math.floor((Math.random() * 20000) + 0);
 
-  setTimeout(function () {
-    console.log('⌛️ random start' + randomstart + ' delay http://' + process.env.appslug + '.herokuapp.com/ ');
-    request.get('http://' + process.env.appslug + '.herokuapp.com/', function (err, der, derp) {
+setTimeout(function () {
+  console.log('⌛️ random start' + randomstart + ' delay http://' + process.env.appslug + '.herokuapp.com/ ');
+  request.get('http://' + process.env.appslug + '.herokuapp.com/', function (err, der, derp) {
 
-    });
-    go();
-  }, randomstart);
-  app.get('/', function (req, res) {
-    res.writeHead(200, {
-      'content-type': 'text/plain;charset=utf-8',
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers': 'X-Requested-With'
-    });
-    res.end('i got work to do mmmkay!')
+  });
+  go();
+}, randomstart);
+app.get('/', function (req, res) {
+  res.writeHead(200, {
+    'content-type': 'text/plain;charset=utf-8',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'X-Requested-With'
+  });
+  res.end('i got work to do mmmkay!')
 
-  })
+})
 
-  server.listen(port);
+server.listen(port);
 }
 
 
