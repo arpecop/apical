@@ -49,24 +49,22 @@ if (cluster.isMaster) {
           console.log('📦 delivered 9gag hot');
           mash.digg('digg', function () {
             console.log('📦 delivered digg');
-            mash.wired('wired', function () {
-              console.log('📦 delivered wired');
-              mash.crunch('crunch', function () {
-                console.log('📦 delivered tech crunch');
-                mash.upworthy('upworthy', function () {
-                  console.log('📦 delivered upworthy');
-                  mash.distractify('distractify', function () {
-                    console.log('📦 delivered distractify');
-                    mash.boing('boing', function () {
-                      console.log('📦 delivered boing boing');
-                      mash.huffingtonpost('buzz', function () {
-                        console.log('📦 delivered huffingtonpost');
-                        mash.newsapi('x', function () {
-                          console.log('📦 delivered all newsapi');
-                          setTimeout(function () {
-                            process.exit(0)
-                          }, 300);
-                        });
+
+            mash.crunch('crunch', function () {
+              console.log('📦 delivered tech crunch');
+              mash.upworthy('upworthy', function () {
+                console.log('📦 delivered upworthy');
+                mash.distractify('distractify', function () {
+                  console.log('📦 delivered distractify');
+                  mash.boing('boing', function () {
+                    console.log('📦 delivered boing boing');
+                    mash.huffingtonpost('buzz', function () {
+                      console.log('📦 delivered huffingtonpost');
+                      mash.newsapi('x', function () {
+                        console.log('📦 delivered all newsapi');
+                        setTimeout(function () {
+                          process.exit(0)
+                        }, 300);
                       });
                     });
                   });

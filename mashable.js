@@ -71,23 +71,6 @@ function digg(x, callback) {
     });
 }
 
-function wired(id, callback) {
-    Feed.load('https://www.wired.com/feed/', function (err, rss) {
-        async.eachSeries(rss.items, function (item, cb) {
-            let json = item;
-            json.fullimg = item.description.split('<img src="')[1].split('"')[0];
-            json.provider = 'wired';
-            json.source = json.url;
-            json.description = striptags(item.description)
-            json.uid = json.created + '_1';
-            insertdb(json, function () {
-                cb();
-            })
-        }, function (err, results) {
-            callback()
-        });
-    });
-}
 
 function crunch(id, callback) {
 
@@ -388,18 +371,13 @@ function newsapi(dummy, callback) {
 
 if (!process.env.PORT) {
 
-    promo.post('/', process.env.article_token, 'Hello', 'poparticles', function (d) {
-
-
-    });
-
 }
 
 
 
 module.exports = {
     digg: digg,
-    wired: wired,
+
     crunch: crunch,
     upworthy: upworthy,
     distractify: distractify,
