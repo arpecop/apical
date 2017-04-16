@@ -74,31 +74,30 @@ if (cluster.isMaster) {
           });
         });
       });
-    });
-  });
-}
+
+    }
   }
 
-var randomstart = Math.floor((Math.random() * 20000) + 0);
+  var randomstart = Math.floor((Math.random() * 20000) + 0);
 
-setTimeout(function () {
-  console.log('⌛️ random start' + randomstart + ' delay http://' + process.env.appslug + '.herokuapp.com/ ');
-  request.get('http://' + process.env.appslug + '.herokuapp.com/', function (err, der, derp) {
+  setTimeout(function () {
+    console.log('⌛️ random start' + randomstart + ' delay http://' + process.env.appslug + '.herokuapp.com/ ');
+    request.get('http://' + process.env.appslug + '.herokuapp.com/', function (err, der, derp) {
 
-  });
-  go();
-}, randomstart);
-app.get('/', function (req, res) {
-  res.writeHead(200, {
-    'content-type': 'text/plain;charset=utf-8',
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers': 'X-Requested-With'
-  });
-  res.end('i got work to do mmmkay!')
+    });
+    go();
+  }, randomstart);
+  app.get('/', function (req, res) {
+    res.writeHead(200, {
+      'content-type': 'text/plain;charset=utf-8',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers': 'X-Requested-With'
+    });
+    res.end('i got work to do mmmkay!')
 
-})
+  })
 
-server.listen(port);
+  server.listen(port);
 }
 
 
