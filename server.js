@@ -22,9 +22,12 @@ if (cluster.isMaster) {
   function go() {
     setTimeout(function () {
       console.log('💀 killing stuck worker 5 min ');
-      process.exit(0)
+      process.exit(0);
+      request.get('http://apicall.herokuapp.com/', () => { });
+      request.get('http://apicall2.herokuapp.com/', () => { });
     }, 300000);
     if (process.env.appslug === 'apicall') {
+      request.get('http://apicall.herokuapp.com/', () => { });
       kartinki.kartinki('1', function () {
         console.log('📦 delivered kartinki');
         kartinki_en.kartinki_en('1', function () {
@@ -47,6 +50,7 @@ if (cluster.isMaster) {
         });
       });
     } else {
+      request.get('http://apicall2.herokuapp.com/', () => { });
       mash.newsapi('x', function () {
         console.log('📦 delivered all newsapi');
         mash.digg('digg', function () {
