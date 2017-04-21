@@ -20,6 +20,8 @@ function upload(json, callback) {
 
     dbcdn.attachment.insert(json.Key, 'f.jpg', json.Body, json.ContentType, function (err, body) {
 
+        console.log(body);
+
         callback()
     });
 
@@ -64,7 +66,7 @@ var downloadnprocess = function (id, stack, callback) {
 
                             this.resize(450)
                             this.crop(450, 236, 0, 0)
-                            this.draw(['image Over 0,0 0,0 "./cover.png"'])
+                            this.draw(['image Over 0,0 0,0 "/app/_includes/cover.png"'])
                             this.write('/tmp/' + shortie + '_feed.jpg', function (err) {
                                 fs.readFile('/tmp/' + shortie + '_feed.jpg', function (err, filedata) {
                                     upload({
