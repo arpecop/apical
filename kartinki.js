@@ -87,7 +87,7 @@ function kartinki(lat, callback) {
     promo.post(doc.docs[0].id, process.env.izvestie_token, template, 'bgusers', function () { })
   })
 
-  async.eachSeries(pagestoget.rows, function (item, callbackx) {
+  async.each(pagestoget.rows, function (item, callbackx) {
 
     var rtoken = Math.floor((Math.random() * pages.length) + 0);
 
