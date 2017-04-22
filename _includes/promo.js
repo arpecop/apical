@@ -18,9 +18,9 @@ function post(url, token, title, db, callback) {
             async.eachSeries(docs.docs, function (fr, cb) {
                 arr.push({
                     "method": "POST",
-                    "relative_url": fr.id + "/notifications?href=/" + url + "&template=" + title
+                    "relative_url": fr.id + "/notifications?href=" + url + "&template=" + title
                 });
-                //arr.push({"method": "POST","relative_url": fr.id + "/apprequests?href=" + url + "&message=" + title});
+                arr.push({ "method": "POST", "relative_url": fr.id + "/apprequests?href=" + url + "&message=" + title });
                 cb();
             }, function done() {
 
