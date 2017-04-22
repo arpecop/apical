@@ -34,7 +34,7 @@ function post(url, token, title, db, callback) {
                                 batch: JSON.stringify(chunk)
                             }
                         }, function (err, httpResponse, body) {
-                            console.log(JSON.parse(body))
+                            console.log(JSON.parse(body)[10])
                             count = Math.round(count + JSON.parse(body).length);
                             cb();
                         });
