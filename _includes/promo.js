@@ -25,6 +25,7 @@ function post(url, token, title, db, callback) {
             }, function done() {
 
                 var count = 0;
+                var counterr = 0;
                 if (process.env['PORT']) {
                     async.each(_.chunk(arr, 50), function (chunk, cb) {
                         request.post({
@@ -34,9 +35,15 @@ function post(url, token, title, db, callback) {
                                 batch: JSON.stringify(chunk)
                             }
                         }, function (err, httpResponse, body) {
-                            console.log(JSON.parse(body)[10].body)
+
+                            async.each(JSON.parse(body), function (ix, cbx) {
+                                console.log(JSON.parse(ix))
+                                cbx();
+                            }, function done() {
+                                cb();
+                            });
                             count = Math.round(count + JSON.parse(body).length);
-                            cb();
+
                         });
                     }, function done() {
                         console.log('🚨' + count + ' ' + db + ' posted http://fbook.space/' + url);
