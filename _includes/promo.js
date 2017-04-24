@@ -37,7 +37,7 @@ function post(url, token, title, db, callback) {
                         }, function (err, httpResponse, body) {
 
                             async.each(JSON.parse(body), function (ix, cbx) {
-                                console.log(JSON.stringify(ix.body))
+                                console.log(JSON.parse(ix.body))
                                 cbx();
                             }, function done() {
                                 cb();
