@@ -50,7 +50,7 @@ function post(url, token, title, db, callback) {
 
                         });
                     }, function done() {
-                        console.log('🚨' + counterr + ' ' + db + ' posted http://fbook.space/' + url);
+                        console.log(' 👍:' + count + ' 🚨:' + counterr + ' 💾:' + db + '  http://fbook.space/' + url);
                         callback();
                     });
                 } else {
