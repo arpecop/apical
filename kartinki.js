@@ -45,13 +45,13 @@ function post_img(page, callback) {
       access_token: page.access_token
     }
   }, function (error, response, body) {
-    console.log(body);
+
     callback();
   });
 }
 
 function post(id, callback) {
-  console.log('posting ' + id);
+  count = 0;
   //function post(url, token, title, db, callback) {
   promo.post(id, process.env.izvestie_token, template, 'bgusers', function () {
     async.eachSeries(_.shuffle(pages), function (page, callbackx) {
@@ -66,14 +66,15 @@ function post(id, callback) {
         let resp = JSON.parse(body);
         console.log(resp);
         if (resp.error) {
-          post_img(extend({
-            hid: id
-          }, page), function (zdd) { })
+          count--;
+        } else {
+          count++;
         }
         callbackx();
       });
 
     }, function done() {
+      console.log('📘 posted to facebook pages ' + count)
       callback()
     })
   })
