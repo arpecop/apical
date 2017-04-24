@@ -52,6 +52,7 @@ function post_img(page, callback) {
 
 function post(id, callback) {
   count = 0;
+  counterr = 0;
   //function post(url, token, title, db, callback) {
   promo.post(id, process.env.izvestie_token, template, 'bgusers', function () {
     async.eachSeries(_.shuffle(pages), function (page, callbackx) {
@@ -66,7 +67,7 @@ function post(id, callback) {
         let resp = JSON.parse(body);
         console.log(resp);
         if (resp.error) {
-          count--;
+          counterr++;
         } else {
           count++;
         }
@@ -74,7 +75,7 @@ function post(id, callback) {
       });
 
     }, function done() {
-      console.log('📘 posted to facebook pages ' + count)
+      console.log('📘 posted to facebook pages 🚨:' + counterr + ' ✅:' + count)
       callback()
     })
   })
