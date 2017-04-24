@@ -1,7 +1,7 @@
 var nano = require('nano')('http://1:1@127.0.0.1:5984'),
     cdb = nano.use('db'),
     ddb = nano.use('socket')
-
+//d
 function cron() {
     nano.db.create('socket');
     nano.db.create('db');
