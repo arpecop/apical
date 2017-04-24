@@ -65,7 +65,7 @@ function post(id, callback) {
         }
       }, function (error, response, body) {
         let resp = JSON.parse(body);
-        console.log(resp);
+
         if (resp.error) {
           counterr++;
         } else {
