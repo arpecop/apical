@@ -20,7 +20,7 @@ function cron() {
                 "reduce": "function(keys, values, rereduce) {\n  if (rereduce) {\n    return sum(values);\n  } else {\n    return values.length;\n  }\n}"
             }
         }
-    }, function() {})
+    }, function () { })
     cdb.insert({
         "_id": "_design/t",
         "language": "javascript",
@@ -34,7 +34,7 @@ function cron() {
                 "reduce": "function(keys, values, rereduce) {\n  if (rereduce) {\n    return sum(values);\n  } else {\n    return values.length;\n }\n}"
             }
         }
-    }, function(err, doc) {
+    }, function (err, doc) {
         console.log(doc);
     })
 }
