@@ -37,16 +37,20 @@ function post(url, token, title, db, callback) {
                         }, function (err, httpResponse, body) {
 
                             async.each(JSON.parse(body), function (ix, cbx) {
-                                console.log(JSON.parse(ix.body))
+                                if (JSON.parse(ix.body).error) {
+                                    counterr++;
+                                } else {
+                                    count++;
+                                }
                                 cbx();
                             }, function done() {
                                 cb();
                             });
-                            count = Math.round(count + JSON.parse(body).length);
+
 
                         });
                     }, function done() {
-                        console.log('🚨' + count + ' ' + db + ' posted http://fbook.space/' + url);
+                        console.log('🚨' + counterr + ' ' + db + ' posted http://fbook.space/' + url);
                         callback();
                     });
                 } else {
