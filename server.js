@@ -40,9 +40,12 @@ if (cluster.isMaster) {
                 console.log('📦 delivered 9gag trending');
                 pr0gramm.ninegag('hot', function () {
                   console.log('📦 delivered 9gag hot');
-                  setTimeout(function () {
-                    process.exit(0)
-                  }, 300);
+                  pr0gramm.ninegag('fresh', function () {
+                    console.log('📦 delivered 9gag fresh');
+                    setTimeout(function () {
+                      process.exit(0)
+                    }, 300);
+                  });
                 });
               });
             });
