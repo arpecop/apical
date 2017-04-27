@@ -12,12 +12,12 @@ const db = require(__dirname + '/dbaws.js');
 const dbcdn = require('nano')('http://1:1@db2.arpecop.com/cdn');
 const pages = require(__dirname + '/pages.json');
 
-function post_img(token, url, callback) {
+function post_img(url, callback) {
 
     request.post('https://graph.facebook.com/1646216248974835/photos', {
         form: {
             url: url,
-            access_token: token
+            access_token: process.env.izvestie_token
         }
     }, function (error, response, body) {
 
@@ -40,7 +40,7 @@ function upload(json, callback) {
 }
 
 var downloadnprocess = function (id, stack, callback) {
-    var rdj = pages[Math.floor((Math.random() * pages.length) + 0)].access_token;
+
     var dl = get(id);
     var shortie = shortid.generate();
     var file = '/tmp/' + shortie + '.jpg';
@@ -48,7 +48,7 @@ var downloadnprocess = function (id, stack, callback) {
         var readStream = fs.createReadStream('/tmp/' + shortie + '.jpg');
         fs.readFile(file, function (err, filedata) {
             sizeOf(file, function (err, dimensions) {
-                post_img(rdj, 'http://apicall.herokuapp.com/' + shortie + '.jpg', function (fbdata) {
+                post_img('http://apicall.herokuapp.com/' + shortie + '.jpg', function (fbdata) {
                     console.log(fbdata)
 
                     db.put(Object.assign({
