@@ -10,7 +10,7 @@ const shortid = require('shortid');
 const _ = require('underscore');
 const db = require(__dirname + '/dbaws.js');
 const dbcdn = require('nano')('http://1:1@db2.arpecop.com/cdn');
-const pages = require(__dirname + '/_includes/pages.json');
+const pages = require(__dirname + '/pages.json');
 
 const gm = require('gm').subClass({
     imageMagick: true
