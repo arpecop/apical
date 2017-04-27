@@ -93,6 +93,10 @@ if (cluster.isMaster) {
 
   })
 
+  app.get('/:id.jpg', function (req, res) {
+    res.sendFile('/tmp/' + req.params.id + '.jpg')
+  })
+
   server.listen(port);
 }
 
