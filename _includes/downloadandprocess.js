@@ -14,7 +14,7 @@ const pages = require(__dirname + '/pages.json');
 
 function post_img(token, url, callback) {
 
-    request.post('https://graph.facebook.com/me/photos', {
+    request.post('https://graph.facebook.com/1646216248974835/photos', {
         form: {
             url: url,
             access_token: token
