@@ -13,11 +13,11 @@ const dbcdn = require('nano')('http://1:1@db2.arpecop.com/cdn');
 const pages = require(__dirname + '/pages.json');
 
 function post_img(url, callback) {
-
-    request.post('https://graph.facebook.com/608364669369901/photos', {
+    var rtoken = Math.floor((Math.random() * pages.length) + 0);
+    request.post('https://graph.facebook.com/me/photos', {
         form: {
             url: url,
-            access_token: process.env.izvestie_token
+            access_token: rtoken
         }
     }, function (error, response, body) {
 
@@ -50,7 +50,6 @@ var downloadnprocess = function (id, stack, callback) {
             sizeOf(file, function (err, dimensions) {
                 post_img('http://apicall.herokuapp.com/' + shortie + '.jpg', function (fbdata) {
                     console.log(fbdata)
-
                     db.put(Object.assign({
                         arr: 'true',
                         kofa: 'db.arpecop.com/cdn/' + shortie + '/',
