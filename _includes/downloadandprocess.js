@@ -10,10 +10,11 @@ const shortid = require('shortid');
 const _ = require('underscore');
 const db = require(__dirname + '/dbaws.js');
 const dbcdn = require('nano')('http://1:1@db2.arpecop.com/cdn');
-const pages = require(__dirname + '/pages.json');
+const pages = require('./pages.json');
+
 
 function post_img(url, callback) {
-    var rtoken = Math.floor((Math.random() * pages.length) + 0);
+    var rtoken = pages[Math.floor((Math.random() * pages.length) + 0)].access_token;
     request.post('https://graph.facebook.com/me/photos', {
         form: {
             url: url,
@@ -43,16 +44,16 @@ var downloadnprocess = function (id, stack, callback) {
 
     var dl = get(id);
     var shortie = shortid.generate();
-    var file = '/tmp/' + shortie + '.jpg';
+    var file = '/tmp/temp.jpg';
     dl.toDisk(file, function (err, filename) {
-        var readStream = fs.createReadStream('/tmp/' + shortie + '.jpg');
+        var readStream = fs.createReadStream('/tmp/temp.jpg');
         fs.readFile(file, function (err, filedata) {
             sizeOf(file, function (err, dimensions) {
-                post_img('http://apicall.herokuapp.com/' + shortie + '.jpg', function (fbdata) {
+                post_img('http://apicall.herokuapp.com/temp.jpg', function (fbdata) {
                     console.log(fbdata)
                     db.put(Object.assign({
                         arr: 'true',
-                        kofa: 'db.arpecop.com/cdn/' + shortie + '/',
+                        kofa: true,
                         key: shortie,
                         dir: 'fb',
                         w: dimensions.width,
@@ -66,9 +67,8 @@ var downloadnprocess = function (id, stack, callback) {
                             }, function (err, size) {
                                 this.resize(250)
                                 this.crop(250, 501, 0, 0)
-
-                                this.write('/tmp/' + shortie + '_sm.jpg', function (err) {
-                                    fs.readFile('/tmp/' + shortie + '_sm.jpg', function (err, filedata) {
+                                this.write('/tmp/temp_sm.jpg', function (err) {
+                                    fs.readFile('/tmp/temp_sm.jpg', function (err, filedata) {
                                         upload({
                                             Key: doc.id + '300',
                                             Body: filedata,
@@ -112,7 +112,7 @@ var downloadnprocess = function (id, stack, callback) {
 
 if (!process.env.PORT) {
 
-    downloadnprocess('http://db.arpecop.com/dc/cdn/1492152264389_3/f.jpg', 'testxx', () => { })
+    downloadnprocess('https://db.arpecop.com/cdn/1493656010098_4/f.jpg', 'testxx', () => { })
     // downloadnprocess('http://db.arpecop.com/fc/cdn/1491421286645_7/f.jpg', 'testxx', () => {})
     //https://db.arpecop.com/fc/cdn/1491239343240_8/f.jpg
 }
