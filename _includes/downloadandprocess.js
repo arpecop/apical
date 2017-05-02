@@ -3,6 +3,8 @@ const fs = require('fs');
 const get = require('get');
 const async = require('async');
 const md5 = require('md5');
+const pintetez = require('node-pinterest');
+const pinterest = pintetez.init('AT3u7ZwNxWQpVASg6-MmSf6l8y56FLrVnW7SARtD-s__umBBdgAAAAA');
 
 const sizeOf = require('image-size');
 const shortid = require('shortid');
@@ -14,17 +16,26 @@ const pages = require('./pages.json');
 
 
 function post_img(url, callback) {
-    var rtoken = pages[Math.floor((Math.random() * pages.length) + 0)].access_token;
-    request.post('https://graph.facebook.com/me/photos', {
-        form: {
-            url: url,
-            access_token: rtoken
+    pinterest.api('pins', {
+        method: 'POST',
+        body: {
+            board: '195554877508708250', // grab the first board from the previous response
+            note: '',
+            link: 'http://pix.fbook.space/',
+            image_url: 'http://db.arpecop.com/cdn/1493737662965_8/f.jpg'
         }
-    }, function (error, response, body) {
+    }).then(function (json) {
+        console.log('pin/' + json.data.id)
+        request.get('https://developers.pinterest.com/widget/pins/' + json.data.id + '/', function (err, ser, body) {
+            if (!err && JSON.parse(body).data) {
+                callback(JSON.parse(body).data.image.original)
+            } else {
+                callback({})
+            }
+        })
 
-
-        callback(JSON.parse(body));
     });
+
 }
 
 
@@ -44,17 +55,18 @@ var downloadnprocess = function (id, stack, callback) {
 
     var dl = get(id);
     var shortie = shortid.generate();
-    var file = '/tmp/temp.jpg';
+    var xid = new Date().getTime() + '_' + Math.floor((Math.random() * 10) + 1);
+    var file = '/tmp/' + shortie + '.jpg';
     dl.toDisk(file, function (err, filename) {
-        var readStream = fs.createReadStream('/tmp/temp.jpg');
+        var readStream = fs.createReadStream(file);
         fs.readFile(file, function (err, filedata) {
             sizeOf(file, function (err, dimensions) {
-                post_img('http://apicall.herokuapp.com/temp.jpg', function (fbdata) {
-                    console.log(fbdata)
+                post_img('http://apicall.herokuapp.com/' + shortie + '.jpg', function (fbdata) {
                     db.put(Object.assign({
                         arr: 'true',
                         kofa: true,
                         key: shortie,
+                        shortie: shortie,
                         dir: 'fb',
                         w: dimensions.width,
                         h: dimensions.height,
@@ -67,8 +79,8 @@ var downloadnprocess = function (id, stack, callback) {
                             }, function (err, size) {
                                 this.resize(250)
                                 this.crop(250, 501, 0, 0)
-                                this.write('/tmp/temp_sm.jpg', function (err) {
-                                    fs.readFile('/tmp/temp_sm.jpg', function (err, filedata) {
+                                this.write('/tmp/' + shortie + '_sm.jpg', function (err) {
+                                    fs.readFile('/tmp/' + shortie + '_sm.jpg', function (err, filedata) {
                                         upload({
                                             Key: doc.id + '300',
                                             Body: filedata,
@@ -113,8 +125,7 @@ var downloadnprocess = function (id, stack, callback) {
 if (!process.env.PORT) {
 
     downloadnprocess('https://db.arpecop.com/cdn/1493656010098_4/f.jpg', 'testxx', () => { })
-    // downloadnprocess('http://db.arpecop.com/fc/cdn/1491421286645_7/f.jpg', 'testxx', () => {})
-    //https://db.arpecop.com/fc/cdn/1491239343240_8/f.jpg
+
 }
 
 
