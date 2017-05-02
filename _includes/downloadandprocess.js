@@ -22,10 +22,10 @@ function post_img(url, callback) {
             board: '195554877508708250', // grab the first board from the previous response
             note: '',
             link: 'http://pix.fbook.space/',
-            image_url: 'http://db.arpecop.com/cdn/1493737662965_8/f.jpg'
+            image_url: url
         }
     }).then(function (json) {
-        console.log('pin/' + json.data.id)
+
         request.get('https://developers.pinterest.com/widget/pins/' + json.data.id + '/', function (err, ser, body) {
             if (!err && JSON.parse(body).data) {
                 callback(JSON.parse(body).data.image.original)
