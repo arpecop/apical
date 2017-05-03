@@ -19,7 +19,7 @@ function post_pinterest(json, callback) {
             board: '195554877508708250', // grab the first board from the previous response
             note: json.title,
             link: 'http://news.fbook.space/' + json.id,
-            image_url: json.fullimg ? json.fullimg : 'https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png'
+            image_url: json.fullimg ? json.fullimg : 'http://www.vtc.edu/sites/default/files/news-3.jpg'
         }
     }).then(function (jsonx) {
         request.get('https://developers.pinterest.com/widget/pins/' + jsonx.data.id + '/', function (err, ser, body) {
