@@ -10,7 +10,7 @@ const striptags = require('striptags');
 const pintetez = require('node-pinterest');
 const pinterest = pintetez.init('AT3u7ZwNxWQpVASg6-MmSf6l8y56FLrVnW7SARtD-s__umBBdgAAAAA');
 
-
+//dsd
 
 function post_pinterest(json, callback) {
     pinterest.api('pins', {
