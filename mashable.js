@@ -45,7 +45,7 @@ function insertdb(json, callback) {
                 _id: json.uid
             }, function () {
                 db.put(json, function (err, ass) {
-                    post_pinterest(ass, function () {
+                    post_pinterest(json, function () {
                         promo.post(ass.id, process.env.article_token, json.title, 'poparticles', function () {
                             //'http://news.fbook.space/' + ass.id
                         });
