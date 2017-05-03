@@ -30,8 +30,8 @@ function post_img(url, callback) {
                 let jsxon = JSON.parse(body);
                 console.log(jsxon.data.image.original)
                 callback({
-                    url: jsxon.data.image.original.replace('originals', '236x'),
-                    url_big: jsxon.data.image.original,
+                    url: jsxon.data.image.original.url.replace('originals', '236x'),
+                    url_big: jsxon.data.image.original.url,
                 })
             } else {
                 callback({})
