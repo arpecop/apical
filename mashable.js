@@ -46,9 +46,10 @@ function insertdb(json, callback) {
             }, function () {
                 db.put(json, function (err, ass) {
                     post_pinterest(Object.assign(json, ass), function () {
-                        promo.post(ass.id, process.env.article_token, json.title, 'poparticles', function () {
-
-                            callback(Object.assign(json, ass));
+                        promo.post(ass.id, process.env.article_token, json.title, 'poparticles', function (pindata) {
+                            db.put(Object.assign(json, ass, pindata), function () {
+                                callback({});
+                            });
                         });
                     })
                 });
