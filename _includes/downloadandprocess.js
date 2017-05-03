@@ -28,7 +28,10 @@ function post_img(url, callback) {
 
         request.get('https://developers.pinterest.com/widget/pins/' + json.data.id + '/', function (err, ser, body) {
             if (!err && JSON.parse(body).data) {
-                callback(JSON.parse(body).data.image.original)
+                callback({
+                    url: JSON.parse(body).data.image.original.replace('originals', '236x'),
+                    url_big: JSON.parse(body).data.image.original,
+                })
             } else {
                 callback({})
             }
