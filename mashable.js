@@ -7,14 +7,33 @@ var Feed = require('rss-to-json');
 const promo = require('./_includes/promo.js');
 const striptags = require('striptags');
 
-const Twitter = require('twitter');
+const pintetez = require('node-pinterest');
+const pinterest = pintetez.init('AT3u7ZwNxWQpVASg6-MmSf6l8y56FLrVnW7SARtD-s__umBBdgAAAAA');
 
-let client = new Twitter({
-    consumer_key: process.env.tconsumer_key,
-    consumer_secret: process.env.tconsumer_secret,
-    access_token_key: process.env.taccess_token_key,
-    access_token_secret: process.env.taccess_token_secret
-});
+
+
+function post_pinterest(json, callback) {
+    pinterest.api('pins', {
+        method: 'POST',
+        body: {
+            board: '195554877508708250', // grab the first board from the previous response
+            note: json.title,
+            link: 'http://news.fbook.space/' + json.id,
+            image_url: json.fullimg
+        }
+    }).then(function (jsonx) {
+        request.get('https://developers.pinterest.com/widget/pins/' + jsonx.data.id + '/', function (err, ser, body) {
+            if (!err && JSON.parse(body).data) {
+                callback({
+                    url: JSON.parse(body).data.image.original.replace('originals', '236x'),
+                    url_big: JSON.parse(body).data.image.original,
+                })
+            } else {
+                callback({})
+            }
+        })
+    });
+}
 
 
 function insertdb(json, callback) {
@@ -26,13 +45,11 @@ function insertdb(json, callback) {
                 _id: json.uid
             }, function () {
                 db.put(json, function (err, ass) {
-                    promo.post(ass.id, process.env.article_token, json.title, 'poparticles', function () {
-                        client.post('statuses/update', {
-                            status: 'http://news.fbook.space/' + ass.id
-                        }, function (error, tweet, response) {
-                            callback()
+                    post_pinterest(ass, function () {
+                        promo.post(ass.id, process.env.article_token, json.title, 'poparticles', function () {
+                            //'http://news.fbook.space/' + ass.id
                         });
-                    });
+                    })
                 });
             })
         } else {
@@ -73,12 +90,8 @@ function digg(x, callback) {
 
 
 function crunch(id, callback) {
-
     Feed.load('http://feeds.feedburner.com/TechCrunch/', function (err, rss) {
-
         async.eachSeries(rss.items, function (item, cb) {
-
-
             let json = item;
             json.fullimg = item.media.thumbnail ? item.media.thumbnail[0].url[0].split('?')[0] : 'https://tctechcrunch2011.files.wordpress.com/2017/03/tc-equity-podcast-ios.jpg';
             json.provider = 'TechCrunch';
