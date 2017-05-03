@@ -18,7 +18,7 @@ function post_pinterest(json, callback) {
         body: {
             board: '195554877508708250', // grab the first board from the previous response
             note: json.title,
-            link: 'http://news.fbook.space/' + json._id,
+            link: 'http://news.fbook.space/' + json.id,
             image_url: json.fullimg
         }
     }).then(function (jsonx) {
@@ -45,7 +45,7 @@ function insertdb(json, callback) {
                 _id: json.uid
             }, function () {
                 db.put(json, function (err, ass) {
-                    post_pinterest(json, function () {
+                    post_pinterest(Object.assign(json, ass), function () {
                         promo.post(ass.id, process.env.article_token, json.title, 'poparticles', function () {
                             //'http://news.fbook.space/' + ass.id
                         });
