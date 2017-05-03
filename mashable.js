@@ -47,7 +47,8 @@ function insertdb(json, callback) {
                 db.put(json, function (err, ass) {
                     post_pinterest(Object.assign(json, ass), function () {
                         promo.post(ass.id, process.env.article_token, json.title, 'poparticles', function () {
-                            //'http://news.fbook.space/' + ass.id
+
+                            callback(Object.assign(json, ass));
                         });
                     })
                 });
