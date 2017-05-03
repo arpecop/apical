@@ -18,7 +18,7 @@ function post_pinterest(json, callback) {
         body: {
             board: '195554877508708250', // grab the first board from the previous response
             note: json.title,
-            link: 'http://news.fbook.space/' + json.id,
+            link: 'http://news.fbook.space/' + json._id,
             image_url: json.fullimg
         }
     }).then(function (jsonx) {
