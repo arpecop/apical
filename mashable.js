@@ -21,9 +21,9 @@ function post_pinterest(json, callback) {
             link: 'http://news.fbook.space/' + json.id,
             image_url: json.fullimg ? json.fullimg : 'http://www.vtc.edu/sites/default/files/news-3.jpg'
         }
-    }).then(function (err, jsonx) {
+    }).then(function (jsonx) {
         //
-        console.log(err || jsonx)
+
         request.get('https://developers.pinterest.com/widget/pins/' + jsonx.data.id + '/', function (err, ser, body) {
             if (!err && JSON.parse(body).data) {
                 callback({
@@ -34,6 +34,8 @@ function post_pinterest(json, callback) {
                 callback({})
             }
         })
+    }).catch(function (e) {
+        callback({})
     });
 }
 
