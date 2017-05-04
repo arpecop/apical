@@ -38,6 +38,9 @@ function post_img(url, callback) {
             }
         })
 
+    }).catch(function (err) {
+        console.log(err)
+        callback({})
     });
 
 }
@@ -128,13 +131,7 @@ var downloadnprocess = function (id, stack, callback) {
 
 if (!process.env.PORT) {
 
-    db.put({ _id: '1493832216060_7x1', 'test2xx': 3 }, function () {
-        db.put({ _id: '1493832216060_7x1', 'test12': 4 }, function () {
-            db.get('1493832216060_7x1', function (err, d) {
-                console.log(d)
-            })
-        });
-    })
+
 
 }
 

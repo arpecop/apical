@@ -116,12 +116,7 @@ function kartinki(lat, callback) {
   });
 }
 
-if (!process.env.PORT) {
 
-  kartinki('1', () => {
-    console.log('done')
-  })
-}
 
 module.exports = {
   kartinki: kartinki
