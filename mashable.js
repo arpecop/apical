@@ -22,7 +22,7 @@ function post_pinterest(json, callback) {
             image_url: json.fullimg ? json.fullimg : 'http://www.vtc.edu/sites/default/files/news-3.jpg'
         }
     }).then(function (jsonx) {
-        //
+
 
         request.get('https://developers.pinterest.com/widget/pins/' + jsonx.data.id + '/', function (err, ser, body) {
             if (!err && JSON.parse(body).data) {

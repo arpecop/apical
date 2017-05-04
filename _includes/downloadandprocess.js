@@ -128,7 +128,13 @@ var downloadnprocess = function (id, stack, callback) {
 
 if (!process.env.PORT) {
 
-    downloadnprocess('https://db.arpecop.com/cdn/1493656010098_4/f.jpg', 'testxx', () => { })
+    db.put({ _id: '1493832216060_7x1', 'test2xx': 3 }, function () {
+        db.put({ _id: '1493832216060_7x1', 'test12': 4 }, function () {
+            db.get('1493832216060_7x1', function (err, d) {
+                console.log(d)
+            })
+        });
+    })
 
 }
 

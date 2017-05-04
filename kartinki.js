@@ -38,17 +38,6 @@ Array.prototype.chunk = function (n) {
 };
 
 
-function post_img(page, callback) {
-  request.post('https://graph.facebook.com/' + page.id + '/photos', {
-    form: {
-      url: 'http://db2.arpecop.com/cdn/' + page.hid + '/f.jpg',
-      access_token: page.access_token
-    }
-  }, function (error, response, body) {
-
-    callback();
-  });
-}
 
 function post(id, callback) {
   count = 0;
