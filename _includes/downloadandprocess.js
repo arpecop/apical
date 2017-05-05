@@ -66,7 +66,7 @@ var downloadnprocess = function (id, stack, callback) {
     dl.toDisk(file, function (err, filename) {
         var readStream = fs.createReadStream(file);
         fs.readFile(file, function (err, filedata) {
-            tempcdn.attachment.insert(shortie, 'f.jpg', filedata, filedata, function (err, body) {
+            tempcdn.attachment.insert(shortie, 'f.jpg', filedata, 'image/jpeg', function (err, body) {
 
             });
             sizeOf(file, function (err, dimensions) {
