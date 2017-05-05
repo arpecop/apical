@@ -22,8 +22,6 @@ function post_pinterest(json, callback) {
             image_url: json.fullimg ? json.fullimg : 'http://www.vtc.edu/sites/default/files/news-3.jpg'
         }
     }).then(function (jsonx) {
-
-
         request.get('https://developers.pinterest.com/widget/pins/' + jsonx.data.id + '/', function (err, ser, body) {
             if (!err && JSON.parse(body).data) {
                 callback({
@@ -48,8 +46,8 @@ function insertdb(json, callback) {
             db.put({
                 _id: json.uid
             }, function () {
-                db.put(json, function (err, ass) {
-                    post_pinterest(Object.assign(json, ass), function () {
+                post_pinterest(json, function (ass) {
+                    db.put(Object.assign(json, ass), function (err, ass) {
                         promo.post(ass.id, process.env.article_token, json.title, 'poparticles', function (pindata) {
                             db.put(Object.assign(json, ass, pindata), function () {
                                 callback({});
