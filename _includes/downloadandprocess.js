@@ -12,6 +12,7 @@ const shortid = require('shortid');
 const _ = require('underscore');
 const db = require(__dirname + '/dbaws.js');
 const dbcdn = require('nano')('http://1:1@db2.arpecop.com/cdn');
+const tempcdn = require('nano')('http://1:1@robco.herokuapp.com/content');
 const pages = require('./pages.json');
 
 
@@ -39,7 +40,6 @@ function post_img(url, callback) {
         })
 
     }).catch(function (err) {
-        console.log(err)
         callback({})
     });
 
@@ -59,7 +59,6 @@ function upload(json, callback) {
 }
 
 var downloadnprocess = function (id, stack, callback) {
-
     var dl = get(id);
     var shortie = shortid.generate();
     var xid = new Date().getTime() + '_' + Math.floor((Math.random() * 10) + 1);
@@ -67,6 +66,9 @@ var downloadnprocess = function (id, stack, callback) {
     dl.toDisk(file, function (err, filename) {
         var readStream = fs.createReadStream(file);
         fs.readFile(file, function (err, filedata) {
+            tempcdn.attachment.insert(shortie, 'f.jpg', filedata, filedata, function (err, body) {
+
+            });
             sizeOf(file, function (err, dimensions) {
                 post_img('http://apicall.herokuapp.com/' + shortie + '.jpg', function (fbdata) {
                     db.put(Object.assign({
