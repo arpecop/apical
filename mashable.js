@@ -369,7 +369,7 @@ function newsapi(dummy, callback) {
 
     async.eachSeries(sources, function (item, cb) {
         newsapix(item, function (deliver) {
-            console.log('📦 delivered ' + deliver.src);
+            console.info('📦 delivered ' + deliver.src);
             cb();
         });
     }, function (err, results) {
@@ -377,7 +377,7 @@ function newsapi(dummy, callback) {
             'id': 'newsen',
             'limit': 1
         }, function (e, doc) {
-            console.log('posting scheduled promo last post' + doc.docs[0].id);
+            console.info('posting scheduled promo last post' + doc.docs[0].id);
 
             promo.post(doc.docs[0].id, process.env.article_token, doc.docs[0].title, 'poparticles', function () {
 
