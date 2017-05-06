@@ -28,6 +28,7 @@ function post_pinterest(json, callback) {
         request.get('https://developers.pinterest.com/widget/pins/' + jsonx.data.id + '/', function (err, ser, body) {
             if (!err && JSON.parse(body).data) {
                 callback({
+                    _id: jsonx._id ? jsonx._id : new Date().getTime() + '_' + Math.floor((Math.random() * 10) + 1),
                     url: JSON.parse(body).data.image.original.url.replace('originals', '236x'),
                     url_big: JSON.parse(body).data.image.original.url,
                 })
@@ -49,8 +50,8 @@ function insertdb(json, callback) {
             db.put({
                 _id: json.uid
             }, function () {
-                post_pinterest(json, function (ass) {
-                    db.put(Object.assign(ass, json), function (err, ass) {
+                post_pinterest(json, function (assx) {
+                    db.put(Object.assign(assx, json), function (err, ass) {
                         promo.post(ass.id, process.env.article_token, json.title, 'poparticles', function (pindata) {
                             db.put(Object.assign(json, ass, pindata), function () {
                                 callback({});
@@ -390,6 +391,7 @@ function newsapi(dummy, callback) {
 }
 
 if (!process.env.PORT) {
+
 
 }
 
