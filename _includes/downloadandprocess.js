@@ -5,7 +5,7 @@ const async = require('async');
 const md5 = require('md5');
 const pintetez = require('node-pinterest');
 const pinterest = pintetez.init('AT3u7ZwNxWQpVASg6-MmSf6l8y56FLrVnW7SARtD-s__umBBdgAAAAA');
-
+const console = require('better-console');
 const sizeOf = require('image-size');
 const shortid = require('shortid');
 
@@ -29,7 +29,7 @@ function post_img(url, callback) {
         request.get('https://developers.pinterest.com/widget/pins/' + json.data.id + '/', function (err, ser, body) {
             if (!err) {
                 let jsxon = JSON.parse(body);
-                console.log(jsxon.data.image.original)
+                console.info(jsxon.data.image.original)
                 callback({
                     url: jsxon.data.image.original.url.replace('originals', '236x'),
                     url_big: jsxon.data.image.original.url,

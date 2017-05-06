@@ -14,7 +14,7 @@ const pinterest = pintetez.init('AT3u7ZwNxWQpVASg6-MmSf6l8y56FLrVnW7SARtD-s__umB
 //dsd
 
 function post_pinterest(json, callback) {
-    console.log(json);
+    console.info(json);
     pinterest.api('pins', {
         method: 'POST',
         body: {
