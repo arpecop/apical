@@ -2,7 +2,8 @@ const request = require('request');
 const async = require('async');
 const db = require('./_includes/dbaws.js');
 const cheerio = require('cheerio');
-var Feed = require('rss-to-json');
+const Feed = require('rss-to-json');
+const console = require('better-console');
 //const request = require('request');
 const promo = require('./_includes/promo.js');
 const striptags = require('striptags');
@@ -13,6 +14,8 @@ const pinterest = pintetez.init('AT3u7ZwNxWQpVASg6-MmSf6l8y56FLrVnW7SARtD-s__umB
 //dsd
 
 function post_pinterest(json, callback) {
+    console.table([[1, 2], [3, 4]]);
+    console.log(json)
     pinterest.api('pins', {
         method: 'POST',
         body: {
@@ -47,7 +50,7 @@ function insertdb(json, callback) {
                 _id: json.uid
             }, function () {
                 post_pinterest(json, function (ass) {
-                    db.put(Object.assign(json, ass), function (err, ass) {
+                    db.put(Object.assign(ass, json), function (err, ass) {
                         promo.post(ass.id, process.env.article_token, json.title, 'poparticles', function (pindata) {
                             db.put(Object.assign(json, ass, pindata), function () {
                                 callback({});
