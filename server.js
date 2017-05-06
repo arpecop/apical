@@ -62,7 +62,7 @@ if (cluster.isMaster) {
         mash.upworthy('upworthy', () => { cb(null, '📦 delivered upworthy'); })
       },
       (one, cb) => {
-        mash.distractify('distractify', () => { cb(null, '📦 delivered distractify'); })
+        mash.distractify('distractify', () => { cb(null, { 'distractify': '📦 delivered ' }); })
       },
       (one, cb) => {
         mash.huffingtonpost('buzz', () => { cb(null, '📦 delivered huffingtonpost'); })
