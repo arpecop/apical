@@ -12,6 +12,7 @@
   "dependencies": {
     "async": "^2.1.5",
     "aws-sdk": "^2.27.0",
+    "better-console": "^1.0.0",
     "cheerio": "^0.22.0",
     "dynamodb": "^0.3.6",
     "express": "^4.15.2",
