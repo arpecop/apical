@@ -2,6 +2,7 @@ const cluster = require('cluster');
 const fs = require('fs');
 const request = require('request');
 const async = require('async')
+const console = require('better-console');
 const port = process.env.PORT || 3000;
 const _ = require('underscore');
 
