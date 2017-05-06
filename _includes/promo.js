@@ -1,6 +1,7 @@
 const async = require('async');
 const request = require('request');
 const pouch = require(__dirname + '/pouch.js');
+const console = require('better-console');
 var _ = require('lodash');
 var chunk = function (n) {
     if (!this.length) {
@@ -50,7 +51,7 @@ function post(url, token, title, db, callback) {
 
                         });
                     }, function done() {
-                        console.log(' 👍:' + count + ' 🚨:' + counterr + ' 💾:' + db + '  http://fbook.space/' + url);
+                        console.info(' 👍:' + count + ' 🚨:' + counterr + ' 💾:' + db + '  http://fbook.space/' + url);
                         callback();
                     });
                 } else {
