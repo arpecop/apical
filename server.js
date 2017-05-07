@@ -40,7 +40,7 @@ if (cluster.isMaster) {
       (one, cb) => { pr0gramm.imgur('1', () => { cb(null, '') }) },
       (one, cb) => { pr0gramm.ninegag('trending', () => { cb(null, '') }) },
       (one, cb) => { pr0gramm.ninegag('hot', () => { cb(null, '') }) },
-      (one, cb) => { pr0gramm.ninegag('fresh', () => { cb(null, '') }) },
+      
       (one, cb) => { mash.newsapi('1', () => { cb(null, '📦 delivered all newsapi'); }) },
       (one, cb) => { mash.crunch('crunch', () => { cb(null, '📦 delivered crunch'); }) },
       (one, cb) => { mash.upworthy('upworthy', () => { cb(null, '📦 delivered upworthy'); }) },
