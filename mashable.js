@@ -221,24 +221,17 @@ function buzz(x, callback) {
                     if (err) {
                         request.get('https://graph.facebook.com/?id=' + json.source + '&access_token=' + process.env.article_token, function (er, ass, body) {
                             json.description = JSON.parse(body).og_object.description;
-
                             insertdb(json, function () {
                                 cb();
                             })
                         });
                     } else {
-
                         cb();
                     }
-                })
-
-
-
-            },
-                function (err, results) {
-                    callback()
                 });
-
+            }, function (err, results) {
+                callback()
+            });
         } else {
             callback();
         }
@@ -251,7 +244,6 @@ function buzz(x, callback) {
 function huffingtonpost(id, callback) {
     Feed.load('http://www.huffingtonpost.com/feeds/index.xml', function (err, rss) {
         async.eachSeries(rss.items, function (item, cb) {
-
             let json = item;
             json.fullimg = item.enclosures ? item.enclosures[0].url : 'https://www.upworthy.com/assets/social-eyecatcher-orange-0a6d6dca485d6e1c339cae4cfc777544.png';
             json.provider = 'huffingtonpost';
@@ -261,13 +253,10 @@ function huffingtonpost(id, callback) {
             json.uid = json.created + '_huff';
             insertdb(json, function () {
                 cb();
-            })
-
-
-        },
-            function (err, results) {
-                callback()
             });
+        }, function (err, results) {
+            callback()
+        });
 
     })
 
