@@ -65,66 +65,71 @@ var downloadnprocess = function (id, stack, callback) {
     dl.toDisk(file, function (err, filename) {
         var readStream = fs.createReadStream(file);
         fs.readFile(file, function (err, filedata) {
-            tempcdn.attachment.insert(shortie, 'f.jpg', filedata, 'image/jpeg', function (err, body) {
+            var md = md5(filedata);
+            tempcdn.get(md, function (zerr, xx1) {
+                if (zerr) {
+                    tempcdn.insert({ _id: md }, function () { })
+                    tempcdn.attachment.insert(shortie, 'f.jpg', filedata, 'image/jpeg', function (err, body) {
+                        sizeOf(file, function (err, dimensions) {
+                            post_img('http://robco.herokuapp.com/content/' + shortie + '/f.jpg', function (fbdata) {
+                                db.put(Object.assign({
+                                    arr: 'true',
+                                    kofa: true,
+                                    key: shortie,
+                                    shortie: shortie,
+                                    dir: 'fb',
+                                    w: dimensions.width,
+                                    h: dimensions.height,
+                                    ext: 'jpg',
+                                    type: '' + stack + ''
+                                }, fbdata), function (err, doc) {
+                                    gm(readStream).size({
+                                        bufferStream: true
+                                    }, function (err, size) {
+                                        this.resize(250)
+                                        this.crop(250, 501, 0, 0)
+                                        this.write('/tmp/' + shortie + '_sm.jpg', function (err) {
+                                            fs.readFile('/tmp/' + shortie + '_sm.jpg', function (err, filedata) {
+                                                upload({
+                                                    Key: doc.id + '300',
+                                                    Body: filedata,
+                                                    ContentType: 'image/jpeg'
+                                                }, function (err, dataxssss) { })
+                                            })
+                                        });
+                                        //this.append("./cover.png")
+                                        //gm("img.png").watermark(brightness, saturation)
 
-
-                sizeOf(file, function (err, dimensions) {
-                    post_img('http://robco.herokuapp.com/content/' + shortie + '/f.jpg', function (fbdata) {
-                        db.put(Object.assign({
-                            arr: 'true',
-                            kofa: true,
-                            key: shortie,
-                            shortie: shortie,
-                            dir: 'fb',
-                            w: dimensions.width,
-                            h: dimensions.height,
-                            ext: 'jpg',
-                            type: '' + stack + ''
-                        }, fbdata), function (err, doc) {
-                            gm(readStream)
-                                .size({
-                                    bufferStream: true
-                                }, function (err, size) {
-                                    this.resize(250)
-                                    this.crop(250, 501, 0, 0)
-                                    this.write('/tmp/' + shortie + '_sm.jpg', function (err) {
-                                        fs.readFile('/tmp/' + shortie + '_sm.jpg', function (err, filedata) {
-                                            upload({
-                                                Key: doc.id + '300',
-                                                Body: filedata,
-                                                ContentType: 'image/jpeg'
-                                            }, function (err, dataxssss) { })
-                                        })
+                                        this.resize(450)
+                                        this.crop(450, 236, 0, 0)
+                                        this.draw(['image Over 0,0 0,0 "/app/_includes/cover.png"'])
+                                        this.write('/tmp/' + shortie + '_feed.jpg', function (err) {
+                                            fs.readFile('/tmp/' + shortie + '_feed.jpg', function (err, filedata) {
+                                                upload({
+                                                    Key: doc.id + 'feed',
+                                                    Body: filedata,
+                                                    ContentType: 'image/jpeg'
+                                                }, function (err, dataxssss) { })
+                                            })
+                                        });
                                     });
-                                    //this.append("./cover.png")
-                                    //gm("img.png").watermark(brightness, saturation)
 
-                                    this.resize(450)
-                                    this.crop(450, 236, 0, 0)
-                                    this.draw(['image Over 0,0 0,0 "/app/_includes/cover.png"'])
-                                    this.write('/tmp/' + shortie + '_feed.jpg', function (err) {
-                                        fs.readFile('/tmp/' + shortie + '_feed.jpg', function (err, filedata) {
-                                            upload({
-                                                Key: doc.id + 'feed',
-                                                Body: filedata,
-                                                ContentType: 'image/jpeg'
-                                            }, function (err, dataxssss) { })
-                                        })
+                                    upload({
+                                        Key: doc.id,
+                                        Body: filedata,
+                                        ContentType: 'image/jpeg'
+                                    }, function (err, dataxssss) {
+                                        fs.rename('/tmp/' + shortie + '.jpg', '/tmp/' + doc.id + '.jpg', function (err) {
+                                            callback(doc.id)
+                                        });
                                     });
-                                });
-
-                            upload({
-                                Key: doc.id,
-                                Body: filedata,
-                                ContentType: 'image/jpeg'
-                            }, function (err, dataxssss) {
-                                fs.rename('/tmp/' + shortie + '.jpg', '/tmp/' + doc.id + '.jpg', function (err) {
-                                    callback(doc.id)
                                 });
                             });
                         });
                     });
-                });
+                } else {
+                    callback()
+                }
             });
         });
     });
