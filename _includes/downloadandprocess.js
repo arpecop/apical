@@ -80,7 +80,7 @@ var downloadnprocess = function(id, stack, callback) {
               ext: 'jpg',
               type: stack
             }, fbdata), function(err, doc) {
-              console.log(doc)
+
               fs.rename('/tmp/' + shortie + '.jpg', '/tmp/' + doc.id + '.jpg', function(err) {
                 callback(doc.id)
               });

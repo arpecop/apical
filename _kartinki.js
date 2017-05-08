@@ -92,6 +92,7 @@ function kartinki(lat, callback) {
       limit: 1
     },
     function(e, doc) {
+      console.log('posting scheduled promo last post kartinki ' + doc.docs[0].id)
       promo.post(
         doc.docs[0].id,
         process.env.izvestie_token,
