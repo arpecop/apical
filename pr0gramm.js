@@ -75,7 +75,6 @@ function ninegag(params, callback) {
           }, function() {})
           request.get('http://img-9gag-fun.9cache.com/photo/' + item + '_700b.jpg', function(e, h, bodyx) {
             if (h.headers['content-type'] === 'image/jpeg') {
-
               post.push({
                 imagex: 'http://img-9gag-fun.9cache.com/photo/' + item + '_700b.jpg'
               });

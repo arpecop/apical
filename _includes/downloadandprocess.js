@@ -11,7 +11,7 @@ const shortid = require('shortid');
 
 const _ = require('underscore');
 const db = require(__dirname + '/dbaws.js');
-const dbcdn = require('nano')('http://1:1@db2.arpecop.com/cdn');
+
 const tempcdn = require('nano')('http://1:1@robco.herokuapp.com/content');
 const pages = require('./pages.json');
 
@@ -51,11 +51,7 @@ const gm = require('gm').subClass({
 });
 
 
-function upload(json, callback) {
-  dbcdn.attachment.insert(json.Key, 'f.jpg', json.Body, json.ContentType, function(err, body) {
-    callback()
-  });
-}
+
 
 var downloadnprocess = function(id, stack, callback) {
   var dl = get(id);
@@ -66,27 +62,28 @@ var downloadnprocess = function(id, stack, callback) {
     var readStream = fs.createReadStream(file);
     fs.readFile(file, function(err, filedata) {
       var md = md5(filedata);
-      tempcdn.get(md, function(zerr, xx1) {
+      db.db1.get(md, function(zerr, xx1) {
         if (zerr) {
-          tempcdn.insert({
+          db.db1.insert({
             _id: md
-          }, function() {})
-          tempcdn.attachment.insert(shortie, 'f.jpg', filedata, 'image/jpeg', function(err, body) {
-            sizeOf(file, function(err, dimensions) {
-              post_img('http://robco.herokuapp.com/content/' + shortie + '/f.jpg', function(fbdata) {
-                db.put(Object.assign({
-                  arr: 'true',
-                  kofa: true,
-                  key: shortie,
-                  shortie: shortie,
-                  dir: 'fb',
-                  w: dimensions.width,
-                  h: dimensions.height,
-                  ext: 'jpg',
-                  type: '' + stack + ''
-                }, fbdata), function(err, doc) {
-                  fs.rename('/tmp/' + shortie + '.jpg', '/tmp/' + doc.id + '.jpg', function(err) {
-                    callback(doc.id)
+          }, function() {
+            tempcdn.attachment.insert(shortie, 'f.jpg', filedata, 'image/jpeg', function(err, body) {
+              sizeOf(file, function(err, dimensions) {
+                post_img('http://robco.herokuapp.com/content/' + shortie + '/f.jpg', function(fbdata) {
+                  db.put(Object.assign({
+                    arr: 'true',
+                    kofa: true,
+                    key: shortie,
+                    shortie: shortie,
+                    dir: 'fb',
+                    w: dimensions.width,
+                    h: dimensions.height,
+                    ext: 'jpg',
+                    type: stack
+                  }, fbdata), function(err, doc) {
+                    fs.rename('/tmp/' + shortie + '.jpg', '/tmp/' + doc.id + '.jpg', function(err) {
+                      callback(doc.id)
+                    });
                   });
                 });
               });
@@ -102,7 +99,6 @@ var downloadnprocess = function(id, stack, callback) {
 
 
 if (!process.env.PORT) {
-
 
 
 }

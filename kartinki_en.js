@@ -71,7 +71,7 @@ function kartinki_en(lat, callback) {
   });
 }
 if (!process.env.PORT) {
-  // kartinki_en('1', function () { })
+
 }
 module.exports = {
   kartinki_en: kartinki_en
