@@ -5,7 +5,7 @@ const request = require('request');
 const fs = require('fs');
 const PouchDB = require('pouchdb');
 const db = new PouchDB('http://1:1@db.arpecop.com/fc/db');
-const db1 = new PouchDB('http://1:1@robco.herokuapp.com/db');
+const db1 = new PouchDB('http://1:1@robco.herokuapp.com/content');
 
 function put(jsonx, callback) {
   db.get(jsonx._id, function(err, old_doc) {
