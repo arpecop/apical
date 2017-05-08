@@ -40,46 +40,49 @@ function post(id, callback) {
   count = 0;
   counterr = 0;
   //function post(url, token, title, db, callback) {
-  promo.post(id, process.env.izvestie_token, template, "bgusers", function() {
-    async.eachSeries(
-      _.shuffle(pages),
-      function(page, callbackx) {
-        request.post(
-          "https://graph.facebook.com/" + page.id + "/feed",
-          {
-            form: {
-              published: process.env.PORT ? 1 : 0,
-              link: "http://pix.fbook.space/" + id,
-              child_attachments: [
-                {
-                  link: "http://pix.fbook.space/" + id,
-                  picture: "http://robco.herokuapp.com/content/" + id + "/f.jpg"
-                },
-                {
-                  link: "http://pix.fbook.space/" + id
-                }
-              ],
-              access_token: page.access_token
+  db.get(id, function(err, doc) {
+    promo.post(id, process.env.izvestie_token, template, "bgusers", function() {
+      async.eachSeries(
+        _.shuffle(pages),
+        function(page, callbackx) {
+          request.post(
+            "https://graph.facebook.com/" + page.id + "/feed",
+            {
+              form: {
+                published: process.env.PORT ? 1 : 0,
+                link: "http://pix.fbook.space/" + id,
+                child_attachments: [
+                  {
+                    link: "http://pix.fbook.space/" + id,
+                    picture: doc.url_big
+                  },
+                  {
+                    link: "http://pix.fbook.space/" + id,
+                    picture: doc.url_big
+                  }
+                ],
+                access_token: page.access_token
+              }
+            },
+            function(error, response, body) {
+              let resp = JSON.parse(body);
+              if (resp.error) {
+                counterr++;
+              } else {
+                count++;
+              }
+              callbackx();
             }
-          },
-          function(error, response, body) {
-            let resp = JSON.parse(body);
-            if (resp.error) {
-              counterr++;
-            } else {
-              count++;
-            }
-            callbackx();
-          }
-        );
-      },
-      function done() {
-        console.log(
-          "📘 posted to facebook pages 🚨:" + counterr + " ✅:" + count
-        );
-        callback();
-      }
-    );
+          );
+        },
+        function done() {
+          console.log(
+            "📘 posted to facebook pages 🚨:" + counterr + " ✅:" + count
+          );
+          callback();
+        }
+      );
+    });
   });
 }
 
