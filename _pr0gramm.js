@@ -109,7 +109,7 @@ function imgur(params, callback) {
       db.db1.get(item, function(err, doc) {
         if (err) {
           request.get('http://imgur.com/gallery/' + item, function(e, r, body) {
-            db.db1.insert({
+            db.db1.put({
               _id: item
             }, function(err, ass) {
               let $ = cheerio.load(body);

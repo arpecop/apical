@@ -55,45 +55,42 @@ const gm = require('gm').subClass({
 
 var downloadnprocess = function(id, stack, callback) {
   var dl = get(id);
+  var md = md5(id);
+
   var shortie = shortid.generate();
   var xid = new Date().getTime() + '_' + Math.floor((Math.random() * 10) + 1);
   var file = '/tmp/' + shortie + '.jpg';
+
   dl.toDisk(file, function(err, filename) {
     var readStream = fs.createReadStream(file);
     fs.readFile(file, function(err, filedata) {
       var md = md5(filedata);
-      db.db1.get(md, function(zerr, xx1) {
-        if (zerr) {
-          db.db1.insert({
-            _id: md
-          }, function() {
-            tempcdn.attachment.insert(shortie, 'f.jpg', filedata, 'image/jpeg', function(err, body) {
-              sizeOf(file, function(err, dimensions) {
-                post_img('http://robco.herokuapp.com/content/' + shortie + '/f.jpg', function(fbdata) {
-                  db.put(Object.assign({
-                    arr: 'true',
-                    kofa: true,
-                    key: shortie,
-                    shortie: shortie,
-                    dir: 'fb',
-                    w: dimensions.width,
-                    h: dimensions.height,
-                    ext: 'jpg',
-                    type: stack
-                  }, fbdata), function(err, doc) {
-                    fs.rename('/tmp/' + shortie + '.jpg', '/tmp/' + doc.id + '.jpg', function(err) {
-                      callback(doc.id)
-                    });
-                  });
-                });
+
+      tempcdn.attachment.insert(shortie, 'f.jpg', filedata, 'image/jpeg', function(err, body) {
+        sizeOf(file, function(err, dimensions) {
+          post_img('http://robco.herokuapp.com/content/' + shortie + '/f.jpg', function(fbdata) {
+            db.put(Object.assign({
+              arr: 'true',
+              kofa: true,
+              key: shortie,
+              shortie: shortie,
+              dir: 'fb',
+              w: dimensions.width,
+              h: dimensions.height,
+              ext: 'jpg',
+              type: stack
+            }, fbdata), function(err, doc) {
+              console.log(doc)
+              fs.rename('/tmp/' + shortie + '.jpg', '/tmp/' + doc.id + '.jpg', function(err) {
+                callback(doc.id)
               });
             });
           });
-        } else {
-          callback()
-        }
+        });
       });
     });
+
+
   });
 }
 
