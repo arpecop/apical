@@ -13,6 +13,7 @@ const downloadnprocess = require('./_includes/downloadandprocess.js');
 var template = 'this image collected more than 30 likes.';
 
 var post = async.queue(function(task, callback) {
+  console.log(task.imagex)
   downloadnprocess.go(task.imagex, 'enimgsx', function(shortie) {
     console.log('posting' + shortie);
     promo.post(shortie, process.env.mystbox_token, template, 'mystbox', function() {
@@ -72,17 +73,18 @@ function ninegag(params, callback) {
         if (err) {
           db.db1.put({
             _id: item
-          }, function() {})
-          request.get('http://img-9gag-fun.9cache.com/photo/' + item + '_700b.jpg', function(e, h, bodyx) {
-            if (h.headers['content-type'] === 'image/jpeg') {
-              post.push({
-                imagex: 'http://img-9gag-fun.9cache.com/photo/' + item + '_700b.jpg'
-              });
-              cb();
-            } else {
-              cb();
-            }
-          });
+          }, function() {
+            request.get('http://img-9gag-fun.9cache.com/photo/' + item + '_700b.jpg', function(e, h, bodyx) {
+              if (h.headers['content-type'] === 'image/jpeg') {
+                post.push({
+                  imagex: 'http://img-9gag-fun.9cache.com/photo/' + item + '_700b.jpg'
+                });
+                cb();
+              } else {
+                cb();
+              }
+            });
+          })
         } else {
           cb()
         }
@@ -107,7 +109,7 @@ function imgur(params, callback) {
       db.db1.get(item, function(err, doc) {
         if (err) {
           request.get('http://imgur.com/gallery/' + item, function(e, r, body) {
-            db.insert({
+            db.db1.insert({
               _id: item
             }, function(err, ass) {
               let $ = cheerio.load(body);
@@ -139,10 +141,7 @@ function imgur(params, callback) {
 }
 
 
-if (!process.env['PORT']) {
-  imgur('trending', function() {})
 
-}
 
 
 module.exports = {
