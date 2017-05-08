@@ -77,10 +77,6 @@ module.exports = {
   'exist': get,
   'insert': put,
   'put': put,
-  'db1': {
-    'insert': db1.put,
-    'get': db1.get,
-    'put': db1.put
-  },
+  'db1': db1,
   'query': db.query
 }

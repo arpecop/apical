@@ -119,7 +119,7 @@ function kartinki(lat, callback) {
               ) {
                 db.db1.get(item.id, function(err, data) {
                   if (err) {
-                    db.db1.insert(
+                    db.db1.put(
                       {
                         _id: item.id
                       }, function(dsd, dsdsd) {

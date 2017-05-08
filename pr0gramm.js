@@ -33,7 +33,7 @@ function programm(ass, callbackyyy) {
         if (checkmedia[1] === "jpg") {
           db.db1.get(item.id + 'x', function(err, doc) {
             if (err) {
-              db.db1.insert({
+              db.db1.put({
                 _id: item.id + 'x'
               }, function(err, ass) {
                 item.imagex = 'http://img.pr0gramm.com/' + item.image;
@@ -70,7 +70,7 @@ function ninegag(params, callback) {
 
       db.db1.get(item, function(err, doc) {
         if (err) {
-          db.db1.insert({
+          db.db1.put({
             _id: item
           }, function() {})
           request.get('http://img-9gag-fun.9cache.com/photo/' + item + '_700b.jpg', function(e, h, bodyx) {

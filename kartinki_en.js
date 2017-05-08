@@ -42,7 +42,7 @@ function kartinki_en(lat, callback) {
           if (item.likes && item.likes.data.length >= 3 && item.type === 'photo') {
             db.db1.get(item.id, function(err, data) {
               if (err) {
-                db.db1.insert({
+                db.db1.put({
                   _id: item.id
                 }, function(dsd, dsdsd) {
                   console.log(item.full_picture);

@@ -46,7 +46,7 @@ function insertdb(json, callback) {
   json.arr = true;
   db.db1.get(json.uid, function(err) {
     if (err) {
-      db.db1.insert({
+      db.db1.put({
         _id: json.uid
       }, function() {
         post_pinterest(json, function(assx) {
