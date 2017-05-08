@@ -83,37 +83,6 @@ var downloadnprocess = function (id, stack, callback) {
                                     ext: 'jpg',
                                     type: '' + stack + ''
                                 }, fbdata), function (err, doc) {
-                                    gm(readStream).size({
-                                        bufferStream: true
-                                    }, function (err, size) {
-                                        this.resize(250)
-                                        this.crop(250, 501, 0, 0)
-                                        this.write('/tmp/' + shortie + '_sm.jpg', function (err) {
-                                            fs.readFile('/tmp/' + shortie + '_sm.jpg', function (err, filedata) {
-                                                upload({
-                                                    Key: doc.id + '300',
-                                                    Body: filedata,
-                                                    ContentType: 'image/jpeg'
-                                                }, function (err, dataxssss) { })
-                                            })
-                                        });
-                                        //this.append("./cover.png")
-                                        //gm("img.png").watermark(brightness, saturation)
-
-                                        this.resize(450)
-                                        this.crop(450, 236, 0, 0)
-                                        this.draw(['image Over 0,0 0,0 "/app/_includes/cover.png"'])
-                                        this.write('/tmp/' + shortie + '_feed.jpg', function (err) {
-                                            fs.readFile('/tmp/' + shortie + '_feed.jpg', function (err, filedata) {
-                                                upload({
-                                                    Key: doc.id + 'feed',
-                                                    Body: filedata,
-                                                    ContentType: 'image/jpeg'
-                                                }, function (err, dataxssss) { })
-                                            })
-                                        });
-                                    });
-
                                     upload({
                                         Key: doc.id,
                                         Body: filedata,
