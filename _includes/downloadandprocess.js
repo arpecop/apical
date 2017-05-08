@@ -17,91 +17,87 @@ const pages = require('./pages.json');
 
 
 function post_img(url, callback) {
-    pinterest.api('pins', {
-        method: 'POST',
-        body: {
-            board: '195554877508708250', // grab the first board from the previous response
-            note: '',
-            link: 'http://pix.fbook.space/',
-            image_url: url
-        }
-    }).then(function (json) {
-        request.get('https://developers.pinterest.com/widget/pins/' + json.data.id + '/', function (err, ser, body) {
-            if (!err) {
-                let jsxon = JSON.parse(body);
-                callback({
-                    url: jsxon.data.image.original.url.replace('originals', '236x'),
-                    url_big: jsxon.data.image.original.url,
-                })
-            } else {
-                callback({})
-            }
+  pinterest.api('pins', {
+    method: 'POST',
+    body: {
+      board: '195554877508708250', // grab the first board from the previous response
+      note: '',
+      link: 'http://pix.fbook.space/',
+      image_url: url
+    }
+  }).then(function(json) {
+    request.get('https://developers.pinterest.com/widget/pins/' + json.data.id + '/', function(err, ser, body) {
+      if (!err) {
+        let jsxon = JSON.parse(body);
+        callback({
+          url: jsxon.data.image.original.url.replace('originals', '236x'),
+          url_big: jsxon.data.image.original.url,
         })
-
-    }).catch(function (err) {
+      } else {
         callback({})
-    });
+      }
+    })
+
+  }).catch(function(err) {
+    callback({})
+  });
 
 }
 
 
 
 const gm = require('gm').subClass({
-    imageMagick: true
+  imageMagick: true
 });
 
 
 function upload(json, callback) {
-    dbcdn.attachment.insert(json.Key, 'f.jpg', json.Body, json.ContentType, function (err, body) {
-        callback()
-    });
+  dbcdn.attachment.insert(json.Key, 'f.jpg', json.Body, json.ContentType, function(err, body) {
+    callback()
+  });
 }
 
-var downloadnprocess = function (id, stack, callback) {
-    var dl = get(id);
-    var shortie = shortid.generate();
-    var xid = new Date().getTime() + '_' + Math.floor((Math.random() * 10) + 1);
-    var file = '/tmp/' + shortie + '.jpg';
-    dl.toDisk(file, function (err, filename) {
-        var readStream = fs.createReadStream(file);
-        fs.readFile(file, function (err, filedata) {
-            var md = md5(filedata);
-            tempcdn.get(md, function (zerr, xx1) {
-                if (zerr) {
-                    tempcdn.insert({ _id: md }, function () { })
-                    tempcdn.attachment.insert(shortie, 'f.jpg', filedata, 'image/jpeg', function (err, body) {
-                        sizeOf(file, function (err, dimensions) {
-                            post_img('http://robco.herokuapp.com/content/' + shortie + '/f.jpg', function (fbdata) {
-                                db.put(Object.assign({
-                                    arr: 'true',
-                                    kofa: true,
-                                    key: shortie,
-                                    shortie: shortie,
-                                    dir: 'fb',
-                                    w: dimensions.width,
-                                    h: dimensions.height,
-                                    ext: 'jpg',
-                                    type: '' + stack + ''
-                                }, fbdata), function (err, doc) {
-                                    upload({
-                                        Key: doc.id,
-                                        Body: filedata,
-                                        ContentType: 'image/jpeg'
-                                    }, function (err, dataxssss) {
-                                        fs.rename('/tmp/' + shortie + '.jpg', '/tmp/' + doc.id + '.jpg', function (err) {
-                                            callback(doc.id)
-                                        });
-                                    });
-                                });
-                            });
-                        });
-                    });
-                } else {
-                    callback()
-                }
+var downloadnprocess = function(id, stack, callback) {
+  var dl = get(id);
+  var shortie = shortid.generate();
+  var xid = new Date().getTime() + '_' + Math.floor((Math.random() * 10) + 1);
+  var file = '/tmp/' + shortie + '.jpg';
+  dl.toDisk(file, function(err, filename) {
+    var readStream = fs.createReadStream(file);
+    fs.readFile(file, function(err, filedata) {
+      var md = md5(filedata);
+      tempcdn.get(md, function(zerr, xx1) {
+        if (zerr) {
+          tempcdn.insert({
+            _id: md
+          }, function() {})
+          tempcdn.attachment.insert(shortie, 'f.jpg', filedata, 'image/jpeg', function(err, body) {
+            sizeOf(file, function(err, dimensions) {
+              post_img('http://robco.herokuapp.com/content/' + shortie + '/f.jpg', function(fbdata) {
+                db.put(Object.assign({
+                  arr: 'true',
+                  kofa: true,
+                  key: shortie,
+                  shortie: shortie,
+                  dir: 'fb',
+                  w: dimensions.width,
+                  h: dimensions.height,
+                  ext: 'jpg',
+                  type: '' + stack + ''
+                }, fbdata), function(err, doc) {
+                  fs.rename('/tmp/' + shortie + '.jpg', '/tmp/' + doc.id + '.jpg', function(err) {
+                    callback(doc.id)
+                  });
+                });
+              });
             });
-        });
+          });
+        } else {
+          callback()
+        }
+      });
     });
+  });
 }
 
 
@@ -113,5 +109,5 @@ if (!process.env.PORT) {
 
 
 module.exports = {
-    'go': downloadnprocess
+  'go': downloadnprocess
 }
