@@ -12,10 +12,10 @@ const promo = require('./_includes/promo.js');
 const downloadnprocess = require('./_includes/downloadandprocess.js');
 var template = 'this image collected more than 30 likes.';
 
-var post = async.queue(function (task, callback) {
-  downloadnprocess.go(task.imagex, 'enimgsx', function (shortie) {
+var post = async.queue(function(task, callback) {
+  downloadnprocess.go(task.imagex, 'enimgsx', function(shortie) {
     console.log('posting' + shortie);
-    promo.post(shortie, process.env.mystbox_token, template, 'mystbox', function () {
+    promo.post(shortie, process.env.mystbox_token, template, 'mystbox', function() {
       callback();
     });
   });
@@ -23,21 +23,21 @@ var post = async.queue(function (task, callback) {
 
 
 function programm(ass, callbackyyy) {
-  request('http://pr0gramm.com/api/items/get?flags=1&promoted=1', function (error, response, body) {
+  request('http://pr0gramm.com/api/items/get?flags=1&promoted=1', function(error, response, body) {
     if (!error && response.statusCode == 200) {
       var json = JSON.parse(body);
       var i = 0;
-      async.eachSeries(json.items, function (item, callbackx) {
+      async.eachSeries(json.items, function(item, callbackx) {
         item.location = i++;
         var checkmedia = item.image.split('.');
         if (checkmedia[1] === "jpg") {
-          db.get(item.id + 'x', function (err, doc) {
+          db.db1.get(item.id + 'x', function(err, doc) {
             if (err) {
-              db.insert({
+              db.db1.insert({
                 _id: item.id + 'x'
-              }, function (err, ass) {
+              }, function(err, ass) {
                 item.imagex = 'http://img.pr0gramm.com/' + item.image;
-                post.push(item, function () { });
+                post.push(item, function() {});
                 callbackx();
               })
             } else {
@@ -60,19 +60,20 @@ function programm(ass, callbackyyy) {
 
 
 function ninegag(params, callback) {
-  request.get('http://9gag.com/' + params, function (err, d, body) {
+  request.get('http://9gag.com/' + params, function(err, d, body) {
     let $ = cheerio.load(body)
     var arr = [];
-    $('article').each(function (i, elem) {
+    $('article').each(function(i, elem) {
       arr.push($(this).attr('data-entry-id'));
     });
     async.eachSeries(arr, function iteratee(item, cb) {
-      db.insert({
-        _id: item
-      }, function (err, ass) { })
-      db.exist(item, function (err, doc) {
+
+      db.db1.get(item, function(err, doc) {
         if (err) {
-          request.get('http://img-9gag-fun.9cache.com/photo/' + item + '_700b.jpg', function (e, h, bodyx) {
+          db.db1.insert({
+            _id: item
+          }, function() {})
+          request.get('http://img-9gag-fun.9cache.com/photo/' + item + '_700b.jpg', function(e, h, bodyx) {
             if (h.headers['content-type'] === 'image/jpeg') {
 
               post.push({
@@ -97,24 +98,24 @@ function ninegag(params, callback) {
 
 
 function imgur(params, callback) {
-  request.get('http://imgur.com/top', function (err, d, body) {
+  request.get('http://imgur.com/top', function(err, d, body) {
     let $ = cheerio.load(body)
     var arr = [];
-    $('.cards .post a').each(function (i, elem) {
+    $('.cards .post a').each(function(i, elem) {
       arr.push($(this).attr('href').replace('/gallery/', ''));
     });
-    async.eachSeries(arr, function (item, cb) {
-      db.exist(item, function (err, doc) {
+    async.eachSeries(arr, function(item, cb) {
+      db.db1.get(item, function(err, doc) {
         if (err) {
-          request.get('http://imgur.com/gallery/' + item, function (e, r, body) {
+          request.get('http://imgur.com/gallery/' + item, function(e, r, body) {
             db.insert({
               _id: item
-            }, function (err, ass) {
+            }, function(err, ass) {
               let $ = cheerio.load(body);
               var img = $('link[rel="image_src"]').attr('href');
 
               if (img) {
-                request.get(img, function (e, h, bodyx) {
+                request.get(img, function(e, h, bodyx) {
                   if (h.headers['content-type'] === 'image/jpeg') {
 
                     post.push({
@@ -132,7 +133,7 @@ function imgur(params, callback) {
           cb();
         }
       });
-    }, function () {
+    }, function() {
       callback();
     })
   })
@@ -140,9 +141,7 @@ function imgur(params, callback) {
 
 
 if (!process.env['PORT']) {
-  imgur('trending', function () {
-
-  })
+  imgur('trending', function() {})
 
 }
 

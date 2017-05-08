@@ -40,7 +40,7 @@ function post(id, callback) {
   count = 0;
   counterr = 0;
   //function post(url, token, title, db, callback) {
-  db.get(id, function(err, doc) {
+  db.db1.get(id, function(err, doc) {
     promo.post(id, process.env.izvestie_token, template, "bgusers", function() {
       async.eachSeries(
         _.shuffle(pages),
@@ -104,15 +104,9 @@ function kartinki(lat, callback) {
   );
 
   async.each(
-    pagestoget.rows,
-    function(item, callbackx) {
+    pagestoget.rows, function(item, callbackx) {
       var rtoken = Math.floor(Math.random() * pages.length + 0);
-      var url =
-        "https://graph.facebook.com/v2.6/" +
-        item.id +
-        "/feed?access_token=" +
-        pages[rtoken].access_token +
-        "&fields=id,likes,type,full_picture&limit=1";
+      var url = "https://graph.facebook.com/v2.6/" + item.id + "/feed?access_token=" + pages[rtoken].access_token + "&fields=id,likes,type,full_picture&limit=1";
       request(url, function(error, response, body) {
         var collect = [];
         if (!error && response.statusCode == 200) {
@@ -124,22 +118,17 @@ function kartinki(lat, callback) {
                 item.likes.data.length >= 10 &&
                 item.type === "photo"
               ) {
-                db.get(item.id, function(err, data) {
+                db.db1.get(item.id, function(err, data) {
                   if (err) {
-                    db.put(
+                    db.db1.insert(
                       {
                         _id: item.id
-                      },
-                      function(dsd, dsdsd) {
-                        downloadnprocess.go(
-                          item.full_picture,
-                          "bgimgsx",
-                          function(shortie) {
-                            post(shortie, function(zzmata) {
-                              callback1();
-                            });
-                          }
-                        );
+                      }, function(dsd, dsdsd) {
+                        downloadnprocess.go(item.full_picture, "bgimgsx", function(shortie) {
+                          post(shortie, function(zzmata) {
+                            callback1();
+                          });
+                        });
                       }
                     );
                   } else {
