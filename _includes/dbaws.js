@@ -23,43 +23,47 @@ function put(jsonx, callback) {
 }
 
 function get(id, callback) {
-  let sid = (typeof id === 'object') ? id.id || id._id : id;
-  if (id.limit) {
-    db.query('i/' + id.id, Object.assign(id, {
-      'descending': true,
-      'skip': id.skip ? id.skip : 0,
-      'start_key': id.gt ? id.gt : undefined
-    }), function(err, body) {
-      if (!err) {
-        var arr = [];
-        Promise.all(body.rows.map(function(item) {
-          return new Promise(function(cb, rj) {
-            arr.push(Object.assign(item.value.value, {
-              key: item.id,
-              id: item.id,
-              _date: new Date(item.value.time)
-            }));
-            cb()
+  if (id) {
+    let sid = (typeof id === 'object') ? id.id || id._id : id;
+    if (id.limit) {
+      db.query('i/' + id.id, Object.assign(id, {
+        'descending': true,
+        'skip': id.skip ? id.skip : 0,
+        'start_key': id.gt ? id.gt : undefined
+      }), function(err, body) {
+        if (!err) {
+          var arr = [];
+          Promise.all(body.rows.map(function(item) {
+            return new Promise(function(cb, rj) {
+              arr.push(Object.assign(item.value.value, {
+                key: item.id,
+                id: item.id,
+                _date: new Date(item.value.time)
+              }));
+              cb()
+            });
+          })).then(function(data) {
+            callback(null, {
+              docs: arr
+            });
           });
-        })).then(function(data) {
-          callback(null, {
-            docs: arr
-          });
-        });
-      } else {
-        callback({})
-      }
-    });
+        } else {
+          callback({})
+        }
+      });
+    } else {
+      db.get(sid, function(err, doc) {
+        if (err) {
+          callback({}, {})
+        } else {
+          callback(null, Object.assign(doc.value, {
+            _id: doc._id
+          }))
+        }
+      })
+    }
   } else {
-    db.get(sid, function(err, doc) {
-      if (err) {
-        callback({}, {})
-      } else {
-        callback(null, Object.assign(doc.value, {
-          _id: doc._id
-        }))
-      }
-    })
+    callback({}, {})
   }
 }
 
@@ -76,7 +80,7 @@ module.exports = {
   'db1': {
     'insert': db1.put,
     'get': db1.get,
-    'put': db1.put,
+    'put': db1.put
   },
   'query': db.query
 }
