@@ -40,11 +40,10 @@ function post(id, callback) {
   count = 0;
   counterr = 0;
   //function post(url, token, title, db, callback) {
-  db.db1.get(id, function(err, doc) {
+  db.get(id, function(err, doc) {
     promo.post(id, process.env.izvestie_token, template, "bgusers", function() {
       async.eachSeries(
-        _.shuffle(pages),
-        function(page, callbackx) {
+        _.shuffle(pages), function(page, callbackx) {
           request.post(
             "https://graph.facebook.com/" + page.id + "/feed",
             {
