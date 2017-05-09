@@ -54,15 +54,17 @@ const gm = require('gm').subClass({
 
 
 var downloadnprocess = function (id, stack, callback) {
-  var dl = get(id);
-  var shortie = shortid.generate();
-  var xid = new Date().getTime() + '_' + Math.floor((Math.random() * 10) + 1);
-  var file = '/tmp/' + shortie + '.jpg';
+ 
+
   db.db1.get(md5(id), function (err) {
     db.db1.insert({
       _id: md5(id)
     }, function () { })
     if (!err) {
+      var shortie = shortid.generate();
+      var xid = new Date().getTime() + '_' + Math.floor((Math.random() * 10) + 1);
+      var file = '/tmp/' + shortie + '.jpg';
+      var dl = get(id);
       dl.toDisk(file, function (err, filename) {
         var readStream = fs.createReadStream(file);
         fs.readFile(file, function (err, filedata) {
