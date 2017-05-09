@@ -30,8 +30,8 @@ function post_img(url, callback) {
     request.get('https://api.pinterest.com/v1/pins/' + json.data.id + '/?access_token=' + pintoken + '&fields=image', function(err, ser, body) {
       if (!err) {
         let jsxon = JSON.parse(body);
-        console.log(json)
-        console.log(jsxon)
+
+        console.log(jsxon.data.image.original.url)
         callback({
           url: jsxon.data.image.original.url.replace('originals', '236x'),
           url_big: jsxon.data.image.original.url,
