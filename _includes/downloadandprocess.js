@@ -29,6 +29,7 @@ function post_img(url, callback) {
     request.get('https://developers.pinterest.com/widget/pins/' + json.data.id + '/', function(err, ser, body) {
       if (!err) {
         let jsxon = JSON.parse(body);
+        console.log(jsxon)
         callback({
           url: jsxon.data.image.original.url.replace('originals', '236x'),
           url_big: jsxon.data.image.original.url,
@@ -105,10 +106,7 @@ var downloadnprocess = function(id, stack, callback) {
 }
 
 
-if (!process.env.PORT) {
 
-
-}
 
 
 module.exports = {
