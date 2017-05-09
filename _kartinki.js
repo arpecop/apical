@@ -15,7 +15,7 @@ const downloadnprocess = require(__dirname +
   "/_includes/downloadandprocess.js");
 const promo = require(__dirname + "/_includes/promo.js");
 
-var template = "тази снимка получи над 30 харесвания.";
+var template = "тази снимка от приятел става популярна.";
 
 function datex(prefix) {
   var coeff = 1000 * 60 * 3;
@@ -86,6 +86,7 @@ function post(id, callback) {
 }
 
 function kartinki(lat, callback) {
+
   db.get(
     {
       id: "bgimgsx",
@@ -93,11 +94,7 @@ function kartinki(lat, callback) {
     },
     function(e, doc) {
       console.log('posting scheduled promo last post kartinki ' + doc.docs[0].id)
-      promo.post(
-        doc.docs[0].id,
-        process.env.izvestie_token,
-        template,
-        "bgusers",
+      promo.post(doc.docs[0].id, process.env.izvestie_token, template, "bgusers",
         function() {}
       );
     }

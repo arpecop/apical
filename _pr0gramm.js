@@ -10,7 +10,7 @@ var slug = require('slug');
 var md5 = require('md5');
 const promo = require('./_includes/promo.js');
 const downloadnprocess = require('./_includes/downloadandprocess.js');
-var template = 'this image collected more than 30 likes.';
+var template = '🔥 this picture friend uploaded is getting popular.';
 
 var post = async.queue(function(task, callback) {
   console.log(task.imagex)
