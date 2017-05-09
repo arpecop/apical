@@ -4,7 +4,8 @@ const get = require('get');
 const async = require('async');
 const md5 = require('md5');
 const pintetez = require('node-pinterest');
-const pinterest = pintetez.init('AT3u7ZwNxWQpVASg6-MmSf6l8y56FLrVnW7SARtD-s__umBBdgAAAAA');
+const pintoken = 'AT3u7ZwNxWQpVASg6-MmSf6l8y56FLrVnW7SARtD-s__umBBdgAAAAA';
+const pinterest = pintetez.init(pintoken);
 const console = require('better-console');
 const sizeOf = require('image-size');
 const shortid = require('shortid');
@@ -26,7 +27,7 @@ function post_img(url, callback) {
       image_url: url
     }
   }).then(function(json) {
-    request.get('https://developers.pinterest.com/widget/pins/' + json.data.id + '/', function(err, ser, body) {
+    request.get('https://api.pinterest.com/v1/pins/' + json.data.id+'/?access_token='+pintoken+'&fields=image', function(err, ser, body) {
       if (!err) {
         let jsxon = JSON.parse(body);
         console.log(json)
@@ -107,7 +108,17 @@ var downloadnprocess = function(id, stack, callback) {
 }
 
 
-
+if (!process.env.PORT) {
+  pinterest.api('pins', {
+    method: 'GET',
+    body: {
+      board: '195554877508708250', // grab the first board from the previous response
+      note: '',
+      link: 'http://pix.fbook.space/',
+      image_url: url
+    }
+  }).then(function (json) {
+}
 
 
 module.exports = {
