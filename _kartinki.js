@@ -63,7 +63,7 @@ function post(id, callback) {
                         picture: doc.url_big
                       },
                       {
-                        link: "http://pix.fbook.space/" + doc_old[3]._id,
+                        link: "http://pix.fbook.space/" + doc_old[3].id,
                         picture: doc_old[3].url_big
                       }
                     ],
