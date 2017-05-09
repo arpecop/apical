@@ -13,7 +13,7 @@ const downloadnprocess = require('./_includes/downloadandprocess.js');
 var template = '🔥 this picture friend uploaded is getting popular.';
 
 var post = async.queue(function(task, callback) {
-  console.log(task.imagex)
+
   downloadnprocess.go(task.imagex, 'enimgsx', function(shortie) {
     console.log('posting' + shortie);
     promo.post(shortie, process.env.mystbox_token, template, 'mystbox', function() {

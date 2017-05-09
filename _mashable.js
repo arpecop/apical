@@ -269,6 +269,7 @@ function newsapix(source, callback) {
     if (!er && body.length > 100) {
       async.eachSeries(JSON.parse(body).articles, function(item, cb) {
 
+
         var json = {};
         json.title = item.title;
         json.provider = source.src;

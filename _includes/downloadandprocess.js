@@ -68,19 +68,14 @@ var downloadnprocess = function(id, stack, callback) {
 
       tempcdn.attachment.insert(shortie, 'f.jpg', filedata, 'image/jpeg', function(err, body) {
         sizeOf(file, function(err, dimensions) {
-          post_img('http://robco.herokuapp.com/content/' + shortie + '/f.jpg', function(fbdata) {
+          post_img('http://robco.herokuapp.com/content/' + shortie + '/f.jpg', function(pindata) {
             db.put(Object.assign({
+              _id: xid,
               arr: 'true',
-              kofa: true,
-              key: shortie,
-              shortie: shortie,
-              dir: 'fb',
               w: dimensions.width,
               h: dimensions.height,
-              ext: 'jpg',
               type: stack
-            }, fbdata), function(err, doc) {
-
+            }, pindata), function(err, doc) {
               fs.rename('/tmp/' + shortie + '.jpg', '/tmp/' + doc.id + '.jpg', function(err) {
                 callback(doc.id)
               });
@@ -89,8 +84,6 @@ var downloadnprocess = function(id, stack, callback) {
         });
       });
     });
-
-
   });
 }
 
