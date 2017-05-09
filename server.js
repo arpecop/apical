@@ -34,71 +34,70 @@ if (cluster.isMaster) {
   request.get('http://chimpsnap.herokuapp.com/', () => {
   });
 
-  console.log('job openings')
-  setTimeout(function() {
-    async.waterfall([
-      (cb) => {
-        kartinki.kartinki('1', () => {
-          cb(null, '')
-        })
-      },
-      (one, cb) => {
-        pr0gramm.pr0gramm('1', () => {
-          cb(null, '')
-        })
-      },
-      (one, cb) => {
-        pr0gramm.imgur('1', () => {
-          cb(null, '')
-        })
-      },
-      (one, cb) => {
-        pr0gramm.ninegag('trending', () => {
-          cb(null, '')
-        })
-      },
-      (one, cb) => {
-        pr0gramm.ninegag('hot', () => {
-          cb(null, '')
-        })
-      },
 
-      (one, cb) => {
-        mash.newsapi('1', () => {
-          cb(null, '📦 delivered all newsapi');
-        })
-      },
-      (one, cb) => {
-        mash.crunch('crunch', () => {
-          cb(null, '📦 delivered crunch');
-        })
-      },
-      (one, cb) => {
-        mash.upworthy('upworthy', () => {
-          cb(null, '📦 delivered upworthy');
-        })
-      },
-      (one, cb) => {
-        mash.distractify('distractify', () => {
-          cb(null, {
-            'distractify': '📦 delivered '
-          });
-        })
-      },
-      (one, cb) => {
-        mash.huffingtonpost('buzz', () => {
-          cb(null, '📦 delivered huffingtonpost');
-        })
-      }
-    ], function(err, result) {
-      console.log('final');
-      console.log(err || result);
-      setTimeout(function() {
-        process.exit(0)
-      }, 300);
+  async.waterfall([
+    (cb) => {
+      kartinki.kartinki('1', () => {
+        cb(null, '')
+      })
+    },
+    (one, cb) => {
+      pr0gramm.pr0gramm('1', () => {
+        cb(null, '')
+      })
+    },
+    (one, cb) => {
+      pr0gramm.imgur('1', () => {
+        cb(null, '')
+      })
+    },
+    (one, cb) => {
+      pr0gramm.ninegag('trending', () => {
+        cb(null, '')
+      })
+    },
+    (one, cb) => {
+      pr0gramm.ninegag('hot', () => {
+        cb(null, '')
+      })
+    },
 
-    });
-  }, Math.floor((Math.random() * 15000) + 1000));
+    (one, cb) => {
+      mash.newsapi('1', () => {
+        cb(null, '📦 delivered all newsapi');
+      })
+    },
+    (one, cb) => {
+      mash.crunch('crunch', () => {
+        cb(null, '📦 delivered crunch');
+      })
+    },
+    (one, cb) => {
+      mash.upworthy('upworthy', () => {
+        cb(null, '📦 delivered upworthy');
+      })
+    },
+    (one, cb) => {
+      mash.distractify('distractify', () => {
+        cb(null, {
+          'distractify': '📦 delivered '
+        });
+      })
+    },
+    (one, cb) => {
+      mash.huffingtonpost('buzz', () => {
+        cb(null, '📦 delivered huffingtonpost');
+      })
+    }
+  ], function(err, result) {
+    console.log('final');
+    console.log(err || result);
+    setTimeout(function() {
+      process.exit(0)
+    }, Math.floor((Math.random() * 15000) + 1000));
+
+  });
+
 
 
 
