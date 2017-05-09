@@ -62,6 +62,11 @@ if (cluster.isMaster) {
       })
     },
     (one, cb) => {
+      pr0gramm.imgur('hot/viral', () => {
+        cb(null, '')
+      })
+    },
+    (one, cb) => {
       pr0gramm.ninegag('trending', () => {
         cb(null, '')
       })
