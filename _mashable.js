@@ -3,6 +3,7 @@ const async = require('async');
 const db = require('./_includes/dbaws.js');
 const cheerio = require('cheerio');
 const Feed = require('rss-to-json');
+const md5 = require('md5');
 const console = require('better-console');
 //const request = require('request');
 const promo = require('./_includes/promo.js');
@@ -44,10 +45,10 @@ function post_pinterest(json, callback) {
 function insertdb(json, callback) {
   json.type = 'newsen'
   json.arr = true;
-  db.db1.get(json.uid, function(err) {
+  db.db1.get(md5(json.title), function(err) {
     if (err) {
       db.db1.put({
-        _id: json.uid
+        _id: md5(json.title)
       }, function() {
         post_pinterest(json, function(assx) {
           db.put(Object.assign(json, assx), function(err, ass) {
