@@ -52,6 +52,16 @@ if (cluster.isMaster) {
       })
     },
     (one, cb) => {
+      pr0gramm.imgur('new/time', () => {
+        cb(null, '')
+      })
+    },
+    (one, cb) => {
+      pr0gramm.imgur('t/funny', () => {
+        cb(null, '')
+      })
+    },
+    (one, cb) => {
       pr0gramm.ninegag('trending', () => {
         cb(null, '')
       })
