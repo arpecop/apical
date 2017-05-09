@@ -1,13 +1,13 @@
-var request = require('request');
-var async = require('async');
-var fs = require('fs');
-var Twitter = require('twitter');
-var cheerio = require('cheerio');
-var db = require('./_includes/dbaws.js');
-var get = require('get');
-var restler = require('restler');
-var slug = require('slug');
-var md5 = require('md5');
+const request = require('request');
+const async = require('async');
+const fs = require('fs');
+const Twitter = require('twitter');
+const cheerio = require('cheerio');
+const db = require('./_includes/dbaws.js');
+const get = require('get');
+const restler = require('restler');
+const slug = require('slug');
+const md5 = require('md5');
 const promo = require('./_includes/promo.js');
 const downloadnprocess = require('./_includes/downloadandprocess.js');
 var template = '🔥 this picture friend uploaded is getting popular.';
@@ -110,7 +110,7 @@ function imgur(params, callback) {
       arr.push($(this).attr('href').replace('/gallery/', ''));
     });
     async.eachSeries(arr, function(item, cb) {
-      console.log(item)
+
       db.db1.get(item, function(err, doc) {
         if (err) {
           request.get('http://imgur.com/gallery/' + item, function(e, r, body) {
@@ -122,7 +122,7 @@ function imgur(params, callback) {
               if (img) {
                 request.get(img, function(e, h, bodyx) {
                   if (h.headers['content-type'] === 'image/jpeg') {
-                    console.log(img)
+
                     post({
                       imagex: img
                     }, () => {
@@ -150,10 +150,7 @@ function imgur(params, callback) {
 
 
 if (!process.env.PORT) {
-  imgur('new/time', () => {
-    console.log('done');
 
-  });
 
 }
 
