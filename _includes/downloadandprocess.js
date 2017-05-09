@@ -53,44 +53,51 @@ const gm = require('gm').subClass({
 
 
 
-var downloadnprocess = function(id, stack, callback) {
+var downloadnprocess = function (id, stack, callback) {
   var dl = get(id);
   var shortie = shortid.generate();
   var xid = new Date().getTime() + '_' + Math.floor((Math.random() * 10) + 1);
   var file = '/tmp/' + shortie + '.jpg';
-
-  dl.toDisk(file, function(err, filename) {
-    var readStream = fs.createReadStream(file);
-    fs.readFile(file, function(err, filedata) {
-      var md = md5(filedata);
-      db.db1.get(md, function(err) {
-        if (err) {
-          db.db1.insert({
-            _id: md
-          }, function() {})
-          tempcdn.attachment.insert(shortie, 'f.jpg', filedata, 'image/jpeg', function(err, body) {
-            sizeOf(file, function(err, dimensions) {
-              post_img('http://robco.herokuapp.com/content/' + shortie + '/f.jpg', function(pindata) {
-                db.put(Object.assign({
-                  _id: xid,
-                  arr: 'true',
-                  w: dimensions.width,
-                  h: dimensions.height,
-                  type: stack
-                }, pindata), function(err, doc) {
-                  fs.rename('/tmp/' + shortie + '.jpg', '/tmp/' + doc.id + '.jpg', function(err) {
-                    callback(doc.id)
+  db.db1.get(md5(id), function (err) {
+    db.db1.insert({
+      _id: md5(id)
+    }, function () { })
+    if (!err) {
+      dl.toDisk(file, function (err, filename) {
+        var readStream = fs.createReadStream(file);
+        fs.readFile(file, function (err, filedata) {
+          db.db1.get(md5(filedata), function (err) {
+            if (err) {
+              db.db1.insert({
+                _id: md5(filedata)
+              }, function () { })
+              tempcdn.attachment.insert(shortie, 'f.jpg', filedata, 'image/jpeg', function (err, body) {
+                sizeOf(file, function (err, dimensions) {
+                  post_img('http://robco.herokuapp.com/content/' + shortie + '/f.jpg', function (pindata) {
+                    db.put(Object.assign({
+                      _id: xid,
+                      arr: 'true',
+                      w: dimensions.width,
+                      h: dimensions.height,
+                      type: stack
+                    }, pindata), function (err, doc) {
+                      fs.rename('/tmp/' + shortie + '.jpg', '/tmp/' + doc.id + '.jpg', function (err) {
+                        callback(doc.id)
+                      });
+                    });
                   });
                 });
               });
-            });
-          });
-        } else {
-          callback()
-        }
-      })
+            } else {
+              callback()
+            }
+          })
+        });
+      });
     });
-  });
+} else {
+  callback();
+}
 }
 
 
