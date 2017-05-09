@@ -57,7 +57,7 @@ var downloadnprocess = function(id, stack, callback) {
 
 
   db.db1.get(md5(id), function(err) {
-    db.db1.insert({
+    db.db1.put({
       _id: md5(id)
     }, function() {})
     if (!err) {
