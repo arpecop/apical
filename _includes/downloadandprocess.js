@@ -70,7 +70,7 @@ var downloadnprocess = function(id, stack, callback) {
         fs.readFile(file, function(err, filedata) {
           db.db1.get(md5(filedata), function(err) {
             if (err) {
-              db.db1.insert({
+              db.db1.put({
                 _id: md5(filedata)
               }, function() {})
               tempcdn.attachment.insert(shortie, 'f.jpg', filedata, 'image/jpeg', function(err, body) {
