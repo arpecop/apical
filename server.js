@@ -47,7 +47,7 @@ if (cluster.isMaster) {
       })
     },
     (one, cb) => {
-      pr0gramm.imgur('1', () => {
+      pr0gramm.imgur('top/time', () => {
         cb(null, '')
       })
     },

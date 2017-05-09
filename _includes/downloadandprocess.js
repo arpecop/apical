@@ -57,10 +57,11 @@ var downloadnprocess = function(id, stack, callback) {
 
 
   db.db1.get(md5(id), function(err) {
-    db.db1.put({
-      _id: md5(id)
-    }, function() {})
-    if (!err) {
+
+    if (err) {
+      db.db1.put({
+        _id: md5(id)
+      }, function() {})
       var shortie = shortid.generate();
       var xid = new Date().getTime() + '_' + Math.floor((Math.random() * 10) + 1);
       var file = '/tmp/' + shortie + '.jpg';

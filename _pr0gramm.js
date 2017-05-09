@@ -12,15 +12,15 @@ const promo = require('./_includes/promo.js');
 const downloadnprocess = require('./_includes/downloadandprocess.js');
 var template = '🔥 this picture friend uploaded is getting popular.';
 
-var post = async.queue(function(task, callback) {
+var post = function(task, callback) {
 
   downloadnprocess.go(task.imagex, 'enimgsx', function(shortie) {
-    console.log('posting' + shortie);
+
     promo.post(shortie, process.env.mystbox_token, template, 'mystbox', function() {
       callback();
     });
   });
-}, 1);
+}
 
 
 function programm(ass, callbackyyy) {
@@ -38,8 +38,10 @@ function programm(ass, callbackyyy) {
                 _id: item.id + 'x'
               }, function(err, ass) {
                 item.imagex = 'http://img.pr0gramm.com/' + item.image;
-                post.push(item, function() {});
-                callbackx();
+                post(item, function() {
+                  callbackx();
+                });
+
               })
             } else {
               //console.log('exist');
@@ -76,10 +78,12 @@ function ninegag(params, callback) {
           }, function() {
             request.get('http://img-9gag-fun.9cache.com/photo/' + item + '_700b.jpg', function(e, h, bodyx) {
               if (h.headers['content-type'] === 'image/jpeg') {
-                post.push({
+                post({
                   imagex: 'http://img-9gag-fun.9cache.com/photo/' + item + '_700b.jpg'
+                }, () => {
+                  cb();
                 });
-                cb();
+
               } else {
                 cb();
               }
@@ -99,13 +103,14 @@ function ninegag(params, callback) {
 
 
 function imgur(params, callback) {
-  request.get('http://imgur.com/top', function(err, d, body) {
+  request.get('http://imgur.com/' + params, function(err, d, body) {
     let $ = cheerio.load(body)
     var arr = [];
     $('.cards .post a').each(function(i, elem) {
       arr.push($(this).attr('href').replace('/gallery/', ''));
     });
     async.eachSeries(arr, function(item, cb) {
+      console.log(item)
       db.db1.get(item, function(err, doc) {
         if (err) {
           request.get('http://imgur.com/gallery/' + item, function(e, r, body) {
@@ -114,16 +119,19 @@ function imgur(params, callback) {
             }, function(err, ass) {
               let $ = cheerio.load(body);
               var img = $('link[rel="image_src"]').attr('href');
-
               if (img) {
                 request.get(img, function(e, h, bodyx) {
                   if (h.headers['content-type'] === 'image/jpeg') {
-
-                    post.push({
+                    console.log(img)
+                    post({
                       imagex: img
+                    }, () => {
+                      cb();
                     });
+                  } else {
+                    cb();
                   }
-                  cb();
+
                 });
               } else {
                 cb();
@@ -141,7 +149,13 @@ function imgur(params, callback) {
 }
 
 
+if (!process.env.PORT) {
+  imgur('new/time', () => {
+    console.log('done');
 
+  });
+
+}
 
 
 module.exports = {
