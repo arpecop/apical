@@ -29,6 +29,7 @@ function post_img(url, callback) {
     request.get('https://developers.pinterest.com/widget/pins/' + json.data.id + '/', function(err, ser, body) {
       if (!err) {
         let jsxon = JSON.parse(body);
+        console.log(json)
         console.log(jsxon)
         callback({
           url: jsxon.data.image.original.url.replace('originals', '236x'),
