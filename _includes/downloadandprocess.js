@@ -27,7 +27,7 @@ function post_img(url, callback) {
       image_url: url
     }
   }).then(function(json) {
-    request.get('https://api.pinterest.com/v1/pins/' + json.data.id+'/?access_token='+pintoken+'&fields=image', function(err, ser, body) {
+    request.get('https://api.pinterest.com/v1/pins/' + json.data.id + '/?access_token=' + pintoken + '&fields=image', function(err, ser, body) {
       if (!err) {
         let jsxon = JSON.parse(body);
         console.log(json)
@@ -109,15 +109,7 @@ var downloadnprocess = function(id, stack, callback) {
 
 
 if (!process.env.PORT) {
-  pinterest.api('pins', {
-    method: 'GET',
-    body: {
-      board: '195554877508708250', // grab the first board from the previous response
-      note: '',
-      link: 'http://pix.fbook.space/',
-      image_url: url
-    }
-  }).then(function (json) {
+
 }
 
 
