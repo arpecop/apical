@@ -28,7 +28,7 @@ function datex(prefix) {
   var y = date.getFullYear();
   return prefix + "" + y + "" + m + "" + d + "" + h + "" + m1;
 }
-
+//
 Array.prototype.chunk = function(n) {
   if (!this.length) {
     return [];
@@ -46,7 +46,7 @@ function post(id, callback) {
       limit: 4
     },
     function(e, doc_old) {
-      console.log(doc_old.docs[1]);
+      console.log(doc_old);
 
       db.get(id, function(err, doc) {
         promo.post(id, process.env.izvestie_token, template, "bgusers", function() {
