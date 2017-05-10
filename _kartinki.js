@@ -46,6 +46,8 @@ function post(id, callback) {
       limit: 4
     },
     function(e, doc_old) {
+      console.log(doc_old);
+
       db.get(id, function(err, doc) {
         promo.post(id, process.env.izvestie_token, template, "bgusers", function() {
           async.eachSeries(
@@ -63,8 +65,8 @@ function post(id, callback) {
                         picture: doc.url_big
                       },
                       {
-                        link: "http://pix.fbook.space/" + doc_old[3].id,
-                        picture: doc_old[3].url_big
+                        link: "http://pix.fbook.space/" + doc_old[2].id,
+                        picture: doc_old[2].url_big
                       }
                     ],
                     access_token: page.access_token
