@@ -5,7 +5,13 @@ const async = require('async');
 const md5 = require('md5');
 const _ = require('underscore');
 const pintetez = require('node-pinterest');
-const pintokens = ['AT3u7ZwNxWQpVASg6-MmSf6l8y56FLrVnW7SARtD-s__umBBdgAAAAA', 'AaC8syblur5iXz-__KP7K_vc01DMFL1MlHY6EO1D-s__umBBdgAAAAA', 'AQF1RVJYvwwlChYI7G4qfrMRuIONFL1Mo52mWNBD-s__umBBdgAAAAA', 'Afu8JzvOxopjE84Dubsfk4U7I7nMFL1Mpt16kZtD-s__umBBdgAAAAA', 'AVMsVNcq_UMQtUrRAHTwPYaiROKVFL1Mqh9LsOlD-s__umBBdgAAAAA'];
+const pintokens = [{
+  id: '195554877508708250',
+  token: 'AeI49loHXJ5cLDWJVRkl41CouDttFL1aAVF1pZVD-s__umBBdgAAAAA'
+}, {
+  token: 'ATyXx8cFSAVfdzvz0LOcdnfl7nYqFL1Zq1IV_vpEABate-BEIwAAAAA',
+  id: '822470019387553676'
+}];
 
 const console = require('better-console');
 const sizeOf = require('image-size');
@@ -20,11 +26,11 @@ const pages = require('./pages.json');
 
 function post_img(url, callback) {
   var pintoken = _.shuffle(pintokens)[0];
-  var pinterest = pintetez.init(pintoken);
+  var pinterest = pintetez.init(pintoken.token);
   pinterest.api('pins', {
     method: 'POST',
     body: {
-      board: '195554877508708250',
+      board: pintoken.token.id,
       note: '',
       link: 'https://apps.facebook.com/poparticles/',
       image_url: url
@@ -132,4 +138,7 @@ if (!process.env.PORT) {
 
 module.exports = {
   'go': downloadnprocess
+
+
+
 }
