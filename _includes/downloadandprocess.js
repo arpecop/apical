@@ -31,18 +31,27 @@ function post_img(url, callback) {
       if (!err) {
         let jsxon = JSON.parse(body);
 
-        console.log(jsxon.data.image.original.url)
-        callback({
-          url: jsxon.data.image.original.url.replace('originals', '236x'),
-          url_big: jsxon.data.image.original.url,
-        })
+        if (jsxon.data.image) {
+          callback({
+            url: jsxon.data.image.original.url.replace('originals', '236x'),
+            url_big: jsxon.data.image.original.url,
+          })
+        } else {
+          callback({
+            err: jsxon.data
+          })
+        }
       } else {
-        callback({})
+        callback({
+          err: 'retrieving pin data error'
+        })
       }
     })
 
   }).catch(function(err) {
-    callback({})
+    callback({
+      err: err
+    })
   });
 
 }
@@ -80,17 +89,22 @@ var downloadnprocess = function(id, stack, callback) {
               tempcdn.attachment.insert(shortie, 'f.jpg', filedata, 'image/jpeg', function(err, body) {
                 sizeOf(file, function(err, dimensions) {
                   post_img('http://robco.herokuapp.com/content/' + shortie + '/f.jpg', function(pindata) {
-                    db.put(Object.assign({
-                      _id: xid,
-                      arr: 'true',
-                      w: dimensions.width,
-                      h: dimensions.height,
-                      type: stack
-                    }, pindata), function(err, doc) {
-                      fs.rename('/tmp/' + shortie + '.jpg', '/tmp/' + doc.id + '.jpg', function(err) {
-                        callback(doc.id)
+                    if (!pindata.err) {
+                      db.put(Object.assign({
+                        _id: xid,
+                        arr: 'true',
+                        w: dimensions.width,
+                        h: dimensions.height,
+                        type: stack
+                      }, pindata), function(err, doc) {
+                        fs.rename('/tmp/' + shortie + '.jpg', '/tmp/' + doc.id + '.jpg', function(err) {
+                          callback(doc.id)
+                        });
                       });
-                    });
+                    } else {
+                      console.log(pindata.err)
+                      callback()
+                    }
                   });
                 });
               });
