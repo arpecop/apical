@@ -23,10 +23,10 @@ if (cluster.isMaster) {
 
 
   setTimeout(function() {
-    console.log('💀 killing stuck worker 5 min ');
+    console.log('💀 killing stuck worker 10 min ');
     process.exit(0);
 
-  }, 300000);
+  }, 600000);
   request.get('http://apicall.herokuapp.com/', () => {
   });
   request.get('http://apicall2.herokuapp.com/', () => {
