@@ -38,7 +38,7 @@ function post_img(url, callback) {
     body: {
       board: pintoken.id,
       note: '',
-      link: 'https://apps.facebook.com/poparticles/',
+      link: 'https://box.fbook.space/',
       image_url: url
     }
   }).then(function(json) {
