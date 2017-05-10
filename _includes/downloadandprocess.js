@@ -6,8 +6,7 @@ const md5 = require('md5');
 const _ = require('underscore');
 const pintetez = require('node-pinterest');
 const pintokens = ['AT3u7ZwNxWQpVASg6-MmSf6l8y56FLrVnW7SARtD-s__umBBdgAAAAA', 'AaC8syblur5iXz-__KP7K_vc01DMFL1MlHY6EO1D-s__umBBdgAAAAA', 'AQF1RVJYvwwlChYI7G4qfrMRuIONFL1Mo52mWNBD-s__umBBdgAAAAA', 'Afu8JzvOxopjE84Dubsfk4U7I7nMFL1Mpt16kZtD-s__umBBdgAAAAA', 'AVMsVNcq_UMQtUrRAHTwPYaiROKVFL1Mqh9LsOlD-s__umBBdgAAAAA'];
-var pintoken = _.shuffle(pintokens)[0];
-const pinterest = pintetez.init(pintoken);
+
 const console = require('better-console');
 const sizeOf = require('image-size');
 const shortid = require('shortid');
@@ -20,7 +19,8 @@ const pages = require('./pages.json');
 
 
 function post_img(url, callback) {
-
+  var pintoken = _.shuffle(pintokens)[0];
+  var pinterest = pintetez.init(pintoken);
   pinterest.api('pins', {
     method: 'POST',
     body: {
