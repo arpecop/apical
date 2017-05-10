@@ -50,7 +50,7 @@ function post_img(url, callback) {
 
   }).catch(function(err) {
     callback({
-      err: err
+      err: err.body
     })
   });
 
