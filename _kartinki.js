@@ -156,6 +156,14 @@ function kartinki(lat, callback) {
 }
 
 if (!process.env.PORT) {
+  db.get(
+    {
+      id: "bgimgsx",
+      limit: 4
+    },
+    function(e, doc_old) {
+      console.log(doc_old.docs[2]._id);
+    });
 }
 
 module.exports = {
