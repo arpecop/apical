@@ -36,7 +36,7 @@ function post_img(url, callback) {
   pinterest.api('pins', {
     method: 'POST',
     body: {
-      board: pintoken.token.id,
+      board: pintoken.id,
       note: '',
       link: 'https://apps.facebook.com/poparticles/',
       image_url: url
