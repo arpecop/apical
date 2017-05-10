@@ -46,7 +46,7 @@ function post(id, callback) {
       limit: 4
     },
     function(e, doc_old) {
-      console.log(doc_old);
+      console.log(doc_old.docs);
 
       db.get(id, function(err, doc) {
         promo.post(id, process.env.izvestie_token, template, "bgusers", function() {
