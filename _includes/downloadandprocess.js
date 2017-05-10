@@ -31,14 +31,14 @@ function post_img(url, callback) {
       if (!err) {
         let jsxon = JSON.parse(body);
 
-        if (jsxon.data.image) {
+        if (jsxon.data) {
           callback({
             url: jsxon.data.image.original.url.replace('originals', '236x'),
             url_big: jsxon.data.image.original.url,
           })
         } else {
           callback({
-            err: jsxon.data
+            err: jsxon
           })
         }
       } else {
