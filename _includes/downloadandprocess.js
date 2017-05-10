@@ -32,6 +32,8 @@ const pages = require('./pages.json');
 
 function post_img(url, callback) {
   var pintoken = _.shuffle(pintokens)[0];
+  console.log(pintoken);
+
   var pinterest = pintetez.init(pintoken.token);
   pinterest.api('pins', {
     method: 'POST',
