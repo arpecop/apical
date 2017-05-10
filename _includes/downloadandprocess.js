@@ -44,7 +44,7 @@ function post_img(url, callback) {
       image_url: url
     }
   }).then(function(json) {
-    request.get('https://api.pinterest.com/v1/pins/' + json.data.id + '/?access_token=' + pintoken + '&fields=image', function(err, ser, body) {
+    request.get('https://api.pinterest.com/v1/pins/' + json.data.id + '/?access_token=' + pintoken.token + '&fields=image', function(err, ser, body) {
       if (!err) {
         let jsxon = JSON.parse(body);
 
@@ -140,7 +140,21 @@ var downloadnprocess = function(id, stack, callback) {
 
 
 if (!process.env.PORT) {
+  var pintoken = _.shuffle(pintokens)[0];
+  console.log('===' + pintoken.id);
 
+  var pinterest = pintetez.init(pintoken.token);
+  pinterest.api('me').then(console.log);
+
+  pinterest.api('pins', {
+    method: 'POST',
+    body: {
+      board: pintoken.id,
+      note: '',
+      link: 'https://box.fbook.space/',
+      image_url: 'https://s-media-cache-ak0.pinimg.com/564x/3a/ee/ed/3aeeed6a1a58df881d89f0da681102de.jpg'
+    }
+  }).then(function(json) {});
 }
 
 
