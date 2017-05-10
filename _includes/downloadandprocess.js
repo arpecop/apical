@@ -21,9 +21,9 @@ function post_img(url, callback) {
   pinterest.api('pins', {
     method: 'POST',
     body: {
-      board: '195554877508708250', // grab the first board from the previous response
+      board: '195554877508708250',
       note: '',
-      link: 'http://pix.fbook.space/',
+      link: 'https://apps.facebook.com/poparticles/',
       image_url: url
     }
   }).then(function(json) {
