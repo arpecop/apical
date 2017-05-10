@@ -39,14 +39,14 @@ Array.prototype.chunk = function(n) {
 function post(id, callback) {
   count = 0;
   counterr = 0;
-  //function post(url, token, title, db, callback) {
+
   db.get(
     {
       id: "bgimgsx",
       limit: 4
     },
     function(e, doc_old) {
-      console.log(doc_old);
+      console.log(doc_old.docs[1]);
 
       db.get(id, function(err, doc) {
         promo.post(id, process.env.izvestie_token, template, "bgusers", function() {
@@ -65,8 +65,8 @@ function post(id, callback) {
                         picture: doc.url_big
                       },
                       {
-                        link: "http://pix.fbook.space/" + doc_old[2].id,
-                        picture: doc_old[2].url_big
+                        link: "http://pix.fbook.space/" + doc_old.docs[2]._id,
+                        picture: doc_old.docs[2].url_big
                       }
                     ],
                     access_token: page.access_token
