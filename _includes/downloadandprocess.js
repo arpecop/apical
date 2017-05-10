@@ -6,17 +6,17 @@ const md5 = require('md5');
 const _ = require('underscore');
 const pintetez = require('node-pinterest');
 const pintokens = [{
-  id: '195554877508708250',
-  token: 'AeI49loHXJ5cLDWJVRkl41CouDttFL1aAVF1pZVD-s__umBBdgAAAAA'
+  'id': '195554877508708250',
+  'token': 'AeI49loHXJ5cLDWJVRkl41CouDttFL1aAVF1pZVD-s__umBBdgAAAAA'
 }, {
-  token: 'ATyXx8cFSAVfdzvz0LOcdnfl7nYqFL1Zq1IV_vpEABate-BEIwAAAAA',
-  id: '822470019387553676'
+  'token': 'ATyXx8cFSAVfdzvz0LOcdnfl7nYqFL1Zq1IV_vpEABate-BEIwAAAAA',
+  'id': '822470019387553676'
 }, {
-  token: 'AfB6L4UIIf_pxeFYYBhp6i4UY4WDFL1aXdkDIT1EABgj4aAsUgAAAAA',
-  id: '696369229821180914'
+  'token': 'AfB6L4UIIf_pxeFYYBhp6i4UY4WDFL1aXdkDIT1EABgj4aAsUgAAAAA',
+  'id': '696369229821180914'
 }, {
-  token: 'AW0khR-wW7c8ZFFXPBT7qhsY_s5BFL1anfzTmpVEABiqpqA4IQAAAAA',
-  id: '728879589631261225'
+  'token': 'AW0khR-wW7c8ZFFXPBT7qhsY_s5BFL1anfzTmpVEABiqpqA4IQAAAAA',
+  'id': '728879589631261225'
 }];
 
 const console = require('better-console');
@@ -32,7 +32,7 @@ const pages = require('./pages.json');
 
 function post_img(url, callback) {
   var pintoken = _.shuffle(pintokens)[0];
-  console.log(pintoken);
+  console.log('===' + pintoken.id);
 
   var pinterest = pintetez.init(pintoken.token);
   pinterest.api('pins', {
