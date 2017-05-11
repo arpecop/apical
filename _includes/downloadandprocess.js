@@ -17,6 +17,9 @@ const pintokens = [{
 }, {
   'token': 'AW0khR-wW7c8ZFFXPBT7qhsY_s5BFL1anfzTmpVEABiqpqA4IQAAAAA',
   'id': '728879589631261225'
+}, {
+  'token': 'AVsm6IPRCRqwE7ZOCN3qB7DHcK5zFL2ForcN1gBEAHLhXWA_EAAAAAA',
+  'id': '643944515408822125'
 }];
 
 const console = require('better-console');
