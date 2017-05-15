@@ -56,6 +56,8 @@ function post_img(url, callback) {
 
         if (jsxon.data) {
           callback({
+            url: 1,
+            url_big: 1,
             img: jsxon.data.image.original.url.split('originals/')[1]
           })
         } else {
