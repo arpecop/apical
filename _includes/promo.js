@@ -41,6 +41,7 @@ function post(url, token, title, db, callback) {
             }, function(err, httpResponse, body) {
 
               async.each(JSON.parse(body), function(ix, cbx) {
+                console.log(ix)
                 if (JSON.parse(ix.body).error) {
                   counterr++;
                 } else {
