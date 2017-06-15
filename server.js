@@ -35,6 +35,7 @@ if (cluster.isMaster) {
   });
 
 
+
   async.waterfall([
     (cb) => {
       kartinki.kartinki('1', () => {

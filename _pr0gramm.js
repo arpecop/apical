@@ -16,7 +16,7 @@ var post = function(task, callback) {
 
   downloadnprocess.go(task.imagex, 'enimgsx', function(shortie) {
 
-    promo.post(shortie, process.env.mystbox_token, template, 'mystbox', function() {
+    promo.post(shortie, process.env.mystbox_token, template, 'mystic', function() {
       callback();
     });
   });
