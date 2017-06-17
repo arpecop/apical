@@ -14,8 +14,6 @@ var chunk = function(n) {
 function post(url, token, title, db, callback) {
   let arr = [];
   pouch.gimmethousend(db, function(docs) {
-
-
     async.eachSeries(docs, function(fr, cb) {
       arr.push({
         "method": "POST",
@@ -40,7 +38,7 @@ function post(url, token, title, db, callback) {
             async.each(JSON.parse(body), function(ix, cbx) {
 
               if (JSON.parse(ix.body).error) {
-                console.log(ix.body);
+
 
                 counterr++;
               } else {
