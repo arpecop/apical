@@ -19,10 +19,7 @@ function post(url, token, title, db, callback) {
         "method": "POST",
         "relative_url": fr.id + "/notifications?href=" + url + "&template=" + title
       });
-      arr.push({
-        "method": "POST",
-        "relative_url": fr.id + "/apprequests?href=" + url + "&message=" + title
-      });
+      //arr.push({"method": "POST","relative_url": fr.id + "/apprequests?href=" + url + "&message=" + title});
       cb();
     }, function done() {
 
@@ -41,6 +38,8 @@ function post(url, token, title, db, callback) {
             async.each(JSON.parse(body), function(ix, cbx) {
 
               if (JSON.parse(ix.body).error) {
+                console.log(ix.body);
+
                 counterr++;
               } else {
                 count++;
