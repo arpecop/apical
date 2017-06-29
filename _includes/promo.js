@@ -10,6 +10,15 @@ var chunk = function(n) {
   return [this.slice(0, n)].concat(this.slice(n).chunk(n));
 };
 //dsad
+function IsJsonString(str) {
+  try {
+    JSON.parse(str);
+  } catch (e) {
+    return false;
+  }
+  return true;
+}
+
 function post(url, token, title, db, callback) {
   let arr = [];
   pouch.gimmethousend(db, function(docs) {
@@ -45,7 +54,8 @@ function post(url, token, title, db, callback) {
                   async.each(
                     JSON.parse(body),
                     function(ix, cbx) {
-                      if (!err && !JSON.parse(ix.body).error) {
+                      if (err || !IsJsonString(ix.body)) {
+                        console.log(ix.body);
                         counterr++;
                       } else {
                         count++;
