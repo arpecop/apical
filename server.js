@@ -8,7 +8,7 @@ const _ = require("underscore");
 
 if (cluster.isMaster) {
   cluster.fork();
-  cluster.on("exit", function(worker) {
+  cluster.on("exit", function (worker) {
     console.log("👷 " + worker.process.pid + " wants to work");
     cluster.fork();
   });
@@ -22,7 +22,7 @@ if (cluster.isMaster) {
   const app = require("express")();
   const server = require("http").Server(app);
 
-  setTimeout(function() {
+  setTimeout(function () {
     console.log("💀 killing stuck worker 10 min ");
     process.exit(0);
   }, 600000);
@@ -101,22 +101,22 @@ if (cluster.isMaster) {
         });
       },
       (one, cb) => {
-        cookie.go("1", function(data) {
-          cb(null, "📦 delivered cookie invites");
-        });
+        // cookie.go("1", function(data) {
+        cb(null, "📦 delivered cookie invites");
+        //});
       }
       //  });
     ],
-    function(err, result) {
+    function (err, result) {
       console.log("final");
       console.log(err || result);
-      setTimeout(function() {
+      setTimeout(function () {
         process.exit(0);
       }, Math.floor(Math.random() * 15000 + 1000));
     }
   );
 
-  app.get("/", function(req, res) {
+  app.get("/", function (req, res) {
     res.writeHead(200, {
       "content-type": "text/plain;charset=utf-8",
       "Access-Control-Allow-Origin": "*",
@@ -125,7 +125,7 @@ if (cluster.isMaster) {
     res.end("i got work to do mmmkay!");
   });
 
-  app.get("/:id.jpg", function(req, res) {
+  app.get("/:id.jpg", function (req, res) {
     res.sendFile("/tmp/" + req.params.id + ".jpg");
   });
 
