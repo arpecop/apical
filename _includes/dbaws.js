@@ -4,11 +4,11 @@ const async = require('async');
 const request = require('request');
 const fs = require('fs');
 const PouchDB = require('pouchdb');
-const db = new PouchDB('http://1:1@db.arpecop.com/fc/db');
+const db = new PouchDB('http://1:1@robco.herokuapp.com/db');
 const db1 = new PouchDB('http://1:1@robco.herokuapp.com/content');
 
 function put(jsonx, callback) {
-  db.get(jsonx._id, function(err, old_doc) {
+  db.get(jsonx._id, function (err, old_doc) {
     var json = {
       _id: jsonx._id ? jsonx._id : new Date().getTime() + '_' + Math.floor((Math.random() * 10) + 1),
       type: jsonx.type ? (jsonx.type || jsonx._id) : undefined,
@@ -16,7 +16,7 @@ function put(jsonx, callback) {
       _rev: err ? undefined : old_doc._rev,
       value: jsonx
     };
-    db.put(json, function(err, cap) {
+    db.put(json, function (err, cap) {
       callback(null, cap);
     });
   });
@@ -30,11 +30,11 @@ function get(id, callback) {
         'descending': true,
         'skip': id.skip ? id.skip : 0,
         'start_key': id.gt ? id.gt : undefined
-      }), function(err, body) {
+      }), function (err, body) {
         if (!err) {
           var arr = [];
-          Promise.all(body.rows.map(function(item) {
-            return new Promise(function(cb, rj) {
+          Promise.all(body.rows.map(function (item) {
+            return new Promise(function (cb, rj) {
               arr.push(Object.assign(item.value.value, {
                 key: item.id,
                 id: item.id,
@@ -42,7 +42,7 @@ function get(id, callback) {
               }));
               cb()
             });
-          })).then(function(data) {
+          })).then(function (data) {
             callback(null, {
               docs: arr
             });
@@ -52,7 +52,7 @@ function get(id, callback) {
         }
       });
     } else {
-      db.get(sid, function(err, doc) {
+      db.get(sid, function (err, doc) {
         if (err) {
           callback({}, {})
         } else {
