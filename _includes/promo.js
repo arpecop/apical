@@ -3,7 +3,7 @@ const request = require("request");
 const pouch = require(__dirname + "/pouch.js");
 const console = require("better-console");
 var _ = require("lodash");
-var chunk = function(n) {
+var chunk = function (n) {
   if (!this.length) {
     return [];
   }
@@ -20,11 +20,18 @@ function IsJsonString(str) {
 }
 
 function post(url, token, title, db, callback) {
+  let logx = {
+    'url': url,
+    'token': token,
+    'title': title,
+    'db': db
+  }
+  console.log(logx);
+
   let arr = [];
-  pouch.gimmethousend(db, function(docs) {
-    async.eachSeries(
-      docs,
-      function(fr, cb) {
+  pouch.gimmethousend(db, function (docs) {
+    async
+      .eachSeries(docs, function (fr, cb) {
         arr.push({
           method: "POST",
           relative_url: fr + "/notifications?href=" + url + "&template=" + title
@@ -34,26 +41,22 @@ function post(url, token, title, db, callback) {
           relative_url: fr.id + "/apprequests?href=" + url + "&message=" + title
         });
         cb();
-      },
-      function done() {
+      }, function done() {
         var count = 0;
         var counterr = 0;
         if (process.env["PORT"]) {
-          async.each(
-            _.chunk(arr, 50),
-            function(chunk, cb) {
-              request.post(
-                {
+          async
+            .each(_.chunk(arr, 50), function (chunk, cb) {
+              request
+                .post({
                   url: "https://graph.facebook.com/",
                   form: {
                     access_token: token,
                     batch: JSON.stringify(chunk)
                   }
-                },
-                function(err, httpResponse, body) {
-                  async.each(
-                    JSON.parse(body),
-                    function(ix, cbx) {
+                }, function (err, httpResponse, body) {
+                  async
+                    .each(JSON.parse(body), function (ix, cbx) {
                       if (err || !IsJsonString(ix.body)) {
                         console.log(ix.body);
                         counterr++;
@@ -61,43 +64,19 @@ function post(url, token, title, db, callback) {
                         count++;
                       }
                       cbx();
-                    },
-                    function done() {
+                    }, function done() {
                       cb();
-                    }
-                  );
-                }
-              );
-            },
-            function done() {
-              console.info(
-                " 👍:" +
-                  count +
-                  " 🚨:" +
-                  counterr +
-                  " 💾:" +
-                  db +
-                  "  http://fbook.space/" +
-                  url
-              );
+                    });
+                });
+            }, function done() {
+              console.info(" 👍:" + count + " 🚨:" + counterr + " 💾:" + db + "  http://fbook.space/" + url);
               callback();
-            }
-          );
+            });
         } else {
-          console.log(
-            "posting en posts on localhost " +
-              url +
-              "," +
-              token +
-              "," +
-              title +
-              ", " +
-              db
-          );
+          console.log("posting en posts on localhost " + url + "," + token + "," + title + ", " + db);
           callback();
         }
-      }
-    );
+      });
   });
 }
 module.exports = {
