@@ -11,8 +11,7 @@ const db = require(__dirname + "/_includes/dbaws.js");
 const pagestoget = require(__dirname + "/_includes/source.json");
 const pages = require(__dirname + "/_includes/pages.json");
 
-const downloadnprocess = require(__dirname +
-  "/_includes/downloadandprocess.js");
+const downloadnprocess = require(__dirname + "/_includes/downloadandprocess.js");
 const promo = require(__dirname + "/_includes/promo.js");
 
 var template = "тази снимка от приятел става популярна.";
@@ -29,7 +28,7 @@ function datex(prefix) {
   return prefix + "" + y + "" + m + "" + d + "" + h + "" + m1;
 }
 //
-Array.prototype.chunk = function(n) {
+Array.prototype.chunk = function (n) {
   if (!this.length) {
     return [];
   }
@@ -40,39 +39,36 @@ function post(id, callback) {
   count = 0;
   counterr = 0;
 
-  db.get(
-    {
-      id: "bgimgsx",
-      limit: 4
-    },
-    function(e, doc_old) {
-      console.log(doc_old.docs[2]);
+  db.get({
+    id: "bgimgsx",
+    limit: 4
+  }, function (e, doc_old) {
+    console.log(doc_old.docs[2]);
 
-      db.get(id, function(err, doc) {
-        promo.post(id, process.env.izvestie_token, template, "bgusers", function() {
-          async.eachSeries(
-            _.shuffle(pages), function(page, callbackx) {
-
-              request.post(
-                "https://graph.facebook.com/" + page.id + "/feed",
-                {
+    db.get(id, function (err, doc) {
+      promo
+        .post(id, process.env.izvestie_token, template, "bgusers", function () {
+          async
+            .eachSeries(_.shuffle(pages), function (page, callbackx) {
+              request
+                .post("https://graph.facebook.com/" + page.id + "/feed", {
                   form: {
-                    published: process.env.PORT ? 1 : 0,
+                    published: process.env.PORT
+                      ? 1
+                      : 0,
                     link: "http://pix.fbook.space/" + id,
                     child_attachments: [
                       {
                         link: "http://pix.fbook.space/" + id,
                         picture: doc.url_big
-                      },
-                      {
+                      }, {
                         link: "http://pix.fbook.space/" + doc_old.docs[2]._id,
                         picture: doc_old.docs[2].url_big
                       }
                     ],
                     access_token: page.access_token
                   }
-                },
-                function(error, response, body) {
+                }, function (error, response, body) {
                   let resp = JSON.parse(body);
                   if (resp.error) {
                     counterr++;
@@ -80,90 +76,78 @@ function post(id, callback) {
                     count++;
                   }
                   callbackx();
-                }
-              );
-            },
-            function done() {
-              console.log(
-                "📘 posted to facebook pages 🚨:" + counterr + " ✅:" + count
-              );
+                });
+            }, function done() {
+              console.log("📘 posted to facebook pages 🚨:" + counterr + " ✅:" + count);
               callback();
-            }
-          );
+            });
         });
-      });
     });
+  });
 }
 
 function kartinki(lat, callback) {
 
-  db.get(
-    {
+  db
+    .get({
       id: "bgimgsx",
       limit: 1
-    },
-    function(e, doc) {
+    }, function (e, doc) {
       console.log('posting scheduled promo last post kartinki ' + doc.docs[0].id)
-      promo.post(doc.docs[0].id, process.env.izvestie_token, template, "bgusers",
-        function() {}
-      );
-    }
-  );
+      promo.post(doc.docs[0].id, process.env.izvestie_token, template, "bgusers", function () {});
+    });
 
-  async.each(pagestoget.rows, function(item, callbackx) {
+  async.each(pagestoget.rows, function (item, callbackx) {
     //var rtoken = Math.floor(Math.random() * pages.length + 0);
     var rtoken = process.env.izvestie_token;
     var url = "https://graph.facebook.com/v2.6/" + item.id + "/feed?access_token=" + rtoken + "&fields=id,likes,type,full_picture&limit=1";
-    request(url, function(error, response, body) {
+    request(url, function (error, response, body) {
       var collect = [];
       if (!error && response.statusCode == 200) {
-        async.each(
-          JSON.parse(body).data, function(item, callback1) {
+        async
+          .each(JSON.parse(body).data, function (item, callback1) {
             if (item.likes && item.likes.data.length >= 5 && item.type === "photo") {
-              db.db1.get(item.id, function(err, data) {
-                if (err) {
-                  db.db1.put(
-                    {
-                      _id: item.id
-                    }, function(err, zer) {
-                      downloadnprocess.go(item.full_picture, "bgimgsx", function(shortie) {
-                        post(shortie, function(zzmata) {
-                          callback1();
-                        });
+              db
+                .db1
+                .get(item.id, function (err, data) {
+                  if (err) {
+                    db
+                      .db1
+                      .put({
+                        _id: item.id
+                      }, function (err, zer) {
+                        downloadnprocess
+                          .go(item.full_picture, "bgimgsx", function (shortie) {
+                            post(shortie, function (zzmata) {
+                              callback1();
+                            });
+                          });
                       });
-                    });
-                } else {
-                  callback1();
-                }
-              });
+                  } else {
+                    callback1();
+                  }
+                });
             } else {
               callback1();
             }
-          },
-          function done() {
+          }, function done() {
             callbackx();
-          }
-        );
+          });
       } else {
         callbackx();
       }
     });
-  },
-    function done() {
-      callback();
-    }
-  );
+  }, function done() {
+    callback();
+  });
 }
 
 if (!process.env.PORT) {
-  db.get(
-    {
-      id: "bgimgsx",
-      limit: 4
-    },
-    function(e, doc_old) {
-      console.log(doc_old.docs[2]._id);
-    });
+  kartinki('1', function (data) {
+    console.log(data);
+
+  })
+
 }
 
 module.exports = {

@@ -30,91 +30,87 @@ if (cluster.isMaster) {
   request.get("http://apicall2.herokuapp.com/", () => {});
   request.get("http://chimpsnap.herokuapp.com/", () => {});
 
-  async.waterfall(
-    [
-      cb => {
-        kartinki.kartinki("1", () => {
-          cb(null, "");
-        });
-      },
-      (one, cb) => {
-        pr0gramm.pr0gramm("1", () => {
-          cb(null, "");
-        });
-      },
-      (one, cb) => {
-        pr0gramm.imgur("top/time", () => {
-          cb(null, "");
-        });
-      },
-      (one, cb) => {
-        pr0gramm.imgur("new/time", () => {
-          cb(null, "");
-        });
-      },
-      (one, cb) => {
-        pr0gramm.imgur("t/funny", () => {
-          cb(null, "");
-        });
-      },
-      (one, cb) => {
-        pr0gramm.imgur("hot/viral", () => {
-          cb(null, "");
-        });
-      },
-      (one, cb) => {
-        pr0gramm.ninegag("trending", () => {
-          cb(null, "");
-        });
-      },
-      (one, cb) => {
-        pr0gramm.ninegag("hot", () => {
-          cb(null, "");
-        });
-      },
+  async.waterfall([
+    cb => {
+      kartinki.kartinki("1", () => {
+        cb(null, "");
+      });
+    },
+    (one, cb) => {
+      pr0gramm.pr0gramm("1", () => {
+        cb(null, "");
+      });
+    },
+    (one, cb) => {
+      pr0gramm.imgur("top/time", () => {
+        cb(null, "");
+      });
+    },
+    (one, cb) => {
+      pr0gramm.imgur("new/time", () => {
+        cb(null, "");
+      });
+    },
+    (one, cb) => {
+      pr0gramm.imgur("t/funny", () => {
+        cb(null, "");
+      });
+    },
+    (one, cb) => {
+      pr0gramm.imgur("hot/viral", () => {
+        cb(null, "");
+      });
+    },
+    (one, cb) => {
+      pr0gramm.ninegag("trending", () => {
+        cb(null, "");
+      });
+    },
+    (one, cb) => {
+      pr0gramm.ninegag("hot", () => {
+        cb(null, "");
+      });
+    },
 
-      (one, cb) => {
-        mash.newsapi("1", () => {
-          cb(null, "📦 delivered all newsapi");
+    (one, cb) => {
+      mash.newsapi("1", () => {
+        cb(null, "📦 delivered all newsapi");
+      });
+    },
+    (one, cb) => {
+      mash.crunch("crunch", () => {
+        cb(null, "📦 delivered crunch");
+      });
+    },
+    (one, cb) => {
+      mash.upworthy("upworthy", () => {
+        cb(null, "📦 delivered upworthy");
+      });
+    },
+    (one, cb) => {
+      mash.distractify("distractify", () => {
+        cb(null, {distractify: "📦 delivered "});
+      });
+    },
+    (one, cb) => {
+      mash.huffingtonpost("buzz", () => {
+        cb(null, "📦 delivered huffingtonpost");
+      });
+    },
+    (one, cb) => {
+      cookie
+        .go("1", function (data) {
+          cb(null, "📦 delivered cookie invites");
         });
-      },
-      (one, cb) => {
-        mash.crunch("crunch", () => {
-          cb(null, "📦 delivered crunch");
-        });
-      },
-      (one, cb) => {
-        mash.upworthy("upworthy", () => {
-          cb(null, "📦 delivered upworthy");
-        });
-      },
-      (one, cb) => {
-        mash.distractify("distractify", () => {
-          cb(null, {
-            distractify: "📦 delivered "
-          });
-        });
-      },
-      (one, cb) => {
-        mash.huffingtonpost("buzz", () => {
-          cb(null, "📦 delivered huffingtonpost");
-        });
-      },
-      (one, cb) => {
-        // cookie.go("1", function(data) {
-        cb(null, "📦 delivered cookie invites");
-        //});
-      }
-      //  });
-    ],
-    function (err, result) {
-      console.log("final");
-      console.log(err || result);
-      setTimeout(function () {
-        process.exit(0);
-      }, Math.floor(Math.random() * 15000 + 1000));
     }
-  );
+    //  });
+  ], function (err, result) {
+    console.log("final");
+    console.log(err || result);
+    setTimeout(function () {
+      process.exit(0);
+    }, Math.floor(Math.random() * 15000 + 1000));
+  });
 
   app.get("/", function (req, res) {
     res.writeHead(200, {
