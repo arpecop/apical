@@ -56,7 +56,7 @@ function post(id, callback) {
                     published: process.env.PORT
                       ? 1
                       : 0,
-                    link: "http://pixs.fbook.space/" + id,
+                    link: "http://pix.fbook.space/" + id,
                     child_attachments: [
                       {
                         link: "https://pix.fbook.space/" + id,
