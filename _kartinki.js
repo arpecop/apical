@@ -69,6 +69,8 @@ function post(id, callback) {
                     access_token: page.access_token
                   }
                 }, function (error, response, body) {
+                  console.log(body);
+
                   let resp = JSON.parse(body);
                   if (resp.error) {
                     counterr++;
