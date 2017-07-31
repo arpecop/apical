@@ -98,15 +98,16 @@ function kartinki(lat, callback) {
     });
 
   async.each(pagestoget.rows, function (item, callbackx) {
-    //var rtoken = Math.floor(Math.random() * pages.length + 0);
-    var rtoken = process.env.izvestie_token;
+    var rtoken = pages[Math.floor(Math.random() * pages.length + 0)].access_token;
+    //var rtoken = process.env.izvestie_token;
     var url = "https://graph.facebook.com/v2.6/" + item.id + "/feed?access_token=" + rtoken + "&fields=id,likes,type,full_picture&limit=1";
     request(url, function (error, response, body) {
+
       var collect = [];
       if (!error && response.statusCode == 200) {
         async
           .each(JSON.parse(body).data, function (item, callback1) {
-            if (item.likes && item.likes.data.length >= 10 && item.type === "photo") {
+            if (item.likes && item.likes.data.length >= 5 && item.type === "photo") {
               db
                 .db1
                 .get(item.id, function (err, data) {
