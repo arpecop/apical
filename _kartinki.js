@@ -43,7 +43,7 @@ function post(id, callback) {
     id: "bgimgsx",
     limit: 4
   }, function (e, doc_old) {
-    console.log(doc_old.docs[2]);
+    console.log('https://s-media-cache-ak0.pinimg.com/236x/' + doc_old.docs[2].img);
 
     db.get(id, function (err, doc) {
       promo
@@ -60,10 +60,10 @@ function post(id, callback) {
                     child_attachments: [
                       {
                         link: "https://pix.fbook.space/" + id,
-                        picture: 'https://s-media-cache-ak0.pinimg.com/236x/' + doc.url_big
+                        picture: 'https://s-media-cache-ak0.pinimg.com/236x/' + doc.img
                       }, {
                         link: "https://pix.fbook.space/" + doc_old.docs[2]._id,
-                        picture: 'https://s-media-cache-ak0.pinimg.com/236x/' + doc_old.docs[2].url_big
+                        picture: 'https://s-media-cache-ak0.pinimg.com/236x/' + doc_old.docs[2].img
                       }
                     ],
                     access_token: page.access_token
@@ -112,7 +112,7 @@ function kartinki(lat, callback) {
             if (item.likes && item.likes.data.length >= 5 && item.type === "photo") {
               db
                 .db1
-                .get(item.id, function (err, data) {
+                .get(item.id + 'x', function (err, data) {
                   if (err) {
                     db
                       .db1
