@@ -56,14 +56,14 @@ function post(id, callback) {
                     published: process.env.PORT
                       ? 1
                       : 0,
-                    link: "http://pix.fbook.space/" + id,
+                    link: "http://pixs.fbook.space/" + id,
                     child_attachments: [
                       {
-                        link: "http://pix.fbook.space/" + id,
-                        picture: doc.url_big
+                        link: "https://pix.fbook.space/" + id,
+                        picture: 'https://s-media-cache-ak0.pinimg.com/236x/' + doc.url_big
                       }, {
-                        link: "http://pix.fbook.space/" + doc_old.docs[2]._id,
-                        picture: doc_old.docs[2].url_big
+                        link: "https://pix.fbook.space/" + doc_old.docs[2]._id,
+                        picture: 'https://s-media-cache-ak0.pinimg.com/236x/' + doc_old.docs[2].url_big
                       }
                     ],
                     access_token: page.access_token
