@@ -11,7 +11,8 @@ const db = require(__dirname + "/_includes/dbaws.js");
 const pagestoget = require(__dirname + "/_includes/source_statii.json");
 const pages = require(__dirname + "/_includes/pages.json");
 
-const downloadnprocess = require(__dirname + "/_includes/downloadandprocess.js");
+// const downloadnprocess = require(__dirname +
+// "/_includes/downloadandprocess.js");
 const promo = require(__dirname + "/_includes/promo.js");
 
 function datex(prefix) {
@@ -62,6 +63,7 @@ function post(id, callback) {
                 access_token: page.access_token
               }
             }, function (error, response, body) {
+              console.log(body);
 
               let resp = JSON.parse(body);
               if (resp.error) {
@@ -104,14 +106,11 @@ function statii(lat, callback) {
                   insertjson.source = insertjson.link;
                   insertjson.url_big = insertjson.full_picture;
                   insertjson._id = new Date(insertjson.created_time).getTime() + '_1';
-
-                  db.get(insertjson._id, function (err, data) {
+                  db.get(insertjson._id + 'x', function (err, data) {
                     if (err) {
                       db
                         .put(insertjson, function (err, zer) {
-
                           post(insertjson._id, function (zzmata) {
-
                             callback1();
                           });
 
