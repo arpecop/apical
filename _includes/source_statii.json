@@ -1,0 +1,51 @@
+{
+    "total_rows": 95,
+    "offset": 0,
+    "rows": [{
+            "id": "191020910970982",
+            "key": "edna bg",
+            "value": 1
+        },
+        {
+            "id": "87478646946",
+            "key": "darik news",
+            "value": 1
+        }, {
+            "id": "171245879982",
+            "key": "darik varna",
+            "value": 1
+        }, {
+            "id": "111712470676",
+            "key": "gong bg",
+            "value": 1
+        }, {
+            "id": "82821777945",
+            "key": "signal bg",
+            "value": 1
+        }, {
+            "id": "126970354021186",
+            "key": "life dir bg",
+            "value": 1
+        }, {
+            "id": "153438071384209",
+            "key": "dnes dir bg",
+            "value": 1
+        }, {
+            "id": "56460498309",
+            "key": "dnevnik",
+            "value": 1
+        }, {
+            "id": "59519326031",
+            "key": "kapital capital bg",
+            "value": 1
+        }, {
+            "id": "359331876316",
+            "key": "vesti",
+            "value": 1
+        }, {
+            "id": "137067849693216",
+            "key": "137067849693216",
+            "value": 1
+        }
+    ]
+}
