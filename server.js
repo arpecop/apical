@@ -15,6 +15,7 @@ if (cluster.isMaster) {
 } else {
   const express = require("express");
   const kartinki = require("./_kartinki.js");
+  const statii = require("./_statii.js");
   const cookie = require("./_fortune.js");
   const mash = require("./_mashable.js");
   const pr0gramm = require("./_pr0gramm.js");
@@ -33,6 +34,11 @@ if (cluster.isMaster) {
   async.waterfall([
     cb => {
       kartinki.kartinki("1", () => {
+        cb(null, "");
+      });
+    },
+    (one, cb) => {
+      statii.statii("1", () => {
         cb(null, "");
       });
     },
