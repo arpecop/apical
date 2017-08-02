@@ -33,12 +33,12 @@ if (cluster.isMaster) {
 
   async.waterfall([
     cb => {
-      kartinki.kartinki("1", () => {
+      statii.statii("1", () => {
         cb(null, "");
       });
     },
     (one, cb) => {
-      statii.statii("1", () => {
+      kartinki.kartinki("1", () => {
         cb(null, "");
       });
     },
