@@ -60,10 +60,10 @@ function post(id, callback) {
                     child_attachments: [
                       {
                         link: "https://pix.fbook.space/" + id,
-                        picture: 'https://s-media-cache-ak0.pinimg.com/236x/' + doc.img
+                        picture: 'https://s-media-cache-ak0.pinimg.com/400x/' + doc.img
                       }, {
                         link: "https://pix.fbook.space/" + doc_old.docs[2]._id,
-                        picture: 'https://s-media-cache-ak0.pinimg.com/236x/' + doc_old.docs[2].img
+                        picture: 'https://s-media-cache-ak0.pinimg.com/400x/' + doc_old.docs[2].img
                       }
                     ],
                     access_token: page.access_token
