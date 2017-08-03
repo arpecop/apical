@@ -54,11 +54,11 @@ function post(id, callback) {
                 published: process.env.PORT
                   ? 1
                   : 0,
-                link: "http://apps.facebook.com/infobord/" + id,
+                link: "http://newsboy.fbook.space/" + id,
                 name: posts.docs[0].name,
                 description: posts.docs[0].description,
                 title: posts.docs[0].title,
-                link: "http://apps.facebook.com/infobord/" + posts.docs[0]._id,
+                link: "http://newsboy.fbook.space/" + posts.docs[0]._id,
                 picture: posts.docs[0].url_big,
                 access_token: page.access_token
               }
