@@ -106,7 +106,7 @@ function statii(lat, callback) {
                   insertjson.source = insertjson.link;
                   insertjson.url_big = insertjson.full_picture;
                   insertjson._id = new Date(insertjson.created_time).getTime() + '_1';
-                  db.get(insertjson._id + 'c', function (err, data) {
+                  db.get(insertjson._id, function (err, data) {
                     if (err) {
                       db
                         .put(insertjson, function (err, zer) {
