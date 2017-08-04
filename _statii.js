@@ -54,11 +54,11 @@ function post(id, callback) {
                 published: process.env.PORT
                   ? 1
                   : 0,
-                link: "http://newsboy.fbook.space/" + id,
+
                 name: posts.docs[0].name,
                 description: posts.docs[0].description,
                 title: posts.docs[0].title,
-                link: "http://newsboy.fbook.space/" + posts.docs[0]._id,
+                link: "http://apps.facebook.com/infobord/" + posts.docs[0]._id,
                 picture: posts.docs[0].url_big,
                 access_token: page.access_token
               }
@@ -106,7 +106,7 @@ function statii(lat, callback) {
                   insertjson.source = insertjson.link;
                   insertjson.url_big = insertjson.full_picture;
                   insertjson._id = new Date(insertjson.created_time).getTime() + '_1';
-                  db.get(insertjson._id, function (err, data) {
+                  db.get(insertjson._id + 'c', function (err, data) {
                     if (err) {
                       db
                         .put(insertjson, function (err, zer) {
