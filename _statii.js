@@ -58,7 +58,7 @@ function post(id, callback) {
                 name: posts.docs[0].name,
                 description: posts.docs[0].description,
                 title: posts.docs[0].title,
-                link: "http://apps.facebook.com/infobord/" + posts.docs[0]._id,
+                link: "http://apps.facebook.com/infobord/" + posts.docs[0]._id + '?ref=newsbg',
                 picture: posts.docs[0].url_big,
                 access_token: page.access_token
               }
