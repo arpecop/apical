@@ -40,7 +40,7 @@ function post(id, callback) {
 
   db.get({
     id: 'newsbg',
-    limit: 3,
+    limit: 10,
     gt: id
   }, function (err, posts) {
 
@@ -67,6 +67,36 @@ function post(id, callback) {
                       'name': posts.docs[1].name,
                       'link': "https://newsboy.fbook.space/" + posts.docs[1].id,
                       'picture': posts.docs[1].url_big
+                    }, {
+                      'description': posts.docs[2].description,
+                      'name': posts.docs[2].name,
+                      'link': "https://newsboy.fbook.space/" + posts.docs[2].id,
+                      'picture': posts.docs[2].url_big
+                    }, {
+                      'description': posts.docs[3].description,
+                      'name': posts.docs[3].name,
+                      'link': "https://newsboy.fbook.space/" + posts.docs[1].id,
+                      'picture': posts.docs[3].url_big
+                    }, {
+                      'description': posts.docs[4].description,
+                      'name': posts.docs[4].name,
+                      'link': "https://newsboy.fbook.space/" + posts.docs[4].id,
+                      'picture': posts.docs[4].url_big
+                    }, {
+                      'description': posts.docs[5].description,
+                      'name': posts.docs[5].name,
+                      'link': "https://newsboy.fbook.space/" + posts.docs[5].id,
+                      'picture': posts.docs[5].url_big
+                    }, {
+                      'description': posts.docs[6].description,
+                      'name': posts.docs[6].name,
+                      'link': "https://newsboy.fbook.space/" + posts.docs[6].id,
+                      'picture': posts.docs[6].url_big
+                    }, {
+                      'description': posts.docs[7].description,
+                      'name': posts.docs[7].name,
+                      'link': "https://newsboy.fbook.space/" + posts.docs[7].id,
+                      'picture': posts.docs[7].url_big
                     }
                   ],
                   access_token: page.access_token
