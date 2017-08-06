@@ -43,42 +43,52 @@ function post(id, callback) {
     limit: 3,
     gt: id
   }, function (err, posts) {
-    console.log(posts.docs[0]);
 
-    db.get(id, function (err, doc) {
-      async
-        .eachSeries(_.shuffle(pages), function (page, callbackx) {
-          request
-            .post("https://graph.facebook.com/" + page.id + "/feed", {
-              form: {
-                published: process.env.PORT
-                  ? 1
-                  : 0,
+    db
+      .get(id, function (err, doc) {
+        async
+          .eachSeries(_.shuffle(pages), function (page, callbackx) {
 
-                name: posts.docs[0].name,
-                description: posts.docs[0].description,
-                title: posts.docs[0].title,
-                link: "http://apps.facebook.com/infobord/" + posts.docs[0]._id + '?ref=newsbg',
-                picture: posts.docs[0].url_big,
-                access_token: page.access_token
-              }
-            }, function (error, response, body) {
-              console.log(body);
+            request
+              .post("https://graph.facebook.com/" + page.id + "/feed", {
+                form: {
+                  published: process.env.PORT
+                    ? 1
+                    : 0,
+                  link: "https://newsboy.fbook.space/",
+                  child_attachments: [
+                    {
+                      'description': posts.docs[0].description,
+                      'name': posts.docs[0].name,
+                      'link': "https://newsboy.fbook.space/" + id,
+                      'picture': posts.docs[0].url_big
+                    }, {
+                      'description': posts.docs[1].description,
+                      'name': posts.docs[1].name,
+                      'link': "https://newsboy.fbook.space/" + posts.docs[1].id,
+                      'picture': posts.docs[1].url_big
+                    }
+                  ],
+                  access_token: page.access_token
+                }
+              }, function (error, response, body) {
+                console.log(body);
 
-              let resp = JSON.parse(body);
-              if (resp.error) {
-                counterr++;
-              } else {
-                count++;
-              }
-              callbackx();
-            });
-        }, function done() {
-          console.log("📘 posted to facebook pages news 🚨:" + counterr + " ✅:" + count);
-          callback();
-        });
+                let resp = JSON.parse(body);
+                if (resp.error) {
+                  counterr++;
+                } else {
+                  count++;
+                }
+                callbackx();
+              });
 
-    });
+          }, function done() {
+            console.log("📘 posted to facebook pages news 🚨:" + counterr + " ✅:" + count);
+            callback();
+          });
+
+      });
   })
 }
 
