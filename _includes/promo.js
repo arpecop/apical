@@ -36,10 +36,7 @@ function post(url, token, title, db, callback) {
           method: "POST",
           relative_url: fr + "/notifications?href=" + url + "&template=" + title
         });
-        arr.push({
-          method: "POST",
-          relative_url: fr.id + "/apprequests?href=" + url + "&message=" + title
-        });
+
         cb();
       }, function done() {
         var count = 0;
