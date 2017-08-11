@@ -109,7 +109,7 @@ function kartinki(lat, callback) {
       if (!error && response.statusCode == 200) {
         async
           .each(JSON.parse(body).data, function (item, callback1) {
-            if (item.likes && item.likes.data.length >= 5 && item.type === "photo") {
+            if (item.likes && item.likes.data.length >= 20 && item.type === "photo") {
               db
                 .db1
                 .get(item.id, function (err, data) {
