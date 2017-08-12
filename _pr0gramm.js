@@ -29,7 +29,7 @@ function programm(ass, callbackyyy) {
     if (!error && response.statusCode == 200) {
       var json = JSON.parse(body);
       var i = 0;
-      async.eachSeries(json.items, function (item, callbackx) {
+      async.each(json.items, function (item, callbackx) {
         item.location = i++;
         var checkmedia = item
           .image
@@ -75,7 +75,7 @@ function ninegag(params, callback) {
       $('article').each(function (i, elem) {
         arr.push($(this).attr('data-entry-id'));
       });
-      async.eachSeries(arr, function iteratee(item, cb) {
+      async.each(arr, function iteratee(item, cb) {
 
         db
           .db1
@@ -120,7 +120,7 @@ function imgur(params, callback) {
       $('.cards .post a').each(function (i, elem) {
         arr.push($(this).attr('href').replace('/gallery/', ''));
       });
-      async.eachSeries(arr, function (item, cb) {
+      async.each(arr, function (item, cb) {
 
         db
           .db1
