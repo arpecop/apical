@@ -124,55 +124,64 @@ function post(id, callback) {
 
 function statii(lat, callback) {
 
-  async
-    .each(pagestoget.rows, function (item, callbackx) {
-      var rtoken = pages[Math.floor(Math.random() * pages.length + 0)].access_token;
-      //var rtoken = process.env.izvestie_token;
-      var url = "https://graph.facebook.com/" + item.id + "/feed?access_token=" + rtoken + "&fields=id,likes,type,full_picture&limit=1";
-      request(url, function (error, response, body) {
+  db
+    .get({
+      id: "newsbg",
+      limit: 1
+    }, function (e, doc) {
 
-        var collect = [];
-        if (!error && response.statusCode == 200) {
-          async
-            .each(JSON.parse(body).data, function (item, callback1) {
-
-              if (item.likes && item.type === "link") {
-                request("https://graph.facebook.com/" + item.id + "?access_token=" + rtoken + "&fields=full_picture,message,link,name,created_time", function (error, response, body) {
-                  var insertjson = JSON.parse(body);
-                  insertjson.type = 'newsbg';
-                  insertjson.title = insertjson.name;
-                  insertjson.description = insertjson.message;
-                  insertjson.url = insertjson.picture;
-                  insertjson.source = insertjson.link;
-                  insertjson.url_big = insertjson.full_picture;
-                  insertjson._id = new Date(insertjson.created_time).getTime() + '_1';
-                  db.get(insertjson._id, function (err, data) {
-                    if (err) {
-                      db
-                        .put(insertjson, function (err, zer) {
-                          post(insertjson._id, function (zzmata) {
-                            callback1();
-                          });
-
-                        });
-                    } else {
-                      callback1();
-                    }
-                  });
-                })
-              } else {
-                callback1();
-              }
-            }, function done() {
-              callbackx();
-            });
-        } else {
-          callbackx();
-        }
-      });
-    }, function done() {
-      callback();
+      console.log('posting scheduled promo last post statii ' + doc.docs[0].id)
+      promo.post('/newsb/' + doc.docs[0].id, process.env.izvestie_token, doc.docs[0].title, "bgusers", function () {});
     });
+
+  async.each(pagestoget.rows, function (item, callbackx) {
+    var rtoken = pages[Math.floor(Math.random() * pages.length + 0)].access_token;
+    //var rtoken = process.env.izvestie_token;
+    var url = "https://graph.facebook.com/" + item.id + "/feed?access_token=" + rtoken + "&fields=id,likes,type,full_picture&limit=1";
+    request(url, function (error, response, body) {
+
+      var collect = [];
+      if (!error && response.statusCode == 200) {
+        async
+          .each(JSON.parse(body).data, function (item, callback1) {
+
+            if (item.likes && item.type === "link") {
+              request("https://graph.facebook.com/" + item.id + "?access_token=" + rtoken + "&fields=full_picture,message,link,name,created_time", function (error, response, body) {
+                var insertjson = JSON.parse(body);
+                insertjson.type = 'newsbg';
+                insertjson.title = insertjson.name;
+                insertjson.description = insertjson.message;
+                insertjson.url = insertjson.picture;
+                insertjson.source = insertjson.link;
+                insertjson.url_big = insertjson.full_picture;
+                insertjson._id = new Date(insertjson.created_time).getTime() + '_1';
+                db.get(insertjson._id, function (err, data) {
+                  if (err) {
+                    db
+                      .put(insertjson, function (err, zer) {
+                        post(insertjson._id, function (zzmata) {
+                          callback1();
+                        });
+
+                      });
+                  } else {
+                    callback1();
+                  }
+                });
+              })
+            } else {
+              callback1();
+            }
+          }, function done() {
+            callbackx();
+          });
+      } else {
+        callbackx();
+      }
+    });
+  }, function done() {
+    callback();
+  });
 }
 
 if (!process.env.PORT) {
