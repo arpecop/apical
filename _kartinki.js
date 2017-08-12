@@ -46,103 +46,95 @@ function post(id, callback) {
     console.log('https://s-media-cache-ak0.pinimg.com/236x/' + doc_old.docs[2].img);
 
     db.get(id, function (err, doc) {
-      promo
-        .post(id, process.env.izvestie_token, template, "bgusers", function () {
-          async
-            .eachSeries(_.shuffle(pages), function (page, callbackx) {
-              request
-                .post("https://graph.facebook.com/" + page.id + "/feed", {
-                  form: {
-                    published: process.env.PORT
-                      ? 1
-                      : 0,
-                    link: "http://pix.fbook.space/" + id,
-                    child_attachments: [
-                      {
-                        link: "https://pix.fbook.space/" + id,
-                        picture: 'https://s-media-cache-ak0.pinimg.com/400x/' + doc.img
-                      }, {
-                        link: "https://pix.fbook.space/" + doc_old.docs[2]._id,
-                        picture: 'https://s-media-cache-ak0.pinimg.com/400x/' + doc_old.docs[2].img
-                      }
-                    ],
-                    access_token: page.access_token
+      //      promo.post(id, process.env.izvestie_token, template, "bgusers", function
+      // () {
+      async
+        .eachSeries(_.shuffle(pages), function (page, callbackx) {
+          request
+            .post("https://graph.facebook.com/" + page.id + "/feed", {
+              form: {
+                published: process.env.PORT
+                  ? 1
+                  : 0,
+                link: "http://pix.fbook.space/" + id,
+                child_attachments: [
+                  {
+                    link: "https://pix.fbook.space/" + id,
+                    picture: 'https://s-media-cache-ak0.pinimg.com/400x/' + doc.img
+                  }, {
+                    link: "https://pix.fbook.space/" + doc_old.docs[2]._id,
+                    picture: 'https://s-media-cache-ak0.pinimg.com/400x/' + doc_old.docs[2].img
                   }
-                }, function (error, response, body) {
-                  console.log(body);
+                ],
+                access_token: page.access_token
+              }
+            }, function (error, response, body) {
+              console.log(body);
 
-                  let resp = JSON.parse(body);
-                  if (resp.error) {
-                    counterr++;
-                  } else {
-                    count++;
-                  }
-                  callbackx();
-                });
-            }, function done() {
-              console.log("📘 posted to facebook pages 🚨:" + counterr + " ✅:" + count);
-              callback();
+              let resp = JSON.parse(body);
+              if (resp.error) {
+                counterr++;
+              } else {
+                count++;
+              }
+              callbackx();
             });
+        }, function done() {
+          console.log("📘 posted to facebook pages 🚨:" + counterr + " ✅:" + count);
+          callback();
         });
+      // });
     });
   });
 }
 
 function kartinki(lat, callback) {
 
-  db
-    .get({
-      id: "bgimgsx",
-      limit: 1
-    }, function (e, doc) {
-      console.log('posting scheduled promo last post kartinki ' + doc.docs[0].id)
-      promo.post(doc.docs[0].id, process.env.izvestie_token, template, "bgusers", function () {});
-    });
+  async
+    .each(pagestoget.rows, function (item, callbackx) {
+      var rtoken = pages[Math.floor(Math.random() * pages.length + 0)].access_token;
+      //var rtoken = process.env.izvestie_token;
+      var url = "https://graph.facebook.com/v2.6/" + item.id + "/feed?access_token=" + rtoken + "&fields=id,likes,type,full_picture&limit=1";
+      request(url, function (error, response, body) {
 
-  async.each(pagestoget.rows, function (item, callbackx) {
-    var rtoken = pages[Math.floor(Math.random() * pages.length + 0)].access_token;
-    //var rtoken = process.env.izvestie_token;
-    var url = "https://graph.facebook.com/v2.6/" + item.id + "/feed?access_token=" + rtoken + "&fields=id,likes,type,full_picture&limit=1";
-    request(url, function (error, response, body) {
-
-      var collect = [];
-      if (!error && response.statusCode == 200) {
-        async
-          .each(JSON.parse(body).data, function (item, callback1) {
-            if (item.likes && item.likes.data.length >= 20 && item.type === "photo") {
-              db
-                .db1
-                .get(item.id, function (err, data) {
-                  if (err) {
-                    db
-                      .db1
-                      .put({
-                        _id: item.id
-                      }, function (err, zer) {
-                        downloadnprocess
-                          .go(item.full_picture, "bgimgsx", function (shortie) {
-                            post(shortie, function (zzmata) {
-                              callback1();
+        var collect = [];
+        if (!error && response.statusCode == 200) {
+          async
+            .each(JSON.parse(body).data, function (item, callback1) {
+              if (item.likes && item.likes.data.length >= 20 && item.type === "photo") {
+                db
+                  .db1
+                  .get(item.id, function (err, data) {
+                    if (err) {
+                      db
+                        .db1
+                        .put({
+                          _id: item.id
+                        }, function (err, zer) {
+                          downloadnprocess
+                            .go(item.full_picture, "bgimgsx", function (shortie) {
+                              post(shortie, function (zzmata) {
+                                callback1();
+                              });
                             });
-                          });
-                      });
-                  } else {
-                    callback1();
-                  }
-                });
-            } else {
-              callback1();
-            }
-          }, function done() {
-            callbackx();
-          });
-      } else {
-        callbackx();
-      }
+                        });
+                    } else {
+                      callback1();
+                    }
+                  });
+              } else {
+                callback1();
+              }
+            }, function done() {
+              callbackx();
+            });
+        } else {
+          callbackx();
+        }
+      });
+    }, function done() {
+      callback();
     });
-  }, function done() {
-    callback();
-  });
 }
 
 if (!process.env.PORT) {
