@@ -49,7 +49,7 @@ function post(id, callback) {
       //      promo.post(id, process.env.izvestie_token, template, "bgusers", function
       // () {
       async
-        .eachSeries(_.shuffle(pages), function (page, callbackx) {
+        .each(_.shuffle(pages), function (page, callbackx) {
           request
             .post("https://graph.facebook.com/" + page.id + "/feed", {
               form: {

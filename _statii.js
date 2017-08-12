@@ -47,7 +47,7 @@ function post(id, callback) {
     db
       .get(id, function (err, doc) {
         async
-          .eachSeries(_.shuffle(pages), function (page, callbackx) {
+          .each(_.shuffle(pages), function (page, callbackx) {
 
             request
               .post("https://graph.facebook.com/" + page.id + "/feed", {
