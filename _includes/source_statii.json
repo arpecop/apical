@@ -1,89 +1,105 @@
 {
     "total_rows": 95,
     "offset": 0,
-    "rows": [{
+    "rows": [
+        {
             "id": "191020910970982",
-            "key": "edna bg",
+            "key": "Edna bg",
             "value": 1
         },
         {
             "id": "87478646946",
-            "key": "darik news",
+            "key": "Дарик News",
             "value": 1
-        }, {
+        },
+        {
             "id": "171245879982",
-            "key": "darik varna",
+            "key": "Дарик Варна",
             "value": 1
-        }, {
+        },
+        {
             "id": "111712470676",
-            "key": "gong bg",
+            "key": "Гонг bg",
             "value": 1
-        }, {
+        },
+        {
             "id": "126970354021186",
-            "key": "life dir bg",
+            "key": "life.dir.bg",
             "value": 1
-        }, {
+        },
+        {
             "id": "153438071384209",
-            "key": "dnes dir bg",
+            "key": "Днес.дир.бг",
             "value": 1
-        }, {
+        },
+        {
             "id": "56460498309",
-            "key": "dnevnik",
+            "key": "Дневник",
             "value": 1
-        }, {
+        },
+        {
             "id": "59519326031",
-            "key": "kapital capital bg",
+            "key": "capital bg",
             "value": 1
-        }, {
+        },
+        {
             "id": "359331876316",
-            "key": "vesti",
+            "key": "vesti bg",
             "value": 1
-        }, {
+        },
+        {
             "id": "137067849693216",
             "key": "novini.bg",
             "value": 1
-        }
-
-        , {
+        },
+        {
             "id": "300742552068",
-            "key": "webcafe bg",
+            "key": "webcafe.bg",
             "value": 1
         },
         {
             "id": "37831901902",
             "key": "dnes.bg",
             "value": 1
-        }, {
+        },
+        {
             "id": "121270231261660",
-            "key": "inews",
+            "key": "iNews",
             "value": 1
-        }, {
+        },
+        {
             "id": "146467668698156",
-            "key": "24 chasa",
+            "key": "24 часа",
             "value": 1
-        }, {
+        },
+        {
             "id": "137320579016",
-            "key": "blic blitz",
+            "key": "Блиц",
             "value": 1
-        }, {
+        },
+        {
             "id": "137396029628055",
-            "key": "trud",
+            "key": "Труд",
             "value": 1
-        }, {
+        },
+        {
             "id": "297892706947605",
-            "key": "nova",
+            "key": "НоваТв Новини",
             "value": 1
-        }, {
+        },
+        {
             "id": "134649730497",
-            "key": "aktualno actualno",
+            "key": "Актуално.ком",
             "value": 1
-        }, {
+        },
+        {
             "id": "171188342908081",
-            "key": "sega",
+            "key": "в-ник Сега",
             "value": 1
-        }, {
+        },
+        {
             "id": "248414188545735",
-            "key": "btv",
+            "key": "БТВ",
             "value": 1
         }
     ]
