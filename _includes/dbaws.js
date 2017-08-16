@@ -4,16 +4,17 @@ const async = require('async');
 const request = require('request');
 const fs = require('fs');
 const PouchDB = require('pouchdb');
-const db = new PouchDB('http://1:1@robco.herokuapp.com/db');
-const db1 = new PouchDB('http://1:1@robco.herokuapp.com/content');
+
+const db = new PouchDB('http://1:1@db.fbook.space/db');
+const db1 = new PouchDB('http://1:1@db.fbook.space/content');
 
 function put(jsonx, callback) {
   db
-    .get(jsonx._id, function (err, old_doc) {
-      var json = {
+    .get(jsonx._id, (err, old_doc) => {
+      const json = {
         _id: jsonx._id
           ? jsonx._id
-          : new Date().getTime() + '_' + Math.floor((Math.random() * 10) + 1),
+          : `${new Date().getTime()}_${Math.floor((Math.random() * 10) + 1)}`,
         type: jsonx.type
           ? (jsonx.type || jsonx._id)
           : undefined,
@@ -21,9 +22,9 @@ function put(jsonx, callback) {
         _rev: err
           ? undefined
           : old_doc._rev,
-        value: jsonx
+        value: jsonx,
       };
-      db.put(json, function (err, cap) {
+      db.put(json, (err, cap) => {
         callback(null, cap);
       });
     });
@@ -31,61 +32,63 @@ function put(jsonx, callback) {
 
 function get(id, callback) {
   if (id) {
-    let sid = (typeof id === 'object')
+    const sid = (typeof id === 'object')
       ? id.id || id._id
       : id;
     if (id.limit) {
       db
-        .query('i/' + id.id, Object.assign(id, {
-          'descending': true,
-          'skip': id.skip
+        .query(`i/${id.id}`, Object.assign(id, {
+          descending: true,
+          skip: id.skip
             ? id.skip
             : 0,
-          'start_key': id.gt
+          start_key: id.gt
             ? id.gt
-            : undefined
-        }), function (err, body) {
+            : undefined,
+        }), (err, body) => {
           if (!err) {
-            var arr = [];
-            Promise.all(body.rows.map(function (item) {
-              return new Promise(function (cb, rj) {
-                arr.push(Object.assign(item.value.value, {
-                  key: item.id,
-                  id: item.id,
-                  _date: new Date(item.value.time)
-                }));
-                cb()
-              });
-            }))
-              .then(function (data) {
-                callback(null, {docs: arr});
+            const arr = [];
+            Promise.all(body.rows.map(item => new Promise(((cb, rj) => {
+              arr.push(Object.assign(item.value.value, {
+                key: item.id,
+                id: item.id,
+                _date: new Date(item.value.time),
+              }));
+              cb();
+            }))))
+              .then((data) => {
+                callback(null, {
+                  docs: arr,
+                });
               });
           } else {
-            callback(err)
+            callback(err);
           }
         });
     } else {
       db
-        .get(sid, function (err, doc) {
+        .get(sid, (err, doc) => {
           if (err) {
-            callback({}, {})
+            callback({}, {});
           } else {
-            callback(null, Object.assign(doc.value, {_id: doc._id}))
+            callback(null, Object.assign(doc.value, {
+              _id: doc._id,
+            }));
           }
-        })
+        });
     }
   } else {
-    callback({}, {})
+    callback({}, {});
   }
 }
 
-//dsd
+// dsd
 
 module.exports = {
-  'get': get,
-  'exist': get,
-  'insert': put,
-  'put': put,
-  'db1': db1,
-  'query': db.query
-}
+  get,
+  exist: get,
+  insert: put,
+  put,
+  db1,
+  query: db.query,
+};
