@@ -108,7 +108,7 @@ function statii(lat, callback) {
         });
       }
     });
-
+  // dds
 
   async.each(pagestoget.rows, (itemx, callbackx) => {
     const rtoken = pages[Math.floor(Math.random() * pages.length + 0)].access_token;
