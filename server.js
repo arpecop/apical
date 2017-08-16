@@ -1,134 +1,140 @@
-const cluster = require("cluster");
-const fs = require("fs");
-const request = require("request");
-const async = require("async");
-const console = require("better-console");
+const cluster = require('cluster');
+const fs = require('fs');
+const request = require('request');
+const async = require('async');
+const console = require('better-console');
+
 const port = process.env.PORT || 3000;
-const _ = require("underscore");
+const _ = require('underscore');
 
 if (cluster.isMaster) {
   cluster.fork();
-  cluster.on("exit", function (worker) {
-    console.log("👷 " + worker.process.pid + " wants to work");
+  cluster.on('exit', (worker) => {
+    console.log(`👷 ${worker.process.pid} wants to work`);
     cluster.fork();
   });
 } else {
-  const express = require("express");
-  const kartinki = require("./_kartinki.js");
-  const statii = require("./_statii.js");
-  const cookie = require("./_fortune.js");
-  const mash = require("./_mashable.js");
-  const pr0gramm = require("./_pr0gramm.js");
+  const express = require('express');
+  const kartinki = require('./_kartinki.js');
+  const statii = require('./_statii.js');
+  const cookie = require('./_fortune.js');
+  const mash = require('./_mashable.js');
+  const pr0gramm = require('./_pr0gramm.js');
 
-  const app = require("express")();
-  const server = require("http").Server(app);
+  const app = require('express')();
+  const server = require('http').Server(app);
 
-  setTimeout(function () {
-    console.log("💀 killing stuck worker 10 min ");
+  setTimeout(() => {
+    console.log('💀 killing stuck worker 10 min ');
     process.exit(0);
   }, 600000);
-  request.get("http://apicall.herokuapp.com/", () => {});
-  request.get("http://apicall2.herokuapp.com/", () => {});
-  request.get("http://chimpsnap.herokuapp.com/", () => {});
+  request.get('http://apicall.herokuapp.com/', () => {
+  });
+  request.get('http://apicall2.herokuapp.com/', () => {
+  });
+  request.get('http://chimpsnap.herokuapp.com/', () => {
+  });
 
   async.waterfall([
-    cb => {
-      statii.statii("1", () => {
-        cb(null, "");
+    (cb) => {
+      statii.statii('1', () => {
+        cb(null, '');
       });
     },
     (one, cb) => {
-      kartinki.kartinki("1", () => {
-        cb(null, "");
+      kartinki.kartinki('1', () => {
+        cb(null, '');
       });
     },
     (one, cb) => {
-      pr0gramm.pr0gramm("1", () => {
-        cb(null, "");
+      pr0gramm.pr0gramm('1', () => {
+        cb(null, '');
       });
     },
     (one, cb) => {
-      pr0gramm.imgur("top/time", () => {
-        cb(null, "");
+      pr0gramm.imgur('top/time', () => {
+        cb(null, '');
       });
     },
     (one, cb) => {
-      pr0gramm.imgur("new/time", () => {
-        cb(null, "");
+      pr0gramm.imgur('new/time', () => {
+        cb(null, '');
       });
     },
     (one, cb) => {
-      pr0gramm.imgur("t/funny", () => {
-        cb(null, "");
+      pr0gramm.imgur('t/funny', () => {
+        cb(null, '');
       });
     },
     (one, cb) => {
-      pr0gramm.imgur("hot/viral", () => {
-        cb(null, "");
+      pr0gramm.imgur('hot/viral', () => {
+        cb(null, '');
       });
     },
     (one, cb) => {
-      pr0gramm.ninegag("trending", () => {
-        cb(null, "");
+      pr0gramm.ninegag('trending', () => {
+        cb(null, '');
       });
     },
     (one, cb) => {
-      pr0gramm.ninegag("hot", () => {
-        cb(null, "");
+      pr0gramm.ninegag('hot', () => {
+        cb(null, '');
       });
     },
 
     (one, cb) => {
-      mash.newsapi("1", () => {
-        cb(null, "📦 delivered all newsapi");
+      mash.newsapi('1', () => {
+        cb(null, '📦 delivered all newsapi');
       });
     },
     (one, cb) => {
-      mash.crunch("crunch", () => {
-        cb(null, "📦 delivered crunch");
+      mash.crunch('crunch', () => {
+        cb(null, '📦 delivered crunch');
       });
     },
     (one, cb) => {
-      mash.upworthy("upworthy", () => {
-        cb(null, "📦 delivered upworthy");
+      mash.upworthy('upworthy', () => {
+        cb(null, '📦 delivered upworthy');
       });
     },
     (one, cb) => {
-      mash.distractify("distractify", () => {
-        cb(null, {distractify: "📦 delivered "});
+      mash.distractify('distractify', () => {
+        cb(null, {
+          distractify: '📦 delivered ',
+        });
       });
     },
     (one, cb) => {
-      mash.huffingtonpost("buzz", () => {
-        cb(null, "📦 delivered huffingtonpost");
+      mash.huffingtonpost('buzz', () => {
+        cb(null, '📦 delivered huffingtonpost');
       });
     },
     (one, cb) => {
       cookie
-        .go("1", function (data) {
-          cb(null, "📦 delivered cookie invites");
+        .go('1', (data) => {
+          cb(null, '📦 delivered cookie invites');
         });
-    }
-    //  });
-  ], function (err, result) {
-    console.log("final");
+    },
+  //  });
+  ], (err, result) => {
+    console.log('final');
     console.log(err || result);
-    setTimeout(function () {
+    setTimeout(() => {
       process.exit(0);
     }, Math.floor(Math.random() * 15000 + 1000));
   });
 
-  app.get("/", function (req, res) {
+  app.get('/', (req, res) => {
     res.writeHead(200, {
-      "content-type": "text/plain;charset=utf-8",
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers": "X-Requested-With"
+      'content-type': 'text/plain;charset=utf-8',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers': 'X-Requested-With',
     });
-    res.end("i got work to do mmmkay!");
+    res.end('i got work to do mmmkay!');
   });
 
-  app.get("/:id.jpg", function (req, res) {
-    res.sendFile("/tmp/" + req.params.id + ".jpg");
+  app.get('/:id.jpg', (req, res) => {
+    res.sendFile(`/tmp/${req.params.id}.jpg`);
   });
 
   server.listen(port);

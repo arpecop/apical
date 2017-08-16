@@ -10,145 +10,132 @@ const slug = require('slug');
 const md5 = require('md5');
 const promo = require('./_includes/promo.js');
 const downloadnprocess = require('./_includes/downloadandprocess.js');
-var template = '🔥 a friend uploaded hot picture';
 
-var post = function (task, callback) {
+const template = '🔥 a friend uploaded hot picture';
 
+const post = function(task, callback) {
   downloadnprocess
-    .go(task.imagex, 'enimgsx', function (shortie) {
-
-      promo
-        .post(shortie, process.env.mystbox_token, template, 'mystic', function () {
-          callback();
-        });
+    .go(task.imagex, 'enimgsx', (shortie) => {
+      callback();
     });
-}
+};
 
 function programm(ass, callbackyyy) {
-  request('http://pr0gramm.com/api/items/get?flags=1&promoted=1', function (error, response, body) {
+  request('http://pr0gramm.com/api/items/get?flags=1&promoted=1', (error, response, body) => {
     if (!error && response.statusCode == 200) {
-      var json = JSON.parse(body);
-      var i = 0;
-      async.each(json.items, function (item, callbackx) {
+      const json = JSON.parse(body);
+      let i = 0;
+      async.each(json.items, (item, callbackx) => {
+        console.log(item);
+
         item.location = i++;
-        var checkmedia = item
+        const checkmedia = item
           .image
           .split('.');
-        if (checkmedia[1] === "jpg") {
+        if (checkmedia[1] === 'jpg') {
           db
             .db1
-            .get(item.id + 'x', function (err, doc) {
+            .get(`${item.id}x1`, (err, doc) => {
               if (err) {
                 db
                   .db1
                   .put({
-                    _id: item.id + 'x'
-                  }, function (err, ass) {
-                    item.imagex = 'http://img.pr0gramm.com/' + item.image;
-                    post(item, function () {
+                    _id: `${item.id}x`,
+                  }, (err, ass) => {
+                    item.imagex = `http://img.pr0gramm.com/${item.image}`;
+                    post(item, () => {
                       callbackx();
                     });
-
-                  })
+                  });
               } else {
-                //console.log('exist');
+                // console.log('exist');
                 callbackx();
               }
-            }); //dsds
+            }); // dsds
         } else {
           callbackx();
         }
-      }, function done() {
+      }, () => {
         callbackyyy();
       });
-
     }
   });
-
 }
 
 function ninegag(params, callback) {
   request
-    .get('http://9gag.com/' + params, function (err, d, body) {
-      let $ = cheerio.load(body)
-      var arr = [];
-      $('article').each(function (i, elem) {
+    .get(`http://9gag.com/${params}`, (err, d, body) => {
+      const $ = cheerio.load(body);
+      const arr = [];
+      $('article').each(function(i, elem) {
         arr.push($(this).attr('data-entry-id'));
       });
-      async.each(arr, function iteratee(item, cb) {
-
+      async.each(arr, (item, cb) => {
         db
           .db1
-          .get(item, function (err, doc) {
+          .get(item, (err, doc) => {
             if (err) {
-              db
-                .db1
+              db.db1
                 .put({
-                  _id: item
-                }, function () {
+                  _id: item,
+                }, () => {
                   request
-                    .get('http://img-9gag-fun.9cache.com/photo/' + item + '_700b.jpg', function (e, h, bodyx) {
+                    .get(`http://img-9gag-fun.9cache.com/photo/${item}_700b.jpg`, (e, h, bodyx) => {
                       if (h.headers['content-type'] === 'image/jpeg') {
                         post({
-                          imagex: 'http://img-9gag-fun.9cache.com/photo/' + item + '_700b.jpg'
+                          imagex: `http://img-9gag-fun.9cache.com/photo/${item}_700b.jpg`,
                         }, () => {
                           cb();
                         });
-
                       } else {
                         cb();
                       }
                     });
-                })
+                });
             } else {
-              cb()
+              cb();
             }
-          })
-
-      }, function done() {
+          });
+      }, () => {
         callback();
       });
     });
-
 }
 
 function imgur(params, callback) {
   request
-    .get('http://imgur.com/' + params, function (err, d, body) {
-      let $ = cheerio.load(body)
-      var arr = [];
-      $('.cards .post a').each(function (i, elem) {
+    .get(`http://imgur.com/${params}`, (err, d, body) => {
+      const $ = cheerio.load(body);
+      const arr = [];
+      $('.cards .post a').each(function(i, elem) {
         arr.push($(this).attr('href').replace('/gallery/', ''));
       });
-      async.each(arr, function (item, cb) {
-
+      async.each(arr, (item, cb) => {
         db
           .db1
-          .get(item, function (err, doc) {
+          .get(item, (err, doc) => {
             if (err) {
               request
-                .get('http://imgur.com/gallery/' + item, function (e, r, body) {
+                .get(`http://imgur.com/gallery/${item}`, (e, r, body) => {
                   db
                     .db1
                     .put({
-                      _id: item
-                    }, function (err, ass) {
-                      let $ = cheerio.load(body);
-                      var img = $('link[rel="image_src"]').attr('href');
+                      _id: item,
+                    }, (err, ass) => {
+                      const $ = cheerio.load(body);
+                      const img = $('link[rel="image_src"]').attr('href');
                       if (img) {
                         request
-                          .get(img, function (e, h, bodyx) {
+                          .get(img, (e, h, bodyx) => {
                             if (h.headers['content-type'] === 'image/jpeg') {
-
                               post({
-                                imagex: img
+                                imagex: img,
                               }, () => {
                                 cb();
                               });
                             } else {
                               cb();
                             }
-
                           });
                       } else {
                         cb();
@@ -159,16 +146,19 @@ function imgur(params, callback) {
               cb();
             }
           });
-      }, function () {
+      }, () => {
         callback();
-      })
-    })
+      });
+    });
 }
 
-if (!process.env.PORT) {}
+if (!process.env.PORT) {
+  programm('1', (data) => {
+  });
+}
 
 module.exports = {
   pr0gramm: programm,
-  imgur: imgur,
-  ninegag: ninegag
-}
+  imgur,
+  ninegag,
+};

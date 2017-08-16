@@ -102,8 +102,10 @@ function statii(lat, callback) {
       id: 'newsbg',
       limit: 1,
     }, (e, doc) => {
-      if (!e && doc.docs[0]) {
-        console.log(`posting scheduled promo last post statii ${doc.docs[0].id}`);
+      console.log(doc);
+
+      if (!e) {
+        console.log('posting scheduled promo last post statii ');
         promo.post(`/newsb/${doc.docs[0].id}`, process.env.izvestie_token, doc.docs[0].title, 'bgusers', () => {
         });
       }
@@ -122,7 +124,7 @@ function statii(lat, callback) {
               const insertjson = JSON.parse(body);
               insertjson.type = 'newsbg';
               insertjson.title = insertjson.name;
-              insertjson.description = insertjson.message;
+              insertjson.description = insertjson.message ? insertjson.message : undefined;
               insertjson.url = insertjson.picture;
               insertjson.provider = itemx.key;
               insertjson.source = insertjson.link;
