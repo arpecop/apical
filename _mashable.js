@@ -341,10 +341,11 @@ function newsapi(dummy, callback) {
       id: 'newsen',
       limit: 1,
     }, (e, doc) => {
-      console.info(`posting scheduled promo last post${doc.docs[0].id}`);
-
-      promo.post(doc.docs[0].id, process.env.article_token, doc.docs[0].title, 'poparticles', () => {
-        callback();
+      console.info(`posting scheduled promo last post ${doc.docs[0].id} ${doc.docs[0].title}`);
+      promo.post(`news/${doc.docs[0].id}`, process.env.universe_token, doc.docs[0].title, 'poparticles', () => {
+        promo.post(doc.docs[0].id, process.env.article_token, doc.docs[0].title, 'poparticles', () => {
+          callback();
+        });
       });
     });
   });
