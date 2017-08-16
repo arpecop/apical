@@ -342,7 +342,7 @@ function newsapi(dummy, callback) {
       limit: 1,
     }, (e, doc) => {
       console.info(`posting scheduled promo last post ${doc.docs[0].id} ${doc.docs[0].title}`);
-      promo.post(`news/${doc.docs[0].id}`, process.env.universe_token, doc.docs[0].title, 'poparticles', () => {
+      promo.post(`news/${doc.docs[0].id}`, process.env.mystbox_token, doc.docs[0].title, 'mystic', () => {
         promo.post(doc.docs[0].id, process.env.article_token, doc.docs[0].title, 'poparticles', () => {
           callback();
         });
