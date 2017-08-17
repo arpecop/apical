@@ -102,7 +102,7 @@ function statii(lat, callback) {
       id: 'newsbg',
       limit: 1,
     }, (e, doc) => {
-      console.log(`posting scheduled promo last post statii ${doc.docs[0].title}`);
+      console.log(`posting scheduled promo last post statii "${doc.docs[0].title}" 4 times`);
       promo.post(`newsb/${doc.docs[0].id}`, process.env.izvestie_token, doc.docs[0].title, 'bgusers', () => {
       });
       promo.post(`newsb/${doc.docs[0].id}`, process.env.izvestie_token, doc.docs[0].title, 'bgusers', () => {
