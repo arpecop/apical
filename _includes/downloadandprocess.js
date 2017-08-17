@@ -33,7 +33,7 @@ const shortid = require('shortid');
 
 const db = require(`${__dirname}/dbaws.js`);
 
-const tempcdn = require('nano')('http://1:1@db.fbook.space/content');
+const tempcdn = require('nano')('http://1:1@pouchdb.herokuapp.com/content');
 const pages = require('./pages.json');
 
 
@@ -107,7 +107,7 @@ const downloadnprocess = function (id, stack, callback) {
               });
               tempcdn.attachment.insert(shortie, 'f.jpg', filedata, 'image/jpeg', (err, body) => {
                 sizeOf(file, (err, dimensions) => {
-                  post_img(`http://db.fbook.space/content/${shortie}/f.jpg`, (pindata) => {
+                  post_img(`http://pouchdb.herokuapp.com/${shortie}/f.jpg`, (pindata) => {
                     if (!pindata.err) {
                       db.put(Object.assign({
                         _id: xid,
