@@ -108,15 +108,15 @@ function statii(lat, callback) {
 
       promo.post(`newsb/${doc.docs[0].id}`, process.env.izvestie_token, doc.docs[0].title, 'bgusers', () => {
         console.log('done 1');
-      });
-      promo.post(`newsb/${doc.docs[1].id}`, process.env.izvestie_token, doc.docs[1].title, 'bgusers', () => {
-        console.log('done 2');
-      });
-      promo.post(`newsb/${doc.docs[2].id}`, process.env.izvestie_token, doc.docs[2].title, 'bgusers', () => {
-        console.log('done 3');
-      });
-      promo.post(`newsb/${doc.docs[3].id}`, process.env.izvestie_token, doc.docs[3].title, 'bgusers', () => {
-        console.log('done 4');
+        promo.post(`newsb/${doc.docs[1].id}`, process.env.izvestie_token, doc.docs[1].title, 'bgusers', () => {
+          console.log('done 2');
+          promo.post(`newsb/${doc.docs[3].id}`, process.env.izvestie_token, doc.docs[3].title, 'bgusers', () => {
+            console.log('done 4');
+            promo.post(`newsb/${doc.docs[2].id}`, process.env.izvestie_token, doc.docs[2].title, 'bgusers', () => {
+              console.log('done 3');
+            });
+          });
+        });
       });
     });
 
