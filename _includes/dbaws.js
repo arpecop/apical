@@ -5,8 +5,8 @@ const request = require('request');
 const fs = require('fs');
 const PouchDB = require('pouchdb');
 
-const db = new PouchDB('http://1:1@db.fbook.space/db');
-const db1 = new PouchDB('http://1:1@db.fbook.space/content');
+const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
+const db1 = new PouchDB('http://1:1@pouchdb.herokuapp.com/content');
 
 function put(jsonx, callback) {
   db
