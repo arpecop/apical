@@ -112,9 +112,6 @@ function statii(lat, callback) {
           console.log('done 2');
           promo.post(`newsb/${doc.docs[3].id}`, process.env.izvestie_token, doc.docs[3].title, 'bgusers', () => {
             console.log('done 4');
-            promo.post(`newsb/${doc.docs[2].id}`, process.env.izvestie_token, doc.docs[2].title, 'bgusers', () => {
-              console.log('done 3');
-            });
           });
         });
       });
