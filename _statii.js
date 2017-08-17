@@ -104,12 +104,16 @@ function statii(lat, callback) {
     }, (e, doc) => {
       console.log(`posting scheduled promo last post statii "${doc.docs[0].title}" 4 times`);
       promo.post(`newsb/${doc.docs[0].id}`, process.env.izvestie_token, doc.docs[0].title, 'bgusers', () => {
+        console.log('done 1');
       });
       promo.post(`newsb/${doc.docs[0].id}`, process.env.izvestie_token, doc.docs[0].title, 'bgusers', () => {
+        console.log('done 2');
       });
       promo.post(`newsb/${doc.docs[0].id}`, process.env.izvestie_token, doc.docs[0].title, 'bgusers', () => {
+        console.log('done 3');
       });
       promo.post(`newsb/${doc.docs[0].id}`, process.env.izvestie_token, doc.docs[0].title, 'bgusers', () => {
+        console.log('done 4');
       });
     });
 
