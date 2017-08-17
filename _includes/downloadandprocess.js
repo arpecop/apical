@@ -107,7 +107,7 @@ const downloadnprocess = function (id, stack, callback) {
               });
               tempcdn.attachment.insert(shortie, 'f.jpg', filedata, 'image/jpeg', (err, body) => {
                 sizeOf(file, (err, dimensions) => {
-                  post_img(`http://pouchdb.herokuapp.com/${shortie}/f.jpg`, (pindata) => {
+                  post_img(`http://pouchdb.herokuapp.com/content/${shortie}/f.jpg`, (pindata) => {
                     if (!pindata.err) {
                       db.put(Object.assign({
                         _id: xid,
