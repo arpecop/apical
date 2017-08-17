@@ -27,55 +27,56 @@ function post(id, callback) {
 
   db.get({
     id: 'newsbg',
-    limit: 10,
+    limit: 20,
     gt: id,
   }, (err, posts) => {
     db.get(id, (err, doc) => {
       async.each(_.shuffle(pages), (page, callbackx) => {
+        const rid = _.shuffle([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
         request.post(`https://graph.facebook.com/${page.id}/feed`, {
           form: {
             published: process.env.PORT ? 1 : 0,
             link: 'https://newsboy.fbook.space/',
             child_attachments: [{
               description: posts.docs[0].description,
-              name: posts.docs[0].name,
-              link: `https://newsboy.fbook.space/${id}`,
+              name: `[актуално от днес]: ${posts.docs[0].name}`,
+              link: `https://newsboy.fbook.space/${posts.docs[0].id}`,
               picture: posts.docs[0].url_big,
             }, {
-              description: posts.docs[1].description,
-              name: posts.docs[1].name,
-              link: `https://newsboy.fbook.space/${posts.docs[1].id}`,
-              picture: posts.docs[1].url_big,
+              description: posts.docs[rid[1]].description,
+              name: posts.docs[rid[1]].name,
+              link: `https://newsboy.fbook.space/${posts.docs[rid[1]].id}`,
+              picture: posts.docs[rid[1]].url_big,
             }, {
-              description: posts.docs[2].description,
-              name: posts.docs[2].name,
-              link: `https://newsboy.fbook.space/${posts.docs[2].id}`,
-              picture: posts.docs[2].url_big,
+              description: posts.docs[rid[2]].description,
+              name: posts.docs[rid[2]].name,
+              link: `https://newsboy.fbook.space/${posts.docs[rid[2]].id}`,
+              picture: posts.docs[rid[2]].url_big,
             }, {
-              description: posts.docs[3].description,
-              name: posts.docs[3].name,
-              link: `https://newsboy.fbook.space/${posts.docs[1].id}`,
-              picture: posts.docs[3].url_big,
+              description: posts.docs[rid[3]].description,
+              name: posts.docs[rid[3]].name,
+              link: `https://newsboy.fbook.space/${posts.docs[rid[3]].id}`,
+              picture: posts.docs[rid[3]].url_big,
             }, {
-              description: posts.docs[4].description,
-              name: posts.docs[4].name,
-              link: `https://newsboy.fbook.space/${posts.docs[4].id}`,
-              picture: posts.docs[4].url_big,
+              description: posts.docs[rid[4]].description,
+              name: posts.docs[rid[4]].name,
+              link: `https://newsboy.fbook.space/${posts.docs[rid[4]].id}`,
+              picture: posts.docs[rid[4]].url_big,
             }, {
-              description: posts.docs[5].description,
-              name: posts.docs[5].name,
-              link: `https://newsboy.fbook.space/${posts.docs[5].id}`,
-              picture: posts.docs[5].url_big,
+              description: posts.docs[rid[5]].description,
+              name: posts.docs[rid[5]].name,
+              link: `https://newsboy.fbook.space/${posts.docs[rid[5]].id}`,
+              picture: posts.docs[rid[5]].url_big,
             }, {
-              description: posts.docs[6].description,
-              name: posts.docs[6].name,
-              link: `https://newsboy.fbook.space/${posts.docs[6].id}`,
-              picture: posts.docs[6].url_big,
+              description: posts.docs[rid[6]].description,
+              name: posts.docs[rid[6]].name,
+              link: `https://newsboy.fbook.space/${posts.docs[rid[6]].id}`,
+              picture: posts.docs[rid[6]].url_big,
             }, {
-              description: posts.docs[7].description,
-              name: posts.docs[7].name,
-              link: `https://newsboy.fbook.space/${posts.docs[7].id}`,
-              picture: posts.docs[7].url_big,
+              description: posts.docs[rid[7]].description,
+              name: posts.docs[rid[7]].name,
+              link: `https://newsboy.fbook.space/${posts.docs[rid[7]].id}`,
+              picture: posts.docs[rid[7]].url_big,
             }],
             access_token: page.access_token,
           },
@@ -100,19 +101,21 @@ function statii(lat, callback) {
   db
     .get({
       id: 'newsbg',
-      limit: 1,
+      limit: 6,
     }, (e, doc) => {
       console.log(`posting scheduled promo last post statii "${doc.docs[0].title}" 4 times`);
+
+
       promo.post(`newsb/${doc.docs[0].id}`, process.env.izvestie_token, doc.docs[0].title, 'bgusers', () => {
         console.log('done 1');
       });
-      promo.post(`newsb/${doc.docs[0].id}`, process.env.izvestie_token, doc.docs[0].title, 'bgusers', () => {
+      promo.post(`newsb/${doc.docs[1].id}`, process.env.izvestie_token, doc.docs[1].title, 'bgusers', () => {
         console.log('done 2');
       });
-      promo.post(`newsb/${doc.docs[0].id}`, process.env.izvestie_token, doc.docs[0].title, 'bgusers', () => {
+      promo.post(`newsb/${doc.docs[2].id}`, process.env.izvestie_token, doc.docs[2].title, 'bgusers', () => {
         console.log('done 3');
       });
-      promo.post(`newsb/${doc.docs[0].id}`, process.env.izvestie_token, doc.docs[0].title, 'bgusers', () => {
+      promo.post(`newsb/${doc.docs[3].id}`, process.env.izvestie_token, doc.docs[3].title, 'bgusers', () => {
         console.log('done 4');
       });
     });
