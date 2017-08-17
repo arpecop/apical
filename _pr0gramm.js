@@ -13,7 +13,7 @@ const downloadnprocess = require('./_includes/downloadandprocess.js');
 
 const template = '🔥 a friend uploaded hot picture';
 
-const post = function(task, callback) {
+const post = function (task, callback) {
   downloadnprocess
     .go(task.imagex, 'enimgsx', (shortie) => {
       callback();
@@ -26,8 +26,6 @@ function programm(ass, callbackyyy) {
       const json = JSON.parse(body);
       let i = 0;
       async.each(json.items, (item, callbackx) => {
-        console.log(item);
-
         item.location = i++;
         const checkmedia = item
           .image
@@ -67,7 +65,7 @@ function ninegag(params, callback) {
     .get(`http://9gag.com/${params}`, (err, d, body) => {
       const $ = cheerio.load(body);
       const arr = [];
-      $('article').each(function(i, elem) {
+      $('article').each(function (i, elem) {
         arr.push($(this).attr('data-entry-id'));
       });
       async.each(arr, (item, cb) => {
@@ -107,7 +105,7 @@ function imgur(params, callback) {
     .get(`http://imgur.com/${params}`, (err, d, body) => {
       const $ = cheerio.load(body);
       const arr = [];
-      $('.cards .post a').each(function(i, elem) {
+      $('.cards .post a').each(function (i, elem) {
         arr.push($(this).attr('href').replace('/gallery/', ''));
       });
       async.each(arr, (item, cb) => {
