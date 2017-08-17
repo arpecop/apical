@@ -105,12 +105,12 @@ function statii(lat, callback) {
       console.log(doc);
 
       if (!e) {
-        console.log('posting scheduled promo last post statii ');
-        promo.post(`/newsb/${doc.docs[0].id}`, process.env.izvestie_token, doc.docs[0].title, 'bgusers', () => {
+        console.log(`posting scheduled promo last post statii ${doc.docs[0].title}`);
+        promo.post(`newsb/${doc.docs[0].id}`, process.env.izvestie_token, doc.docs[0].title, 'bgusers', () => {
         });
       }
     });
-  // dds
+
 
   async.each(pagestoget.rows, (itemx, callbackx) => {
     const rtoken = pages[Math.floor(Math.random() * pages.length + 0)].access_token;

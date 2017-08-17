@@ -63,31 +63,28 @@ function ninegag(params, callback) {
         arr.push($(this).attr('data-entry-id'));
       });
       async.each(arr, (item, cb) => {
-        db
-          .db1
-          .get(item, (err, doc) => {
-            if (err) {
-              db.db1
-                .put({
-                  _id: item,
-                }, () => {
-                  request
-                    .get(`http://img-9gag-fun.9cache.com/photo/${item}_700b.jpg`, (e, h, bodyx) => {
-                      if (h.headers['content-type'] === 'image/jpeg') {
-                        post({
-                          imagex: `http://img-9gag-fun.9cache.com/photo/${item}_700b.jpg`,
-                        }, () => {
-                          cb();
-                        });
-                      } else {
-                        cb();
-                      }
+        db.db1.get(item, (err, doc) => {
+          if (err) {
+            db.db1.put({
+              _id: item,
+            }, () => {
+              request
+                .get(`http://img-9gag-fun.9cache.com/photo/${item}_700b.jpg`, (e, h, bodyx) => {
+                  if (h.headers['content-type'] === 'image/jpeg') {
+                    post({
+                      imagex: `http://img-9gag-fun.9cache.com/photo/${item}_700b.jpg`,
+                    }, () => {
+                      cb();
                     });
+                  } else {
+                    cb();
+                  }
                 });
-            } else {
-              cb();
-            }
-          });
+            });
+          } else {
+            cb();
+          }
+        });
       }, () => {
         callback();
       });
@@ -103,41 +100,37 @@ function imgur(params, callback) {
         arr.push($(this).attr('href').replace('/gallery/', ''));
       });
       async.each(arr, (item, cb) => {
-        db
-          .db1
-          .get(item, (err, doc) => {
-            if (err) {
-              request
-                .get(`http://imgur.com/gallery/${item}`, (e, r, body) => {
-                  db
-                    .db1
-                    .put({
-                      _id: item,
-                    }, (err, ass) => {
-                      const $ = cheerio.load(body);
-                      const img = $('link[rel="image_src"]').attr('href');
-                      if (img) {
-                        request
-                          .get(img, (e, h, bodyx) => {
-                            if (h.headers['content-type'] === 'image/jpeg') {
-                              post({
-                                imagex: img,
-                              }, () => {
-                                cb();
-                              });
-                            } else {
-                              cb();
-                            }
+        db.db1.get(item, (err, doc) => {
+          if (err) {
+            request
+              .get(`http://imgur.com/gallery/${item}`, (e, r, body) => {
+                db.db1.put({
+                  _id: item,
+                }, (err, ass) => {
+                  const $ = cheerio.load(body);
+                  const img = $('link[rel="image_src"]').attr('href');
+                  if (img) {
+                    request
+                      .get(img, (e, h, bodyx) => {
+                        if (h.headers['content-type'] === 'image/jpeg') {
+                          post({
+                            imagex: img,
+                          }, () => {
+                            cb();
                           });
-                      } else {
-                        cb();
-                      }
-                    });
+                        } else {
+                          cb();
+                        }
+                      });
+                  } else {
+                    cb();
+                  }
                 });
-            } else {
-              cb();
-            }
-          });
+              });
+          } else {
+            cb();
+          }
+        });
       }, () => {
         callback();
       });
