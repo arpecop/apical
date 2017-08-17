@@ -27,29 +27,23 @@ function programm(ass, callbackyyy) {
       let i = 0;
       async.each(json.items, (item, callbackx) => {
         item.location = i++;
-        const checkmedia = item
-          .image
-          .split('.');
+        const checkmedia = item.image.split('.');
         if (checkmedia[1] === 'jpg') {
-          db
-            .db1
-            .get(`${item.id}x1`, (err, doc) => {
-              if (err) {
-                db
-                  .db1
-                  .put({
-                    _id: `${item.id}x`,
-                  }, (err, ass) => {
-                    item.imagex = `http://img.pr0gramm.com/${item.image}`;
-                    post(item, () => {
-                      callbackx();
-                    });
-                  });
-              } else {
-                // console.log('exist');
-                callbackx();
-              }
-            }); // dsds
+          db.db1.get(`${item.id}x`, (err, doc) => {
+            if (err) {
+              db.db1.put({
+                _id: `${item.id}x`,
+              }, (err, ass) => {
+                item.imagex = `http://img.pr0gramm.com/${item.image}`;
+                post(item, () => {
+                  callbackx();
+                });
+              });
+            } else {
+              // console.log('exist');
+              callbackx();
+            }
+          }); // dsds
         } else {
           callbackx();
         }
