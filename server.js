@@ -9,6 +9,10 @@ const _ = require('underscore');
 
 if (cluster.isMaster) {
   cluster.fork();
+
+  setTimeout(() => {
+    cluster.fork();
+  }, 3000);
   cluster.on('exit', (worker) => {
     console.log(`👷 ${worker.process.pid} wants to work`);
     cluster.fork();
@@ -28,101 +32,100 @@ if (cluster.isMaster) {
     console.log('💀 killing stuck worker 10 min ');
     process.exit(0);
   }, 600000);
-  request.get('http://apicall.herokuapp.com/', () => {
-  });
-  request.get('http://apicall2.herokuapp.com/', () => {
-  });
-  request.get('http://chimpsnap.herokuapp.com/', () => {
-  });
+  request.get('http://apicall.herokuapp.com/', () => {});
+  request.get('http://apicall2.herokuapp.com/', () => {});
+  request.get('http://chimpsnap.herokuapp.com/', () => {});
 
-  async.waterfall([
-    (cb) => {
-      statii.statii('1', () => {
-        cb(null, '');
-      });
-    },
-    (one, cb) => {
-      kartinki.kartinki('1', () => {
-        cb(null, '');
-      });
-    },
-    (one, cb) => {
-      pr0gramm.pr0gramm('1', () => {
-        cb(null, '');
-      });
-    },
-    (one, cb) => {
-      pr0gramm.imgur('top/time', () => {
-        cb(null, '');
-      });
-    },
-    (one, cb) => {
-      pr0gramm.imgur('new/time', () => {
-        cb(null, '');
-      });
-    },
-    (one, cb) => {
-      pr0gramm.imgur('t/funny', () => {
-        cb(null, '');
-      });
-    },
-    (one, cb) => {
-      pr0gramm.imgur('hot/viral', () => {
-        cb(null, '');
-      });
-    },
-    (one, cb) => {
-      pr0gramm.ninegag('trending', () => {
-        cb(null, '');
-      });
-    },
-    (one, cb) => {
-      pr0gramm.ninegag('hot', () => {
-        cb(null, '');
-      });
-    },
-
-    (one, cb) => {
-      mash.newsapi('1', () => {
-        cb(null, '📦 delivered all newsapi');
-      });
-    },
-    (one, cb) => {
-      mash.crunch('crunch', () => {
-        cb(null, '📦 delivered crunch');
-      });
-    },
-    (one, cb) => {
-      mash.upworthy('upworthy', () => {
-        cb(null, '📦 delivered upworthy');
-      });
-    },
-    (one, cb) => {
-      mash.distractify('distractify', () => {
-        cb(null, {
-          distractify: '📦 delivered ',
+  async.waterfall(
+    [
+      (cb) => {
+        statii.statii('1', () => {
+          cb(null, '');
         });
-      });
-    },
-    (one, cb) => {
-      mash.huffingtonpost('buzz', () => {
-        cb(null, '📦 delivered huffingtonpost');
-      });
-    },
-    (one, cb) => {
-      cookie
-        .go('1', (data) => {
+      },
+      (one, cb) => {
+        kartinki.kartinki('1', () => {
+          cb(null, '');
+        });
+      },
+      (one, cb) => {
+        pr0gramm.pr0gramm('1', () => {
+          cb(null, '');
+        });
+      },
+      (one, cb) => {
+        pr0gramm.imgur('top/time', () => {
+          cb(null, '');
+        });
+      },
+      (one, cb) => {
+        pr0gramm.imgur('new/time', () => {
+          cb(null, '');
+        });
+      },
+      (one, cb) => {
+        pr0gramm.imgur('t/funny', () => {
+          cb(null, '');
+        });
+      },
+      (one, cb) => {
+        pr0gramm.imgur('hot/viral', () => {
+          cb(null, '');
+        });
+      },
+      (one, cb) => {
+        pr0gramm.ninegag('trending', () => {
+          cb(null, '');
+        });
+      },
+      (one, cb) => {
+        pr0gramm.ninegag('hot', () => {
+          cb(null, '');
+        });
+      },
+
+      (one, cb) => {
+        mash.newsapi('1', () => {
+          cb(null, '📦 delivered all newsapi');
+        });
+      },
+      (one, cb) => {
+        mash.crunch('crunch', () => {
+          cb(null, '📦 delivered crunch');
+        });
+      },
+      (one, cb) => {
+        mash.upworthy('upworthy', () => {
+          cb(null, '📦 delivered upworthy');
+        });
+      },
+      (one, cb) => {
+        mash.distractify('distractify', () => {
+          cb(null, {
+            distractify: '📦 delivered ',
+          });
+        });
+      },
+      (one, cb) => {
+        mash.huffingtonpost('buzz', () => {
+          cb(null, '📦 delivered huffingtonpost');
+        });
+      },
+      (one, cb) => {
+        cookie.go('1', (data) => {
           cb(null, '📦 delivered cookie invites');
         });
+      },
+      //  });
+    ],
+    (err, result) => {
+      console.log('final');
+      console.log(err || result);
+      setTimeout(() => {
+        process.exit(0);
+      }, Math.floor(Math.random() * 15000 + 1000));
     },
-  //  });
-  ], (err, result) => {
-    console.log('final');
-    console.log(err || result);
-    setTimeout(() => {
-      process.exit(0);
-    }, Math.floor(Math.random() * 15000 + 1000));
-  });
+  );
 
   app.get('/', (req, res) => {
     res.writeHead(200, {
