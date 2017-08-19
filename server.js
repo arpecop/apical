@@ -11,8 +11,10 @@ if (cluster.isMaster) {
   cluster.fork();
 
   setTimeout(() => {
+    console.log('forking colegue 2');
+
     cluster.fork();
-  }, 3000);
+  }, 5000);
   cluster.on('exit', (worker) => {
     console.log(`👷 ${worker.process.pid} wants to work`);
     cluster.fork();
