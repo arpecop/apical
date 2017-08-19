@@ -1,6 +1,6 @@
-const promo = require(`${__dirname  }/_includes/promo.js`);
+const promo = require(`${__dirname}/_includes/promo.js`);
 
-exports.go = function(id, callback) {
+exports.go = function (id, callback) {
   promo.post(
     '/',
     process.env.cookie_token,

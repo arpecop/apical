@@ -32,30 +32,35 @@ function post(url, token, title, db, callback) {
 
   const arr = [];
   pouch.gimmethousend(db, (docs) => {
-    async
-      .eachSeries(docs, (fr, cb) => {
+    async.eachSeries(
+      docs,
+      (fr, cb) => {
         arr.push({
           method: 'POST',
           relative_url: `${fr}/notifications?href=${url}&template=${title}`,
         });
 
         cb();
-      }, () => {
+      },
+      () => {
         let count = 0;
         let counterr = 0;
         if (process.env.PORT) {
-          async
-            .each(_.chunk(arr, 50), (chunk, cb) => {
-              request
-                .post({
+          async.each(
+            _.chunk(arr, 50),
+            (chunk, cb) => {
+              request.post(
+                {
                   url: 'https://graph.facebook.com/',
                   form: {
                     access_token: token,
                     batch: JSON.stringify(chunk),
                   },
-                }, (err, httpResponse, body) => {
-                  async
-                    .each(JSON.parse(body), (ix, cbx) => {
+                },
+                (err, httpResponse, body) => {
+                  async.each(
+                    JSON.parse(body),
+                    (ix, cbx) => {
                       if (err || !IsJsonString(ix.body)) {
                         console.log(ix.body);
                         counterr++;
@@ -63,19 +68,29 @@ function post(url, token, title, db, callback) {
                         count++;
                       }
                       cbx();
-                    }, () => {
+                    },
+                    () => {
                       cb();
-                    });
-                });
-            }, () => {
-              console.info(` 👍:${count} 🚨:${counterr} 💾:${db}  http://fbook.space/${url}`);
+                    },
+                  );
+                },
+              );
+            },
+            () => {
+              console.info(
+                ` 👍:${count} 🚨:${counterr} 💾:${db}  http://fbook.space/${url}`,
+              );
               callback();
-            });
+            },
+          );
         } else {
-          console.log(`posting en posts on localhost ${url},${token},${title}, ${db}`);
+          console.log(
+            `posting en posts on localhost ${url},${token},${title}, ${db}`,
+          );
           callback();
         }
-      });
+      },
+    );
   });
 }
 module.exports = {
