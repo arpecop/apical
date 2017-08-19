@@ -57,7 +57,7 @@ function post_pinterest(json, callback) {
 function insertdb(json, callback) {
   json.type = 'newsen';
   json.arr = true;
-  db.db2.get(md5(json.title), (err) => {
+  db.db1.get(md5(json.title), (err) => {
     if (err) {
       db.db1.put(
         {
