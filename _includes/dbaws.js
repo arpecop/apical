@@ -10,7 +10,7 @@ const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
 const db2 = new PouchDB(
   process.env.PORT
     ? 'http://pouchdb.herokuapp.com/api'
-    : 'http://mac.local:3001/api',
+    : 'http://pouchdb.herokuapp.com/api',
 );
 const db1 = new PouchDB('http://1:1@pouchdb.herokuapp.com/content');
 

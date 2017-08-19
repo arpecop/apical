@@ -118,40 +118,45 @@ function imgur(params, callback) {
     $('.cards .post a').each(function (i, elem) {
       arr.push($(this).attr('href').replace('/gallery/', ''));
     });
+
     async.each(
       arr,
       (item, cb) => {
         db.db2.get(item, (err, doc) => {
           if (err) {
-            request.get(`http://imgur.com/gallery/${item}`, (e, r, body) => {
-              db.put(
-                {
-                  _id: item,
-                },
-                (err, ass) => {
-                  const $ = cheerio.load(body);
-                  const img = $('link[rel="image_src"]').attr('href');
-                  if (img) {
-                    request.get(img, (e, h, bodyx) => {
-                      if (h.headers['content-type'] === 'image/jpeg') {
-                        post(
-                          {
-                            imagex: img,
-                          },
-                          () => {
-                            cb();
-                          },
-                        );
-                      } else {
-                        cb();
-                      }
-                    });
-                  } else {
-                    cb();
-                  }
-                },
-              );
-            });
+            db.put(
+              {
+                _id: item,
+                dummy: 1,
+              },
+              (err, ass) => {
+                request.get(
+                  `http://imgur.com/gallery/${item}`,
+                  (e, r, body) => {
+                    const $ = cheerio.load(body);
+                    const img = $('link[rel="image_src"]').attr('href');
+                    if (img) {
+                      request.get(img, (e, h, bodyx) => {
+                        if (h.headers['content-type'] === 'image/jpeg') {
+                          post(
+                            {
+                              imagex: img,
+                            },
+                            () => {
+                              cb();
+                            },
+                          );
+                        } else {
+                          cb();
+                        }
+                      });
+                    } else {
+                      cb();
+                    }
+                  },
+                );
+              },
+            );
           } else {
             cb();
           }
@@ -165,7 +170,7 @@ function imgur(params, callback) {
 }
 
 if (!process.env.PORT) {
-  programm('1', (data) => {});
+  imgur('new/time', (data) => {});
 }
 
 module.exports = {
