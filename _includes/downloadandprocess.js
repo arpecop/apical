@@ -6,6 +6,9 @@ const md5 = require('md5');
 const _ = require('underscore');
 const pintetez = require('node-pinterest');
 
+const db = require(`${__dirname}/dbaws.js`);
+const tempcdn = require('nano')('http://1:1@pouchdb.herokuapp.com/content');
+
 const pintokens = [
   {
     id: '195554877508708250',
@@ -38,14 +41,10 @@ const sizeOf = require('image-size');
 const shortid = require('shortid');
 //
 
-const db = require(`${__dirname}/dbaws.js`);
-
-const tempcdn = require('nano')('http://1:1@pouchdb.herokuapp.com/content');
 const pages = require('./pages.json');
 
 function post_img(url, callback) {
   const pintoken = _.shuffle(pintokens)[0];
-  console.log(`===${pintoken.id}`);
 
   const pinterest = pintetez.init(pintoken.token);
   pinterest
@@ -68,6 +67,7 @@ function post_img(url, callback) {
             if (jsxon.data) {
               callback({
                 url: 1,
+                _id: `${json.data.id  }_1`,
                 url_big: 1,
                 img: jsxon.data.image.original.url.split('originals/')[1],
               });
@@ -133,7 +133,7 @@ const downloadnprocess = function (id, stack, callback) {
                           db.put(
                             Object.assign(
                               {
-                                _id: xid,
+                                // _id: xid,
                                 arr: 'true',
                                 w: dimensions.width,
                                 h: dimensions.height,
@@ -173,23 +173,13 @@ const downloadnprocess = function (id, stack, callback) {
 };
 
 if (!process.env.PORT) {
-  const pintoken = _.shuffle(pintokens)[0];
-  console.log(`===${pintoken.id}`);
-
-  const pinterest = pintetez.init(pintoken.token);
-  pinterest.api('me').then(console.log);
-
-  pinterest
-    .api('pins', {
-      method: 'POST',
-      body: {
-        board: pintoken.id,
-        note: '',
-        link: 'https://box.fbook.space/',
-        image_url: 'https://s-media-cache-ak0.pinimg.com/564x/3a/ee/ed/3aeeed6a1a58df881d89f0da681102de.jpg',
-      },
-    })
-    .then((json) => {});
+  // function post_img(url, callback) {
+  post_img(
+    'https://external.xx.fbcdn.net/safe_image.php?d=AQAw8VuxhUm6Oaw-&url=https%3A%2F%2Fm5.netinfo.bg%2Fmedia%2Fimages%2F32677%2F32677463%2F638-397-barselona-betis.jpg&_nc_hash=AQB4eC8m8CDaqdnZ',
+    (data) => {
+      console.log(data);
+    },
+  );
 }
 
 module.exports = {

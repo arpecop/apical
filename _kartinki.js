@@ -110,7 +110,7 @@ function kartinki(lat, callback) {
             (item, callback1) => {
               if (
                 item.likes &&
-                item.likes.data.length >= 20 &&
+                item.likes.data.length >= 10 &&
                 item.type === 'photo'
               ) {
                 db.db2.get(item.id, (err, data) => {
