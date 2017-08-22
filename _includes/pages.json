@@ -1,891 +1,1452 @@
-[{
-    "access_token": "EAAAAKjoDhIYBAESIisl0nvuJHUyM0ka2GODMZAqZA6egPV0nBO5pa7X4urROgvJ6zLRWSPPNMOusW1sGk1myg6lTF2B75G3IFX22VhIKLTsLSn3kditdNGla8rbihDoPxN7OcZAbqHaNDrCZBS4cbZB0fwU3tlyYBwIzqnkJ3GAZDZD",
-    "name": "Arpecop",
-    "id": "608364669369901"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAKFf2x9hZAu5mvUQzjgcTZAbSwXORV51k87PWg4YKGK7lAmqY41cvUN6sCPfNAx6OwnwDFpkBzcXtASTUgcC5OTjRQT9IuulTdBL9TaonQyTTwY6PyhEhKJdUzaH7exy4McRxRq5SCrPNwnpTpRNYOPvZAsmAZDZD",
-    "name": "Ecig",
-    "id": "829394360524528"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAE5pShqNZBNFFl9LJTFzzyKii3tR9lbXeX4A14LY040puPlgQSxqr01GWJbAXZCcYixHZARizzTM0neTMS0Tbhovqafuvy9l9kx2qpjSCk8syVmbDac3zzEISFZBXbIkrZASeFM5RS6unLZAAXvlILCnXv7lQgWgZDZD",
-    "name": "Искам да те целуна",
-    "id": "111813242219147"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBACGzMUg74ZCbQ7H855uD042NZC49bzmUaVgDJ3OxxUhMYfu5kWOZBfDqifUEYZAOtYZAc4mRiF5KZCid0J09kMDsZChsXblBwFfuWRhqHuXeVdw4rjIQjdedRBuY3rZA9ZAfb3AlB0SKALQzm589JZCIGKkdO7GlhBmwZDZD",
-    "name": "Приятел в нужда...се възбужда!",
-    "id": "139070519476774"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBACgvvwYexveEYGjOe3CkgSNJaFJpmrE6djSmcLpfUpnLrbG3gucW8uM22V7Evw6i7U0Hi1ZBzXFZBNQDsFzZCE6SZBCdZB0L8yKjXA4VQ4Qxmj9NaIQbLOzKVlQxQ7MIqvh7azIoxXQJa0HTHqUtxXN2w22y5wwZDZD",
-    "name": "Истинската любов не се влияе от време,разстояние и място !..",
-    "id": "116786931718964"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAGsoHQa8ud6qc2beMM32qZCYDQMw8aZBVF6H4CK7IV7e8heUUOgHlajHUZALOhXlFDxxZCespjYgAIfJSRXldLC175RXZCfToGS9XHzJGyZAIOZBYo9He1GSrBkZAgHtcH9F79H17rNlg3aYBHiLGyFspDJIbPIXeQZDZD",
-    "name": "На колко години изглеждаш [Скенер]",
-    "id": "246560865463407"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBANiSTFRPVIsc0bt0S8P52HzmA13MqW6SCk8qZCdZB0OeVUg74l4c8AMkmNpDQ0mbdo0orslnhZChmzsYohpZCeeUNUNxZC0V30ui6booNu0p09dInjxI0ZCZBWfVumZCTOrw1AYhdCn5X7sjZBpqocKXW8n156FlOogZDZD",
-    "name": "Всичко,от което се нуждая си ти !! ` :",
-    "id": "174265562585337"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAEoJbv9H9UAENrKEOWKVWUBZBMEWdewoZCkYSPFJRkZBiM9l4Xv5p9WZAnc72cZA5o2ZBc2WuTqXFmsOCNSHEPUbvrnDGNd5x0at9WPS50RZAIUEuPH4ZA9PjkdugpN4mZAJm13usWcqlbzL7nkuiPHOYyH3VKbbumQZDZD",
-    "name": "Моят уникален домашен любимец",
-    "id": "110099659014190"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAERaqqLxTcZAtZCtBSv3h0uMREvRpZCoEtT9Et4hZCuS4xbw9mGeXXotZBAUt1orIBglG0tYtzrRQWcb0FpycxSz2BgUZBRBYJwLJv9nTwuQnuum995tYQUQ0FwNae7sNhKlayPi0e9Lfg7oKnlvwL8Ky4joFMvQZDZD",
-    "name": "I ♥ VOLLEYBALL",
-    "id": "110854652314294"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBANveODdCdlMrz9HE2hwvEuoq12rZAeZCUa3CoyjQJp3Ea3ToUASDaXiAv0Cwcz6ZA7b6mSzbPLim46ZBZAL5pnNP8aYvBZBBlnwMtsTL1i2KYR9O9DSe6uRaEC6Bt53qBktwTRv05UODZCNKRPwmxJ5DmjNEw5iZAwZDZD",
-    "name": "СтаHуси",
-    "id": "190197301013268"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBABvLA69xC0t0GQ9CQKTerG7JZAcceo7WjWTeGNzuV1O6h1tKfZAZAcDUvor1C14tkZArb0NrFjIKy1fCptLfFadTYrcMXZAV0D7ZA9AFQ1v0Hxb8Fn4xmNNmiSdZA6Iup0db8ZAGyh4Gi0rVOT2ZALXwEoPqbGgVWdQZDZD",
-    "name": "Там, където има любов, няма изневяра! Ако изневериш, значи любов е нямало......",
-    "id": "196248487069597"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBALZCmBMQss10bASHz7nruS7gSam35H3ZAErWuvrZARvIGgROmAP3H0WhuyfPVTkqJp40lPWZAzW9ATLVZC1HsXu4LHHIHrnGYPlju017yrbX2voGgQ9uGeeQ3KsyftQR6yXP15FwPkAAQC9QZAWW1yZAtDZB6gYgjAZDZD",
-    "name": "Ако обичаш някого, казвай му го всеки ден, защото ще дойте денят в който ще искаш да му го кажеш, но него няма да го има!!!",
-    "id": "164215710279285"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAD39lTUrNb4ESVi8shZA4iqERGYfhP1hYrjyOpPkqlU7qL3WU5H6majZAoJehcF3mechAsVPuEnI281pvuFZB7my1CGOTwXzjLlnjEqRV0VZACXi0kLCgeifAD983S7q48v0uZAzEZBIGv2FH21wBgyom1TkoRFAZDZD",
-    "name": "Аз обичам моята половинка",
-    "id": "127926490599042"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAIl05oESbSx51GzjAo7dRqYXt77ZCc73wKpBL93276mCZA8myBZA4KnQPHBRZBWtOVD6ChjZCLkv0IL7EvKVjrsHCfE1OcqB0zD6Qab3SXprlNfYxDDxZB9HWq2aOMIkOXZAt26q6nqM9Xw3dhUASQVBPeQ5GnX0AZDZD",
-    "name": "Аз обичам домашните любимци  :",
-    "id": "165036303527613"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAIoIcQqjNmzKZBHLQybEFrsZCSXmpnZA8Yg0ZCOxVEOZCOPJ1q3ptPL1i4cWtd8sAQLCKlyoKL5KuT28XzuUvqKhzGVghUbDq6F93nVsKMrUIQRkTbldQZAJERHszZCnTdCua4xI0AqZC6Aur00msdE1v7kKilyewQZDZD",
-    "name": "Аз имам много психични отклонения и си ги обичам всичките :D",
-    "id": "199933583352573"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAFyanKdQvg2JL818hAa0h3cmIIHRZCprcM2bZBhD837utGIEXJeg7ZARzHxlK4i142yNHQnMYXeZAEpAJKV3RsnBdZB1ZAFFXUEtBpsujASgvdp8WAsOZAC6NDjMJYE41fC4PMvuGjykNKaVfl1IhNUh8j52vNZCWAZDZD",
-    "name": "АЗ СЪМ ИНАТ.....и държа на своето....",
-    "id": "164260660290528"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAAZCkTnnYSmVFW0sodosZBmD2DLoqgEKcMqZB4jg7XVYZBu7SeCvrraZCPzktzWDGNQE6ifcxC9Gde3CuZBdYUjZAALAe3GhFtcvaQLt9EU6ZCNQzEvQ62w4MJu7ri1gpdIDjzREqk9Q6ZBWESzpUFBnaxsSRa95WBwZDZD",
-    "name": "Mitsubishi",
-    "id": "175457915800490"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBABnmfwzOLYM7xxnZAIBjQpAiZCvfe8ZBk2JxOePiGBWToBzvGPHkCxgYgEIkVVWYfVhoUWkbs4bKyQ3prPgVfa5We0Rw89O8x1WYWCUnYe2otmQsur15oJ7xymQz9RPRxa4smSW5gcrZAlSCfhfE52qfJl6PZCwZDZD",
-    "name": "Колко жаби още ще трябва да целуна, преди да срещна принца?!",
-    "id": "201862743161504"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAGUjaGeZB5IcWVa6bj1wZB1YnV1iu0HpcH3f6bjdBzZACU2pCO4c2dmm4gVR1OsP38PZAXqUDhtTS9wzwDmZCLZBwvjkRM6QWabXmGKIfLoNNHwvUC3BgfoiFAC08piJOnKZA8oArcWR4D1ZAXDCoaMyRraBKrTa2wZDZD",
-    "name": "Малките неща ТРОГВАТ само истинските ХОРА !",
-    "id": "110904862318904"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAORarMAmtn9yQOZAiDpEQNRcrbusx98jDVDRY9uKZB0aDDdTll2ssfEBKiGLRc8gFUBvhQAkeMOYqxN9ZAPOGm7dnyLUgTEZAzFlWecZAv97qgjBYLqG4jj0IGrpBLdkUyGKjnacNDTuKZCck8U2UWEyrbcZCOH7wZDZD",
-    "name": "Колкото по-голяма е една лъжа, толкова по-лесно ще и повярват!",
-    "id": "111138635629685"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBADjfsXgLQ5HGEFEUsAdhygrH99Aqdnp4XCSwLZBZCSHeh0haWCrYGyWQVbZANUsOLqPoUT9Ouh3XyOwjgicJ5fjTTkfdS2vynmzWbrnAr3uNlZBXribLZCEZBHXDZCs6t1PnQWv7unZB8pGe542whQSeRPK4pBvfAQZDZD",
-    "name": "I listen to a song over and over and over and over again until I hate it.",
-    "id": "186875388019388"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAKHrtLZBf18ihdbTYy414oqetBhGtQw8n0hij6MX96aYzc9r7up3Qax9jqbOB7iptgr3OIFp2Q4jFUeiYUdAPhnn6rtvtZAnklDtrCzlxX49q2MqOwEHwduGJqxR9tRFX8JkfUIvpnsWePgKQv9TpK8nJn5wZDZD",
-    "name": "За всички, които използват \"ВЪЙЙЙЙЙ\" :",
-    "id": "182712805097336"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBADYxsvKbeSA91cpawFd5BJXWlZBe5VcDcex0ZCggXJ4ZCPZB76EdKTJSXVHMOgTCSEeiRO3JcymIbLhrZB3t11rZB9snbcwioNL3UyyZCSu1uGKfh7393tSVSWm4gfoNFkw6f004k5bt56m1ZC4k2Pm0liklUf6ZAKwZDZD",
-    "name": "Признай си го...живота е кратък!",
-    "id": "154681437920191"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAC1J9o7dk3FhR16DXaZB1wW7nXhcxyUCYZAjHbRg64f827tyM10pFbcYqfYW2ORIhZAMuFvAViFPbLadepch4pZCvJlhYNNFVcSagU3Nc50iDuV00PrdICnD1cw7wVMcOYs10TtL27ZAIgUsDXAKbRmA4Uyzi6AZDZD",
-    "name": "Истината наранява, но лъжата убива ;",
-    "id": "188532664502503"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAB8Q0NijbDZB6ZAfvBR7Y0TwqE9ZCGeOvZCU1NCgpmAjWMcQJPluVsFL1QkNHpSl53kubICmCIVctfyK8JecNot5a5TC0Hxr7ikEKUwHAPyp78ZBZCnBr8NmGVmDTKxRExzauuTweNb7JtyVbNagetTkBT2xhNnAZDZD",
-    "name": "Когато Видя, Че Си Онлайн Искам Да Ти Пиша..Амааа...Искам Ти Да Ми Пишеш Първи/а...",
-    "id": "188593844505880"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBADZCOg3DkrbOfek49FWIXcsLiOXboPaiUFK1mwXy99KiJ6DZC1qmMl07YBVxLEOVhBpPlr0FUAW8EIl6GL6sJEVUQgFPeLxJaMcpfxg19k2qzTxJ8KMZAbrtHqyZBBxeZCYe5lHRS80kG3XyZCkiNxZB61XWZCwa6AZDZD",
-    "name": "След дълги изследвания учените са стигнали до извода, че хората с недостатъчно умствено развитие четат този текст без да си махат ръката от",
-    "id": "198032483542024"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBADLFHRgZAQ8VJ2L0VXf7Xz8IMXU6nFnnD7OFIxdSgzwipZB78Fhtx3POkD6jZBLsb7prYSZBMkkHDpVsNUBBfU91aEqKaYoQ3LSSdY0JogAQBYZBeqTicaSuJlUUuZAeUshpuCGVfz5XG18150oNfN65QY2gePqAZDZD",
-    "name": "Купи си десет кебапчета – Събери куче!",
-    "id": "201352826543331"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAAlKoCXrHB0MZB7FZAdNU0M3Rx3IUavfiQ9RZCE1Vnji72cjUKvryM3iXJds3FZBW0zxXZCn0VLUA5HeYRF8OYo8HffkjHP9ndfeSuYIrdWAdQy5mf0xRYwBAz1rVGaZBJcjZCObA7UjWkZARFp7eBFtZA7hEkwTTfAZDZD",
-    "name": "Любовта е чувство,което чувстваш,когато си почувствал,че чувстваш чувството,което никога не си почувствал! :",
-    "id": "141440889252419"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAA1h6qovn85BmQNPL9GsGsbMQsdbtj1HcGkF4tSiIxOwzBQWr45wF5dZAZCb9yBzJXVtACiXuY6GrGAEyHs9MfsL0BFewlx8iIfuRj4hy4ndCOj8wAaGaZCgS4d06X6QuhlJ68hka3eAMZBZChjoJKULIoJH0MgZDZD",
-    "name": "Раните, причинени от любовта, не винаги убиват, но никога не зарастват. <3",
-    "id": "154581467930945"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBABAPFtY3onIZAn2mCMTC0dwNevfAnL15a3d3ZBrtXTqeI19C1RUlqpbBTpSI74x4VouBssFhxpyqSRJwtLSBIcn3WbGEwEjoyZBnJkLZAG0LdtwFirWb6kiLtQiEbV0XOl63K0ZBYCkNQWV9659gVstG8XciUDgZDZD",
-    "name": "Имам една грижа - да нямам никви грижи",
-    "id": "166421133407226"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAO35n7ZBZCAEks576LhZAiOOqcwmquiLprormvhXEOSYHbaaj0Xgfz6iNHx7dabXJor8FOqL1JVv5jLKJa8Th6DIAzvEYQxV9gZAXLaaJWq2JCgZB76UKYHoFp6vGDjbPs1DViOZBBojmqf1nUo8MEn46q29KlmwZDZD",
-    "name": "Животът е кратък и ако се задълбочаваме само в лошите неща, няма да успеем да бъдем щастливи!",
-    "id": "163728553675912"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAGFkNKJ9OEx3NsszbtSNjkdscd1CsEdsOBTVk1duOzwnsTarNd5XWdkFNl7RNwF0qc3S2ZAasvLWMp9FDVJQIIHIZClcmuS7H8PmIc9Ehfs9VI7zrnAtLI2EaofvhqB4PhcEOwkBZCjmEQwZCZCQ3yxStiZAbMgwZDZD",
-    "name": "Преди да пожелаеш силно каквото и да било трябва да узнаеш щаслив ли е онзи,който го притежава.",
-    "id": "164772053573790"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAL39E9K7R4ilSeAiFZBkgCejsV3PI2EI0W2MN655f3xcSUo8nVyeOz9Ia3KKyLRihG3cKXrMfCPjwJhOSGI7PiqLfEF8sVu0JtKfFywJG2d74U513gBIoOKQ2cPVPPjbZACCgdXKDVVTshpiahOoLI6xWsZBgZDZD",
-    "name": "Има три неща, които възрастните могат да научат от децата: да бъдат радостни без повод, винаги да са заети с нещо и да се стремят с всички сил",
-    "id": "150636584993707"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBANa1diyIFtpnZBbZAz7ZBHWZATvQGQCZBCkSKiy1HYKivYZBXFAahEq5XIqNnTnbWzjZBezAjtFKlTlvklAR4oEcHpVFi6l63fkC2GWT1T4gC8QlomX4ZB9DFFXKW4w3uT05ZCHjymbtErd1epOGbntOdZBaZB48eqhUQZDZD",
-    "name": "За всички, които се казват Габриела - най-хубавото име!",
-    "id": "128635483873778"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBABFrCNJtvV8wN10c9fU28uYtK2NUsPjy05FhKPOo5HUI2dOhdt9y9V84gJRixh13jb7NH0mgewxxzKOZAZA77K4EqdAsAhS7A7y8ZBZBpjawRlSCYEVHPX1btG71qO2ezJtFg7OGjgaXWZAnuZAv0CIOZA0zkfhIwZDZD",
-    "name": "Обичам да си мисля за теб,когато навън нежно вали ..",
-    "id": "146088382108780"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAG76OSSvQz2a2PY5ma0eBchLzOpDCvVcJweluYRGl1Aw7plIKurKIZAwKhUnZCVogRK6VxBi4bCzsZAP9FgfMjK5JrN1iwOCjZAgHsACFRQ9iKvbAkneekMoTBSmqOPuLTalarOjaC7l7S6NnmZB0mXRnsZCD0lwZDZD",
-    "name": "Имаш ли желание ще намериш начин, нямаш ли ще намериш оправдание!",
-    "id": "162358560467454"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAHZBcY5O4G1ZA6QkRq0kZBZCJMgVMHe3jMjcZB6SftImZCHQzKJcXzPbKEIyWpTBKDeN6OGlFTBHhZCd2xU2wkbIpZC2WHMCXRD0dec1NL0ZBbmgeJrqiYMPgCFTVp6wRgh2VDTtyxZBQz5JYTCWZCPggY7XAG8rZBMOigZDZD",
-    "name": "Хората ще забравят какво си казал, ще забравят какво си направил, но няма да забравят как си ги накарал да се чувстват!",
-    "id": "138551322865069"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBACNonHL8gIeZAUWpcv8N0DDUwuZAWybeB2lz5FaeBSQusF6IBUK5mubSQnkJS6aUPnUbXLdXJZA6zSpJ4s7ZC1HZCewPNl7wgG4oRN1MbYqkPzYCmZBcRYKMK6eZBqZCCc37TI2uDaGpLeS5GCcZCC8LKMPN8sy9VZAwZDZD",
-    "name": "Всяка следваща минута е нов шанс да преобърнеш живота си!!!!!!",
-    "id": "171614349528770"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAORzt2CeSWmJ4ysq8fWp97bNrnovF7kkR9RramFSbRbi8Wc2yIeOMLh4fCdPI3zVRKc2OwRkHpxDbVZBr5abg4celtn51sFCiTs9ITZA6ZATZBMtBFZAuZASGrLzhmZC055l9s3nFJpcmvgTgCRaN9huSQ3okWgzQZDZD",
-    "name": "Само слабите се стремят към порядък, силните владеят хаоса!",
-    "id": "154826921230573"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAIz40KbcC8nUqUruAFI1Tx5ddZAZBwEpnCYnJQxz8ZCBvwpMvw3CStc0yTL8UloxnZCPbxsC1YIcEfeZBHJFw0jRZBK0DlKxhfsxbJs3co2ZBK8pbc4AVWS3wlyDFfkkhOBbAZCgaQ3baPJ3LFZBFEHGH3Ox0hJZCDtwZDZD",
-    "name": "\"Scotty Doesnt Know\"",
-    "id": "151394448241587"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAHiE15dTi8sUiLKXMTX2evJeApLTxUjqVEhiYStGZBw3JjhmD5sJjQsl4nCEUVOZCZAnBEZC4kBovLHaYmuRJAG01bsYBerVZBBzcKVTxxuw8Q9PqRs8PctU2Cz7bPp59anaOPNQOZB0RuaPogVcSeNI3DHVfFnQZDZD",
-    "name": "отново е здрач.. още един край.. без значение колко идеален е бил денят, той винаги свършва",
-    "id": "172251426129131"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAE1FfDuNWgkCof8VZBXZAQAvnJtE7FuGnWb70TZBlBuxLY5WDae2LZBdquBovjHbFbSEQPwfdrdyWCYinXhZC8yEjnXdqaN7FsZArEsAvlQKvrB25k5ZBzB1O4XXZAYUhqDoutMdsYsLCBoGO3DLnXzTnxck4re0lAZDZD",
-    "name": "Приятелите са ангели, които ти помагат да се изправиш на крака в моментите, когато крилете ти не помнят как да литнат!",
-    "id": "175802019114495"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAMbkFVMfzdSaHvtqz2K5EEFQsn9RcA19VfJ01yzJQbFrr78f6r3DONEuWsYn1TpZAJJOmpmpIsGMuhcQlGSmh21ZAoQZACsE0O77zmgVqiKgmxuvNQsr8mHcEL9z70mXRMZBEUhUXSk8OF7lCHm0KfLjG8fUvgZDZD",
-    "name": "Най-съкровенното нещо в моят живот е детето ми",
-    "id": "113448768723935"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAOX0KqaIxoZBZARDlDZAshK7338SnHrKrPznE6mHWJS3VHNzGR4ZCRdtTl0qyuYL6jO2ROEBe8CaS968DahglAro3AUMddPqLWt2kDjObJRykZBEpOPNsmX2w7ZAK1zceEJ91g3i7Kc6i6pDzHHKJFAdyOiCZC6gAZDZD",
-    "name": "Не може всичко да е както трябва! ;]",
-    "id": "108956425842272"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAM6KaNubYNLXbw72blpDrZAbgIoy8k8yx06KyxWruCoYUkLvkDDnpQYFfYbFEBp0vAL9iCmR48yJpukr48Od0tUEpi06353VjkIrKtYrMmBo5IqYXeHuwqRURSrZCPqLpD4JVHvGgn2C0lKD1XZB4IoBcthpQZDZD",
-    "name": "Днес хората знаят цената на всичко, но не и стойността на каквото и да било.",
-    "id": "129367590467010"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAAP8YRmLneTOxbEYzt4r4NysQOvdQnLd04eBNFczBgBzZAIeZCbOU6rq0hYeBEDVQDc17Q8nTGoWTfy8WZA5DJbFZAqAOZAbuPhsmSRZAZCZBishl0tnWNkJHg17nRnX5fNYNuAilibKu3colGZAW3hT9jOV4fnDsPQZDZD",
-    "name": "Бъди себе си,защото всички други са заети! ;]",
-    "id": "188725984481228"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBACaVwS9l3tezZCDtMwbxmOH1xc7xXsbuRfRcmmjwxuAOe2saBZBGZC9uQJaqmrQGZBDOI0QAdIZBdqfw4BKLRqFNLy40JoZCaj6bZALJz9pnAXKGA7oRqAM8ui9SgQD2G7LnqbW9ewM2HXBOZCdqnpoJZBGPz9kKeiwZDZD",
-    "name": "Целувката e най-прекрасният начин да прекъснеш разговора, когато думите станат излишни ;",
-    "id": "140887199308620"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAAfqwIybXoAs5fZC01BvVvD7VCDqasnnJieQj6JatquFrHfQhDoTKlFRkW5XvRPaPXiPP0z1WX8N0R8gTTUofp6zDTJmHP4cKZBPYZBuNCI4Sk9vd6fI36vHT74uZC6EpDWJMkUv1pAl5EuPdZBwqOkWZCjN03pgZDZD",
-    "name": "Най- доброто нещо на света е да мислиш че си загубил всичко... и да дойде някой, който да ти покаже в колко голяма грешка си!!!",
-    "id": "179421198765767"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAMgZBZAKK3CVK5OfS25kIcWjISaxkZAjkIW2iylskCoAJZCRMlbZCEU6N15UBJfLCZB8QhJz3EQP1SukPAJSoD5b7YZCQPY1E07HaPEmIFv575PmZBez3OqLZCCOLtLHScgrIu7HLBUaKouwNLRPziK7GSGyblr4doAZDZD",
-    "name": "Добрият приятел ще дойде за да те спаси от провал,  а истинският приятел ще стои до теб казвайки \"Мамка му, пречукахме се ! \".",
-    "id": "146358358757620"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAJUAvEQyZCGUEZAt45nKNdJBfgZBaHZCBZBbsCXu38HIb81FdD7ZBHdGcBkufQcvmScMUSAiTGceYjJziAR291gMgTdxGn9r8tVbURRpUZB01FG9LhWlKjuIYZBZBtDdKaMQGbTI2K5rQPMPZAu8OZB1pKtGaM5IXzZBlwZDZD",
-    "name": "Никой не умира девствен .....живота го слага на всички",
-    "id": "175259192492960"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBALlbPg4c350I8IVWuyMiTPjgjRL9p200WAnvBZCxCm6YTje7C23ZByI0pamxkJjNbgPjYgwYA0JOgO1Wsl6daps8d8ZCaDN738fPc22ZCtwBU1XznWLA5WkwbkHnwOWkPiZChMXUeP7fejYvPkrgcecwJCv1ucwZDZD",
-    "name": "Не могат само тези които не искат ! ;",
-    "id": "162318063806277"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAFo3ClHn9F9sZBP3DMNZBY7fauFav7kzdw4lDmZBBkJAIsbqCcfegkGixEhZCzroQzZA9tooKZAhpwyrFyTNsVYV1ytF28Uuj3pjpjAe4MN1UzTQIdcZC2dMbqCR3IX0HtZCOoMML0JHcv0XZAdgL5nDFYElJMls3ugZDZD",
-    "name": "Бих дала всичк0 за моите приятели..ОБИЧАМ ВИ!!!",
-    "id": "116790711721746"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAPWWyJbLLm5WZCzmZC2tlzhHwWT2ohZCaPORiyjYnVNcWIqO3X83CHT7dbs3naSdtUfqAVUQL3UDDtCct1ZAaPjlaN3oJcCPdSTvt9xGKuwudUib7SyBi8ZCEZAIiSkULJT8OMeXGaZAgkIwV2oX9elUuINoVa71AZDZD",
-    "name": "Там, където ревност има любовта умира",
-    "id": "161186110592137"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBALiw7OiyS3UKVcZA0WwaSw3YrnX1euXQt3SJvqHAHZBg1f9yQHQirll3HzjW1QqoDdz3OUoWjCko6QgAN84F4QIktZA15CvnaZCF93l8Ker9uGPYt5yOyFXBMQqTJmDxZBsT1GCiLjWmXee1dZB2HfmcF68ZB5pTQZDZD",
-    "name": "Любовта на мъжа минава през корема и излиза през гъза:!",
-    "id": "150705191657353"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAC3cbxe7VYrPjUh8UpPiRV1776ieQTfaV8ZAfqsjf2fXXWxIUgNIMZAZC1bt54yK1Xs7edXZB5XVbaZCnKA4qUFntjytANv5C6bB7ny5Mf6Qa2D7n2kd6jeETVql7dbXD6ZC033ez79kH70gnPnlkNeZColIkaTcQZDZD",
-    "name": "Не позволявай любовта да ти се изплъзне - тя се среща толкова рядко...!!!",
-    "id": "190594540961247"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAJ57cwsTi7pZBHNibZAvIN0KcWZAOlq1ZCzZC9NlKYkUTzjgLuV4jjnyXqEJ8AFw7wzT5WYBZA5Kdca1wbJcRk9vmy0HwZB6NtJZAexIgAc0hQdLP8cVo8tHxXxX3trWcbNPIKS1mBoB1IUMaSBCFTzHRo13nMlUkAZDZD",
-    "name": "Малките неща ТРОГВАТ само истинските ХОРА !",
-    "id": "100138346739245"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBADdkZBDa0UC9L8C9Ij29ZAi83sxKtkuatLDtui5s2YimCunKlLZCZBzUVZAUuUJZClM7TinCSr4rCJcTjQdq98ia7HffZCuW7FcpDJZAZBMpy50N8ZBDl4TaxZARFx21ZCC3k8AeIbAeTiZBkzhvZCZA9c3AiOZBPCkkSZBxFDgZDZD",
-    "name": "Играта е по- интересна, когато няма правила!",
-    "id": "203967449625113"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBADsVrRkIOCGIxZADCDF71sCpRqdvhNClhLhaBLwe15izBoECw3LJ229L6Wg8KlKQ1LfZAh0l2M1HEDHRSdyTBMeexVvZCKzleHsqItIx0CXLInZBEKgModiZCz67LolZBGZBrdoSfwZB3DFverAmXsW2UPKjCyShNwZDZD",
-    "name": "По-добре да си щастлив в заблудата си отколкото да си нещастен в реалността...",
-    "id": "108306149250299"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAKrbguir0jHwZCJ8nZAMRKhdanrWetTfK1L8S86Yvq7Vd8oZB1jiPXat2sgLBmZBfYkXxNNXLv2UffZARZC38K4JCQAJZAKbHWzJIt4KPpVvotkDXH3irNojXwOGkfQxGtgkO1PWwK5frTx9ohGxuLvzyb9ZCfRvVgZDZD",
-    "name": "Когато живота ни повали,ние избираме дали да се изправим или не !!!",
-    "id": "184114648299763"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBANncbbdDhN4jtreGfp6T6eHiVtplaju1g05aZAZBayePNaZBl5mnJqHnoENHfwVU0SzZCo7fovYvDeCwhXyOCAT4C7eeJ27Dw5JhdvV9ATl27KM5sFHqyY6ZC6tjhj4FGdGyxGvc7SNCyX4IcInkkZCauESCIPsAZDZD",
-    "name": "Обичам тръпката,която предизвикваш в сърцето ми!",
-    "id": "189845594371287"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAFht7dZCelr08hlI2YovU5ToxZAZB19dQPtZBRc3Mazpi5FDZApOvIZC8xJwU2o2qbZCr0yIVeQeS9br1CFZBfUozQO9YlNuQ9NQdstoiDR8LR3LzhXQenwRDrcvZAWTZAiLN6mockbADGMBgivjcMPdADD8RXVxeAtQZDZD",
-    "name": "Човек живее без въздух 3 минути, без вода 3 дена, без храна 3 седмици, а без акъл цял живот.",
-    "id": "194611263906704"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAAmej0H3MKmnR52VLsvzE1O4coH2sSEUrw97En3RovIX9cqnpwUjiFDd17rnNtBMOSlFa1ZBUmWHqSxtyIdO2NZCHQzQSZC66Ry5rkW4wkf4AzzgheGZC6vY7AWbspde0TZAJPhG8rnbVhJQHgvgqvGcy0MY7CAZDZD",
-    "name": "За разочарованието което следва след като дълго сме харесвали даден човек а се окаже пълен простак !",
-    "id": "164802046904297"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAPBzffHU7L86aaL2sF3fw2cTANcTFtt9UEEiRjDz8K5qp6XIAaUx94zZCMuTtmeGSTdy3iU8zulGGUVJchRvkwC1cHSrZC0M18ZBiNuwKdKnEclyHe8B1dP28OkjAqXGoMsFwHsWZCq1vpHA3YZB1eSr2DZCqTYgZDZD",
-    "name": "Времето лекува",
-    "id": "182454225124566"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAL5gK4hadU61SCX3B2Qkckl0ZClkw7p4f3lUYNwJXtXaEy84HP0J1pibrPvtakkqgQ9bC9QCrB7zATePsnCFK2ZAJAC0epZBtlFnWcg7Xfqx0Q4LLomEJ9CkAVtfQXfmJ0VEW5KZCi3WBfcLMRf1fGweyo5czQZDZD",
-    "name": "Не ми казвай какво да правя...за да не ти кажа къде да отидеш.",
-    "id": "208981982453151"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAPiHZAa0UDfyTFyjODhj3mmZCTTIv9RD8y6ZCgCMNCPVZBZA0J6pZBv49ryzPEnPk90Db2Ap4tBTpZCb8Q2IfB0sCuif5qP3abej2Ar8DZBDgQKytp24WLANpOQ2RUhXhvHsEMuGvy8EDZB8e1gVbh0rXaZBBrKgtzmAZDZD",
-    "name": "A little jealousy in a relationship is healthy, its nice to know someones afraid to lose you...",
-    "id": "132641390145560"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAGRF1xeMTfpcqa7PqDksWZATuA0kZAY7JU3ZBuhoQyEIaHRbrTdUex19HiIrqt0xCKGV6HZA1izKnR4PnhZC84c9RnAXelL3yQ4ZAGcUbJvKnc17mvVqXCFj3EnGi2ZAmjabZCR585Bs9aewHZAUQislwlOrb236mTQZDZD",
-    "name": "Най-отвратителната целувка, която сте виждали",
-    "id": "179609138760669"
-  },
+[
   {
-    "access_token": "EAAAAKjoDhIYBAN1urjgLTS3B8ifjeFHTtBBRLD4ZAs4iZCc1nmZCrRuQICDoGjrn5TpRrq3gN8HPFCZCvlNPdD0rLOM33gRMh0ZCI9s1fE1KMlk3vvl6luQKsCOQTnfkHhMhs5Y3eEQcGGIWhAMXQ7SfdqY6na3tfFwZCYPfqIvgZDZD",
-    "name": "Уникално смешно куче",
-    "id": "102526563173793"
+    "name": "ВиждамТеКат",
+    "access_token": "EAAAAKjoDhIYBABktTkkDctcNxF3RAXxTZCwbLMnKNcupIThCmcDqduQnixjifxkqsNmZBJupz7lmwU7ZCSyPlsz6y2oKlhm0ieA2ek9B8O6qngm2fZCudyW2ZAHyPrWPWSDoo2zBgcSyeQQr7nVM7McyfjpIUpdlAg1hHZBD7HAwZDZD",
+    "id": "152128312009617"
   },
   {
-    "access_token": "EAAAAKjoDhIYBADXEFxzkb2oAhqfoZBeZCkHpnRvoUmoODSglEqz4TBk33bO0xOIOmONm0hZBZCORpbKZCGPWa7G6d1ZBhHWZB7zSttaGDI4aoN7sf2560XCNcS9oAJtaI00PFneLqiZCr0AuKyIQZA0TB5wZBxKhduiELzkYALXbi4CwZDZD",
-    "name": "Моята Зодия",
-    "id": "295422490556486"
+    "name": "\"\"Човек който прощава не е глупак. Глупак е онзи, който не може да прости.\"\"",
+    "access_token": "EAAAAKjoDhIYBACgrBlXYxqZCijq6mhQLkbKx7DZBlHvqDSE6DrfcraKu1ph7PrRVqTREEtI3c8qfgyGHoOMGPJvO9FGI25SMXZBQSdzIUEeSJd8btTnxQtYISLpVuwR2OqvWZBaVbjBhQ4ODxZC4wIXUGB8tPcKnsroH3kAjsbAZDZD",
+    "id": "198791590131639"
   },
   {
-    "access_token": "EAAAAKjoDhIYBABOzEPEI42e6b8263acEAaK03qhnAzYKe7WNhntLJzCw6Rh0uPpK6FxbY8fkMS5xbgdQE8OHRwDbRrHqk35d9aQyDM0HqaT1Eq4ZCZBBc2LGtOLMBW85cFM9v0xL3zPafKcHZA5fgrdZBqCwowfkZBN1KaRzVtAZDZD",
-    "name": "Всеки си слага маска като излиза пред другите,но зад тази маска колко неща се крият...",
-    "id": "132370393500249"
+    "name": "Утре няма да бъде днес, така че живейте за мига!!!",
+    "access_token": "EAAAAKjoDhIYBAHGmHn5utSFVhz1QM6bIGJjjFj2n52afSVWQNvfcEsY98iPKerJEO9XTik5xjKUX2tdyzH2qukVxXm9BOWozEmIf7heZCRZA4VbNuXa8iuJkRUmVHPfeY6HZCW1MZBCAIL5uVGo62c5cZCaqZAoBg9uShZB4v3a2AZDZD",
+    "id": "106614042741967"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAEMAYovszStHdE7v1DkXflql0n2QMKLyISZBxNUaJGGRDxwEYJCLHBbcteFXRrGxun54X9LYllvzWkQy4PbNgxWinkSNXhl7ZBnW5N4qjgdsiUZAv5eq5wz58IUjNE00jSWM5aQknm9dxQMNlxTXkfjWyAWxgZDZD",
-    "name": "Как да се напием....кат не можем да изтрезнеем... :D",
-    "id": "203971106311097"
+    "name": "Сексът започва тогава, когато жената хване мъжа за ръката! ;",
+    "access_token": "EAAAAKjoDhIYBAFW5RabT0Vis3hh3toTY6vOFf6byc5MLVkSYN1ILgthxJEegymp0MCF30NTFHyhmLypzy64Jk1iLZCJKzSNT5TZBfU8U0LfV6ALWzBxCzkR8dnHAX7YO8yLgWWIxRYsKX8gcurWdfr1407w0BDQvAyDxwC3wZDZD",
+    "id": "192471440783917"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAHkE64B7ZAVqWpIi6uvi40xF3eMlZBhEAJCw3fVSRwZAbcwfrpoOfZCE1Hto22zQe8KUA6ZCUjuNEMVvb83GZBSZBB2nikNDVw8pt1HQS8iTWn233YArIwdSSfZAk2dZC2J2zbiW6jxOFd0ZAKXI2aAOnjcOia9JW75wZDZD",
     "name": "Харесвам хората които умеят да се базикат и да бъдат базикани!!",
+    "access_token": "EAAAAKjoDhIYBAJ2mjEex8Gmde1F7hZBsZCLZCkpZBoix3wUAasvzVSSKZBnJ4LndJ0N5AqZAZCkAXourZBGTLcWygZCuMULbzO3Y9h7NHDFh8OLemPL5nKK2ZBoQFhWfeJ1ivPnxAhSPZCqtD1KpovULAMFCX00Qg1ZBWLLzhbrgZBZChaYQZDZD",
     "id": "170684169645040"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAKT8AikwXQbctUYmFB9vsgsXpIAPLqGuIMFKBe9ml1aTD9lPbbC9kahtgPrUW57AfQYcrxlL1H9BX9xZBhxGbtMO6Pcg7ZBwEb4g2fujbtbA73T5ys9ERWhEZBC2C9bQLDBeVovLDlBRS3bh9jPtz7SY1CKOgZDZD",
-    "name": "За всички , които не ги е страх да признаят чувствата си !",
-    "id": "163183753734494"
+    "name": "Аз имам много психични отклонения и си ги обичам всичките :D",
+    "access_token": "EAAAAKjoDhIYBAF4ip2gWIJJ27UKuPJzIMbZC2x0Ck1IcABPsHZCgqTdAutXaH8UpghBJQgEn9sWDJ7zrGrAvLCH7hMQTrUGV22yXttovshw2XlpjS2Q2SpY1ie2k9u6jpqQMthkZAKNvl47zS1yt4cuZCtIa2W2a25yk8wowEAZDZD",
+    "id": "199933583352573"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAOc1ZAeSsKS0DLxPmnBw4MB9FWoZCg6ZBr4ZB32VM155HkJle7wcKxDOcK7GtcRv9DbihOYsdc4H0yyyJtZCOANDlwLr9x6dt77NGSpl9ZAZBaBBYjQwttI8oVHYSz4rZAd9EjEv3YlDYHZCPXQeJ4MtAMo9y04lx3gZDZD",
-    "name": "Върви по дяволите Принцее!  И конят ти и правилата!А Аз ще си налея винце и ще си яхна пак метлата!",
-    "id": "160325707357234"
+    "name": "Когато имаш нещо не го оценяваш, когато то си тръгне за теб е най-ценното, което си имал !",
+    "access_token": "EAAAAKjoDhIYBAEGFf9H0UM2SB4bJHD0QbLB93OZCZAC8NBse5y9I5zUkCxIwa0WIVJu9bCCIWZCMtDjOkM0ZBdi5GCcPuRwurKmbzwcM2eW9L87snsfbvAdPo1D39BD2DAx6rDJ1Up2FZARMwU6GV1vXkW4W2QqcmTsobvyQ1ZAgZDZD",
+    "id": "191099080910246"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAJE1TnwqEoimIzKQUlhwLwHWtfwt3lcSMnfVG1pH2CXBkVQrqiWB6OAYqZA5zi98nSlLCV9ePARpwZArBpcgR6bc2V7lXNLLMuB3YoeZAZBR44MiaSZBqBqaFko8ybsq7sUCJnfltAsP0hVBfd2xp87JIQbevowZDZD",
-    "name": "Не обичам да вали дъжд, натъжава ме",
-    "id": "178305788882376"
+    "name": "Secretzone Награди",
+    "access_token": "EAAAAKjoDhIYBAE1K7RWa2aYI9eOJzF59Ij6ZBh6KrwGY7WVUERqHZA6KEvoEzHJUEn3UupESd4fCNlcJYEw17fLaM5hZCPKZBuOFDSMlbOMKUHJIeBa2ZAmt5lotZApByXyZASQbcosRyi4BVFxU8rjRFBS930nrS1EGJN8ZCcK0BgZDZD",
+    "id": "638513672846238"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAHTZBMpqC07tZAOeBWP5OPAK2LIp0M0eCnnJ8SXy0r00Q7uBGuYfrKyQL0zZAedDRe8XDEDQZBOzrzoR6WnCMZCbDC4VlkVtrEPa6tyOFxza0WlwoeGpfAZBrp3jBILyfZA1MWUmgO7DxGg2ZBlpBBt4lKDgt63KMAZDZD",
-    "name": "Живота е хубав, просто не знаем как да го живеем.",
-    "id": "181052261937227"
+    "name": "Pm",
+    "access_token": "EAAAAKjoDhIYBAAeLnVMxGer2BtFvxeKrmTAUOyd2VZBCTIlr44TpdtH0PbrW3kRW6buOrzOs7ZAoH9rfMpU5gfRaL9nnbevix8hk0ZAZBbiWrRNojvEWTqbRHfWMtNu4wLvgCuZBZAXGXBVmi3HBVtmaAiowj9WFLmhjAN3ayp6gZDZD",
+    "id": "519715311572137"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAJQTMKTXV9nNJgDyAGS20KKL5U4jPhvvW79dsFG7kZAygtWgUsUPSevznssZBrhpdxMVgEnJv0quAYMdL6Hkcak71G8RP1l58cDkxY9yuQoRrBZB63dE9txoXZBqhPm85bZBPHG27cwoAhfQ2SYaziDzQmVNqzwZDZD",
-    "name": "Утре няма да бъде днес, така че живейте за мига!!!",
-    "id": "206128056071258"
+    "name": " ♥ ♥ ♥ ♥ ♥ За всички,които имат поне един истински приятел,на когото могат да разчитат! ♥ ♥ ♥ ♥ ♥",
+    "access_token": "EAAAAKjoDhIYBAP1ZBiZBR15UvjFPdLHqbDjhyww1bBZByIRN4IQbybmuW982kJYhTbOkxM3xH4kdZBapSmziOHCUpIiNF7lyiCZCyCXUgwBzHHEpngYVCGJkrMRqcuZBq0fI66BOF3E5lvufcNTLC2eScw0TZCkZCskZAVrrXazzhAAZDZD",
+    "id": "144240205628328"
   },
   {
-    "access_token": "EAAAAKjoDhIYBADQTZBgcpjmbuYCiCcr3D7gNviZCwccU1LvZBzpFWzBM1vD40amC5t7buphZCbdKiid0hZAoLayH21fCszFGaiqxlZB2QVyUCVZCb3shckpxJGvzXLwG3ZBkvq3ZCw8oLEKK0t7B08HCZCYVTlyi3Jm2HO0VNQPfWZBeQZDZD",
-    "name": "Не всичко правя,но което правя,го правя от сърце!",
-    "id": "129973253741440"
+    "name": "Някои грешки са толкова сладки, че е грях да ги допуснеш само веднъж! :",
+    "access_token": "EAAAAKjoDhIYBAIymedEVXZASu2xd8Ft1k5Smf5QoiRKonVKG4mMjIfvp2fEQbX49p39SEq28CYYaZCGcVvtaMg8ZA6g249yc3T0YhlA67WoCqH5XOMHPRPFr8MGLmrkCZBlBp6zlDbk5Xk0MR4y3QusVZA1Sp0Xcr017nksa1agZDZD",
+    "id": "141569735906115"
   },
   {
-    "access_token": "EAAAAKjoDhIYBALQeSXeMf6ubsLnp4ZCYW5E1BuujgHerD3HCQ7AERpqzsi8Rcip1Vm3K4vkkL4e5t5gVhZB0j8s7cgqz63ZAiKpsWdapxzVRZAvVQlFV11JfCJLTNrZAWXbchy5ZAAd49JerCZB5rBhU8hBRnzmoZBTbmMbZCJpRxcgZDZD",
-    "name": "Под всяка твърда черупка се крие някой, който иска да бъде ценен и обичан..",
-    "id": "146226362103451"
+    "name": "Аз обичам да пия... ПЛОДОВ СОК xD",
+    "access_token": "EAAAAKjoDhIYBANoZBC75aWZAOud0UKRUiQyA7EZAXUo6vmvngWJSYi1jrH2xVpjOjCOMC0pdpZAn6UvyhiSGQJB8FWd2A8Xau0e4bsWFqB7balnSqm4dB5iLoZCiyfCQWo9OacDwijlTD0UT3rAk6BZA2q3XttIopZCuoqfOSSUPgZDZD",
+    "id": "140743755989941"
   },
   {
-    "access_token": "EAAAAKjoDhIYBADBHOQHleqZCuEj9Cr8VpVh4US1wnK0ZBDxDijHOOHURUmd1MntjYRw6dTvMCaRlcZBveNz0fRxPEzVucPiJo1ZCWHYZAB2Rmfj4kfeahN4oQlFeGOjGgUKbDVlDidaMVYpBgfPcn5K97N6DvqDZA69a7WWFbg9QZDZD",
-    "name": "Когато ти развалят настроението...вземи ударна доза \"Заебин\" =D",
-    "id": "193091890715896"
+    "name": "Няма жени, които да не искат секс.. има такива, които не искат секс с тебе!!! ;",
+    "access_token": "EAAAAKjoDhIYBAG29oSQdZClIMk6qMtZA1jsX5hIc4BQeCgI8qTco9CJKMInC6gOadZCgklSu8tSNZCe96AtgllmmkSmbUg6VgUZBRGjfMh8982h5f7PAsoPZBzhohP6zZBLK45dixQ6yUXZCFvFtMHsEKhZBbDAEV24TIQHu928qNyAZDZD",
+    "id": "169525869742367"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAHTxAZAEZChdaisFh1S6ziErJPdm08v1iwIUh4uQ9m0zywzKxEmPSIXnZB98DKIbdh2MwRUAnF9vhKYoDW7RENFfzUtrQHA8m51mBZBj6TGQiOFBgTNPTYssN26MA0JYCTpXZB2uD99Md8p0OP016wq2tZAfoG9QZDZD",
-    "name": "Как се яде бисквитка Орео: Първо отлепяш. После... Опа, счупи се!",
-    "id": "179632398715858"
+    "name": "На колко години изглеждаш [Скенер]",
+    "access_token": "EAAAAKjoDhIYBAFsJYB9set8kUbW4LoNEHTh78TyUAUrzZBw32ywiB3g3dIpF1xMVWGtWqfXSIAAFZAE3reykLdwM8dd4zCI6Nb2LQYRNsoXLZBNp41iLs2Hj8MmmfFwqcPhcpT7zGMV0EyqMZAi9IWzcPbWKAQuZCT3iJFBSKOgZDZD",
+    "id": "246560865463407"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAFCaPwtoFujSbxVzyZAbk4WRgKjR5FJjsv6MIKqyqZB3qotrk6Q8jMmPVoeDwlDrVfXk8GU3KXhd10DfBsZAFedRnIN8STXpEvjQ3O2ak8CpZC0M2ANDcNb41IajLn1uoc5ZA5Ba2UnRxCqmEMKM86RaZCxVAbVAZDZD",
-    "name": "Човек трябва да носи отговорност за чувствата които поражда у хората !",
-    "id": "188716051158768"
+    "name": "Lifestyle social media news",
+    "access_token": "EAAAAKjoDhIYBAGYmRnAsOOZCAoD4Jaj9naKDIWH8YZCeUjoKM9MyuugcosCARkw8K5gZBwb9t1DxEwytKJcuSRNH9ZBSwjrtehSHMbCF0Q17CURd9jzsB9qrqBefv0ayZB5NUSzwxRTKKhjzBzCLhFEzraWw7HtT7I0C4vsz2kwZDZD",
+    "id": "291949690874538"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAPaqZCZBZAXr0ABGg0tXlRiNfHQCg9WkuN39vwR3C2nNCLWBWzeNxJ4JNt8bN8dc3vfnQn3fPyLit8cturBhoNZAGn8H9ebs97V9VMkRd7bwDMiHY4jtX65ZAVaOYFrWCaZCFunPulunmR1Em6JQmjdeDwWpvOIwZDZD",
-    "name": "Сватба - 2ма луди и 300 гладни :D",
-    "id": "187203014646166"
+    "name": "Trends",
+    "access_token": "EAAAAKjoDhIYBAFy1W4tbTLM3cbC0uqX0njV80JTx1aXKUisoYSIJUpCXH8ZBfnm74t2AON9ZBpjXvEm8GFzKU3qYCxN5CJB55v2OdvY78cNSXmtTAZCUg8kMcUjoZAg198qs27O7yhZBbPkHjZC97VaYh9YFjaFlRZADUQ4VZBIJvwZDZD",
+    "id": "1650543428588819"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAG5CAoig5IuZAZBh0bVMZCWJwgqUW4yEdqi4jQ00IZC0jEB8grZB9RvN1qV2I78sBcFVJ9Pi9qpicELYPArbFe4v38ZCWgNa0Xt7y4EhOZCIKCtPkLfC9GtYjhKBATU45ZAGUpH0PxHMJflyAWI1Kx7ZA5CewzHURYAZDZD",
-    "name": "Живеят само влюбените, останалите просто съществуват..♥..♥..♥ ..",
-    "id": "137875182933136"
+    "name": "Аз обичам моята половинка",
+    "access_token": "EAAAAKjoDhIYBAAwnE4mBHIxArybi3fzpLNhx5rOKM7D033wZBi201s6ySKsMgTyrVWJBw49XGmWUEI3zJdv5TKZCkZBbEd3aZABJBguuO3WRciIZC5ifPuPBeCA626m7wFkysA7LYagQfbFtpMj7A9QQ3od0NZAWESnabfmAJMywZDZD",
+    "id": "127926490599042"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAHhOsF5aSrOZBjnKFr9ZC6GrRdwbHYPAzoHbMZA84ZCAGHZA1E4kvjMHxsZCY6u72d6JVNf85YKStcCjqpX2q9myUh2jfrf9HxcIPxH9psuxGSNf4P5D8h9vDGXRkyr6lhjg620ZCZB4ZBpzcsi79cfqRHyoL4tPFGgZDZD",
-    "name": "Можеш да затвориш очите си за нещата, които не искаш да виждаш, но не можеш да затвориш сърцето си за нещата, които не искаш да чувстваш.",
-    "id": "115807698494325"
+    "name": "Имам поне един фейсбук приятел, с който искам да заседнем в асаньор.........",
+    "access_token": "EAAAAKjoDhIYBAHQ1vVhcstDUxTV0MZChlP3dOZBPOaWNDn2xHlRjZBsH4g5nAG86ZB6tYCMQP5ygAsrOvPHp18KVPkF7tAtZB8JEHn2DxdJng2rXlnBAW2ULqgPHgIPSizHMscpjITJhft5IfMS56HycYbXaMx4kuc0JhXYQEEAZDZD",
+    "id": "191184810914675"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAIxMWzvk1P3nqOSHZBsaojKiJKLozN3gZCwQbR7zR0kYaqcm6gcLxK9259Sj0z3L3J7lIU4xq226sDLo829VeeM64pzq2jYeobZAEGeNnJCzuie9ZBe1ILQ2WnvK7CEZAqyrc7Gt3pH5n2H9kGs4lE1gNXK6kTQZDZD",
-    "name": "Мъж не е който може да има много жени, а който знае как да задържи една!",
-    "id": "112591708817488"
+    "name": "izteglisi.com",
+    "access_token": "EAAAAKjoDhIYBAIcfY18iRJgZCcR6wZBgX8ytbBrNGVw7Kmc7ElNLZBthpufZASOIdOp2hmuCi9qEnLOyxA0CdwfZBjKjGNqI8W8dgepfpxcUwLO9BQT5BiymxvFnTe4rSxxHEvlFx5gDKDkeJy2pKGUqwGfH5s08A7jVl8p9ydgZDZD",
+    "id": "686827511437081"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAGglZAVldZAJ4bVDZAddbqFEWkZBko6kQAsVFdtErbINgKxRSKZCg28pMiCnOPr99t6Ab30hFpXsjlGxbdCCCCTKoDrbNYHvAhAp4I3iEGCNFfbLxdFHbePu7ZBdU13jNZAW0S5cHaR0qQWl3ZBM2QKMcEx5EZAAm6AZDZD",
-    "name": "Най-приятни са миговете които не сме очаквали.",
-    "id": "135271703209335"
+    "name": "Какъв сте били в предишен живот?",
+    "access_token": "EAAAAKjoDhIYBAOlfCoVM5n2IO2jW6wXRs3JRhsaUNVKi4swWuRhhQWA7AgRLrmtxGYzq6WBQmdisyWAyr6U1K7KFkBKrGdUCDlPD5joh3PgQBa3ldfai6tgiFszUZBqbxpUldbjf1r2ffc572I4bwoyQhxIEGgOoe8ZAvBGAZDZD",
+    "id": "333747356705341"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAJrchq5b1eG2eggkNp086Akrj7z0ZCkkmMWeaKhPZAPQHkaXWpGyce1JTO6JZBU70ECJ2Op93cX6CwUQf1muGuZCornZA4rc0oh7jEyqACkR3RIRZCLbgZBKZBeSB9DwOSMyF4eW8ZBnugiXDCFTeNylXgEfqIerdcgZDZD",
-    "name": "Ако след пиянска нощ се събудите в настроение,значи пиянството продължава.",
-    "id": "157936467592796"
+    "name": "Живей всеки ден, сякаш ти е последен",
+    "access_token": "EAAAAKjoDhIYBAILQTemwBZCyadgeZBZAxZC1InoTJAVP1ZAg1ANVZBmRm2iahAZCXPNfZAO8gjQm7gkaM1cq5dTGrpN4DbigV4BEvLqEPD70Cs9xXjfBAe3oJ4sGZBLJJProZCgqHtV1hIEKHs0S3wSUzZCzZBYraLwe3XVUpGEtxE97hwZDZD",
+    "id": "432638250153045"
   },
   {
-    "access_token": "EAAAAKjoDhIYBABJFEsJcgq42wZBqeLFuq3SO94NvyVEyXSBzFjPtceaFmsRZBic2j440csa2KUIWtPrSPfxKSKpLMAvdaSPuvtfOKJa3RGNJnUySjvROEjSCfgm0ZAFZCGoo9QZCNjQ0aiEm1uzKjZAW0yxNzJ6H2DJU1pemOv4QZDZD",
-    "name": "Сърцето няма слуги. То само си сервира и вино и отрова",
-    "id": "198643813481219"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAKrH3RrrN7cU3Y8gN0E5OFPZCfo5chVPK8urWzW14hcHkhzouVMpAc0LypMQtkZAKcEAJxSuV8nOAljRIxHM2JISwFkkdZCU4fQ2SIJpX51xTzZC4dX545DfflHSCGxcb4XO6Po5YDkJ7hZC9VkgTu4LU7BsBCwZDZD",
-    "name": "за всички, които обичат да се разхождат по плажа...ღ☼☀☼ღ",
-    "id": "187881697916709"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBANEqnhtqalTKbWVKD8wqRZAvxridlS8SnslzW6lhZARNdwvaG79DA0RqwXwRMVt4VDZAZBiRDKkK8ckkUjWXe6D7ZBQCkhZABpkKzP1NyZAbQz4BopA3ko03RjgHr8JiyCeGaWVjjimZBJ9IaVmQSkzX6lVgF1KoGwZDZD",
-    "name": "Не оставяй за утре това, което можеш да оставиш и за в другиден !!! :D",
-    "id": "153287474725080"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAGlMg8GPborni6Ik1KZAZB0SB0D8d9NKQvadb1ZBsvHviXFOTKHOi2kGbqqFa8BLljY2ntsxrP4hbDgwzFEhOsTC9wTFCd3X9BajqVsJ2NOPpEUHPV93dvFWstVwvoJwDIU0VZBaakgfuZCho0ZChDqr4Hiwu7GAZDZD",
-    "name": "Няма по-слаба жена от тази която обича  и по-силна от тази, която е обичана..!!!",
-    "id": "130297870374650"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBALIbVHyw4T5QK6eTiwqZBcUe5i5uyOCZCwZCrILbwudLVZC1ohigFKctCKoyPeWrRm4xJCIRsHbNSEYHr2jZAk5zPDN8PfqBeHZB2W6lqmKFlwZAlzAotb3ewsAQhzKz4L87aeaZBoEXWWkE8IZBWBYS81g9wP3dC7wZDZD",
-    "name": "Хич не мога да пея, но пък го правя с кеф... :P",
-    "id": "183947518309641"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBADmrOZBePBiLOeNUxkQJ10ZBB0C0xX1PtajzwTZBrYkZBqdU9BcjVfkgnVRAYEjryUyYKbicSZBSIdhAeeB9ayAfkZA9T8a4BdpeJ0y2sn4jeJQphOl2qqZASyzWMSKjeJEINnRAP6VRZCBxS7pyUAexn4yQXNoPKQZDZD",
-    "name": "\"\"\"Най-сладките неща в живота са най-тихи... Щастливият живот се състои в покоя на съзерцанието.  Цицерон\"\"\"",
-    "id": "194619943891667"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAPTeMeGWnTigjYq5KiJ9ZC7lrPBlCqXCZB9G71XVmzc25OoSwMDnjLjFjeNrqziQUBQQ80fYFYD6u401cO97VlANRjlAsKI0uRL2X9vZA9my6X5OlRkHcHZAJBC4MhbMBOWIF98eBkQlF7uT0ZCjjDKRgTZCVuVAZDZD",
-    "name": "Понякога мълчанието е най-силният писък.",
-    "id": "198345773525504"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAAgvZAClyIehjUkZCS5LC8urlJYBF9ZB2qHTtBiZBUPISTWsUcYZCZAvY1dxBJbXGV0dukMA4PL2ZBxP2TXMAF3aZB9raWjrgkAgTbWg9SNSl5QPqDQwtBAkVZBdJ5aSDTuplp81Kd02ZCPuWP752usSzUklCxdmgPRAZDZD",
-    "name": "Любовта е като войната-лесно започва,трудно свършва и е невъзможно да се забрави.",
-    "id": "166317223407502"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAPqCu5bZBHMFOzKV0nZCf6jCNZBODyNNleepTpl88hxwYqeEOYUJ1sVLMzeS269X1BkgkUHNXUh2LOKTPmxfYZCKtudOZALkUyOodyHKkzGR2ibYZB0w7nUaW7Ya5cB316gofsi1QujQZCy0E4ElRy65iHivHD3RQZDZD",
-    "name": "Да ревнуваш без повод е глупаво,а да ревнуваш с повод...вече е късно.",
-    "id": "116630285071008"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAOUTHL0CPZBNRVB2D6mKTMpoCo63MQ5CpceWfLjLiZBW7WZBeZAHmUqQijWVxFqjpnACea3jnHnngwCpS9WE2PjfMSd3qVeZAUR2WZBNuVXiQcFNXcRajAwFvozXUopRYfhwHL7ZBupCIqRprNGRofKfc5wxDSlZCwZDZD",
-    "name": "Понякога ми се иска да дойда при теб, да те целуна и никога да не те пусна ♥",
-    "id": "122869751108109"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBADaeN0iiVto6nI4ymY8ruy9k5ltAo0YCYZAbizSvoZCRz2CvyKAqtJql1MuRynu7SEVW1ZAEzVmCZBNxOwWbxNZAAa1PGZBWnAlu7WMyZA6JjcIFvObPcuIlbSGsZAvZCd0sbueCHgcUhKx1F4ZCljr6iAChRTo3ifsAZDZD",
-    "name": "ДА СЕ СЪБУДИШ СУТРИН И ДА ЧУЕШ ОТ ЧОВЕКА ДО ТЕБ...ОБИЧАМ ТЕ!!!",
-    "id": "170168553002477"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAMgJZC2kGSZCCwdH0S0ZAoOAd2IQoJjPe5VdZB8ZCVrpi5pXoznWLTZAHmlHMad01AAZAro4frqUgGvtWvMHPdqeS571bpNNUkv3F1cqlhokyqiMnpmo9OWSbIvpeZBxGt11LZBx4sDuf9K2jDBHgvkQU8APNSvrLmwZDZD",
-    "name": "От всичко друго мога да се откажа,но не и от ТЕБ!",
-    "id": "176152505735037"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAJrNmdtKpHfQ24YEDKILeVKv2VJYZAmZAtibkH9HHJaSGTJjz37VEKhatERu1e1glhBp9qZBPHBAypgfOlDD27PrYG5WqhpIDCGdykdiQOiNUQUIlrdIp0mI0cZCS34RMBVAFEJBRnFtynIH66JV1ZCa2fFbnkgZDZD",
-    "name": "Да казваш,че не ти пука,а вътрешно да се разкъсваш!! ;",
-    "id": "169009813129073"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAL8Q87Vo6KM6jzYi5Xj5HTsCP8WYZCUzTaKdW4bOa22nxpbjgrtaw6AGUIyDyzmfgWFA1WILRmLKAX9bPGNqAO4KhU9LZALLmZBnEBmrDMQsa13bZCX8k51v4aeHH4ZBiZBCH84D4kXUax9ZCdLf2dkfmZB5FK9KXQZDZD",
-    "name": "Бори се когато си заслужава и забрави когато не си струва!",
-    "id": "162774343762962"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBANUE1mi8GyordxaxMPMd0TsjDLuwpev4t2LRvQpjvEIrGgcOEQxovZCSzR6D938uJtj5CxzNNlqa6UXiBMpzxOk1iMzJu5tBcWkZB9UQrbMTYNOdKm7dexrXCgpSHIn9XdwHMvYSvsTVpPngjUPSHLs0mQSAZDZD",
-    "name": "Мразя студа!",
-    "id": "169840863043770"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAPZArEyYnvHScrPBjUeuG872XX2rM317L6ROHeAZBcEUBZC9rq7GIgvO1OxF0pZBM8FMqW2nj8g2mISq9i4HaZBmlwoOeeNVLHe2ZBntJaBWkEh9FEMVWCUueblM6FICsJTs9MEVxvxw3OcXxFZAnbaWNAKTd8jYQZDZD",
-    "name": "50 First Dates",
-    "id": "160922350612455"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAG43AprRYEkllNr6U6fREnpniDAoUYVrWLGtZBDQqhJV5BaNrSg057c2ZB1qYa3bQqc20UzyvXAz1tHJkMZADjovx1FJZBW80doYVhZC0GGFpHhtiTvPUy9a3NqtaBLogtHKegSHNmxTwWZBooZCu8A2LsvqfE0bQZDZD",
-    "name": "Никога не обещавай любов,която не можеш да дадеш.",
-    "id": "131452726907950"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAIHXIf6gaxjRFSLQrJnBXakNCPFYC6Jkd4WhgYb54uvuLjoZCpcEllIZBdWOmnl7lVd1oijNZBWWjO7QHmdobZABgwk352rAKiZBgcF0X6ZAErigiCZACIYrbgpS69njVU5bc3AP4c1wWFH8xQZAqADyhsaFv5ds6gZDZD",
-    "name": "Всичко хубаво се постига с цената на голяма болка...",
-    "id": "175349752482004"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAHyEcY1XaO4LZA0HK9fnu7n2H4VdVjwC35HTnhkRhf22I7KnJP6l0S7qZCs9f7h4Pnskasnq95ACFamD2DgvFpyPd7JgZBsoDbtu1jwtjJSxfKDdjzhH16I6YugsLw7flpSq6JSGoCZAdMp65aROkJMBLZCBapwZDZD",
-    "name": "i ♥ you",
-    "id": "170756426287421"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAP1FDTeZAvMaTXY5KcPPqBUY48cvZB0SeJXWYQCWxvXDUeQaiEuaqhsFViUHcxEHk7NfthEdzQVU2w4iIB6V5ovXEBPqXlOc0oEe6Ys10u2ahhMG8SDqZB70lpJCFTUZBENa1GIa1VHMIFKZADedOwZBceZBylr5gZDZD",
-    "name": "За любовта няма Граници",
-    "id": "118434734886039"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAMvno9eDVNBmFA07Vc06PuNdJZCnGdl5SNd31oc9kKJgRMOu8FGa17A7dYpfcevZCQJrBG3QM1bKIDDd9VExBd35ThtEOj6ZBklDupgaBxQ5rAVNZCn4nvYXTFZAbiFzOpXbaNP1qNpeR78K6XYRWO0YZCV529ewZDZD",
-    "name": ".. но всичко,което искам да видя сега .. е усмивката на твоето лице !",
-    "id": "167235733299927"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAGEMKxZCNwIZBr9bzI3u22X4KdqyFPZBzag7AkEQsC2lA2teWtchxS3M7fczvnzcz6lOmTt9oGsZC1xsMpAj7ZADkKmwDkqUpgK1QTymkxpedzCfF3wZCez4a7ZBZCdn1zF3b80UIlgBZCyIWTvzH2UZBxBwirsuh78gZDZD",
-    "name": "Жените по своята същност са ангели, но когато им прекършат крилата се налага да летят на метла!",
-    "id": "140880389295772"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAOZCeZA2ZAR95B8qHkgR574lENA3ZApZCZC7wrPlsgbIz6xPpvpDipvW2IoTsDcmYtygNvtrhMDo5hEhbNBkFpcQAOpuXsmVowU6m8X7UkGK3aEaZCDCRyZAHfa5DpqBhGja8YDZBc7t75wws8HZCt0ATX5FUl1i2FTwZDZD",
-    "name": "... мъже ?!?!? ...едва ли...Just Педали...",
-    "id": "177400922275418"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBACNBFVXQM5hZCzuRs5QT2uG9nZBdBhCJrMkDzy00hBfV2OFet5BaZBdIvwNAVe5uQeoOLDZCfOLVvXpx41cU6ZCTZBoU0bu5pOhmXVXjDezUbIWHdubnz4AV0AoEs4OzfRSVk0R0Aqq60284GZBZAT5kXcCg6tJkoAZDZD",
-    "name": "NE MOGA DA SPRA DA MISLIA ZA TEB!!!!! OBICHAM TE",
-    "id": "167883663234984"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAPGqIXjGHk3u1DvzKm5F4XnVp6YaZBbN0be8IvGVdJkrn5TPv2PDZAlVRzSm2PhiwBmDsaf8kI12y07w8ZBbgHcKu3UzCRKxogSbMi9SbfHzuIDjLYXfAQCmV6dnI3ZALWmMxP22ret0FcvIOYvBXHngZAsa3RgZDZD",
-    "name": "Мразя да ме настъпват по ръцете на излизане от дискотеката !",
-    "id": "169835383046260"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBANpaUDoZBPPb2Sq6IMqf74Fov88HOI1ETbML6obmKnRGY56VNu1ZCXWZABepgGjJ6JtQO2RQ6q0BvMn1WTXipiXZAkjxa8ZCnzREwDsyYP4ZCSx5PvVmWqL9Gf9cZAK1P1QxEDOiQJSVEKwu2aFnlfZBZCTOdL3yl2AZDZD",
-    "name": "Не ме е яд, че ме лъжат! Яд ме е, че мислят, че им вярвам!",
-    "id": "128478667210127"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBACIwhx0z1DCELmvC8YWlvEgK2snPWWqiBhrZBgA80PuJVgNbMqr9h1ZCMZBpDeOiWx6miL9pDi8RsWF1o3ujmpgLZAcpx02hyZBeUQlxLqDSNsvhtREH394p9Bz8hvNvfYOI32syvZBLl1rUZAo6wCYHAALwZA0e5wZDZD",
-    "name": "\"\"\"Истинската любов е грижовност и отдаване, хармония и мъдрост.\"\"\"\"",
-    "id": "155142121195569"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBALjp8yZCcs1vSU3Oos1U1ZCCMGy823jVyb1Wt5LI05zHplRVWyxZBxcXxSadEjYskcQ1ZAmFNdbeLGZCXT0CfrXME5UPxgdH4ThkaXbncbDU7c0HyjcpIEJJkfUxdUMLokPX2ELqFxXSFZAEWcaYUzBW52R3IkmwZDZD",
-    "name": "Обичам да ме гушкат! &lt;3",
-    "id": "169030153121204"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAApjFIYpCLOjmZAT08T2PMZAOuDBBrTsf9WfUijZAgt4GIUZBtbA1bZCs9KCNvEoETgdYWMOrFKk6tHLQ6ZAJfI9tpkxeohhVShZBHkPBjttnaCPNqD0QkS1QEuFRUa6ZBBQLbv8ZCW7f3ghhnpEkGhXwCe3whdvbMgZDZD",
-    "name": "ПО ДЯВОЛИТЕ ВСИЧКО! ПРОСТО ИСКАМ УТРЕ ДА СЕ СЪБУДИШ ДО МЕН!",
-    "id": "176568885689969"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBADSjEGOfUdSxOg5zZCI22XvqbrxVAUmBXZC4TgnlVN1eZBdqUxxCsZB9MIJ8mqLtlFMLymM0X52SKypKJzJgEwtMvUwYuodCtJ5e2hvVWYiZBlaNeretwYpKEXgSnHHZCHogehDi7GU3BhZBzeH8LygYTnStG9DoAZDZD",
-    "name": "I love it , when you hold my hands",
-    "id": "166693496684233"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBALUY0SSNzJJL6MOqWiGCFk8uiuXP4YZAmTVoKWMARHnAtiK8Ud0IRQcMePRd4EC4fxogxaAg2Xv77MZCgMtryZClbvPMf0UuaICGqdw8z23g2V3G9Gmr1SlulW5B3uY9P0AZBBfn2aVxRXtgukzORGRxldNGrAZDZD",
-    "name": "Sweet November",
-    "id": "166381226716479"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAGqs7yHrlFSU5wEZBbAKPkDoy5vWAMqWHnpDCITeLNW9ZCJ8sYgea7mmY71NEZBrIN7TCuMIGZCZAa1yWxYbUPx9HhJTY8GIP1toh054AP0WXuY1SJ4ZAZAYAwoTvv4pQXb8cdPFNQrn1H8NVTGobZAX4TsA7Kj11QZDZD",
-    "name": "Всичко което ти дадох.. беше сърцето ми.. <3",
-    "id": "165378263485490"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAAiHhGFYC3AvBDOUIRFM9H19VZB7viZBK2PBisDsQ2Xgq4buGeoL6JJQrAHPiousqX94V7fKfE8mJbaWe4u7YZAu6832PaFkgUUxcEEFzEP7szXiQn6kHWhHaP2ZB4LhckYBvDrRphfJcFk2kN4L8cRVunIgrgZDZD",
-    "name": "`Животът не се мери с броя вдишвания,а с моментите, които спират дъха ни.",
-    "id": "169206093106760"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAA2aWZAXfFmZBt8tLr5BWzWrVanAeFUdSFZAZBdbNHPQS5uL5BcFZCHx7daEDRU4Tx4hWOSmO1uXoqZATKOLJic2iKEjwivAZAFQV9PW0fGUvHlbNwXx54Ocnktu22RthmZAt1vtlUyZBDZBCFRxKh3bdQs0cCkPd78gZDZD",
-    "name": "I love coffee",
-    "id": "168702493147618"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAODK0XPW21pAr11g1kClAT5NLljqZAKxmNaZBIIWf7qlD6xtz5ZByEZCVN3tRwP1ZCTnAMlv26EJNK7hYeoXzzdwwPZBJsgOylCI778KaTwzCNZANndbreAZAuZBUoPZAJUcvhZBZCZBPeoC91tNG09XPnTl8jI3afrzLZBAZDZD",
-    "name": "Не се впрягай прекалено много в нещо, за да не страдаш след това!",
-    "id": "162954997077459"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAKQBl9AZCDGIK3z17owi5YQrob35kp0EQdO1l1onjgs5awSY0U8W7pxxgikkDBVrraqumZAV1XdrPrMZCRxda4LmP5B3WvCt7tBwktk7q0BpwZBDAmTRynZCIeJuOO3PD1ZBNWgXC6784lYW7KcZC9YZA9hZBGx0x2AZDZD",
-    "name": "Im so ready for those long summer nights :",
-    "id": "131623596891853"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAPmZCtrbA9mbjP3AGDA8nMxCUdG98Y6WfgfSB6zR6Ps7A0Q2FzKlgBDzl1HsZBdAIiRybBnlHkDKtgI3ZAPvm40FT34NZBjkoi8mQD3akDhrDzyTJmnLFcPhvCNIP4NOaX3EZCk3WJZCETN0B28YRD1ZAeQ5GK8xgZDZD",
-    "name": "Любов ли искаш???...Ще ти нарисувам сърчица...",
-    "id": "116879421709271"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAFVib9MXn0o3fTCpXIFU2TJln1dWydK7KlPKZBgbDgVO9kesmnZAp5GYz6taCKJlha0G7NpxZBUi9TfDiKnl7IQUTo4muPizZAUpEwHkXFUFoaAC91dMZCnIZBvR9hkxpq5wfqZBJinTUlMk52SzL2cZAuZBgiTnYfgZDZD",
-    "name": "Breathless.",
-    "id": "116835295047904"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAOQI88V97rjAxkZARKRyX0ABH8YiAmaeXregEwHW0NS5Q46G3W0ahOnZAXpYiukA0b2aEkV2GhbkAA4epKvngg2bCq0FHpLiRDSPCzuP7YoQo1EIGL5zXgWOxMvQNUFhAprtZCLsZA2gG6uDlQWL8OywAI474AZDZD",
-    "name": "ЛИПСВАШ МИ !!!",
-    "id": "147568621955419"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBADaPSyCYReVgpWgiQ4j9026wG9hUXBlZCOOg0LUvDcSrp6cRUtHaZBFWs77PZBPAzEAivLDvbclLFLZB6uNKdjNAGmyY6UZBcxM79961uDaU2C1gf1lBsz3lX4NRx2EgsQL0cWLvUZAiGg6Slv5uDlqlZBECgy4mwZDZD",
-    "name": "Изяж бобър - спаси дърво!",
-    "id": "152475368130605"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAIIHyDhCkRna5MZByDVg1fXUwEsiDxZAUKOxmcV0ffrxfqiHWWzm6ZAHvB9Bye8laVONbtTJaliDEOCCF3Wo47aD0CfABGuEfE1gI7FXdEM17dFAy6PZApmDToHFNQ7SbJ4zGrj0vvqvNbcoSFTmve5hh6vWeAZDZD",
-    "name": "Любовта е изкуството да превръщаш всяка дума в чувства!",
-    "id": "111187942281105"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAJDChG4ZBZCAV3mjuVcOvCfm1xRmXjxksOiTFoHyoUV9Cmoogb9BMHzJxjAZAx5sysr3DHxKcdPZBaVz2qKvSFF97hE6uTZAde3VMo5IAh4MX9ZCjZBBAP7a2W7dnAfnp9VCfZAvqSpqt1yvNtieu07NZA4fxIwj56AZDZD",
-    "name": "Keanu Reeves",
-    "id": "175194152496182"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAB3SjXvyxV5MDsq9pTcKXlGtZCN5JLsaKqOIbesjlqDHsZCVPq4ei1OYq7YMOVzwLsuiU9e2nl1jNfuDx5ibMOmsfeLtWHyUHun92Q9G3ZC5ZBW3GP36rfzaN6NS1r6AfyrvgtwOUjZA9PVL1EPoshWKzXXYXvQZDZD",
-    "name": "Have a beautiful day!!!",
-    "id": "148045731907965"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAN2R8JKzQB3y2hSZC2bgZBtizwpF79VcAPpb8gGQLjQACLipUQYwTbNNGZBlEs8MNK2DcUEfmjGzXzgpFCkLYJ7f72DLSaasaB7BV0Khzd1AX0lIrqnEed2TKBNIJKixHNda7eFw5X2Bn8Io0BiMa47XsyvRAZDZD",
-    "name": "<3 <3 <3 В света има толкова съкровища за всички нас,стига да имаме очи да ги видим,сърце да ги обичаме и ръце да ги привличаме към себе си. <3 <3 >3",
-    "id": "169082576445004"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAOjOCKl05JVvpcAKhyT0wvScQlmSPUCpCjYNJDKLLxTo5CG4ZBihF8JnWITMbK1d0icTJj276kpUUfRrbo7OOZBHmsclDY8RE4HddN0z0o0xcBli7ZCkERxVKQgtXt1S5ZCftpdFXDFIOTO1jGG8OCBYBQ7MQAZDZD",
-    "name": "\"Не е толкова трудно да умреш за приятел,колкото да намериш приятел,който заслужава да умреш за него.\"",
-    "id": "168670286491421"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAGIFKUZCPy7Jk7SZBdMZCrEh46WYgrXwG6wN8nTzdhHwklnynqbSJ9OZBqoHAYpZBgSAIdzjOiv03fTZBLOeE9GPlDyZCXRruHTK0uPWnAX7SZCyyo4PRpzClLOTc23K8N5qakiGL86n4P0Ov0zY4vkkp8iZAo2DFoAZDZD",
-    "name": "Усмивката не ни струва нищо, но тя ни дава много....",
-    "id": "152251548153496"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAKEV2BZBnvwqh13TDkqHH0Q2TTCokpeilhKYnqU1aIk599UVpksU6Q8QQVsrnAwMJHMZBX5fqccSAN8aDzUPiuK2whDtDHwNLXPpTgY0ufMiZCZC9Fkg7zR14aZAnLrIRY52HE2ZAjGvCsQvE9EuX5MEbCCHlRdgZDZD",
-    "name": "Най-добрият подарък е... времето, споделено с хора, които обичаш ! ♥",
-    "id": "163924076973685"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAPfCCiZAsh1d2hgaKk83wc49KBiPa8ESr8BTNgazVOAycbmOda2EgNHgft9OU5uY577nk3dDjQZA2qZBs3fNBGFSQt0Y5dGm70aGEZBdLJVqfyBXYHJElIbilhWZAYcp9qG1eYZBCigu8ilpf8V6EZCfhgukZArK4wZDZD",
-    "name": "„Да обичаш значи да изпитваш болка, и ако телата се свързват чрез насладата, душите се свързват чрез болката.“",
-    "id": "111286515603350"
-  },
-  {
-    "access_token": "EAAAAKjoDhIYBAFzR4K4KkvrWFey4NnHiC80jtVHNZCZC6ZAfgt4r0jMeLGWXbTh8JR0GR9fezNWtTbnz1M2rGQ1wzeCItKJWxjPZBevM13KPMVKbKMCzpzemzrVEDYtAELGrCSZARf0NQXnSpRTfNKffZAhelnYQB5B81fOTNvWQZDZD",
     "name": "Най-хубавите неща се случват неочаквано !!!",
+    "access_token": "EAAAAKjoDhIYBAK53INeaSjUizjLy106nYyqZAp7ysePTdfPUkfHqLgZBJZAa2a0xkm1Mgk3cIGNNaIAEsrNLzRZAes7Nb1tSovcd7fp3yZCzksvY6461ZBAzkgFboDKujJZC0tN5waLkW14SBJa7YGyR9165197xfSdS3Tzk55RlQZDZD",
     "id": "164736843558091"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAPLrSFPn4ZCXkUSMkkOYNKJ0IfyqNOYxyZAqZB5WoxzEeUkn2tqXa3ujUejhtxx5YmKt6MQNtcoN5YBfMgx4GhZBhHmb1JDT3gsRk2kiM6xSxjQPbRI3ZC6x0LEKIfWB2bq9eJEbvthNXIbRLrOL18NtCpNivlAZDZD",
-    "name": "За хората,които винаги ще носим в сърцата си! :",
-    "id": "175671102449669"
+    "name": "Goodvsbad",
+    "access_token": "EAAAAKjoDhIYBAD9SboGIir8taTfup3XxZComHN8n3xjBeVuuDNjK9xmJlhtsT240Yh4LUnuyNFG3RaMFPyooc3AlsADoal0F5JUTBJZAyUifuxSpMDCMSQdafbxK9ofE7Xx02BfnFxq9w6zcvlZArazyHnE9QXYcKL6arfUpAZDZD",
+    "id": "351535214931486"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAO2ZCbB1HRTiNGKW2Tc72G0NKIlVw3NYLlPJLePkOQIAqXKECRCPPQsjp3y9QANzkMZB6UksBrka4jW1bhoxvmRYmknTu3OXUkD6uojgmdhxWTHuOzx4JYDUqhUts3ZA16MJ7MWVrYJD3qoad5RagSm2I1ZBhgZDZD",
-    "name": "Жените имат толкова много желания,че за да се изпълнят всичките,са необходими поне двама мъже!",
-    "id": "163392270368339"
+    "name": "Казват,че правилния човек все някога ще дойде ... Мисля,че моят го е блъснал камион.",
+    "access_token": "EAAAAKjoDhIYBAPpnuMDhSSqgZCu6WpZByXqiBAibfuVDPKg1Pyna7PT9fIZCRXM2Bmc4ePXeDG0xI4wk4wCXJMavlA0FYCFKTv3WIUZA9KZChkfHOq5tgQj7T4ZArQbezhVGoblBNwkML6wrRE7BkbqVgtGwH8INhQoayenvB0ZBQZDZD",
+    "id": "166593333390535"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAFIYblorUf1LlqAR1roM429HyvK75tv87xZAJstQW6Naimz3WBIDZCRzo72EJTYfgtnjIY6jZAcw5QFCpmsxusluMaO0MBTs8Iilx18bpc5CdIaB2bP3SNe4OJjVXCftQLdKROIyMRA6yl6TLYZBTqdyrm4dTAZDZD",
-    "name": "Не пожелавай жената на ближния... освен ако тя не те пожелае",
-    "id": "132772410112565"
+    "name": "Arpecop",
+    "access_token": "EAAAAKjoDhIYBAMlZB6ZAnFTM3TJhOTqjPEumNS7owCv4sMMzZBRaqHarDOsQv7YuaHAipmYhWpGZCDZBoGIvHn9uxLhofAklCljY2NygTMWssltynP5SG2Gp3oHSz8Uny9ARDPzSyBmZBYZBA2iWAS2sGbPZBhfZCgSW24uKIIZB8NEAZDZD",
+    "id": "1646216248974835"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAMYE372JzYYmkil3Q7srhI2ZAiIZCKmjEhkAne4TZBtJBRKDeRYhmoMtMFD9VAMGmS24jwNggk7zZB6ldDZBXNJ3H1bu919GZBsmChaHDydjVZB1NZBPw2wKFko85D8ZAgHPt6b0pdL8cErMXoFyYuJOdaiZATJSiZA2QZDZD",
-    "name": "ИМА ХОРА КОИТО ТИ ОСТАВАТ ТРЪПКА ЗА ЦЯЛ ЖИВОТ.",
-    "id": "174621759232868"
+    "name": "Тълкуване на буквите на името",
+    "access_token": "EAAAAKjoDhIYBAKxRqlytd9SjwKce6Rl1q9QbQwBZB8uCPYOqtsxKeQ2o4A74tsEwsY4XjPDdSZAG3f49t6MSjXMfrZBAlWZB1eAJonSmtfeW42ZBfmFRl5LdDB5WGA7Nr52tRhLAHvFPYWkXRY7jXfezVytjy82dr9EQg3pJg4AZDZD",
+    "id": "131839906957023"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAP6mRepJEt0oIbSE8ln9f72PVUCMt5BXivojKStLLyKbZCenZA4gkYo7f8qWVXy9jxRrbgAdxMGPDsZAUYgbW11IuuI7KuRRgjwbllPeGZAxV6n2qn08nt90ZCWLSadU6XXMCO8wN00nRe1ygIjx4eB5qUcZCJCAZDZD",
-    "name": "Всичко се случва защото така е трябвало да стане",
-    "id": "127612777298191"
+    "name": "Friend Cloud Generator",
+    "access_token": "EAAAAKjoDhIYBAJPlAw5wKpQMOaZAdqcJb0mZC8ME7DSuZCJjJUCN3U9wIV4rTRMKbFHjHRsFXBcZCyAiGmIKWtwy5QQeZCishB4173BUnVqVHv9WJWA3EZCIn8O2OeYBhZBl4aZA1bO5rKkNTLvwo5byIDVy4OAtHhxo9FGedZCJjdAZDZD",
+    "id": "145883212229802"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAOzoLSMUZAGN5XqOUyXLzaiK9GX3DJKCb6AWExeAnnzEA4maHMSAcZCkXJSKuNxbKCt28tsiZClSu5C1m1ZB3eNZAxZB90P9cmnjcCQxvCYp7CtXmBGXrRZAZA5M2vrf8ZCtAvU1EyH1v5ZC0ZBgzJMZAL8Aaoy63w9exAZDZD",
-    "name": "Живей Тук и Сега, защото точно този миг е единствен и неповторим.",
-    "id": "115553508512268"
+    "name": "Рак",
+    "access_token": "EAAAAKjoDhIYBANcNhZCozs61e2hmB2akJpdyXvs2Hv6n068BJ19XdfjocZAvUz6nHOJBUJBgvG1GuMzQRNVgR55KEZA6XabZBwlQ7yUGSk1AejAQownXIrBZA0KwLayI3HXj2kfTRKWfZAc3u7ETOAh5ko0uOH2wFxrLezLcssfgZDZD",
+    "id": "271651342867913"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAARss9diqJuodbd5H6GKVCJFZBBDUqaQCaYC5ZAaVeyPxXBy2rZCZBuzYbyNWNGnZC3nvKpvnIbiXmhmoxIu337y5tta56O7wxC2F6qQChrfGjDYE3ZCeoQ228E3ZBTuN7QWTLzb4m0A2jtDZCd4bQXnX6SkjDqxpQZDZD",
-    "name": "За онези моменти, когато чувстваш, че съдбата е на твоя страна",
-    "id": "107100672696279"
+    "name": "ЕДИНСТВЕНИЯ МЪЖ В ЖИВОТА НА ЕДНА ЖЕНА, КОЙТО Я ОБИЧА ИСТИНСКИ- ТОВА Е БАЩА И! ЗА ВСИЧКИ ТАТКОВЦИ!",
+    "access_token": "EAAAAKjoDhIYBAOstHbJZB0ELTssePRgu3YYk7YzNeasUjiQDgKAHJZAwNjO6XzoYJB73XlD08UZBfmvhnZBjZA1QT5Tpf2h06aZBHzBeAKZCmz6LdWI16eMzOmgtjkPr8YGYOhGPZAJs9kHy5IZBBUESQDZAWL2Og6tQUgALy9mYX4ugZDZD",
+    "id": "167239423296429"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAL4ZAUEI4ZClO7RN2WIFtmAMtMzxZCLWiu2i5G4BCLBuCeBjo1bZBcvsL2jNClEmeQk2tIGoJNlRPYBO1P5FvZCvV2zFjaZBOaV6aR2OOXTXlJO7tBhXZAwXQEzQSXUNFTD2Ym17VH5H5gwnzr4o4wug5poaSsUSwZDZD",
-    "name": "Дълбокият поглед, чрез който гледаш в нечия душа и виждаш всичко, което трябва - това е уникално! ",
-    "id": "173943505967161"
+    "name": "i ♥ you",
+    "access_token": "EAAAAKjoDhIYBABPAF4T8QWRZAp2oa90ZAbM7Lu9m6s9M4XOrcxTOtjuZCm3djXIgi9h0JZCOvng23CeI7PLGOiReDJwtdSwZCwBPDoZBgGtP0GZB5429vArkuX8eElsg6fkkaeM6zzPk1T0oKfv3v0YiE3q0ddoQDuaFgx2QDV0PwZDZD",
+    "id": "170756426287421"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAHT3cNI0ZC8DLbs0JQqE3osqdCaiNcYZCbyDcvtEEsVWZBYq4nMheevpesY0pYxFmqieTK7fj2TGbYO4PJoDehKWsCZAHoN8vZAyPhQNArcpIVvhILBBno9td4sKetBazUgPoz3jAJGeBPvmPAYq8cCBC7nnbXAZDZD",
-    "name": "шампанско,ягоди,сметана и гореща вана .. най-добрият завършек на деня!",
-    "id": "121989071197107"
+    "name": "Индиянското ти име",
+    "access_token": "EAAAAKjoDhIYBAJo1ZCOIz55YYtssj2DMTPhzF8C7HFWIRl41MTvPVtYFw3oDVIjOiXWFYiHeJmgvlxKag9cO7oZAwBAigElaZApWT5fvx26sKaiYSV3ZCrovLyziccpp9vEINJM4bsudB5w43Y4aZAe0JEc3yWzyxIK7leAcVQAZDZD",
+    "id": "121126084763453"
   },
   {
-    "access_token": "EAAAAKjoDhIYBABBpLoEZBSy9AUuen75H78EtAuWsKZCLR24cZAstOQZAyJh7zZCwsmiPsaF89Ij4iUJD5xS7XTaVhRXsRibOzTWN66umKySHTH943EZCrL8hfuk5hQbWfsExxDZCdsZAv5vIicPEqx6UtYj62LlxBJXNVCYQVTujqgZDZD",
-    "name": "~ Има неща в живота за които си струва да се бориш до край! ~",
-    "id": "128136947247657"
+    "name": "Японско Име",
+    "access_token": "EAAAAKjoDhIYBAMzHypAyPjHGBoNM22ZCCFPGravB6c6OVx31ePMszpjR9CAOnUUWy85Fis3yXb9OkdEddhkj4g74oBvdRxAFMeBfvPmiyEONrcsrnJaSV21UdI7zQFdz9KvZBTajFojLZC63HrRDsB5ZBFkjTXD47aIp87SxvgZDZD",
+    "id": "132139833633587"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAHnb9THJW3KQuEAaMqFDWd7YTXnDXPIPuHeqcKARTJQXIckHkSaelsPmWkic7ARAfjwRChjrBYo0UDKkrJ4tEhvPLgBKiUXSkrTkq5dC9eM0F0f1pVjPwZCAZCLcudjM7hxibjzwvfwZAHfzBviUSYmh249xQZDZD",
-    "name": "Какво ми даваш,не знам,но пак го искам!",
-    "id": "174586639235748"
+    "name": "Fortune",
+    "access_token": "EAAAAKjoDhIYBAB8dhNLJcTQj5qCnNMI8THLPt7h3v3toSpaqNrXgv3YJMXPlAuqR900jtZCgT6Bl8KhXO8P2q5zkbCUaVG852huMxOwWhZCGv6KAnHwbYZAB7FqgTOxDX57i7n7O51hevRsoOuVdCOKkw2Frbugcz9QdqhcCgZDZD",
+    "id": "343060205884716"
   },
   {
-    "access_token": "EAAAAKjoDhIYBABIWWURZA6c1OuTstZApBuqOGAyDYMl6Js5xhY6SDIdS3KTI8Ike9x8h4nBfs98BguJ2Cu1Iunvj9rZCSB2atlwJMRPfTKS4UvOBfkfuNZC4D3zqtORDHdsv5Uy6Yc6ZCo8O7YgHOwyAVO31IMnZBB2szUeunrVgZDZD",
-    "name": "Когато най-малко очакваш се случват най-хубавите неща :",
-    "id": "172480119441723"
+    "name": "Desktop Tower Defense Game",
+    "access_token": "EAAAAKjoDhIYBAIeLv8xFJSQFZCRb7lqqvu8iFEtiKF16tyZBY6291prybnIkmlHdZAqZAaWZBXOgjJ4Ic5iV6sbDJZCAMj2kEM0mzgWsYeTnGCDLQeZBz3AOAa5otnSPvZCVDkMEG942mMLWanz6KjI1SDiYgHXYLjd7mxTlRZBTBCAZDZD",
+    "id": "661390267298869"
   },
   {
-    "access_token": "EAAAAKjoDhIYBACdShrAWKXhFFE1YWvLNpaFQeoZB4RRbLOGFxB8LlIsA4EYNyYWFIO5cmlaI6PX93yCvPmNuIQCdomt48ko3uCy3NOhejbNNFUY2YKYApM9VB91dhYFdukIAEFkgBJEhhchg0tp33Ki3oRmyLXS85frtZChwZDZD",
-    "name": "Когато нещата отидат по дяволите, не отивай с тях",
-    "id": "128681680525780"
+    "name": "\" Истинските хора понякога си тръгват от живота ти, но никога и от сърцето ти ...\"",
+    "access_token": "EAAAAKjoDhIYBAOusRo1BgDp8UjOvZByzBIkJh5kQjPSo9jlvTfZAM3Q65D8MepCZCQao8MFJEjCafq1X0ZCATUSlnIUHJOZCHeW7iMvpLRpSnmXJW8Agd1ztxakwvtJOUf1p1vj8D4XLCRBXZBZBUg5p5wYzxKgVKlFyxdkX6AZAsAZDZD",
+    "id": "164536270255038"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAH7pU8TJtjFLCgvLD5jCzMcl6TdFsIybZCnXs4GVtEgU0Q607mUZCOl1ZBo2FWZAy38xjKCzGSVELgp3gsVPaU8c77x8MJQPNWr2HVlZANvxq98rBTLE6JNL1Rfm3KeQOJlwA44F3yiFYijczOFqELOKFoqLR0gZDZD",
-    "name": "Изяж бобър - спаси дърво!",
-    "id": "171545462867916"
+    "name": "Везни",
+    "access_token": "EAAAAKjoDhIYBAB7XBusLgsKDFNfcyRZAZBTDWZACJfHEqPc8TOHGSSmN6m6RnsLpoGTQsXnnkF3Nc10zcgOpV9ZAjHoij682wdXf5rHtebIR6ZAd2AZCd7uFm0ac5gYrMRnBorm9woofLJwvaElDjmYoEEVhDHZCkqytG0cKBrXqwZDZD",
+    "id": "227766210618487"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAA6Dha7xZASuZAKwXC9hIG0x6b3RNnW1heT2LZAPy2BPt3iIvwGE3aG875LbbErGasqZBFce1qDnR93MZAZB7WOZAeoKXyIeIhXJ2RseZAUGtJLYIOSgCYSk5zJD3TZAgXZCIN8avR85AzYULG7wnZAL2KQ4Szsue04UwZDZD",
+    "name": "Коледна Баница 2013-2014",
+    "access_token": "EAAAAKjoDhIYBAMcYGJXeuZAwwVEZAObnWsfo9HUzUUzyfvm87kcGvirCZAE0tN6P5r8jVwrZA2ZB1YUbkVzOFtJCSIofxcZAypM0DZBz8Hgu5v2UTM1gxsw1MC4IsoLbUV1zNS6PgBAjrAULTRmRanBFjLI0H8DKH6NiBHfAEjCXQZDZD",
+    "id": "1388784068037585"
+  },
+  {
+    "name": "Дева",
+    "access_token": "EAAAAKjoDhIYBAIGP1ZCYVHXHHpFkRPRPamrKZBQoUjyYT3blRssLI0QLinKDVSVGB6JRa6CswxwhtSdI2eXXPP8fxFRICGZAg8Lf2V6UJvvfhf5Kp0iwBHpM9doZCOaM9ZAneJbygy6vZCj33mSzFYciL5db3BEMgNyGLRVqCRngZDZD",
+    "id": "210663789001053"
+  },
+  {
+    "name": "Въпроси Community",
+    "access_token": "EAAAAKjoDhIYBALxBKjU8YkYmzplLZBigiSYtXyZCTFFVI4ZCaRBpZC0ZBD5T1ZAej41BfZBe7l644MNaXRXTgbkdyYwlzHIzGSnhAgOJ3lSl0AgKBsca8p8IX4xe4jSvXsUmZAl2QF3llIW0ooEylUU33hFlrWMmyCKD5uZCRPYiv4AZDZD",
+    "id": "218841794970690"
+  },
+  {
+    "name": "The color of your eyes",
+    "access_token": "EAAAAKjoDhIYBABz8T09GMMOq6DUj1Fv2rURPqvYpeWAMZAqdI60ySirWqxBcj2FHkY6aa93lXaQ80jDzJ2kxDU7bil9QIDLpF3EmrK89LAvt1Q5LrYF1p2MuWLXFEJUolWyJ5RTlzoNZCxLnZBoqccVdAJDYvuuQ6rZCInjOpwZDZD",
+    "id": "431211233589400"
+  },
+  {
+    "name": "How many babies you will have?",
+    "access_token": "EAAAAKjoDhIYBAErRNYxaMfVBhZCeZAQ85y5iXMzZCtZCJazOUiZAc8ZCQ1yUuwh06qAYRFgsjj4WeFVtLkgGic0okR6NAlTWZCjQfgMyukIj1EVMg5dDyE8ZBjCuedxhkoVfZBiCcMsZCEztDeIjIkNENR33WnU5lZAXC01ZByZAR4O1WiwZDZD",
+    "id": "184780421656933"
+  },
+  {
+    "name": "Пожелания за любим човек",
+    "access_token": "EAAAAKjoDhIYBAC70nx5aI0z88EWaPy95RmvUVPI2HhianHJoZB3XSFZA7YZCKZCPP522Duk4sGBfgc9lkzRPtqAifF0m7wdMOQuN8ZBLgBxhKG0CmZAtVI9bgYpqlaf0g2Si7HmvC5tMhlE0y8adjGwPEA5BjeGK176MDqBV0x4wZDZD",
+    "id": "320215434663240"
+  },
+  {
+    "name": "Dear \"_______\" please get out of my head I am trying to sleep :",
+    "access_token": "EAAAAKjoDhIYBAHFKsRZA16jk7RIZAq3WZARfp8ZC5uZAzv4BqnLdclBP6QAQEHtktUVbT59nS72hedhZBMlbp9Wn4cfV3xELKkrL5rtuXRNODyaWusOklslaUFAKsRLjTmQlKcd2YGTq0WcUqNnFuGDXwzqOmZBxiSPy6N9EhA6cgZDZD",
+    "id": "169059243113387"
+  },
+  {
+    "name": "Vine Updates",
+    "access_token": "EAAAAKjoDhIYBAMSioltgPgbeZCUKq5FNEgVTOy1jMqOhXyEQ6ZC0lV5gW1SGTggcwoXOtuOj4eXdnXlGGkbZCdurOvGW4K8dmMXC2F94rBkEGjU7UsCeqdoiwQ3GXB5cBCG9rdnIWRzYJzZBtd2vMZB6H2wAnuS5LnpU7kMKD7gZDZD",
+    "id": "575447595842739"
+  },
+  {
+    "name": "Cancer",
+    "access_token": "EAAAAKjoDhIYBAIhjc129SYnvbASsCkOQgkvEBPK5duYRg9G4nmozpx2zJGB0UCaA75D1Ewgy2ialZAlcdTs6YWVEs4gn1fpNjdWUPC3ZBv17TZBrBFAiQUL2ZA1voQMTtztOqwygrKaa58wEp8VZCmygKtVTJv9IlwEcZCAnlkWAZDZD",
+    "id": "225802200813140"
+  },
+  {
+    "name": "Русата жена,от векове най-желана!ДОКАЗАНО",
+    "access_token": "EAAAAKjoDhIYBAJnWa47NeXTTFH4cPkigcC9LYhPUQcRQ5PNXe9cz4a3hnRyVgZAoOLiqETr9ZBNIuNnW9CPL3SvmX4ehaD05brejrRzE4DnYjYf2knm1IRMWrOPBiL5DU3EZCopTb7A87ClsTmXwXXrk7hGtqdFhNL9c3m9fgZDZD",
+    "id": "169291916429456"
+  },
+  {
+    "name": "Стрелец",
+    "access_token": "EAAAAKjoDhIYBAPrzxKiizXR41894yLsoQgy0KBr1b7kkhJBuZBLrVadcFUkYnTSc10uZBj4ZASZAaUs8lm8pJOh6u1x9ZCkT0RhHzSL2tFfjMcuZCZBgVoR3XRZBynKC4ZCkhCsxyh5VNi7eaZCBdmkbcoAX0qkigLPMrcRS4BfEAdtwZDZD",
+    "id": "226455614082490"
+  },
+  {
+    "name": "Козирог",
+    "access_token": "EAAAAKjoDhIYBABFjuKazstRN6pKT21YB0lwaAgZBE9qUpRU5LZCRQ2aNoN34okVDN9yDAiXBmXfLYmcpq5a5dQJ2549ZAPziz3L7X8Ut5BRV82Sw0mcpbDDeXbBbWy35SKoZAykZCRIR8ZAHQFgpVPG1iBCpaMr1aGOuF2Ghr3BgZDZD",
+    "id": "205706439498569"
+  },
+  {
+    "name": "Лъв",
+    "access_token": "EAAAAKjoDhIYBAJqxXA2rgUZBB0J1RV6QE2nOBte3kqZClOIggpyFDs2izSQSrvfiMuChm5F8kGV32GnG7Pcg4eReWhym89IBFMo1of2v3zZBnFNyQfuYJz8YZB4VFZCADilFwltAbNCsfqwP6KXkX9JX35cvd1IWDDR3CGeU3ZAwZDZD",
+    "id": "119766161464178"
+  },
+  {
+    "name": "     ",
+    "access_token": "EAAAAKjoDhIYBABM63tq5ZC16cTotkN9CQwScjGZBqyfRJdFe9KUxm1h1fVMQ0v74c4wgK01ssgJsD6uZCGFP0NJXquega6BmUX7OHrB2ZBXRoQzVrZAZBRh42AfYPamM5M7O2NPyLpH0hqxylPlHBZCGf9IehzEQZCZAZAIZAZBZBDwILSQZDZD",
+    "id": "418514481505349"
+  },
+  {
+    "name": "Всичко хубаво се постига с цената на голяма болка...",
+    "access_token": "EAAAAKjoDhIYBAEO4y4evflXbZA0ks69hjzECYefdFD9Ox1SKKghkZCBdsGQ2LIdajcffP05sKYeNsbiSxnAXzpcfOngL6gBg115nBuh6Db1vj8Gjd7la07z5xP9ZBbz7a7CKjhVcFcPr6peRGhHDFWbTsLZAZApcP6onGaq9o3QZDZD",
+    "id": "175349752482004"
+  },
+  {
+    "name": "Най-добрия ми приятел",
+    "access_token": "EAAAAKjoDhIYBAM58ZBz2IXBP5CuTRa4gfVv48OXZArsOgPLA26F82AUTgoq3wxLZArK3QD7AKZCQtyOsL6L5u9tFOpdGwZAcwBIiSfFmeyGEXHyWz8ceYqtZBqy3Ttxcahmi7JQNtCKIRzRvRgELG1zUAAB19AjG1V1ugPUxRkSgZDZD",
+    "id": "427233540682534"
+  },
+  {
+    "name": "ДА СЕ СЪБУДИШ СУТРИН И ДА ЧУЕШ ОТ ЧОВЕКА ДО ТЕБ...ОБИЧАМ ТЕ!!!",
+    "access_token": "EAAAAKjoDhIYBACU3qHE2bE6KMrS074ZBu6fkDltOx1pGN1Ff8QZCGOm8kfmilpUFFwGXn3YiTKE8GTDAKZBiCEWXRhKtAgHhlZAYDSiQUw9njJHcUKLj496yrFsfMv8f2agqOpJmPjLqTPZAXTZCFJx2tgL4v1GE9EomMAt47nnQZDZD",
+    "id": "170168553002477"
+  },
+  {
+    "name": "Човек трябва да носи отговорност за чувствата които поражда у хората !",
+    "access_token": "EAAAAKjoDhIYBAChdiVJKLcIPUMgFKVR2dpQoitrkGOSDFWDhvssQcNfSe4qo5bpzZASUVIq0Jh1im4Nrim6VpaY6rZC0hbQZBFPijtPS2fgk59aqJ0zwHA6ZABbT21WZAwS7MFkiEo6Q8ZCVSKnrg0jbjTcWFvygvIvneIYYNSlwZDZD",
+    "id": "188716051158768"
+  },
+  {
     "name": "най-голямото удоволствие не е сексът, а страстта, с която го правиш!",
+    "access_token": "EAAAAKjoDhIYBAJShDZCfLfDL1ijdP2lnwJSayZBRr5VpIAqdwjGD9BFc92hQhbbYaoZBZCBW2dOwHXKld9NN60Hob2vsvo6HjJZALw01bt0bgWwKI001ZCc9UcOCtIF0IxHmtLZBaGLFyDyCa6J7FcMXCHPwnoWNoNQuVTKGwZAWlgZDZD",
     "id": "162339850471253"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAPAyH1kZCvR8T6dGjuNAXJc15jCCThAChvyt0fT8W5ZCDbmfOUmZCI9zmf6beeXB2oNMg7mxz3lE9r6wleEoCJ333Uck68UuGqWrfdDNr4lENVFhII3dtZCWRz5CFVaU2cwWdDrZBU97ewwY3ZCQ6ZCWLWTZBDNb8gZDZD",
-    "name": "Kойто не може да разбере мълчанието ми, значи не може да разбере и думите ми!!!",
-    "id": "146273738756821"
+    "name": "iWall",
+    "access_token": "EAAAAKjoDhIYBAOrpFI8HIsda7AHx7Gf48IcJ2yejPCh91tBjbab8edcdmwfj9pOloZAFi2KO0FUqPOfAtSBUkwIxs9bAQm3c7nDFS0ZCuYMEqAGQaWL6ZARbezq52Mvfz9fFgOWT5cQOnNdIo4Egh469ZCBifEwVeoaoFtZB7vAZDZD",
+    "id": "228913933333"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAFI1rZAZCMYJzZBlamuAwpIOQbUfTfe32M0uZCmzttZC7dqEFtWZAlyAUOXSnO9HJLfoRlBo7HOo7sryhOWRuhtLgPTl6IsoUVaY2TZBRU6taX7dewVTQw0MPYfoftbZBItpExpsZCW1ZB6HPst78OwqwaHnvPeXGSDwZDZD",
-    "name": "Гонят ме - падам.. Ставам и бягам..Но въпреки всичко напред продължавам!",
-    "id": "115191618546331"
+    "name": "Публикувай готин статус",
+    "access_token": "EAAAAKjoDhIYBAGjZCpjOMtWb4UOic47sjGdLqZANfYFVXiFvQDTC1aKNh6CPINzRQAjD1Y65mlfmgEaDf7ZA5FgB4lI6PSNRuy3JMNuzjiTmU23k9UDmxobZB5q59J8KtZAhSNxgbe11HPkopZCFCbRhEhDbgAOXlqTzZBpF3WiygZDZD",
+    "id": "341856872559637"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAHyNCIU75djmLLK2JngkIov5B773Rve6K5GX4yul14ZB71RGuiCesNXb3OW785D1YTDGuhBAoW12zHRG5k2b3IrBOZCdUqdhrlXjo9EYvyEZBFpObgPRS9MJeTABFhdRGv0zZB5IZAHOvLDwbmzEuL8MYCIZAc5wZDZD",
-    "name": "Гъзарите карат спортни коли!  А тарикатите чисто и просто си викат такси.",
-    "id": "136021693118599"
+    "name": "За тези който харесват СИНИТЕ очи!!!",
+    "access_token": "EAAAAKjoDhIYBAMhIyNLxFstlRJPpyHe126XhVigZCMspYF3M6m7JFd3R8QZBdZBmqwPFE6BqtLQnPkSomwGLbZCDV1NTUMbqAqJnpmDYNP90GnqQMDR2rKy5mITmCDb9KFYYWTH4LzJentOTr6bWSvnWNKwNw7wI7eGc1x80awZDZD",
+    "id": "149951525051300"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAAK2ldvaI5TCNj7jeegvXlcZA64cVgmh2EYjeHmPwZBTlqkFKf0rafiniknJpUJtbphqBiD9d10y6btVMBf0gbRrdk2CYCoZCnC74GZCLozWlLvHKKzAiKCeePT4yBzBlj9YN61ftdfIy0xDueifi5MfwmP11AZDZD",
-    "name": "ЖЕНИТЕ СА КАТО МАЙМУНИТЕ. НЕ ПУСКАТ КЛОНА ДОКАТО НЕ СЕ ХВАНАТ ЗА ДРУГ.",
-    "id": "165769846795182"
+    "name": "Чувството да си свалиш обувките след цял ден на ток...безценно !!",
+    "access_token": "EAAAAKjoDhIYBAL57aidqe76ZAYkC7yI8zwOPUU95arWaT7w0Xn8UmAGiBQwECTxqu4ti7DxIBjIkZA2QhpISWNXWRlNXQEbZBxFpdLDS6ZATBQkPNaA0lFgAC2CIaGZBaDORvm76XFV0izt0pNDb2BGwmRMRmZAgZCw7pzRuCDtkwZDZD",
+    "id": "174422009236674"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAEXVpVOZCGExKuCNMCZCZCAy6VqfLZAKYjPDdT0dLXjgtWS4qGumVcnG476gMJhZCRKZB54IsiWt2zXZAyT5aohXP47zZC5huZBUmltU8rBzTsHVXlqHpOfhnbpkzRQadglGVQWXjuzWy72sYUnd7cOlKTGX1DKFpKQZDZD",
-    "name": "Здравей,аз съм леководолаз.  - Здрасти,аз съм лекопедерас. D D D D D",
-    "id": "177194368972844"
+    "name": "Ако искаш жената да е ангел, създай и рай!",
+    "access_token": "EAAAAKjoDhIYBALR4QeQiP5PrjOn79HTDXxzCZARvPFXnClzxZAdUZCytWjm8l0jZAgJYqXnf7aTz5tiRmO5nJwianmOZCmzJrGRzvGoEG6mrjhRACFnpdTjyemOBVKy3pEV0tZBaNdxHwZAnmk35NKQuBdkPx0zQQajlzZCDQ6p7EgZDZD",
+    "id": "144871905560333"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAGv9I6uLLXMRRuFH4NDrR2WKe0Nl25pMwNNlQI1DaigNi4ihlLWtyB60cba8qK8NXmZBNOguw8ZBZBbZCuyMcyxVKp4awIxrcZCP2RnKeAyZCxhla7M3daKsajBMW8cKaVHUwhwfK4NCKWTnRtkJbzBrsZCG3ZCFlwZDZD",
-    "name": "Една усмивка не струва нищо, а прави много! Не трае повече от миг, но спомена за нея понякога е вечен...",
-    "id": "181510621863696"
+    "name": "За секс е нужно тяло, а за любовта човек!",
+    "access_token": "EAAAAKjoDhIYBAELvy9rTNqsTiLdYMGvfUpKMZAmnIT5iM3mNoZBMRzsZBWYnanZCgVjCVcZCjpvyFnXu5vJ5419ADYcpJvJHtdAsNlAO1zk5RwBonld6MhEmnlW90Gu8smXnPWCbzJK3Od6zO9Gp16hnoGb4aoJ5cKROd6GyrswZDZD",
+    "id": "174537189225472"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAEHeZBNzN1wOZBXWfOlD81zBZAgIdZAh4eXb9ZCgG6zsgx7AOQ4tmBGjD1VkRvzE7R35026lvSRoXFKCU3BjOPZAA3XKlpSBjLGyu0LSfywlJujvpHU4chYgeC14HYZAUZBCJZA4yhLZBn2ui134UNZC4ZA9NgmNiJAiAwZDZD",
-    "name": "Сърцето има доводи, които разумът не показва!!!",
-    "id": "132636073460601"
+    "name": "В МОМЕНТА, В КОЙТО РЕШИШ ЧЕ ГО ЗАБРАВЯШ, ТОЙ ОТНОВО СЕ ПОЯВЯВА В ЖИВОТА ТИ И КОШМАРА ЗАПОЧВА ОТ НАЧАЛО..",
+    "access_token": "EAAAAKjoDhIYBALu54UCefQNuBtPbIePMONvdeL4SYyI9nHqCThZChSBP1yDB8MPiIfoofZCkSDavDg0cgqQOSGA0E6d0yBdf3UwjvZBfkqQm6xzO58LbgfG72MHT2CSO9ZCjZCZBPKyxSmBNQNdce0Ir3CZCfyGtpEUmb20FYPOvgZDZD",
+    "id": "174648815879544"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAJxCSEKIkNGHZAdiMlpxZATFmZCkBkIpjAVGGC2FZAvVCXHWZC3GlqZCE9y7GsM45lLYXP8quGN5CCufc1vguHvdxj70ldHBMvGZAKdjrm6kEeTuKbCefROhGJPXU1KSPozpsRilLF40tZBA6uU6euhZC9LmzFPFfvgZDZD",
-    "name": "Оценяваш нещо чак когато го загубиш!",
-    "id": "178459485499845"
+    "name": "Моят уникален домашен любимец",
+    "access_token": "EAAAAKjoDhIYBAENAP75H2bHuoQsAMEhoJjhNjDokjVPxfsHRtECpEY0BRF8ZCELtiywOEVFa8s4ZCTZB1YnlyhNQLuTiWHZCyewUWJCVMZBYjONZBeKUGZBi7NlRm47PFLjjL9xGQ72rNnmH37JKRvBhBVweYnDF7Xc2hKrmYLSMAZDZD",
+    "id": "110099659014190"
   },
   {
-    "access_token": "EAAAAKjoDhIYBADtZCDawYXJXTTaJW16uOonnNGynxcwZBNpVR4JeZB8QzkbNmKSJrJ53nhIcbZBmoR2dX34FWpqEOVY2v1QdXcFstphxMZBo74u4aak2jqslNwdsVMP0su37CmbXbkQvsmHfTb6tZCPVciYIWQHxxQiprjPCXJVAZDZD",
-    "name": "Докато ни плащат колкото да не умрем, ще работим колкото да не заспим!!!...",
-    "id": "124395787620080"
+    "name": "Дори и да ти пука.......важното е да не ти личи!!!!!",
+    "access_token": "EAAAAKjoDhIYBAAG1i3dlJoV7ARqd9kBIXhjl5tfdZAYAp5N0iQZCDdUxJI22zHDaGZAXkk03GS1rjTPZBW84qE5S2QGdvmiczwZAJwiuqqHVzdZBTQe8VNGrqzkHs9gMFswCEbsWbCRCMnjXQOrbRykK2ZCn7973s8qRbcbzErAfAZDZD",
+    "id": "128494820541969"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAHBisoHuyA3q0mwHwmWkGTEDMbkeW5uq1ru0tgoHqKGeDwx6OLwfwcjJgNRmJAlKoR6Cb27SaN2niPuFXWlw8MbwzYfP2xlDnjV81SMiU0NBp5g1EchO02GjfYOSUZBacZAXDwRhR2HUa4DJtHnNDuBxZBsVQZDZD",
-    "name": "Знам, че не съм съвършен, но съм толкова близо, че чак се плаша :",
-    "id": "176255172385287"
+    "name": "kartinki",
+    "access_token": "EAAAAKjoDhIYBALDl441d7WaNxGGQCWfskZA9SJtd0kA3tCuOEqBrIfDCCig90oTHkdupoSGyO2ks7SbCgVxOuTE5lav6xU1pgcs38rLatxnsOXTSvVekm39QFRXxdfJbNolYZA8pouZCphIoGhQ4psocUVEBmD4ZCbyZADaBZAfwZDZD",
+    "id": "128102930195"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAHxLcfAjZArDsJ4ZAstWhmtLZCMf2ARZALQZASU5xG2jY9RpUrDqdowZArUh8iDkIBfZARq34qd6BCE073yaIzY33NFsoGgyQMioaV23dejxXpmB4B80yC0PAXxtrNVWTZAdsZCkg9gtzojzzBvEMgSUeEZCxFqEgaCQZDZD",
-    "name": "За любимите мигове, прекарани в нощта под красивите звезди...",
-    "id": "168187373204419"
+    "name": "Помни миналото, но не живей в него.",
+    "access_token": "EAAAAKjoDhIYBAMUR9viwvZC6ZBqC2zA30q3CLmxpxh7S1Kl8s6zldtLaBADttNALwkPsI4xCEM7j4jRYGTBAzzwFiIsz85uDJXnKoo4XGrnuXfxiJnxjbIDOGNkbVZAX9ZCqQZBX3JQZBqtBWv2CZCh2ZCPGyfncvSBeRk0ROGFZC7gZDZD",
+    "id": "163963263626366"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAA35CWLwbdNSH6PZC3coNGJn7eBUZC0WwYQw7BsrozAAwb7EfRY9ZA6zTIO6JpvJsXCYlKyuLF5DUwJsRQdTqs2coNCftYxtODM2V7d9XzG98DxF07UGAPJmJUwOR5hnO5xkQZCJG1OAHixn16xHRWUmRbKvsAZDZD",
-    "name": "Всичко, от което се нуждая, си ти – моят въздух, моето слънце, моите мечти! ♥♥♥",
-    "id": "159308320777504"
+    "name": "Истинската любов е не да търсиш идеала в някой, а да намериш недостатъците му и въпреки тях да продължаваш да обичаш !*",
+    "access_token": "EAAAAKjoDhIYBAI7DOCTXkXC8ZAqHOiOsdNYFtnlvk0UgHDidpTWRLkxaOA6UAns5h0sLysr1XwiCXohdSQmY5pOJl0ZAERh9UpkZB5kggmxhWw8l7ZB5PVra9lUAFfNTOrpa6k0ZAF5PD3Ds3ale60DwywZBAx9HfmFYw8mldbcQZDZD",
+    "id": "174733349204003"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAHcOpNqgMT0E2m6ZCTuiwTkkcOfqffZCymyZCYet83Vr2WfGyX1u1ZC9rZBodvb3hAIOK0ItGoSqFkkZBDQEjI69GKlUPleUl32oUx0fzvo698xK9G6VdHoMljvupwFtJR6LoW5UZBnZBbsZBgZAhVlWmTYC2ziYQ0nwZDZD",
-    "name": "11-тата Божа заповед - НЕ СА ПРАЙ!",
-    "id": "162011930501702"
+    "name": "Rudix Radio",
+    "access_token": "EAAAAKjoDhIYBAOUsnPx9tklof7bNLRZCXO7fgsboenaHU9NZBXVowUpeERZCAisp7k7462XpzZAZA7W1nhlfIPXeLZAtutrMN6NzufyzrvHepSLdRKjN1umcip4qjHYLUMH5n8JEJLNmKeEowbuRG9tFApPgchUZAt0j1ZCr4VLZCmwZDZD",
+    "id": "134459856719423"
   },
   {
-    "access_token": "EAAAAKjoDhIYBADQjZBsd0uRjBTGGUBGvZCUfNF9xVY6mH8MO5ZAXbl3glJ67JiGP2Sj8WmAGVuJPacgmIDIUzmOrUUKdKahWZCmDp2TWA8RkigXYMOSLWKKI6zwS63CeZBDhF5QRyAZCGaI10HKQlFrTOeeZAtal9kQWViPrLdZCwwZDZD",
-    "name": "\"Никой не е съвършен, докато не се влюбиш в него..\"",
-    "id": "172972269394945"
+    "name": "ߘߙߚ",
+    "access_token": "EAAAAKjoDhIYBALXUpeE8lqwunzQtAaYuNyMlHZCzzvauNJJomOVqnmpOPeMculcEj3UwUOZBtLFogrNOnHQdFUMg0PmIN1JTy3v42VUFcYjvfLurucmAO6IsdcNe11XRZAmyX6fKujSt7ZBLdopjBs0kMmeQbWXBGsusSM5LDgZDZD",
+    "id": "667008949981470"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAK7xeVNB4QIZCewPqj4rdE6bsX0wToyRHCAsZCDCCO0xdOhx2CXNZCQyaCFZBZCeqaXCZC7kB0gBsp5YWbCe4PNiKK8R9PEgjouZAa8I9NowQ3OYgMNkd1Jb9jfBR9bvuVZAcMo9nwxYGzVIckLqXW07e37f2XpXjAZDZD",
-    "name": "Обичам те, защото ти си огледалото на моята душа",
-    "id": "145510665496541"
+    "name": "Cat God vs Sun King 2",
+    "access_token": "EAAAAKjoDhIYBAGEQcmHZCVPefwDRZBrK01nANHpGbtG8yzcwxd8rwtQTXAiPtibItKwEeO6EZBTSpbZCV5lvIu6xCGSPxZAO11acYBtndXJ31qZAZBj5spTCnLEtuPk8wAHEvQd1hNKiAqPkLZAH2pmKjB4mkcP4KFgWHd2vatXbmgZDZD",
+    "id": "496297510437788"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAKq2Jevm7HJLRDnZAGQwNOmCtJCEHUxn9Ij6TDOxDHSoUluLiw7eV2WDzMfWwx9rNW8ZAOHVZCTK1VgHH3G1e7ZC2rUZBrcjOWOakcAcq8aMTRnZAQR0ITSk6pM89WBSXX3VVdX434XabbPGCsKkViaScGECZAECwZDZD",
-    "name": "Един човек ми липсва и всичко е безразличнo.Един човек,а всъщност всичко!",
-    "id": "170061706357034"
+    "name": "Dating Mariage Agency Bulgaria",
+    "access_token": "EAAAAKjoDhIYBAFHUtXQfR2T6wVaEeXoiSwrZA8MTb5NrbX1AdyZBKSYYzsK7e8Icx0lPD3DG7JkVZCdUCcPEXX7k1K3Xb0kcf05vSZAdtpnZBkP8pigKWTzOgb48EZBN5jRmMz20ge6BAyk2mh25ZBtd0lWCKeOEqm5xaXr9R4zygZDZD",
+    "id": "54142169774"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAIZBP7ZBA3C47DPNQwXoRiPckCabT7h1xVFd77OhZB3cgKW4lciqVW1lC9GRI3yU0jqcJAwQRs4vl0yOZAIJbFZAFgxZB8lLTQNVnJL3ECAinwLZCSxZAtTXzxFnptZBg6w9euqPwYh9jcWUyZCGFWqcdFiqWo4KMN1AZDZD",
-    "name": "“Да се съпротивляваш на любовта, означава да я снабдиш с ново оръжие.”  Жорж Санд",
-    "id": "176031265756326"
+    "name": "Уста в уста, очи в очи, то в ръка, ръка в онова, но не и това в онова!",
+    "access_token": "EAAAAKjoDhIYBAGhWX2p0vZBzcCLmePclrHm59pD5m5idAHWsKdY4yvE8cay5o1jS8ZCCiB8WpY1kROpXKbe9jxAdSZBGpyPnCD8zTxaBb609Vbh70Tq4d4ZB16z7asmIf0MfIZCZC2ZAnwIrPcOgCZAokhTueA4wnyikqu5zslliMgZDZD",
+    "id": "188656647833354"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAFTOvtZAVhekMxthcqhPZCXxTk8PHQdf9pCTOaAZBooMZBcV8UYSFcCwZBG4Dt3ZA1CWIMHPSjZC1rgYb6SBvRiYAVAiXp1DYrqPfEyrIsaRAfFAMDPWr4GDxETQPtPCjc4h1sbHjLHFhsxxhCQW7myVdZCOwl7kIQZDZD",
-    "name": "Ако нямам този който искам,няма да ме има никой !!!",
-    "id": "166599256704870"
+    "name": "How OLD do you look",
+    "access_token": "EAAAAKjoDhIYBABodtsTvcMg4oWG7OZCAUKiKCTBrsJE23he3ftn304epRsR1bghu3fE8uTZBVUZA6doh9XQoMtrpA0DHZA7uLAkJ97plZBBAXelegrT51UtN0MVqtPZC088QdMXOze3eQsvrzvkvL9vihgWxiU1uhkZBmkgf991QAZDZD",
+    "id": "255853774517437"
   },
   {
-    "access_token": "EAAAAKjoDhIYBABUtuefDCCwI03DfS9HDdpJRUFalyMsGuZA1ZCKNzkCZCiLX5N2dkuR3sA2pTARcyOTispnOTRZB3qTCknZAzNLEXpoNL9EHUC0e7QCz2BpiQcZAlZC6DlAH3c9r3nhXrPZAVWDEfgB9btePZBaakxVTtlIatzpPsFwZDZD",
-    "name": "Момичета,не чакайте да дойде принца на \"Белия кон\",защото понякога идва само коня!:D",
-    "id": "136036543116211"
+    "name": "СтаHуси",
+    "access_token": "EAAAAKjoDhIYBAFViYkkHKxYZABOXDLRUuA1GGpImfZBNZCb1qZBNXenpJhNFyHXdyvYtL4NdpExHwePtL1e8AaayPtxv8tTEXKgZBDHTkvXzUWXjuz7ZBaFeZA5SgqwBZASpMkBNPtglz53x4FcfWO6KIRDh5TxgNhuKCeMf2nRn5QZDZD",
+    "id": "190197301013268"
   },
   {
-    "access_token": "EAAAAKjoDhIYBALojrnW5td3AZBYwvRJ502TnrSRxItY5Hq9vCSI6PwHDAUZCxJ3K6jHdGahBc8GS1ZALgGwZBDLZAsDYIWRzW9mZCzaRcI63Dh1bZAhZCcydkVzkpS6TmRCqKGmmVOrxwcaWihmExZAzIyumciyasFfJq9lCwTwr5iQZDZD",
-    "name": "За чуството,когато запалиш цигарка след секс.... ммммммм",
-    "id": "115509718516664"
+    "name": "FunnyPhotos Community",
+    "access_token": "EAAAAKjoDhIYBAKZACyeTRUbeGoymbWppZCrXSgZBhZBfGwW5nwzq4iZCuyffLSd8HrpGkOhNlKLCXtFictwst1CeWMqIL4QluZCsyajwm2Y18vpzavrwGEofgwxMZBcJw9pelJYhuDxZAe12rLLsZCOX4iXDzsBWUZCMEThdP4bTwNAgZDZD",
+    "id": "194298920697083"
   },
   {
-    "access_token": "EAAAAKjoDhIYBALrvEeAc40G7pIqwnuN9TlyRJh4rSScFHW35Q0Aky7ynC9ZAcZBFZCrRWLNWVHZBpLRivu0jZBqZAOMZCZB9AMbZBuFK9Xt2RW6Iph8F5pRyA2AlMaGvmkT6X4etQoVsEqZAmZBVGm2KZB0CVTDfuTr9Lq3WQVmnigeB6wZDZD",
-    "name": "Прекарах цял ден с теб, а вече ми липсваш... ;",
-    "id": "106755209397482"
+    "name": "Moto Forums",
+    "access_token": "EAAAAKjoDhIYBAFsQkQCFnGXmQvoznneqeSJfZCJp0ETHstr2jALiFQLPGIjjzmZBnoBTtX8y7UKNiwmC4lassXFm9d0vZAHiH3t4fQmUPBZBRcCkH9h2YsZBrqn77NcsiqRju1V4hnoXyrEtG99E1fb5jPVZCqnS9WeHdd9lFiigZDZD",
+    "id": "158271914308"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAOMRuLOSyszKtZCLjm2Fou5fLtTnXimX2DZAnzQZAyi8ylaxTFCPktYrgoWxTrGTghsjrWFkqNpJrKbTToZBuOqKUqrYjnxJ12mej6Gk8AvZBgyla3U7Qa1ggevCVw9oQkFKmwyILSw4MZCrGlhSjivTKCn2uR1QZDZD",
-    "name": "Всички ние сме в канавката, но някои от нас гледат към звездите.",
-    "id": "155766217799970"
+    "name": "Не позволявай любовта да ти се изплъзне - тя се среща толкова рядко...!!!",
+    "access_token": "EAAAAKjoDhIYBAJwZAv3zPNNjnzqsprsiLBXP1SADqG2OZA7yZBxQfJwWCUqMeBGWp2VSnVZAr8JczXkZCganViIZCzKKDj1izNzJN3gsPvBQIdAwV9mk4Vf4KZBIqGZCLjdFKeZBUT0sUETFvugZBcsBRxJwEN6njMCJPou8D24ftiCQZDZD",
+    "id": "190594540961247"
   },
   {
-    "access_token": "EAAAAKjoDhIYBABkoz9ju4yH7hRFCqJnEAONuUnT8UXZCQRhaBhmKwM1fBuKmWNX27yYG1FlUfkpNUAPIy1JpzbGrVGNSkMQves187E5np45imwYgOFjMEsSqDxwXtGDEAQhZCbfyESvZBju1kJzDtrXOkLIUfiotjWZCYLPxNAZDZD",
-    "name": "Магията на любовта",
-    "id": "157700497607613"
+    "name": "\"Аре да не те набутвам!\" = \"Не ми се говори повече с теб!\"",
+    "access_token": "EAAAAKjoDhIYBAAbZAHGvIUeUSUn1idCkITJZBPvWanTax1X4j9qLMCtxev8IF96lzp1faK9iVAF2i7RHVwSsiaJfeKKy5mKyjv7shT8TPLvmUZAlJ8fmbWkYQftZCTqpdsJ6WsoX6kHSTWvTZA68Ldev2kAbp0e5S7JD5OykzeQZDZD",
+    "id": "131494110238908"
   },
   {
-    "access_token": "EAAAAKjoDhIYBANU0pwFgCUxZCUKJ3DssPypVhkKbNlyjWgTgSSqJboPeAV36sZBqcdO15wZCPNvSSuh28K5Fo3wi32wah5QAi3M6FttuoVs8KLSKEAW1qordRNXaoU3ZCqOBJL7yaE4fmpHBTET7SDKqZBfmWyluZCXa8dvcxPQwZDZD",
-    "name": "Ягоди.. сметана.. и гореща вана!",
-    "id": "123754024350820"
+    "name": "За всички, които използват \"ВЪЙЙЙЙЙ\" :",
+    "access_token": "EAAAAKjoDhIYBAKsPuLIFeh5jtVBZAHriSk0PbVZCYEZArcxxHcjCSYRSAN5ZBTNHd2yXhnmaRh8P7Kao1BQ4xkSNPx7W1YoAZCYDyWqfDRj5ZCbvLBdENl4iBjM5RW1hfusvW7dpeuq1wq31TGup8Cx9WjApSh4QHetsaen1pXcgZDZD",
+    "id": "182712805097336"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAJYZB52ecBA8sz9rWMZA4H7QaGiFREKG0AYFOpVs2wKVCnMCApWR2B7AJ0qhQlihaBLp1g0cd0er7ZBNORgWooUSCPFTH31MpdLxJkzTqxIK8ZAFUZCsRxFvaRAcEk9k6L6m2yyF3Yu71z28cE2egRVowQvKyJAZDZD",
-    "name": "Попитах в Рая дали липсва едно ангелче, защото ангел като теб не може да се роди на Земята !",
-    "id": "103405359732886"
+    "name": "Коя ти е любимата певица?   -Лейди Гага  .-А певец ?  -Е.... как кой...Лейди Гага :DDDD",
+    "access_token": "EAAAAKjoDhIYBAJb52AD3SYxJiNvwNdAdh3fcqIapatQ4GaBKeIuLhnAhZCsPwHE7dTLwDkvGY6yikIRFt93uA17kxO9UJzeYasPLbaDct4PzLnZAO5QGTqQnRQQI3521DAovmiS8HRCnodSvR4vibxYaBPJMsgwGXiFbS8fwZDZD",
+    "id": "178030632223397"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAJmTOroiY6T17IDszndOdVkQSDDx0W2226hi5Wpv0aZAVo02owKTICoJgbwpZAQZBj1YugJxCEjTEY2z5LsGx9GjysLwqnLMAYd5ZABZCiM1UpZAZBlygGttZCLaRML2N3eOClH4cHqyd2UVd1ejQiH3g9YIuWNuZCQZDZD",
+    "name": "Малки Обяви",
+    "access_token": "EAAAAKjoDhIYBAGWdNSw5sKNeilgebtrGEukNixPjqJYsOC1xPwhAoNolRUWd7c0pqujuAVmpK957A28aCCYVOwCTCVqrPBUmSs7EcaLZAZBttZCABOU5Nc1QJmVSBeBOm7Q6GNdAHLVqTGdtd2GrCHlyRgt4x5WMVehlLVYgwZDZD",
+    "id": "178185772308055"
+  },
+  {
+    "name": "Водолей",
+    "access_token": "EAAAAKjoDhIYBAOYTcJ2VofVvdBNUT7QW8BTAyEmo1yY2cseNTFZBgaok3p91kkYUmZBKuIo4bIEyE82AgglNBZBppTGHssENgxwTXKZCmqL4xucQItSBa6ZCKkW61yiX7zZB2R8uprjlR8BqqG0m9qUj092wZBQZCFT5BgH8KrZCM5QZDZD",
+    "id": "184959018248509"
+  },
+  {
+    "name": "Овен",
+    "access_token": "EAAAAKjoDhIYBAGG9UOZA7ZCqAm2kRrBtRJJhqPZADdIjCQ87Oxj5k1KqS29j52BitFz931fQv7ZCrF9tH7MO6oZAZAAZCpxBjJWkwBhX19sRVob9Se0qLDfsuKcFjuqw6uTH1lR2NJBZCjDfiiDQNIhGVADWIfPd9mW0i0fqRJNf3wZDZD",
+    "id": "175195095896647"
+  },
+  {
+    "name": "За всеки влак си има пътник, аз чакам BMW-to:",
+    "access_token": "EAAAAKjoDhIYBAHE6tQ3nVAnoWMdfOFTcaZCSYdPAOjCWIUjFI6vnTlsLXzVVZAg9JrdXFAkqiXZAoQS1eJVkVs3V36jqNbCXJb8WZBHZBqRvKvFcQix6EvfZBcGrIVi2sX5E0iv7rEP3av6NYBverNlLRoqBocuaRu2ZB01XhHKAwZDZD",
+    "id": "203194446364461"
+  },
+  {
+    "name": "Не ми пука за хора,на които не им пука за мен...Уважавам малко хора...Държа на малко приятели...Обичам силно...Мразя двойно по-силно...Лицемерна ?",
+    "access_token": "EAAAAKjoDhIYBADQ6bNJbR1KGDRSAzINX9Xx0MrUPb4mGQlftfIZAaYyNnytc01CtLwbT4ZBApY0HB9UdCluZBFvPyUzc6qXeR8hsdttt9pZAgSaSKmUJJZCgsHtzOmMsYtgwakGRGnZCTw9NZAgqC99nttGWaP4EtihvQLvxPAXcwZDZD",
+    "id": "127670530623367"
+  },
+  {
+    "name": "Не те сръчквам, за да ме сръчкаш и ти, а за да ми пишеш!!!",
+    "access_token": "EAAAAKjoDhIYBADXs65zcImOpWyHdXk0iZApf12ruWZC0TL4HjezNSV8GgbNDLpZA7ZCZCzQP9zZAzDJbiurSKgBSCJ0K4wzJPhTAf49YJzO5ctyLKR99ZCk6T5IZA83wHZBisBe4pG777vGtSQETkzV8tB3H5y3ZBt42YleHf3VdF3MQZDZD",
+    "id": "192130540805325"
+  },
+  {
+    "name": "Понякога просто ми се иска да гушна някой...",
+    "access_token": "EAAAAKjoDhIYBACyCJnKxXJcAgdo8lMIMyQMRx0Q87c0EHr2WoRZA1wZBdyFbtUNDPGbNbHlvi7aQRd9ZBklIPSidaJdZB8LNSAa461egNwV8ZCMu40agZBxnzs0HQm3GQ0lKn0t26oPCZCZCZAdriF4puzTpwZBsyShwcV7v58HQWyWAZDZD",
+    "id": "161906270516920"
+  },
+  {
+    "name": "Няма невъзможни неща , има само трудно достижими!!!",
+    "access_token": "EAAAAKjoDhIYBACgnSC3TMLMX6iqz0F4htcZCAny08Xw0R2z9jDhlK2nB2l9ntoqqB6PPUU8xsodKLaJMRvM2ZChcIPHnY1UKsG5a0ovUzxiQKszlIdhyTjyLp0fn0dZCVCUezQPMxbaWKexk7jZAGkiZCCAgadz5tfDx62s92RwZDZD",
+    "id": "123332751061794"
+  },
+  {
+    "name": "Аз съм красива и здрава, защото раста в пеницилинова среда - мухльо до мухльо!!!!! :",
+    "access_token": "EAAAAKjoDhIYBADGBDL5J06yoQaZAf4OkzYcnF9Jw534UmHCiycHVDUs078DiPsAF4u7GZCe6fIjWzHKW0sGTYsZCE6AZChJhim1UVJ4XiED1Hy7iegRLMm71K5y7XJ6rUItZBZAdqx8Bcm2ZAukwPQAnUM6ZAXAzjIj7co5AVl7D3AZDZD",
+    "id": "133378786729181"
+  },
+  {
+    "name": "i wish all my friends lived in the same street as me",
+    "access_token": "EAAAAKjoDhIYBALg6uNHjmZBmMIgFArF6vRfiTgABumC2deWuTLGzhMOyC6ZCRkfi4XKWP7CintPWlkkLv6mkIQ8iBBhZB2hOkZBD0ZA4ZCk1ZBHZAfY76eI5rgkhL2kLCZAQCOZBPn4rCgbhejgLWs1rDRQZAuUHt1g14Ii2jeZAyBkAWwZDZD",
+    "id": "106037409464600"
+  },
+  {
+    "name": "Не ме е яд, че ме лъжат! Яд ме е, че мислят, че им вярвам!",
+    "access_token": "EAAAAKjoDhIYBAKEPK3rX6QfjrdEVjbcA06U7VoEC6yPZByUtSraJGclFNBusBHPWqWAxPx33OtkqqxSbgbeN4ZCkbv3w7tfxpUd7PJ8LwFdCZAPDzWtaIZAl04xcK0OwZAXUxIWRUausseNvZBCsWN0qDd64KUeL5pI1LEInrMMwZDZD",
+    "id": "128478667210127"
+  },
+  {
+    "name": "I love Green Eyes <3",
+    "access_token": "EAAAAKjoDhIYBAD6DIru5gPgYasQBfKml7mZBHRKPbmZCgupRrijZAf1G0oWwrHt2mJOvhkgIZCwL96LXPN1BoSFRiBMcz7ao7dYAg8Ew6XcxqbnivYJ0A0Td1XdaZAscCnlQB8aMrGvnSvs8a4yEUnJ5EZCJhQinZBa2Y3SZC0yS5QZDZD",
+    "id": "172292279448676"
+  },
+  {
+    "name": "амиии секса на плажа ...това е програмата за вечерта...",
+    "access_token": "EAAAAKjoDhIYBADhzwExYopfJMQFuUn5yR5kgCW5kCPRGOR2AZCd9ozgZBM5ootNK4SiDybY54pNEzPZASzAbiMLWC5lOGBgpdeeg3tZCP6PWtUZAMVhGvDoLeM35ErUf5he6dY1AcbxyBPVg2UZAOBBUXs3u5AvZAxCoVJ9oLuZAJQZDZD",
+    "id": "173871932646805"
+  },
+  {
+    "name": "Най- доброто нещо на света е да мислиш че си загубил всичко... и да дойде някой, който да ти покаже в колко голяма грешка си!!!",
+    "access_token": "EAAAAKjoDhIYBADh1apu0v6WVqiSI291RCnHSq4yIpyGeEDHPnFZAofdpYe4pItzwqC7tc9MVoM8TI3h5krJFmXrCTEmZBR2fulvKzApl7J3ZAOwyyFvJZBv2FZBIiX8EWYQqB6I2BUorW7hxS6YnDxqtgNIHem00MEnDy07sM5gZDZD",
+    "id": "179421198765767"
+  },
+  {
+    "name": "На ум крещя обичам те.. пред теб мълча.. усмихвам се.. ♥♥♥",
+    "access_token": "EAAAAKjoDhIYBAOF6FPwP27QJ16vNwCxYAA3f4Ku1AAZBtPHX7ePZCIzWSUtaRo2oFbpeBCTRRnXAVraOXttMD1kfCVchVw6TDf1eDq7ZCkuTD5BGoEPZBxONJJWoQIaHCbJNHsRmLVqIPWJJHZAyLopNoW8HDjnVZAwyGL1ny5qgZDZD",
+    "id": "167931423227375"
+  },
+  {
+    "name": "Много мразя да ми отговарят бавно по скайп",
+    "access_token": "EAAAAKjoDhIYBAJ9MZCPZABwc2q8ezSEZAoWwPM1NDkEyjKE4JTO9KZAr5WVz1gTCN2BVcbfnp8v2im2qwvER8fbVS8VAk6rQCPcuDtgk9U6aAAuyb3ZA75ewVoSrQ3iEvQckeUm8XswoSNBzc9HB9tks3GYBeZAMDAGIfPDmVuIgZDZD",
+    "id": "164204300279782"
+  },
+  {
+    "name": "АНТИ МАМИНИ МОМЧЕНЦА!",
+    "access_token": "EAAAAKjoDhIYBABSBZA7hjiowAFhkbvjHX7eLOE7u7Xjo41Lcuqlsg1ujVpyWsHZBO6KTEgA2VdpIOChSkbn67l5uKwz3CPZBHDdIXPRCkDirN7yPUfNIYFQZCSxqinWEjoFpNg9OsMhjejaKIfsZB0CWGYw1lL7isSeeittqcIQZDZD",
+    "id": "161021307274239"
+  },
+  {
+    "name": "Обичам деня ми да започне с кафенце :-",
+    "access_token": "EAAAAKjoDhIYBAC7FSACOnx2deAkpfurOZC78nYYqpd9emoDjTwVo18wF7MHk5IZB4rYQZCiqD9XkSqOd0si5pzuZAbMIq5Q8w5PyVN2ZCBHOa0vNdG1vciWVonN0pSSWPcoXZA6vigNAmvA29ZBThjXZALUGATyFhnHMbZAMzOz0IlgZDZD",
+    "id": "158443064198066"
+  },
+  {
+    "name": "Една усмивка не струва нищо, а прави много! Не трае повече от миг, но спомена за нея понякога е вечен.",
+    "access_token": "EAAAAKjoDhIYBAKMRCmZCNMTf2PnS7IP7YXmW8vj7pRYvXlnUfa3i6peii5W55t3snC2MykE2P4tOeVYo1ckI3OyLTIcgyrO4oYE1xCQA1eFEhresDVBctk4zbzK2Dw5wNZC8eZCU1uTDYSBEvZBJp61QFYup4wIarZAe6ehFV1AZDZD",
+    "id": "100736789997595"
+  },
+  {
+    "name": "Twilight",
+    "access_token": "EAAAAKjoDhIYBAIA9SZBLDxytWHBMygDjWKKgKVklm6IpdLYZBFRqRTIZAjOKEejZCgTDAZAs5lSLyfQauUeyuzEiZALS1jKTOmfZAnIRmfeH2kOqUdR8IJRGqkNWZCa9h7NEm2nxHHeTAZBMnOb07ZBEC3fKRZBuXT509lXOyYuXFvZCjQZDZD",
+    "id": "175940739089122"
+  },
+  {
+    "name": "Няма да страдам заради твоите грешки!",
+    "access_token": "EAAAAKjoDhIYBANdesQecM9loRqax5sqOtxIcOYQ2P3jfdUyGhKdwB36Qdy1BO0gR6Nm0gjZB8z0kwAbFIskBITAeKIe4U6lErT89jkZC8mQjEF8F84VjWJAMMKmSr1J6ZBZB5NOYUIwHJX7gPtTNPnZAYsfsD720vIWYfg3TyQgZDZD",
+    "id": "190495017657937"
+  },
+  {
+    "name": "Колко безгрижно живеех когато бях дете!",
+    "access_token": "EAAAAKjoDhIYBAB04JZCMPDZBmYPWvWDC4Hou4g1aw5TwJsGveb7zZA5ZCRj6TZAgOKSYZCnyOSjeE6KykZCpucWM7QNV12ulMCtHDjf92ZA5YABO8kzPaix52jczwUOOW8xph88orqG5p6iFDasn5OUI5US0uNRNQHL8sZCoAnz5uSgZDZD",
+    "id": "197697433574693"
+  },
+  {
+    "name": "THE GREEN MILE",
+    "access_token": "EAAAAKjoDhIYBAGGd3MGVQdIZCs1ZCICvY04zcDbLhlzqZC7ins2444P7FlZCLHbuslszEyj1QExxxOsUexcRrjVl5uI4EKGUoeZCBFdtzZCbeN3LLvI8GncUa8qgLTpY2ZAclr3w9U0WqTBFuv7xbw7BXUivf82znltIEgsSnt3mAZDZD",
+    "id": "126938587363694"
+  },
+  {
+    "name": "В момента всички имат 3 теми на разговор - \"Дължа пари\", \"Дължат ми пари\", \"Трябват ми пари\"",
+    "access_token": "EAAAAKjoDhIYBACxUdQO0OwlDiZAoGOMFZCquWbh9j1KEW22oz8SzpqhZB1MTe0sAAAnOqKMuNWye4mkLNzVOE7anCrch6NuVPIWXIOwpfZCSJLQNoLDgRFCvtRIRBdvCZB5d5TvTtTOY5jGQFjZBnCUZCsMaDb6gQfjvoJvcoBgcgZDZD",
+    "id": "165506343480441"
+  },
+  {
+    "name": "Най-хубавото се вижда с очите,най-същественото докосва сърцето",
+    "access_token": "EAAAAKjoDhIYBAGJqZCjmfjZAzcLNDsLDZA03BZChZANHk8COi9TTDWFKoWMRIZBKnjeJ26d2GDS184RzBSHr9kPZCqh7AIoKobvIk4r1eE734SJRTPqhbwEZAtVNP4tYWvGqwvcOeC5IZAvxY4ZAZB0zErev8Q4Nn2rxSdILcFZALryDCQZDZD",
+    "id": "163355413714742"
+  },
+  {
+    "name": "Не е ли много беден на любов богатият ти начин на живот?",
+    "access_token": "EAAAAKjoDhIYBAOZBGVqRe1j2cscTufpFZCvLXqqPaNH3NV8VYGSYMxrNfeHZAOFUtwa9wRr7abrP0mKNcfA1l5K0QnaOd1Pz9GTcYFEVORAJ2d2U0Mcp7QTyTHZAhshp2KGVZA5AZBZAnxI30upr9ULADZCuyV49tVW3dW0KIgZC9jwZDZD",
+    "id": "172601962786336"
+  },
+  {
+    "name": "коя певица е най-готина?",
+    "access_token": "EAAAAKjoDhIYBACrQtZCnoBRWVKtncJpZCZBKLWY01c7DTdhcNRmzg5vMZArHZCE4sKLDS5KiSsu9V69VqHhW0AsBoZCjfTTHFu0zuy3rmRiJjwgHFor9VZAtvZBD1izErxHg63vfpUjW9NpHFo3B6tlyQq9LVKSYx2WHwc60JfmL2AZDZD",
+    "id": "135408346510374"
+  },
+  {
+    "name": "Искам някой да ме цунка",
+    "access_token": "EAAAAKjoDhIYBADTWOXGZCtbRTrTWl7ZAYgO1nlCQNqwkKwrPeEgK8BRlIKRVpxGmuWjDZCja6XJod6FXHClSAk5HHhCLq17htLQUlf1wOlLmLfI20AuCMk8qyhXxzbEq5fYG6iMg7pDbUXDIhbvnZCm6Rfs7NSBPsjYUs9Qw3AZDZD",
+    "id": "105308662875774"
+  },
+  {
+    "name": "Който се смее последен, най бавно загрява!!!",
+    "access_token": "EAAAAKjoDhIYBAJG5K4aQBeD5xadrcwCB7rM91qyTYVFyfHpnfe1Eqfx0FIRk888gETU6SoOHGFz1noTWW51dNdPw7yz3bQgLfG1OxideqEBCVwf67p47RZB70vYyZClXRWZBMraUc21IEA6AcZC5HdmZAhocFlg9Dn72PyRRMTAZDZD",
+    "id": "201044039911763"
+  },
+  {
+    "name": "Купи си десет кебапчета – Събери куче!",
+    "access_token": "EAAAAKjoDhIYBAAR1rXsD9ugKmNTOm8naJ0xhpWNfZAiNNYTFhpVZCqkvtCEZAOgJ2bTD9MvU6GymslrN288WHW73a6iLbwZAt5nPGFvnF3K5TxolZCMzZATU1KyHtzORxPBX31QlqxiQGHlCVLJkZCQ7gLIwGyrl140vJnk4EBl4AZDZD",
+    "id": "201352826543331"
+  },
+  {
+    "name": "Ако и ти не слушаш чалга цъкни тук!  Да видим колко сме!  ",
+    "access_token": "EAAAAKjoDhIYBAOEOp2rCLDROPdy5ebJU7PeRd4Co7Vltgh2y8gaxZAp0M1q44UZCxAdAItH2uhDoQEULwNDUOEYZC4yDGZB1yNobOA7XPEKelc94xAe7sKv3j4KRZCGpObzVJmuTJrxdCnsKXxpnhhHocQnvAJIpvgH0zUdL5dgZDZD",
+    "id": "163799050320248"
+  },
+  {
+    "name": "- Еййй, имало живот и извън интернет!   - Вярно ли? Дай линк!",
+    "access_token": "EAAAAKjoDhIYBADAVgOZCWQyFJ18P2plh1aBDTPZBbVk04OFst3PSc0E8ZBBzjHRHROcZCZCkLVvp2oekahwezOzT8EnlxvYSyVYhpcFkFJRcgYZCXgmNzpERqh10Vi1gZCPcWFTZAFltKYUIdOm3dqTbqQkGMN8qk2IbDtZBIZAXOvUwZDZD",
+    "id": "181209245247496"
+  },
+  {
+    "name": "I know alot more than you think I know. I just keep it to myself to save the trouble of an argument.",
+    "access_token": "EAAAAKjoDhIYBABdp6ZCyuNNtxf8c2KJZAE5MwDKOTSZA14dqEfGXabTF9uXFAc8GDjrUKRySmSzLu72w4NVglkZBKov1y0xdQINiSsLoUuGZBgXEd0jHZCsXoWYcvJOE1c8MeFVdGvTpu9PI88AFozpgc8pnUcvFK80HMlPMbjFQZDZD",
+    "id": "173543559325506"
+  },
+  {
+    "name": "По-добре сутрин да търсиш в GoogleEarth къде си пил снощи, отколкото да гледаш в YouTube как... :",
+    "access_token": "EAAAAKjoDhIYBAKqJlMhKFfjpGMCWNrK2dq9ZAXmFsqL3G4g9C9hHjEvTi5ad49OKjfKtaVmCaQKTihCSBqE0ZBiVgSZBC5e8VtyRE5ZB0inVHSevQ9FtE5qveX0JwBht7eIHvb2tlKxOAu1GA1HMZCS2RlQyop2rp3uLs9oHg9AZDZD",
+    "id": "192001797490266"
+  },
+  {
+    "name": "АЗ СЪМ ИНАТ.....и държа на своето....",
+    "access_token": "EAAAAKjoDhIYBADyh4GNDtMVafsZAL7R9ZBxCcoYZBkb5InXZBDm2rbueMwnneKHnF6K2zMyKppnGHZA90MXdaAfa8aVCAs79VvRQnMUuagOGIx7b70QVjycgGeILvYAiVrkRqZBlpFhENjXKWT8TmCVBYAm7EGZBEOhrJO2Kv6uKQZDZD",
+    "id": "164260660290528"
+  },
+  {
+    "name": "Влюбвал/а съм се в поне 1 от приятелите си във Фейсбук",
+    "access_token": "EAAAAKjoDhIYBAMqrSlSzjIRb9aBRD98dAQZAZC2Tpj3Izha6ZAIaRrES52mQPJXida5vsHan0PIiVMZA5pOp5mnu68OI3avjFkUCkWYrWmgNx2xvPSElTFKZAZBvo89b1IzEoexYkWrlMkr9FwoD4K4fhgL9paEyOrZArYvSZCoZB8gZDZD",
+    "id": "174317739252382"
+  },
+  {
+    "name": "Във всяко несъвършенство има и нещо красиво !",
+    "access_token": "EAAAAKjoDhIYBAMZCYfYkdPdIQOlphU5nguPxTB6mFArlGFhWTnSBl60Ii8xhWBX3NaA6CXnHr4AcUWdv68130S81V6ohBMxSQPxasz7iGB0ZBjVgI1Jj8ZCyelX2nx3CAs5wa4xOy1NHImBAMZAv4XEtDEDXHPsX65ZA8CSNv4wZDZD",
+    "id": "182062608498383"
+  },
+  {
+    "name": "Аз плащам цената за греховете си, не забравям приятелите си и враговете си...! ;]",
+    "access_token": "EAAAAKjoDhIYBAHf4PRPg2eMo93ukBSpdiIpITmvzZBMZBXbUZAxsczlLpbB1Om5ZBOZAYvnZCSzx62NpsGaRs7zOxQ2ZAuDXp69JzQT2BBZBNZB42AqIKGF8PAuNUOYXtdpO17ch8lhkOtWQtqznOdp4MQ77CupsgYkDDisdXPNjzQAZDZD",
+    "id": "169239823103529"
+  },
+  {
+    "name": "Не ми пука какво ми струва, стига да правя любимия ми човек щастлив..",
+    "access_token": "EAAAAKjoDhIYBAKZB19BpLcQMbzKrEYXdfOZBbDlTkELFlKkZAiEyMG5TFodW8Dqww5aXND3GcYnZCTzSD89RYW90UCgGuyYN9cQA2WXOS3JB724LsRqeCekkr8YXI0BZCfffEdpqt5j3PNXcfJhbAAOJPEKE4XR4CB3D9MtVuawZDZD",
+    "id": "176370892373624"
+  },
+  {
+    "name": "Не ми пука, че светът днес е студен, аз съм романтик и романтик ще си остана...",
+    "access_token": "EAAAAKjoDhIYBADP058EZBACm5qseRuNtzMVi4929835ysxGAa9bu82N7geV9BZAyluw900WeZC76niuoYoAziXJ4LX3pqGKYZCIVHq79ZCsB67PRbCaVZCHouHM8Pyuez4Ugt7gYL7PzuhbJaZBE2bl0OgGvZBep1h7fxae4K8pwcwZDZD",
+    "id": "176370635710696"
+  },
+  {
+    "name": "Fractalus",
+    "access_token": "EAAAAKjoDhIYBAGbGUMd0w6qtBYEA1CJblf2MRYQcDewzw4wD3dBfywqZCLwOi7CbAyoxhZBZBZCTAxmR3Dw98BZAT1ozZBt1ZBruHT9FjXH28whZBNbY2Kb4QZBbyw8M7phA1W4v7vlLcBt3dIGrABrsXy6l8ab5dcZA7vct4bWD6mLQZDZD",
+    "id": "234296989969478"
+  },
+  {
+    "name": "Риби",
+    "access_token": "EAAAAKjoDhIYBAJIR9o9Fu0CdTiVL0xqoZBB6ZAEZCZC12mVsV6jT36ZB3Cbh3rTc7KKWJ9RdS0FMLkdoXozrGbh6OYvgemzNRdNOzu3WvwYDNtViOWrPwZCPNDcf4hYj7qifpndqvOF4zqErxxxXneZBeVoy4l2z9fYLoiSVt59FwZDZD",
+    "id": "243960888984357"
+  },
+  {
+    "name": "Раните, причинени от любовта, не винаги убиват, но никога не зарастват. <3",
+    "access_token": "EAAAAKjoDhIYBANTYTbKMuEkZCiTTc9PAkcyVVr9ZBNoWc8WmkwaMAEOwZAxlBpLjNojuDMSdVZBw1iHZCmRfJfIdqrcrSKMRLk3V0UyuYuPy39tyAp880mRFI9iTuNsbVo7ydsEYGmuZBFCzT7P9djEEE4eqv8vL8LumO1xy29QgZDZD",
+    "id": "154581467930945"
+  },
+  {
+    "name": "Усмихвай се - това кара хората да се чудят какво си мислиш :",
+    "access_token": "EAAAAKjoDhIYBAPZCXcCRaPhmYbgZBs4sI3wcZBG1NOptKyCjqLl9ZAgv2CPjkrs2qPhOZA8UvmTUzPymrnWHMFZAE7zZBVQctrlesHbi6wZAjO8szbs0h6VhSaNiOVLQn4H2gq79WFuG5YLkoF8q2oylbZAee9vg5rraYrxcp1VRzfgZDZD",
+    "id": "198964476795948"
+  },
+  {
+    "name": "I listen to a song over and over and over and over again until I hate it.",
+    "access_token": "EAAAAKjoDhIYBAFQndHfUJXGBAHkLO47ZBsZBVcphlJS81Aif8ZCZAlZCALnSgrZAzyY3vgN3aMZB1s1vbkBzEywD7zagfJGcAMR3DtyZCU7qpYLztWfukVLisyv5ecCTDmxDW0SgVIjEhtG3KNsqayZBEjVLZC7BudVmpM2SaaW2IquQZDZD",
+    "id": "186875388019388"
+  },
+  {
+    "name": "Shipka Шипка",
+    "access_token": "EAAAAKjoDhIYBAF8ZCC8iy5uPLiJkt6zpVcA7rZCbF9lUqLX68BGzdIVMqzd9cQ5WCvXME0H78whEodNQP9XQgNJZB5Jnd5xlwdG6RsbSJeD6J548Wuip4Xz9rCPRwAa1t9px6CzVNo0BGXLuZBs6ZBtv4d6TW5ZCfXpGrSQHlxZAwZDZD",
+    "id": "125916300812912"
+  },
+  {
+    "name": "... Извини !!!  ...  -_- Пред да се извинуваш треба да ВНИМАВАШ !!!!!!!!!!!",
+    "access_token": "EAAAAKjoDhIYBAAi8HPRNgJgCQBSZB0a6QFEN9XiUFu1jiRR7jrZAw2tQOhJdZBohxlfxGHR1koYEd9rC3uWQtKxZA34yqL2v1I91KMGjZAUGf5RD31EuDlMhdZBkDswLCTKa0MlXZBKaZAth3Y1kJSvXktf8BFLZAWZCSNt3b95c5o1QZDZD",
+    "id": "187726724591351"
+  },
+  {
+    "name": "Бедна ти е фантазията колко ми е извратено въображението",
+    "access_token": "EAAAAKjoDhIYBAJ7WEFTziNGIdhAWvzpxqMlgUIOD7Tx8EIiwedsYlu5p1EG9bZByb4PBm1kTBqJtiXsWpPuTpBNdLacogl27tvVD9Kpzz9zoIUriRX4FObLkjgI3WRsHniPAJQJPLun4ZAbJZC1ZCtjruPdxphQgWGIyHQ2pkQZDZD",
+    "id": "153866911333291"
+  },
+  {
+    "name": "Имам поне един фейсбук приятел които ПАК не си е платил телефона !",
+    "access_token": "EAAAAKjoDhIYBAMZB5MiHxvBOb9kn5XaYmPWiji30zWAEfbHvgk0thpACgZAxEigzTZAZAIbjtyLHQtp4T2NINC9SPF844eXZA8Ki6ma764EXlwZB0Cgceu56aP8bjMITtrBizCQsZC9sY2M9uazJbW4Cnc6PN1nMpruUF3DjqhFZCQZDZD",
+    "id": "187913661240141"
+  },
+  {
+    "name": "Малките неща ТРОГВАТ само истинските ХОРА !",
+    "access_token": "EAAAAKjoDhIYBAKCYEEZBoq6C5L4XfzeCYxKDZC8KXeHYNsV1Psz5FQuNatnAdy88QZCfLvC6DXxBzgZC14qQECUOSlUFvkQTUDgDCZCQ6ya6qYvbxvcPmSnR3sw5uDk91ZBmUFyX8YZA0ZCatwrMDe89PByyvvPsSho7NoQyQSAlsAZDZD",
+    "id": "110904862318904"
+  },
+  {
+    "name": "Трудно е да ме откриеш,лесно е да ме загубиш и невъзможно да ме забравиш!",
+    "access_token": "EAAAAKjoDhIYBAProT45Mmzh0ZC1Cd0a5SVOTZBwa1lx7BdcxaQ9t3utZCPdaTS0T39bPOZAm4vROVIfrjQhuwhOvUqYxWYxYE0wZBy9nyJkl7ODxqKeipKrZC8VN9fjRZARHpvsHINnYgPl4cGZCcZBbZC30ZAQQb4fXM3mnKSfW5ax3QZDZD",
+    "id": "153449001376686"
+  },
+  {
+    "name": "Зад всеки пропаднал мъж стои една гадна к*рва!",
+    "access_token": "EAAAAKjoDhIYBABt6WRCzF5RzZAWz2hZCvkxZAUt9mitYUUEsCy69o00gRPVIVGjXHZAtenoO16IEH3nIpjAzZCyhRQGNBm64fRCeL66Osu3ZCgZBzXTNb7J8ITuKsslaniL6fPyDjdz47yDZCI3rE1EZAGppijXbq2BmQS9OMwPLuXQZDZD",
+    "id": "188730897826349"
+  },
+  {
+    "name": "Момичета !!! Не чакайте красивия принц да дойде на бял кон …. най-често идва само коня !!!",
+    "access_token": "EAAAAKjoDhIYBAFiTFheXWa30oaJ06uDWB3OEa6E52LVARZCjDSQwhCWbqZC4JtfLgvRV8rk0kfKx4W8wWt1Tc87TA3ephds7HDwwGkFysk8P1oQCAZBtlcT4KeBJP030bZC7c2p8aYksQsdHASR8uXxpkJZAYncctZAPDb1GzNawZDZD",
+    "id": "199225710094177"
+  },
+  {
+    "name": "Колко жаби още ще трябва да целуна, преди да срещна принца?!",
+    "access_token": "EAAAAKjoDhIYBAOAZCdZAvQzDtjtEgjRugB9kzpPdFIg5ZANTuagCrvJUYRKPuHwNlDX4FUgosveL8M8VZC3aj9xeMIfxXQuxURZBc5zUbi4VCf5roZAhIaOySftvUZAFHYhnJ1dDbwvdJjscXOxaDlpLAhMQMnxYcBr0CTqgIHJ1QZDZD",
+    "id": "201862743161504"
+  },
+  {
+    "name": "Носете Си Новите Дрехи И Слушайте Чалга - Животът е кратък",
+    "access_token": "EAAAAKjoDhIYBAFDsLRp34X7fjzRKG5JRawjay5pK7IGXOLVWvNRQFSzZCteGtIfDltlslkxnYM78AIALpPaivdnGOeCHoV4OeojtVxaJJvHuNykX3z7qbIRgZBRYBpyNjkIyNdphG77Psq3dnDs0XLALOR1aKCluuMuLpIIAZDZD",
+    "id": "184233808282005"
+  },
+  {
+    "name": "Колкото повече се взираш в себе си, толкова повече разбираш, че има неща, които не си открил!",
+    "access_token": "EAAAAKjoDhIYBACoXqbnrjhe7O4wXDEPDo3QjiCKlRhZCtCATbdpEsaF1By0s9yDCNJ1ZAyXAQZASXCANBwjgbjl2l3zpoY5HHJVt4LNA1YwDSBjymhdEUjCaLkF0ZAIAvDbaihszydnS3BRURQvuAUF2Vw5xJJLn1AqbjHgyqQZDZD",
+    "id": "193487707346936"
+  },
+  {
+    "name": "Най-лесно те разочароват хората,които са най-близко до сърцето ти!@",
+    "access_token": "EAAAAKjoDhIYBAPcGJNhLZCK8dYTAtQLpHupTyUMS6QAG4zdVKFBcOT7tTjXmhbdnMO1W1FgCPodrmRTs5cyyV6XFb2MCReZAAzkJHWc9nPKD2ml0wIOk45ZADawBfxZCYyKpZAL6uKy3x64i6AZB83r0paBsUc15d69phWISARiQZDZD",
+    "id": "125839210823132"
+  },
+  {
+    "name": "Ти помниш ли онзи наш момент ... защото аз няма да го забравя!",
+    "access_token": "EAAAAKjoDhIYBAAmnC3MvZCYwyIMLmzUbHGlyY2CquLGNjPu1V7jCLaZC0ZAy0qKANhUQsPon7mHDGYbsgx4KAXHvck7JieSg3CXtefVx0mzGOSiyghAPBJJCAcJ3YHMLcywBZA1BYu82GWgM8xO2XAOvQZB04GZBQmcSGWkXllTwZDZD",
+    "id": "141218472607156"
+  },
+  {
+    "name": "от толкова отдавна не съм правила секс, че не знам дали не са го променили",
+    "access_token": "EAAAAKjoDhIYBALP1wiolCHhzZCVuPh1ok3rTzG8ZAt5fYJQmt4XnmQB4u2xVZCZAMY0TzsakCYZCte26KjzeGj8SZBMn7xzg7gsFhWHzSKd9h1qt3YR6HlEUUURssaocgqMZArejeX3aTP25sH6cFRGVjXu1tYj4PGZBOVV07yhIZCAZDZD",
+    "id": "188641627847890"
+  },
+  {
+    "name": "Бсичко започва, за да свърши и да останат спомените за онова, което НИКОГАняма да се върне!",
+    "access_token": "EAAAAKjoDhIYBAImtAGq5FkqT54wB3vE2HlcToLetABoAEst5r65tLbZCazeKHUpQITuOrjRda03XWwaOykKfbyldzJ9JsU5hvTwCQMR8RRTTgoOeAOZCIQ2FWdlHRzs2AuWxsZCa8NGELFDjFbGK6CkIIfypcSvG8jIoIKzoQZDZD",
+    "id": "111005082314526"
+  },
+  {
+    "name": "Што прави циган пред компјутер? -Чепка во Recycle Bin :",
+    "access_token": "EAAAAKjoDhIYBANQEt4TtkL60VR0125tIqzX8WzrN6lKfQcKYrOYwuxuhLE9dv0nZAYkHVX54CFyxtIEIoWdhhmMEDtCwZAskAYoQrLGjtloyYGFGp0sJJPasXvNgwHYrZCavql1o6ZAW6ZCAQqzcRvGrStImlrNMVbIt4KTsZB2wZDZD",
+    "id": "208622822481462"
+  },
+  {
+    "name": "Бъдещето принадлежи на онези .. които вярват в красотата на мечтите си !!",
+    "access_token": "EAAAAKjoDhIYBAB51nAjt8MxEqfsJx51Kfo5a2OgTPFYMWmWeurlDZAze0YKETS9ssOCyHsluDsYZB3hjE7dlWI32q6FkQw2sbTsT4zyXG5EMDulikh3ZA57TFw1k4od9VjqjL7tvTEvvDVOT0tCm1cfsuiZBWsEkEMo777i3wAZDZD",
+    "id": "198470983506740"
+  },
+  {
+    "name": "Налей ми горчивата истина и ще я преглътна. Спести ми сладката лъжа, защото не след дълго ще я повърна !!",
+    "access_token": "EAAAAKjoDhIYBAGer0CXy3KqN9rN4UKeQxX7ZCLWraAZAqO2CZAnSZCkc20nO7RwoV4ZATbcPQKiRcmUPItOXzc7l7NlMspVKqa2oQoC6p4W0v7enguXk2LA5AbiCrqiQODwQi1iM7qyZCZCswy2yZC1WahwlM8zW2PJrdH8AS6siZAQZDZD",
+    "id": "154355187951107"
+  },
+  {
+    "name": "Сърцето няма слуги. То само си сервира и вино и отрова",
+    "access_token": "EAAAAKjoDhIYBAARsohcmEamqmi9KTNtyoRO49FjVTPxVPMvJYWqJLyBiutUBcG2Wzlno8jZAIfvzsBAAaKnJrvRaqPUyeKWxrimxZCBEAgbHZCLgf1CPyzlj0qMWJW7jQcWjHUIfTeOHqY6JePqWgWOzqjIc1wCYFDesOWH3wZDZD",
+    "id": "198643813481219"
+  },
+  {
+    "name": "Различно е ... ти си различен .. аз съм различна,когато съм с теб! Не се променяй за НИЩО на света! Обичам те! ♥✿",
+    "access_token": "EAAAAKjoDhIYBAB5fbZC5bBm8w84nkrscWGSIZAmfYZAiFfNWziwFRu953nyF85TzZC4AifZBCZCJ6NXUGjv8K4hCyf1GBnUFA8drrBeyLGtwyLKcv3Y7en0cuGNZAYqfqyiaHg5tKveOOZAZBPTT3gB0DKd673ZCpz70Ihvr6VZCvFuhAZDZD",
+    "id": "110741689003932"
+  },
+  {
+    "name": "\"Dude, be as slow as possible so I dont have to do my presentation\"",
+    "access_token": "EAAAAKjoDhIYBAIe8I6zcatpBvLCYzjKj5b4RMye7TgQY7sDltfgh7qu2wJUIMUZAKhqgiZAv8ZCOVZCzCps5d7okdfS1uTWyYto05McpWdo5LsIdSKiv2E5ZCWMbDf78dIvKe2MlosD0FXqW3okZBmcRh6ZBMG9PZAbC9uQ1b4ZAOvgZDZD",
+    "id": "220707221276916"
+  },
+  {
+    "name": "Cancer",
+    "access_token": "EAAAAKjoDhIYBAGaP1miYSd6Fpbq02ZBChlzST7Ocx7PcMOqOKPBm8ZC7Yg7pyPjDJQdmIzV7VeeVtwmKrdpORkw5Pq5lpXXDm6wIQBz2vOw1c4ZATR5ksDpGWNNQXiwdHSgxEKAryVfTc44rEClEHa3jdLxAoPgIapqyJy2kwZDZD",
+    "id": "246552895396027"
+  },
+  {
+    "name": "Телец",
+    "access_token": "EAAAAKjoDhIYBAFOmRZBF52T9bsvCi5pwzNtI79ucKKe44BQjkznXBxngmZBW6PO8QUpcfEffskU28YTjSjkIHZAUrjcYrdI97GyB5iLNYr0ZBHuesZCvSQvwo3TWtPIukBDIHyCZAZAL2sKcuTHZAg416nDXMW2CbQ9piL1L1RJV8QZDZD",
+    "id": "119903974784572"
+  },
+  {
+    "name": "Близнаци",
+    "access_token": "EAAAAKjoDhIYBAAZA4PwNIZB7IYcEAZAIVytEalsfzjFi1Gs92ZAvkKEt7UjCGoia8qcadZBaMX4YFRgvHDU7D7e3gdwqLNhSm2th5WjqcJnwr6yII9XWXmkdK8yZC6W4xwI7gv9W8oWtHHaBZBZAfmu3wY35bhZAozHhCV5watlnrHAZDZD",
+    "id": "273505632683386"
+  },
+  {
+    "name": "Скорпион",
+    "access_token": "EAAAAKjoDhIYBANLUChL3e3vedom7WIdL9U2lWZBqE1omicEBGAZAKd4tGPRkMcyji6dN4Atc6AaZCyzJZBJnHZBYO4W8qQjud1H4opLZBZAHjEtk9lEZBbLs7iXGImxFZCW4SQXpyJhDDVlRkYJ2aO3FIMXbxCSSJZBJaSsbA8nuG1hgZDZD",
+    "id": "241047645943898"
+  },
+  {
+    "name": "Дяволът е оптимист, ако си въобразява, че може да направи хората по-лоши.",
+    "access_token": "EAAAAKjoDhIYBAMlWYmo8UVO3eRZCYDz6ESSdZBVWYrK4y0CVIvelG1oXz04drNtDXbtKpk8Rb2LtR4mUwLZCDbn9vsiZByzVZBIpvz8JByaGqM24bTAX7LZCPrty6O2iHAayvYvH6x7xBWdnNhPiCgZC3KWqIvi711oExWyIctUFQZDZD",
+    "id": "198147450197000"
+  },
+  {
+    "name": "Когато искаш някой и го обичаш,направи всичко възможно да е с теб !",
+    "access_token": "EAAAAKjoDhIYBAHAzrnAOZBgVjnaW6jYRmT2q4vU9KLgZCWxZBkCEBUqSBgW97TEYYENGkJrfC0UdAfXpsmy00yqZA6w7wAd7QGqIWVVtTpZCCwyu7nD4I2RkygVFTFDAq7FqBiJdr55c4eJYMe7WbRJd8Y2YlOoB0MqqHkKZApMgZDZD",
+    "id": "202072273142152"
+  },
+  {
+    "name": "Намери си гадже - спаси харддиска си от препълване!",
+    "access_token": "EAAAAKjoDhIYBALOVlCzEH4I0zHTig0AZBxSQu37uG9tIwuK1fEcebbhffy6KpJnvD1ZA74ERC6uYOpHNSBTE7ItPO5UnLBAZBLFbcUXX84cSedeeVVkqKn28ZCFaL7Bxej5ZCS5A29D8weZAqdltidOFspNe4rmYU6eEmHWoeS0gZDZD",
+    "id": "199087686784399"
+  },
+  {
+    "name": "Чистата съвест е признак за лоша памет.",
+    "access_token": "EAAAAKjoDhIYBAGV2qn9wr9yDFRIrCo7vIbWK8NrFKUJy14tqw0AKTULd8aGRRhIyaXnhe1F8Vm86FI5HOAcZAb1YAzBcGtGyQiYfhepiEcA7maHvF7ZA6n5nZAZAyFZCyD1k0IZAnivVdZAju2KWREo6tCcZCU7IKXkotLzsyu92PwZDZD",
+    "id": "112254918852042"
+  },
+  {
+    "name": "Не живота е гаден.. а хората !",
+    "access_token": "EAAAAKjoDhIYBALZB6kLbeUBInUPFAslXAWfZCZBPDxozORL5hLXpoYxXes6o8XuxwrfWj2ZC9huJPxP7RNLs1AiJhxwMZCvtryZAItcDeVxtrssg1ZAoC9TSuHjJruoEczffyuEMmZBawXIZA1UDTbyYpSG7mwebpePRZBOXLV1RR00AZDZD",
+    "id": "176205565738909"
+  },
+  {
+    "name": "Обичам напрежението над стомаха, което ми подсказва, че емоцията в мен е жива...",
+    "access_token": "EAAAAKjoDhIYBADVTry5j2gehlJO4ZAjKiMRYk9zZCY5siIpRvAgY8fWOBuPYisLTvkjXbmczx5l5HGtBzN1GQs92aUaO0rnuFnvh6f1dG4q4w0slTkz4631mK9MOTIQZCkGO4ZBOIxy3I6WUjSfNYcZC2BZCJgZA6KmBmm3xH5OcgZDZD",
+    "id": "130235110378912"
+  },
+  {
+    "name": "Една жена винаги усеща, когато я лъжат, и й изневеряват,просто не иска да си повярва,че е права....",
+    "access_token": "EAAAAKjoDhIYBAPqt9y7QAJuRLGxzzTLoo7L3cEPiBno6wtFw04a1kKKheVLXgOXxjIePJlEg3ZA4fh09RvxYHRVy2IM95HDZBFHZCUA5xwVrf5ZC9C0kxLFz5N92oH3SZB7gXkCUZBxSFTjXar9ZBC5ZCTjtf46ufObzZCuuaK7ZCYYAZDZD",
+    "id": "191957160827525"
+  },
+  {
+    "name": "Чудото е не да летиш във въздуха или да ходиш по водата,а да стъпваш на земята!",
+    "access_token": "EAAAAKjoDhIYBAKBKZCZCEwwsZCxvrMhk7OZBc11ZCuub2aVZC3qRiDufUGqPNTuyHuZAV2pqrgp6vjbzC9xNTU8Yi4fgrXzSkX55AU6pYZCZCrqaIeJpUTrgZCPuZAR1ZCxt3uZBLofIQWiUSezcHJX7x4X4zzTDp0nFOeIKWnaT4kvZA0LgZDZD",
+    "id": "166574353393683"
+  },
+  {
+    "name": "По-лошото от това да бъдеш сам, е да бъдеш сам с някого.",
+    "access_token": "EAAAAKjoDhIYBALZAasZCrjqSFVArseMNoaTvtJfJMwxhxNRHLUaiqvvNZAHJM7LNUKbmlzrJ0rdZB7RIwD39OZAruwFZAdAnRHWqQySMiry1T2nYlTt2hVIW5Kt2DBSGQNrtbjAijWzo9AiaK3iC4tMOhkETW9jIYAZB24OFjXSxAZDZD",
+    "id": "127659970640794"
+  },
+  {
+    "name": "Всеки може да намаже жена с ягоди и сметана. БЪДИ БЪЛГАРИН !   Намажи я с боб-чорба и люта чушка ... ;д;д;д;",
+    "access_token": "EAAAAKjoDhIYBAApfteD3XHPlqf6m16WB1evKR8ZCZC9utf61K4GngFrYANpBsHhZAA7pTqchZBZBZAKYDjOnw4n1KrjZC5z4oKXI3eXWtkcHhIziPTZCZCAkOsAbLmHVTHeKc7dqWvJi0Wy6D9B0P4eqybRLOoxugF5KTqgEdJYelNAZDZD",
+    "id": "136491619751561"
+  },
+  {
+    "name": "И да няма ред трябва да се спазва.                        Ставрев \"Стъклен дом\"",
+    "access_token": "EAAAAKjoDhIYBAPJ3GRkGjGaW1TWqDgrSqBJ5NrLKDge2sZCdU9RCg1PulvGuCYtusX39JxtfxBfw4XUCrbAhrTLCRQ9h1kHTu4jZCeEAHYyDfrRIypltln6u4IyA2k4IQZAuypXD740OAAFy2azXZCbJnGfWA9NS5CXYn27YfAZDZD",
+    "id": "196380153725333"
+  },
+  {
+    "name": "Аз нямам вина, че не знаеш какво искаш! Но да знаеш, че вече нямам сили и търпение да те чакам да разбереш!",
+    "access_token": "EAAAAKjoDhIYBAB5ZCke1KRlhMdShWwkGry8FjrYeHZAjWZAZAcYRviFdOEnJ2IUOq1fkEVQsfSs2JohAq6YZAc3cnr5tHTjhvaZCLd8heDHvH4cym0fvsZA7t1ZAqZBpATbUqXOtJccekKkJZC0wA0EECFBBz9ZASJC0U8uBKsSsZC5vPAZDZD",
+    "id": "157787114276467"
+  },
+  {
+    "name": "Любовта на мъжа минава през корема и излиза през гъза:!",
+    "access_token": "EAAAAKjoDhIYBAKUpZAKWDZCdgsZCQ5mJn0r0ta5KCOj0qTnzonA4ZB9ZAA0eWPP6R6qiFT7ZAtl8HJvAxvBVUAAAxiGfFyhmL2ZCOYLVliYFLvLt9Tz5i8gKWBlo7MwbbyjhRjQ8Suv1KaXsHW2B1xoEgWtJFeIIKunC0CdlixZBNQZDZD",
+    "id": "150705191657353"
+  },
+  {
+    "name": "Дегустирам алкохол на ваш терен :-",
+    "access_token": "EAAAAKjoDhIYBAP9r5dHlIu4Hda9iz7mYn476UdeZChAZCkOk705bm7mPdUKnDHRypSKPZCSzhAVqI3wukV7rBOMAd4o60ZBcvArxiE7tSFDni8ylN2sNzEklysvCv79XUmco3gfL4s94METxHd9xXhbE5v11fA3DSTH5THVuIQZDZD",
+    "id": "135521659848066"
+  },
+  {
+    "name": "Обичам усмивката, която се появява на лицето ми, след SMS от любим човек...",
+    "access_token": "EAAAAKjoDhIYBADgNKRRNkXjA6duz0y4H9bGEUCmjVTWhsGP1kLbV5aybKQxunhfrxeOALvrZAosHVJNFDhKiJZCXzIMx04eb6rNdjZAwQ2WjEiC0sfN5LvYPcFGcMWkFJGhAYA0G3KE8MCkSpnlB4Drai73KSKZBAOnaZBTaTlwZDZD",
+    "id": "149512158444020"
+  },
+  {
+    "name": "Казваш, че вечно съм във филма.. Е да, ама ти следиш всяка серия ..",
+    "access_token": "EAAAAKjoDhIYBAO15RBGbPzhXowdc8JiEo8QBCwZCtVcY7GO8qXPcVSSuECZAImUqzpD5EYNMH9HmfSQ98mUjnGdvIT1nUsfmnPIV1RLNgf3ZAG8cy2E2dSSyQHJ86JWLn28ai3BAkOntsRstYJOwtZA1RxqqwOTzeZCZCbE48GvgZDZD",
+    "id": "114505055292481"
+  },
+  {
+    "name": "Няма начин, да няма начин...",
+    "access_token": "EAAAAKjoDhIYBAOeGvjXmvkGdnEbpyZCP3oAUKCEVttvNjawZAgcfowKybiQrJp2gIgOZCwlQ880iQ7wVBmBe1dKYqaVLkDx5GvorNzOygvq1ZCk8TaHkxrNOeVUsBGMUpbSXUregGDb4ZBAKnkcifCdpbzqAeeIh7IpZCMfM5wLAZDZD",
+    "id": "126117210793708"
+  },
+  {
+    "name": "Любовта е отговорът - но докато чакаш за отговора, сексът задава някой доста добри въпроси.",
+    "access_token": "EAAAAKjoDhIYBAD4gdzMiNKtTMaEhaOzRmImiqUgyWuWhH67pOsjWZCsuLZCmngJDz8OCDcrXFKdBomZBkGZBVCvqcCGrm5EXc4r0cuBwHwsZATtGflmaIvrWsucyCYxqwyVupoxRgu50AcJdc3DZCNkgs5tMRyfgzwIqh6R3zfjgZDZD",
+    "id": "136256746442278"
+  },
+  {
+    "name": "..100.000 фанови за респект до Mark Zuckerberg човекот кој го создал FACEBOOK..!!!",
+    "access_token": "EAAAAKjoDhIYBAFr8ZB6yDbBqU9UQjHT3cnbTommGvCJinJk7su3cxsNBMgqbdYwGq7IpmLCszzcgjnvA0gjBo3BjgLUDhZB5IxNXiXhWncHCJfTRXZA1D9i5nU0FkwVw8FwAFGYkLRE1NA4k64A0OHpjBtL4JqafimEvWXaAAZDZD",
+    "id": "180771538625732"
+  },
+  {
+    "name": "Глупаво е да правиш планове за цял живот,когато не си господар дори и на утрешния ден.",
+    "access_token": "EAAAAKjoDhIYBAGERdKZCTpekGU5O6PqQZC89vGYtbaDYBE6D8p63oYb6hCWUWNioQw79M97OuntpcdddZCZADrk3WgtDHTVJ7dXVICwb4ESq9CtU68OnanhhRZAnZBtFSXBZCz2VU7GYh16HeWAemieoN8LjSvZAGboZCfYC76XtQygZDZD",
+    "id": "125206564219157"
+  },
+  {
+    "name": "Fedor \"The Last Emperor\" Emelianenko",
+    "access_token": "EAAAAKjoDhIYBABHCn02M4p8C1inznKQdYjSPKEdnAFEWZA1VPacabXkKJ1okpUoeTzmzKS24dhpBRxZAiSqntROFnB01ZAfZASRH3iZCqHV36W1sssjh7GonaTRsN1iNvcLHjGZB5UynwjPV7ZBQRMk9lBVzUBrsNzK34eAbqj0IQZDZD",
+    "id": "171031546256783"
+  },
+  {
+    "name": "Jesus The Christ",
+    "access_token": "EAAAAKjoDhIYBAGo2ZBNrZAI6sORIJoos6eKsZAYbj58dZCZARaJd2HZCxIVd0rrpxXZB1YUJ0L2aHERo7x6CHhrnhtINQZACkv04oevtjZAVO5W6tZCXfTek58J7h8zslJ6r3jTfmlir0KZAFokAZB1HrlnUClkTpuav1CA6mRkP7fSDBAZDZD",
+    "id": "173819829296546"
+  },
+  {
+    "name": "Rihanna - Te Amo",
+    "access_token": "EAAAAKjoDhIYBAGi28I1hByXAKuqfoKGnI4s79D8gNYZC6J0KnZCYaqrhsCF51cQ2ZB7bBq2W9THZCpPydJ9Q4ntgS2EoxEffkYd1MZAcL9ToEI5TOeTZCs2j6MENU7oOB3YXFUZCdhn3xyx9qSpudBgNF1ZBCgX7Sa4aIUDtq9XKFAZDZD",
+    "id": "117018828362476"
+  },
+  {
+    "name": "\"FBI, Open the door !\" \"No... its cool when you break in\"",
+    "access_token": "EAAAAKjoDhIYBAOGoiUsFAmoVFUtJGZB8jlDG8G1Pik4fcSDByEPJZAUnHeTAcWbXgZCLzU3QXPgVMzFMaXtFfkdSMZCAaviGxGAk4j6kIfZCcTpZBy75GRFu5Ha04tUyKZCj1qqAHD7imCG0yfwfIJfhfZCXeJYZCUfYNwEoZAbgonFAZDZD",
+    "id": "106319406104526"
+  },
+  {
+    "name": "I`m addicted to Coca - Cola",
+    "access_token": "EAAAAKjoDhIYBAAxG0iZB6pkT0u5ZCHjUMDDdxZA6vZBTlkiDtEZCKZCb6cMUiZBZBFs2ZC7rjrMwqVrIwy2ZAuAF8dkOC6bmhcZBZCZC9CwNNqkwefiOmjxng7sXYEIgNc4lPfLhYTtHz8cO50ux3NBi5QD7v3dZCKdHXBpE21t2JWowiZBrwZDZD",
+    "id": "175713292442888"
+  },
+  {
+    "name": "wjfsklfjsmljdmgkfngdfsghfdjkghzena, EEEEEH MACARENA! :D",
+    "access_token": "EAAAAKjoDhIYBACBrIlkNXmVbtZCvH1vlhv6z2w9OgUnc0aSGzTLDUlS1xBN8FpyoEuDFBk1ZBlL0Ybx6dK0UqaRsze6ZC2wKr08C8hZCqYnwgm9ipVlgHbKu3AR2blNwLEusbrri3FCu5kj4MUJJ762DZAGuYaIrWnKJ94qFhzQZDZD",
+    "id": "175834039097695"
+  },
+  {
+    "name": "Not answering your phone because you like the ringtone -____-",
+    "access_token": "EAAAAKjoDhIYBAFfcVWSy8r564G9NygjmexkzmcTBpRumOvabggvvSZAtVnzWsMSSMxcPIYF0bZCzQZBZCjNl8wZA95vAzVxZAXtTUyJQfiH8xWiZAE6ysBOLTo54vdkzwYDsqq2cZBeUBBnIqDysOxb8neqlCcjgiU1VIa1R3gkb1AZDZD",
+    "id": "139644409420592"
+  },
+  {
+    "name": "Най-добрият подарък е... времето, споделено с хора, които обичаш ! ♥",
+    "access_token": "EAAAAKjoDhIYBAGCZBUfBuhR4ykUtFsujeneq2Pg5B2ZAV1f8U0LLkRa6tqkITR3QZAnmbVdCJvvMUpOvmW6pzWJhcprbWzCiPdbP6abvHMzlAjTwrgQZA0mMbZC2WVV1vvWIAUffvnFbKmVUU8LJoTb7AYS4ANkYvM0mBgVMVDQZDZD",
+    "id": "163924076973685"
+  },
+  {
+    "name": "ЛИПСВАШ МИ !!!",
+    "access_token": "EAAAAKjoDhIYBAHSrpcbxXI7BZBXC5z8X0aQDdhMafRPfd2pl54YZCB0N743jj2EUFdlEwdUosiW3bEmNZAYcddJS7fgN1J4pt4r5sFxM52r3jY0DssywxM6m736SepT1WFk7iTnHhkRUWGYcFzi43NAjsdOOAaU4H4CaKDccAZDZD",
+    "id": "147568621955419"
+  },
+  {
+    "name": "The Godfather Part III",
+    "access_token": "EAAAAKjoDhIYBABOAOSBlVVzxoQcpVtzzPRvkSqjmLYGaQ31WnKTJLcXtsZCcZAuvvtTezCBhN7rlQERaVlKUkxbzo3IG9diIiJoDu0xnlOCYZB2UZCev3lMQ2IcvhMe36E0NqDFZAuuz6XazCnMqb2IAEcZCpe7xl9ZAn7g3wOPWQZDZD",
+    "id": "163312693708973"
+  },
+  {
+    "name": "135то СОУ \"Ян Амос Коменски\"",
+    "access_token": "EAAAAKjoDhIYBAL6On4xeOO5lJPzI4AX9QJL1XZCMFZAXVfeq7KTQ3ZAmKVCiEvZAZCLWyiaxZAvRodT2D3NlC1Gzr2T80yjiZBaPQVZA2YyB0vhZCltl4UDte49kB6z2uZAxCxowhGZB7QSxVlRRUhtZC0WEvC9aYjBVlJOlvsJy4f0NjwZDZD",
+    "id": "139751076075806"
+  },
+  {
+    "name": "Мързи ме!!!",
+    "access_token": "EAAAAKjoDhIYBAGeuZBMnb9EGZB4oZBwxQUsVwFF1cMRxHV4mZChBo1sBLuKdDcQYpPTpbBvf6tTrDfHOnxrmY56R5nsIx7v0shDmIhZBHZAK2sXY4dZCwLS8D692wgyoZBBPseT3R3nKhiEVlgFLye02Wcy9Pz269uejnf8OmZCMcvQZDZD",
+    "id": "153011738076964"
+  },
+  {
+    "name": "Искам те......въпреки принципите си...въпреки приказките...въпреки действията....искам теб усещам го...въпреки себе си , въпреки всичко...и въпрек",
+    "access_token": "EAAAAKjoDhIYBAAD2UFz3Y4dDLTyyGLBQ8d2aKrG4yTjGtNyIps2OnV816ft5yzmnnyCP06EJEGljIF29VSikduVB0rsuy2uNAoPfNGpeT9h9myjIqqeORu24cfI8WTVCezCoWvH25tVb0UGEk1Ug6eNbWDYLSGuEsjY71QZDZD",
+    "id": "161978587175809"
+  },
+  {
+    "name": "I CANT SLEEP!",
+    "access_token": "EAAAAKjoDhIYBAPHWwq1QCV6ck0aycjL6aAMl7nZBIJWZCjXZBjcHn69sGgYeKUMpZBw4IuwzST6ALpo9AsFHWk4LRAl4SFZBFXOTfzAVGsuEAxo7Nq4eXOvfW1h6RPjR8SCCOaphcB5DuTTmJtKQN4Phdx2UNgCZAAjouasnTPPAZDZD",
+    "id": "161268483912534"
+  },
+  {
+    "name": "Ангелите живеят между нас,   но понякога те нямат крила, и тогава ги наричаме приятели",
+    "access_token": "EAAAAKjoDhIYBALllGBHAMq36qQhGTTpcRZA2Fo18IV6jmZADbLlXSj179CZATXpGynRJoFgUINDwlcICKReSoEpZBt7vZCeIMYximCZBU8SfGSwJdQlIcrgljwEWfDSnKrZBSM7225yNQr3tfMbC6sZBxjuRDS1WVMGGkOWN2TxQsQZDZD",
+    "id": "174883979193721"
+  },
+  {
+    "name": "Most common lie ? . . . \" Im fine \"",
+    "access_token": "EAAAAKjoDhIYBAGKu8yZAJ0fiil9RCOESaWk6q778vJX1tekI24XaM8Qn8yv9CfHtOnq7JzqYlvVkkkT9HTlUiiIbvLaPJjxL0oZARsxF7EA1fi4eSVZA99izStbKoU0gB0FzTgfX5vlkinRUByfGwHdaib9f2E3huvL8H2mxAZDZD",
+    "id": "139130146139268"
+  },
+  {
+    "name": "Пускат ми музика за 2 лева и ми искат 5 за вход......",
+    "access_token": "EAAAAKjoDhIYBAAw13ZBjcRMUg92yLMYtXHZBZCZBITZBZBJjr6Y1pf6qZBepD0IHt65PfWpUWheeIBYABQn7YxyD12odQ6RO4gs1oEt2BCeQ81yZC14XEt0CNvEQd2dVALsydgPDPbAe2i57ob2J4422moPQN9ZCqW4qZCCQC8ZBZBYslgZDZD",
+    "id": "172241616122048"
+  },
+  {
+    "name": "И ето идва най-щастливия ден, когато ти ще си далече от мен !!!",
+    "access_token": "EAAAAKjoDhIYBAIu5hXf9oOTUE6xOSoWd3SwekeFXpNC8bgdY0nKaTC4tZAJrZArOjaZA5iStQO6QjfqtTdlWcZA9MDWXD7PZAytsgdSnMOjNaBOyhrRO35ltASyHEZCSnACQ1qVRkypcqQWgF9yFFoRkKemjZC8z88HcBmKQsEkdgZDZD",
+    "id": "166220793400652"
+  },
+  {
+    "name": "Пиенето водело до бавна смърт!!!...Че кой бърза???",
+    "access_token": "EAAAAKjoDhIYBAPpFhLU6uCYWNdUYiSRxm187Xr7pzENzTH4Srw1PZBb0zT2ZBpm593Cu81AcIPaNnx8gdUJZB7OpNZCiQZCePIqnsp1wdkijnktxBZAz67GwAzJRjnbZB74jNka54pnGhT44UhwMhe7BvjGrs830ytJIyQfPFsY9gZDZD",
+    "id": "157385994303862"
+  },
+  {
+    "name": "Жената или те обича или те мрази...трето положение НЯМА!!",
+    "access_token": "EAAAAKjoDhIYBAP3ADokpW0zzBMLMEe3shT8SXrGrVBkiWanSac3YM37NP8Rg4GMzwRj49NHUZAabXDCFoxori52XG6ZCpWMARBleucSjKEFX2vy4UHyJrlzh3BumZClNn9fZCDT2o092mxtZBfZAmjJZCLY2niserEwQdkYeIbUegZDZD",
+    "id": "161047507265028"
+  },
+  {
+    "name": "50 First Dates",
+    "access_token": "EAAAAKjoDhIYBADuVvBn1ZB1i8pA2WsKcsBx5OtokcYu6oiJCBDLFiAsZCbEERwoydwTZC5688Un9GjMV6Hn3rsDACUf4t3JUZCDBz9dP4Kh0jUzMIi0RNfIyD77H1XRn9xr66mpaqChzgEBBFiVeVX2VmPJuesjTrYiG4nhIWQZDZD",
+    "id": "160922350612455"
+  },
+  {
+    "name": "„Няма опасни жени . . . . има слаби мъже!“",
+    "access_token": "EAAAAKjoDhIYBAKWZA6oXQFSg6gcOBmMBobjH15PAK9xF6ZCpmpdReGDwJlQ6Or4X396qH2T4lP598AEMH5RxgIffrPQHwaMHcW4T9zPcRP2w3Tbr5VZBEBO2Ftx4NWS6ZCqrmvbahlZAvr59hKv28lh4nOBQCn8gMXbvy6A0uvwZDZD",
+    "id": "111606558907266"
+  },
+  {
+    "name": "Peace",
+    "access_token": "EAAAAKjoDhIYBAPDuMcCLKcqabR0QrGqIZBrZBZAwZBZBedIE3CoteHHEDlx0IXfKvHyUoXQyiB1VjEOPeSZBh95o84UbaAkJ1MEjZCqQaMlDlTLZALb91PiGMN5PPWFNWYEZC65QOaOcdT2GdYALIiAxMuBWuYMpy7ZC19JoBl818QIwZDZD",
+    "id": "161640090542463"
+  },
+  {
+    "name": "The Big Bang Theory",
+    "access_token": "EAAAAKjoDhIYBAGWAzOYLNDXoioZAyGZAeKAoDQnkiO4GkzgqkXrnq5ZAf8HJMhs2bf4Atefr1zQbZBabrEaBeBYI7Qth6LNQ9ZCBLBfRPek7XgGUDNgtnjhy2cK2aoy1hBaRqplr59zQ8beBZCmQ3TbQIthc3N2yhWSQ0Fx00OuQZDZD",
+    "id": "116575505072943"
+  },
+  {
+    "name": "I hate it when im having an amazing dream and then someone wakes me up.",
+    "access_token": "EAAAAKjoDhIYBAFIsnXqivt5TQ4fBnCHNNCoqqQduZCUeAal0P4ZA7wGUICuimGmyLoq8zTa02ZBmMAK6LZCLUlVGvYXIH5mPPnnyhwcSGTYmmdyPJyr7WD9uwy2pDwTiyLtZCEHD8YNAUZAuZCdN38fZCZBKjURKMRbRlMaRgswNfaAZDZD",
+    "id": "106267252775793"
+  },
+  {
+    "name": "♥ ♥  SpeciaL For You ♥ ♥",
+    "access_token": "EAAAAKjoDhIYBACW0O8kiP154hO3Xbmy1Q17ReV9n3HZAX17mJymzqmPoYh8aZBNahWzX4BR7lqSfahUYctzGyiK8N2pXT9n2ZCposRQtrTffa0TRyHxZBtGZAWaElbAeLvMJgBE1GcOY4mZAkYYQ9qd7Ytf9mFVxuszPC6MgagLQZDZD",
+    "id": "145328282181216"
+  },
+  {
+    "name": "Fuck it.",
+    "access_token": "EAAAAKjoDhIYBAGF224aOUlBTuE84wit0Rdg8aAWpoLyxtpLELB7LnsCfyp51ZBcPCLlYZBfNQ6lUkHPZB4Bx0SsqLYZAeSJ2cayNqXFXzcsw5ZAREhckvYoXZBzNRq5wHPLWsIwbopuN2cyps0RehCgRCPNpKc2Lsl7L4nUZAZBQngZDZD",
+    "id": "144299688951554"
+  },
+  {
+    "name": "Чисто луда си, алеле майко!",
+    "access_token": "EAAAAKjoDhIYBAAUCWERkNMZBLRBwUBe1fBjbgWyLnNrZCxmMTvZAnVXD68vjugfrdtZBdbAQDCZAowtutMLrNNed4w70A8cQPHokJEL8dkTiYX6ww8N4MMv7jzWqjzREUBn2PTzOJXQ9Dc994WdlFWfRnJOKzb34dmZAVkU3fucgZDZD",
+    "id": "164144023616272"
+  },
+  {
+    "name": "Всичко което ти дадох.. беше сърцето ми.. <3",
+    "access_token": "EAAAAKjoDhIYBANddZASlxiR1imQ0rp6AZCeiYQIRiAFFtZBRLJm7YXkzZB3MFIJUVc4t9zrh3hhFn5TybwdXqqZATI6QAjfC8q5w9EzsOGd9lbZAdZAvNgZCD0SwYxU0hAg1RKmLHvrt7L6dDAQfyMLzZB1f6MkKHInmaJ9xZCMUElhgZDZD",
+    "id": "165378263485490"
+  },
+  {
+    "name": "Sweet November",
+    "access_token": "EAAAAKjoDhIYBAHWwoI35jXLRAVeyacuJuaRQfwBDjSrl8qvArkDmZA1rYTRausuUmayWcZCoqsHqYd1dH7Sxo8uUDlK8g55OJ3a5PLKZC2qui2bQF6IOhcGhmJCcrqy8BaHZBTWhOLOvGZCRa04DwDbgus8AU1Vla9h8NjDe31AZDZD",
+    "id": "166381226716479"
+  },
+  {
+    "name": "....Късметче....",
+    "access_token": "EAAAAKjoDhIYBANWzOZBBoRKIc2AZAmLwgIdXyPSZB8DGk86L9YI4TNnZB2DgIbM7wffPfb0Kchdr1EEXx2DlBaewnZCbRtZA1wPYMsDoI9BigRtxJZCeIwZCZAKvP8iHJT9KMBgOTQIUvYZCWiVfca50JXjQKYg56Ebzqa9DMOZBpzqzwZDZD",
+    "id": "160368800650548"
+  },
+  {
+    "name": "Любовни късметчета",
+    "access_token": "EAAAAKjoDhIYBAC4VFQwZBICsN2RRYZCvuF9sddT4q2NPE76erYceBYvnNz2uFhZCfdLgFIDZAVEnMNlhRME1xjpljMvfr5XDEs1B8gjaW66pMiYwruUr53XsSfOVXqeZBisu4zgYfhQ8r6ADSAL8zqIj5ikELZAd9BZCFUpTbEaZAwZDZD",
+    "id": "127837630605225"
+  },
+  {
+    "name": "title",
+    "access_token": "EAAAAKjoDhIYBABNZBX7VCVHFwRJ2c0nXoZCIF8dXbFuZCOOHGe0yRMzEsgyD5IfHfxb4hsCzAEKHwieMxpzXmYWpc2ZCmHZAnLuo3iNOwuhw0gps0ESsBuJLYftTO0yX20fKUcSxnttvuQvZBzDCzIJEemi233XDD0kHoebXPP8AZDZD",
+    "id": "146860678691632"
+  },
+  {
+    "name": "koi aktior ot Lost si?",
+    "access_token": "EAAAAKjoDhIYBALPiZBnklr5A9ELmkWZBeNtmpg4BWtBXYTro3RQ0LJvC1fcntysrbU0XmH2tbc86XVDFVrO4DzbXZCWa0sXZADcLuAHUa4zkGCqS2Ambs6JyBf2oVjHOWgHPb0Stv3iNRyQnXsRzBGfpHUA4bGjEsXud6ysoXgZDZD",
+    "id": "156882177682023"
+  },
+  {
+    "name": "Твоят мерак е...",
+    "access_token": "EAAAAKjoDhIYBAJItaw0QhF76j63JoZCXIXhIiTf85wRZBRfy9hW32ymR5ER77zLvT931IlINFMpmsPn31coriRmWlFZC18lx8eDvZCSXMwBy4MriILCeVOV3ZC2b9vMUj1qAdkfqP9A2ZCqfpdBZB17ubWcNBExWKOJ60QbKll4TwZDZD",
+    "id": "113185705411974"
+  },
+  {
+    "name": "Какво се хилиш като наръпана от мамут кисела краставичка?!",
+    "access_token": "EAAAAKjoDhIYBAOBz0eceHFbmxprMIt7IQLIdNR91FFlHegN9Mabx5zLQYubQzWFGvanZChUZBZAZAK48Y7VKNZBk4tjPEPlteNqrCVpSCEJ0DWxijlNfQVzZBhHcBvsPdTfjQF0WC3kyqZAJe9YbSynNNqPu3UeyeCAeaTl8b87OgZDZD",
+    "id": "167722493243275"
+  },
+  {
+    "name": "скочиш от върха на килима :D",
+    "access_token": "EAAAAKjoDhIYBAFRSOaaa4Vhjpk3ZCIqH0wYzzTZB7k0ucz0tZAZBsHmL9WxS1UppQzX2JVxNQXm1QO2DRqt93khZA3Q2cqpePZA3aXOfKXTbGQSvNughDd3JzlXPE8Cny7n0iXEjZC92TrIThW3AZAbWsBMrczijb6HAY5IlBxlILAZDZD",
+    "id": "164077176945037"
+  },
+  {
+    "name": "Real Estates Bulgaria",
+    "access_token": "EAAAAKjoDhIYBAGL5ODtx84HYC9XLcIP6kvq6ThXPjh816m9miJ3hJQi5hrZCaCoCZC0wvp9irzbdxxrzIxDgyn9ZAP2BvVyrPCbmKvoa5Kdi3jFoofq2j2f4ieDDau2i2a6mZAJiYuDvPWIBh3183ekjH14aqUljihy0WuOCuAZDZD",
+    "id": "59533545722"
+  },
+  {
+    "name": "Bulgaria Property",
+    "access_token": "EAAAAKjoDhIYBAAH5m0JGFQp4RA14MZB3bCaDbzILkdqIlcvB4PZAZC6VZAmWK9VHktiToYfx1Vhyr0SNOWm9qQEwukPYRwFTO0fZA0K7muz3ZBa9Fm7ABI1CeJTkaZCdO7ZCArETCK9vRZAALzMAtbWNUYjy9clP6n5LZA2fleF0D0TgZDZD",
+    "id": "19200258696"
+  },
+  {
+    "name": "Видеоман",
+    "access_token": "EAAAAKjoDhIYBAFTcphSFe3ZCx4U9fTMdBcPZC7TU7a2p7PYdZCyEqSvV9Ivm3Osh4uhfggQGf5uQ1kpJrZA6QLZBrJ1uysRPLPWtssQ2wZC73ZAVgpjX2Lbom8Nw5ZCd8WZBopzFBH0ffmTZAEygUdty4Tz0t1wwKWZBtHAihEYJHDtJwZDZD",
+    "id": "367579831282"
+  },
+  {
+    "name": "Най се кефя на ...",
+    "access_token": "EAAAAKjoDhIYBAMT5XnUqdur7TmPvCGrRdDeedpWXAs9fITaUSZB8eRDwBRdXNOictdgs68iZApacM0uINA0gMSw6AHsyuNtnj7k4kBo3rftUwFsJMtu6qEo7PzBfiQVnkrADkoWq9ZBz3pMbv6j9ay4oIuQvblKMdKoJWYragZDZD",
+    "id": "105902966107705"
+  },
+  {
+    "name": "1",
+    "access_token": "EAAAAKjoDhIYBAFTABImPPqdC4ZAUUhnuqd0rYEa3w9CwbHS1ZBmTElauYHBLOQW35Ba4ItFUtI1QYTPqbdL0lUfVZBpEBiB5J9yTnQSbRcFY9ufDOslnjDCPI4o0THni9jSWM7PojLUAkwiYRDBeYdzKNm33lvFxdiiS5V5KwZDZD",
+    "id": "128424490528092"
+  },
+  {
+    "name": "FaceLift",
+    "access_token": "EAAAAKjoDhIYBACpsQogCEZCOgxD7ZC4N5C6mlHqY5aLN0ZAER2IsPp4mM9KuATkH9qIhKXdLDZBx9QrATlr7rUouFWkHCxFp2ols3jM9EDE76hDJp1TSlSnX5J4FsNdjDkC9S6ciHsxEMrC6sSdWHZCnSPNfLljVGPaKUQmOpNQZDZD",
+    "id": "124711627548465"
+  },
+  {
+    "name": "За какво съжелява тя/той",
+    "access_token": "EAAAAKjoDhIYBAHwr3th0UfOBun9hRhlAS5IPNtcZBgIYu5zXIjQxmiC3suuqrv6tI81ZAIIf502P9jCMZA5SuDMiLXlCDcreEvoQZCfeSNEPAZCQBjJPNCbXlrDWUtZC5jRHc5RX3HXHjx6DV2CZAxCiUH0ZAYA994db49KvZB9vKqAZDZD",
+    "id": "164549323568721"
+  },
+  {
+    "name": "King, Martin Luther, Jr",
+    "access_token": "EAAAAKjoDhIYBADtC64Iv2B91nbf0k0TqyixXKfn30SZAFAPZBBgjlYS6zAutsDJd2tlnKayxqMlkEmyDlL3akjsKgNRLdKodoKoHk2UjZAO5J15ZA1OZCqJUrQVBmiylJkGWhpVzmhg2630cqlFfRrNjag9s2GZBLt5C5xLBz2XQZDZD",
+    "id": "170413159651508"
+  },
+  {
+    "name": "STOP ANIMAL ABUSE!!!!!!!!!!!",
+    "access_token": "EAAAAKjoDhIYBAFZCz1wPbqyW16RgpBHUZC3SLeNZAg1E2wHVrUnXbMa5WyBG0FOHgs4i2IxUlkUOwMQwmbJQuPzKJ4puzvoc6JVn1yWdQ2SZBKx2kXgaprPSOFATYi2Ds9nOCCq6wZCsn5Eoh3ZCo9WMkX9FkEcoGIUuBTO11OJQZDZD",
+    "id": "175747079107122"
+  },
+  {
+    "name": "Не искам да съжаляват като ме загубят, а да ме оценяват,докато ме имат! :",
+    "access_token": "EAAAAKjoDhIYBAIBySBDpJuyo1lFqYyAxkhoPFLzj9z9lSewsK7tMJvNVXMsZCiZBUdDUFNZAmEtTcWDjjLobbY7LCwZAos3lhO6p91OQVWbBxawZAWRiDSgB3Urzw2zdFkq0mYZCJZBnxhkIURa4LMpVaxbDg1WQARDI7HVd8VT6wZDZD",
+    "id": "172548562758346"
+  },
+  {
+    "name": "Gretsch Guitars",
+    "access_token": "EAAAAKjoDhIYBADG9y2quEBX7I6WYbfI0ztHHWrz5u46BHqaDmf3VJhXHChP0ZBsb9rIwR5hzZARIPrlT3eZCMwPlRWTSibNTxu2Ib66ZCYpxXjdZA7yOUTZCY7drFUPudS7IBrSYU2meyMgCTYbZAZBOx5gXu53eZA9Q6zLVwkB6tfwZDZD",
+    "id": "164079913626537"
+  },
+  {
+    "name": "Breathless.",
+    "access_token": "EAAAAKjoDhIYBAJHZA9vnSBYlkFk46DZBBKh10vxWsfJ879kIWN52kwC0qrWGWg3TOtgzC0wd0A5cQ3qM4K4qaeQvveP9L2nRKqo8doJSQ8XCeSO5l7DngINuMwMfwD9CPQ03Y0XdUbDsiatsLXkjKqhso6urrgieJ5Y5fP8AZDZD",
+    "id": "116835295047904"
+  },
+  {
+    "name": "I ♥ VOLLEYBALL",
+    "access_token": "EAAAAKjoDhIYBAHy0Rql1jpO9JfvjJURgjcINjDK080izTRd2CKTirihTmujvICxN8EjmlFdCkUN5TkIy1pZBUJrOamZBzF9kXH7ekwrQo6yIay0S75L4xA4fHLUC1zS3KBusEijjHvaqkLO4KUHQQjXZC0zjmZBrqxSW0mwZCNgZDZD",
+    "id": "110854652314294"
+  },
+  {
+    "name": "BULGARIA since 681 a.d.",
+    "access_token": "EAAAAKjoDhIYBAGdDTo2OaNKSAebdIyjOhmNSD5muWrWmcngcFGyAccWDlWVNTZCGPxpO3QLZARXWr6fcdc3xcZAXOtOtvKu1GdVnv4fpfzt9h4Yhhpk5tIO8ER5WdVR1GTSMfETOzQl905RcIvf4lBDeH2TfbyZAZAOnQZCnEyMwZDZD",
+    "id": "172301659448374"
+  },
+  {
+    "name": "Успешна Кариера",
+    "access_token": "EAAAAKjoDhIYBALZCojgCZCeqHCQ8eIRTqQO8YdjQJJ7nLwVdvtcP0swAB9g0qm3nUKzQ6j90EarUW6HuOKJEGZB4E7PKhJQsMVbulLNOyYkv29OY78lhuEcDnj7YaSpdrcYLBua5fyEtYvWUwOJZBZCkYFHG1rOaQZB3JVSYE4qQZDZD",
+    "id": "174200172596007"
+  },
+  {
+    "name": "Късмети",
+    "access_token": "EAAAAKjoDhIYBAOH6j7XU7G5e9H9wXPaFaoVB7moeTf3ZBcz3rZBoMYtWavfuOaI1WbesmGpdp6l6pKbsj1UpaZBVecKbzdQzu8FJIKNc1s9pmHODAaS1uZCZBk7RJlWzaZBis9cwGzerG4JpIyh8yQ2LTIrIFuA7tLaZArxtExiFwZDZD",
+    "id": "163721070326390"
+  },
+  {
+    "name": "В таолетната",
+    "access_token": "EAAAAKjoDhIYBAPElMZCt4aEXw6CgAAu8pKqSAEwBntjulUGNyD8eeyHLtH3OwGEkh09bIqvkDFqqQ7oUJZC6EODTIYTRzSyOEgfiHZCd2dKxJx7fjXsUZC9PMNB4lGYvAY9PZBTSvzY7zDZBN5jAIoXBnfWWe0s29dgJzHPWImcAZDZD",
+    "id": "160523310649167"
+  },
+  {
+    "name": "кой е тяоят филм за вечерта? Titanic",
+    "access_token": "EAAAAKjoDhIYBAHRJRNh2kCWi9BaCz1rJMcYD44eV0fkZBXaZCXZAjLVZADMILUCpnPS0zTbctbnxjGvAEBn1pVeTtynqMWeZAuYJjXCgmKpcRdbIQmwGXJGygIZAt4hyxbKjabl4CODWRuQyRiCgxnk1WZBZCwcQZBsbBZBr83UxD3hQZDZD",
+    "id": "109394752458927"
+  },
+  {
+    "name": "Мъжът е като цвете,а жената като златно цвете!",
+    "access_token": "EAAAAKjoDhIYBAGz4yqJDZCJpSiy3BbY9msr8dZCY49EMffQZCd42l6iX4A7LTE2nZB8WijlgPQEvtO0toI21xZBW1we29dJPAtDRBboxm9LIfZBXZC7jD9QqxrWj3qWC4Lcp6ty3datlZADphh1UKC9pJ8QcpFCQ3Ou1cZAPFGl7vJwZDZD",
+    "id": "130029267051798"
+  },
+  {
+    "name": "Вчера блъснах се в шкафа  и реших да ти напиша два - три лафа,  но сърцето ми спря да диша  и едва успях да се подпиша.",
+    "access_token": "EAAAAKjoDhIYBAEMaaVK1ou9yPq08yvHUnvoVHhzQHCdI3OVPjUVVL7YgravkSs4hHaJlIiEbQ5yqMqXhTTyog4S7ibitx6ZAGX4tjpvZBY9qDrgNJVeseuUX6V0NRWkD1dQF3micyL986bKZCEE5B0nCASvsiZCaP64VczR1AwZDZD",
+    "id": "159382574097025"
+  },
+  {
+    "name": "KaSmEtChEA",
+    "access_token": "EAAAAKjoDhIYBAO2sXqcmmQiJh7zZC8ydFFtyHyurnX4FI1gLKUtMUort6vyTneZChM2jK44XZAZCPMY6Ij4ZBrSZCsUVacZA5TVlHwdZBZBLuOJdTOpUsVcnteX5RnD9PviiOz7DAsaaGUqP7WLyjcb2HvwJX83oSrh71CVpKJ6R1PgZDZD",
+    "id": "172357719443298"
+  },
+  {
+    "name": "Писна ми хората да се мислят за НЕЩО, а всъшност са едно голямо НИЩО !",
+    "access_token": "EAAAAKjoDhIYBACkkqm1fGW6ZCjd4ZBCZBNffcwJtWzRqQOHo5VIT4xINE2JPtQatstK5Vf4LIwZBttrfEZCglzdtHhsD5Tyyio4ofQ0C18daaAqZCgEyFGC3v1ZCH1INhgVO5NhQfbInBpzTiwVWDEpHLwTv1IEB10iiz1QrGQVUQZDZD",
+    "id": "173458266003537"
+  },
+  {
+    "name": "ДА ВЪРНЕМ ЗАДЪЛЖИТЕЛНАТА КАЗАРМА В БЪЛГАРИЯ!",
+    "access_token": "EAAAAKjoDhIYBAJIJOTbPE39MtBZAU8DsCZB4CzQ8Bg8un4EfDIJpEM9Ej6Hl1GA250oD48T2dnq5vpSkNQG7alAjetyvUZAf4a6gYDigsFO8VO9E2oejc3Wh2CYYhFb2tC5ylCRU5pPraZCJz5KS7xanBLdABVePIFBmA64cvQZDZD",
+    "id": "167909949899623"
+  },
+  {
+    "name": "Добрият приятел ще дойде за да те спаси от провал,  а истинският приятел ще стои до теб казвайки \"Мамка му, пречукахме се ! \".",
+    "access_token": "EAAAAKjoDhIYBAEFnzJWNqyGRtNLXGZBxtPZB5bPy4ZA2s4fFqqX5ar3nZCt2ooR8lJC8yhOWYCIToqPacurovVrtapZApHlZC6iXs1y73DPjhVZBg7WREAZCV6ZA2FgvwqXNwWp3AHU1kZBfCabGIWJPZAYZCnP4ZCPcHdxoqDG9GniY35wZDZD",
+    "id": "146358358757620"
+  },
+  {
+    "name": "Колкото повече толкова повече,казал мечопух и умрял от свръхдоза",
+    "access_token": "EAAAAKjoDhIYBAEIRHCnHRFG6WCN30WlZCUDA4N37x674YwkXqZBOx06ZCTzJ3jtF4OOBOmDAsZBevs4o36TVPLAua0a0xUvjMT9hy3GKo5oq4ZBICXRBTFGO46rB8GxkYx2ktQiR8vNaKViBg3QwtC4cPILmOMuCJyGEIwAlfeAZDZD",
+    "id": "200017976682432"
+  },
+  {
+    "name": "Как можеш да хванеш нишкана на един живот.Някои рани остават твърде дълбоки , че не стига един живот да бъдат излекувани Властелина на пръс",
+    "access_token": "EAAAAKjoDhIYBAHKXf0LeZAvBJQhzMrZBK7QkitHKJp9noQZB0ZBAJtG99FnyuueYZAJfKi9wWowZA1GWvS1ELaQvoeTN2iGLkSUyCCiXrXgXymLXXKq0ZA5dlgx5pKVM59YMMIsQrJ5RZCktCPdnpAlIEmZB5oyWPAEMBZBSk6wOSv7wZDZD",
+    "id": "196844817009202"
+  },
+  {
+    "name": "Само онова, което носим в сърцата си, ни принадлежи изцяло!",
+    "access_token": "EAAAAKjoDhIYBABmZC8FgUzaQrtOdynFBk4fFJVOH5e6uvEeZAioyE3aOUNEZB2KYwvS77d9mfG0ykie71k6hfnCegkkXeNqRwZCASHWLPSsZCkEkkiAyAbqpH5Mi07jG52kNWgKHqSz21aqZA90Y3jX9ZBtZBWZCHO4m4FZA6JcqBzPgZDZD",
+    "id": "153033121418722"
+  },
+  {
+    "name": "Не ме чакай в гората, нямам бензин в колата. Чакай ме в леглото, идвам с колелото.",
+    "access_token": "EAAAAKjoDhIYBAKQBP0nQDZCZCjHmYZB7mcYZAnvZAQxwdSmazTvSFLDP2NuHfSrT6ehTxVWdQWwvEnijR1FnZCahKWlK5yi1ON331vDd0wZB6ZC2pwifYzcXOBx3PptjKXu4sOlfRP71Ey0guUDfZBleZCipDrx82iu3etKOHZBtT1JbAZDZD",
+    "id": "140566856005812"
+  },
+  {
+    "name": "Козметична Дерматология с Есте Клиник",
+    "access_token": "EAAAAKjoDhIYBAD4VbDRjo3NlrQHxZB8Ppscp4ZC20mLltSZB2Fhwne35TfFnNI59lWEmF88916RVZABm4ZC7tUFlgUiJKQHBF3b9cZCJDbllzIxAdKimJNBb9IfxS3M0DGHmYFZBzjopFBgZAwoYnVZBA4OnwE44Mfx98Tfw89KjLSAZDZD",
+    "id": "109805335761934"
+  },
+  {
+    "name": "Учителката: - Иванчо, коя е най-често използваната дума от учениците? Иванчо се скопосал, не знаел отговора, казал плахо: - Не знам госпожо. - Б",
+    "access_token": "EAAAAKjoDhIYBADtOdCG31g6wVxToAf41HcVEME3mMfXMN0tZCpSOwjZC2V5HQKHidhDqIPZAZBK2VRnuDN4igt7Ftq62ZBQ1m1cxKVYQiZA7LiBu623t5vIZBvEMIq4KIhygICZBjHfYXTdZCzm0E1ZApfppCoXqvobsZAlc12G5M4zEwZDZD",
+    "id": "179443262078382"
+  },
+  {
+    "name": "Венета Райкова",
+    "access_token": "EAAAAKjoDhIYBAAGxuWZBo01wqtwfaNZAWpyWIZChsuCVIJzX5tFFYPFSP5ZBx2FaSBnDf0Hti2FSO9MCTJ5FIvmVxfgpEu8b14wedyUcm6vuZCliUwzaPvBtm1EZCenSXRR9sXhb38KFZA15h8ZBVAFl8UFZCBZAGZBKTZATSZAvJQraNJQZDZD",
+    "id": "174766762542659"
+  },
+  {
+    "name": "Живей Тук и Сега, защото точно този миг е единствен и неповторим.",
+    "access_token": "EAAAAKjoDhIYBAFapnHibScrZCZBY827inCga9uvfQ5tlcjGLVL8JYKZCF00vWYQNWeAi696ZAcV5cioOWxid86EfjXYT3hkpjuKMUyWPk8worq6WSDlkij7nOG8skHkTq4pUwTXhsxJclh1iMKeEiMQ06gLZBCvZCmJIVubqaB6gZDZD",
+    "id": "115553508512268"
+  },
+  {
+    "name": "Изяж бобър - спаси дърво!",
+    "access_token": "EAAAAKjoDhIYBADZCFxa9pIHQVborWw01JSJcDt9wY6OZB5gcCCG2V6d2NZCwSgVtQpnoJZBV0GDMZCYUJUAE7aDxSwYNAxHgG08JPBjyoU0JHW5Q0cF0KqFZCIcKQWIRT5eJBM0J2jovy2ZBM7SJjEFVOtmcUMbLIgbZBCwhZC6mGjQZDZD",
+    "id": "171545462867916"
+  },
+  {
+    "name": "Писна ми Еврофутбол да намалява коефициентите на срещите в тиража!",
+    "access_token": "EAAAAKjoDhIYBAGdv5w7HYMr2nW7dU2RDZAyfOcbznpdIBTCK9Tbon0VtZC56l7N7pVKOSx7u383Gz59ByAZBxEW6lRlo6hwlfh8y2AzwyTUQckeZBoPPz46J2fDZCPxzD7wIrNGAWDswkMOpZCrKF0eFIYYZA2eGMc4EVf26FfzvgZDZD",
+    "id": "108567232549098"
+  },
+  {
+    "name": "Никога не се гледай блясъка в очите на едно момче , защото това може да е слънцето прозиращо през празната му тиква",
+    "access_token": "EAAAAKjoDhIYBAIYIY8nbaTJZAsoL3ktqfZApjT4XVgp4lMXZAKIiK9YMqm2i0KCSZBgLlwiZBcpZCwKhM8Ds9sA4y0RuK2IyzrReCk3OnSFp4fDc7cIZCZBhi9odFZCMZCNJQVBryduBeKmgWXqS2bT7b7taix1aJezvgZATEHIVTVoCQZDZD",
+    "id": "137208253000347"
+  },
+  {
+    "name": "Всяка следваща минута е нов шанс да преобърнеш живота си!!!!!!",
+    "access_token": "EAAAAKjoDhIYBAJAlZAnhfxvHEs2UyuZBAPvAaBYb6EFU5vHSacc6FoP96ZB6okqjkB7HbGGhURkvhVgHJKooLYQFuBZBE9Ugc2adSUzW0uoyaSf6ateuXH7uKqLMPhjk8TcnCg5PVOosj7m4AYgY9ZBEgzVYaEJZCgOP7FpoSZCSAZDZD",
+    "id": "171614349528770"
+  },
+  {
+    "name": "Скромността е за тези, които нямат други качества.",
+    "access_token": "EAAAAKjoDhIYBAFz7tYNFJFkQvZANNpPd6i3zbPZBBEZBkZA7va51Ixvnd6k2UJl5DehHrnKieCoa9TjJqDZAHNIMnoxsCZCPVPPuF2s1juSZClZC81kZBSx0CCh0hOCfWlKt8jkHZCcDJL2Yq4fndWaQZAVefULiD2ML24gZCBend1GfkwZDZD",
+    "id": "199608010051907"
+  },
+  {
+    "name": "Никога не можеш да устоиш на това,което не можеш да притежаваш...!",
+    "access_token": "EAAAAKjoDhIYBAES3eMMALFnu95VuZCFCZCYLzKL7b0FQoYLZCc2kOPHq2Mi85EQnZABvAufU9C6NHZAWtQIQ4KiR4H1P3HJR6LY5E6C2gsH7MVmzNuwjY7ti73uWDEGQ1eM3IXwf4UUgUS9D8P9qWwFvdyFpZBSsRBYjCdnrBhPAZDZD",
+    "id": "181146028589553"
+  },
+  {
+    "name": "Ако животът беше лесен,нямаше да започва с плач",
+    "access_token": "EAAAAKjoDhIYBAHHLVbZCIs8FgBHQE56I4KnrOKWUKGCgPkqzwEFMVl0a8Fw0akG35I2ujSNXEIIZCWj6Fn5BCKC3JZCn6uBTky1mQ8aZBB0fswmkxWE9Il9Q8WpLZCrjZASBNf2OEUyxHIABMuQUgEFkwn7RXdrYrdPHTRJBZBMPgZDZD",
+    "id": "200774316605516"
+  },
+  {
+    "name": "Днес хората знаят цената на всичко, но не и стойността на каквото и да било.",
+    "access_token": "EAAAAKjoDhIYBAMJZBZC9UzXExwNeKlWGB84vUDG1w9nsZA4fZCQy5oJLyOVHByHgNe0tHwYhCnqoG0fOUdHu8pDbX1GCuOprrenOZBJLHzCkBk9aCkpj0rghI8sNZAQdhYYnAwpQeBk3KAr0coqdR9zuxwdei8WtkmrsMO4qROTgZDZD",
+    "id": "129367590467010"
+  },
+  {
+    "name": "Когато не знаеш името на този,който те прецаква - го наричаш \"съдба\" :",
+    "access_token": "EAAAAKjoDhIYBABym51aAitICFpqeznyQK39zQmiIZA1yio9XfgPI4xSkaORMiZBxm3tjefYdkvXIUEHAV5aZAAhpbBP5Mjt6gCyidapqGA9UHL2pGTtw8JaE2XV6znPcvjHNDdI7N8SoDF9dOC7Uo9SZCEIrOjULh7HVtRGalQZDZD",
+    "id": "146915555370213"
+  },
+  {
+    "name": "Това че се държа нормално с теб не означава че няма да ти го начукам в подходящия момент",
+    "access_token": "EAAAAKjoDhIYBABPpVyS5Wwhk5uZBoiROV8ReqKCpwLhVVG7bXZCP27xEduEhCLZCgr3NbpoCNDTxJOLbsU0rqDUoDvPnJaq0IzyWdIjmfYMfK2IzZCDAzHyxBwC3E41IuuV8qXPmZBMROSWeiZAaXso2cBwZCetlqh8z1Np5BEheQZDZD",
+    "id": "151284408262627"
+  },
+  {
+    "name": "Светлините - приглуши ги, изгаси ги. Позволи ми да ти покажа Любовта си към теб, Ненаситна е...",
+    "access_token": "EAAAAKjoDhIYBAFYFfi5BF47XjRZBzIBDOZBrLtnTZBOabbV7mOwPBDyLAWfCGZCcYWIIDN2ZBJD7zfE8PLLDQMBoPmEw6MhJY1ulzAhvDIRNZAXTXqffMF94lgtqaHc9EZCDDypMqZAgJBizXYHktY84UyJdqNbntZAv0pRZBhLSobWwZDZD",
+    "id": "129292153806529"
+  },
+  {
+    "name": "Колкото по-трудно е отварянето на един пакет, толкова по-малко започва да ти пука за съдържанието му.",
+    "access_token": "EAAAAKjoDhIYBAD4vGEnqzlEqKsSZAbwcdEBw28oFHtsdPRkZBZCbvqEiZBmDTts23pIPksxE55nIr74fZAs6DhMm2ZAnAMiSrNlWZCEKM3Nei3dJ4gST9sNEymplWJNZBbflZBYR2Y3g9xd2C3OnXzDmHZC5UKZARTYSnmhf20OO6exxwZDZD",
+    "id": "139938719401845"
+  },
+  {
+    "name": "Хора,къпете се,нищо че не е неделя!",
+    "access_token": "EAAAAKjoDhIYBAMS026Ic0j1EV6BeCl3TJosTA9wqGk7ocMtc3bEZCUWZBRGHhUD6JcU44krocZAroZAcaBxtVZBWTc41QH76flejVmZB5z33KwKGR971CXgfNL7VyI93Gi9hf0aZA5NugK0W3wvITZC2yUjv8D5rldYaoLZBAyaIN1wZDZD",
+    "id": "146670628726471"
+  },
+  {
+    "name": "Аз съм бандит!",
+    "access_token": "EAAAAKjoDhIYBAB9X4fREUUXSZCj4VtSq4dK9bibHG1vH5aUfRkqegFiZC5O5e59kOZAom5WWCBZAAnVaw3MOZBpQg5SstxPqvvb9vZCSbRXH64wVAWRRyMyoKZByGZB0HFEhwfLIUv80lRKXwCzqXZANBBlemkJZAXQm4Q07gT43ZCnXAZDZD",
+    "id": "125702087502781"
+  },
+  {
+    "name": "Добра жена треба да знае 70 работи. Да готви и 69 ! :D",
+    "access_token": "EAAAAKjoDhIYBAMuqXI0NlQrZAtJg1FAEdzDaQmWKZBSPH1ZCg1DQn1cp11m5U0ItkfhHVCaZB55JZCuih97EGgtoGDjIwUYB7MxZAYsLp6Hz3lZAqG3HbI4355iGfom0a5aY2aKRNn3LMZAWK7SzHFUYhPtVjOBImqxXqzxicJCNKAZDZD",
+    "id": "139874192741917"
+  },
+  {
+    "name": "Когато ти развалят настроението...вземи ударна доза \"Заебин\" =D",
+    "access_token": "EAAAAKjoDhIYBAMUDkuDcXhc2EynmZA6gN0RMbJAPhc85gNquWVviRhZCgVn3GSLDLr5mDbOwFoGEIg3XNGWRZBHZBSy2uqX57FiNfUErI7UdZCUwmzxZBNiqjrKfYCPKZC6XV3AXRehth0L9qCQ2ZBKdEyJecIi3HlGZCqTz9hEvtYgZDZD",
+    "id": "193091890715896"
+  },
+  {
+    "name": "\"Колкото повече, толкова повече!\" казал Мечо Пух... и умрял от свръхдоза.",
+    "access_token": "EAAAAKjoDhIYBAPDJNdV9MZCUKSquhZBf1wMkZA1le2vkQ8J6Dm5IaNcoU8Qp5KI4sCkfF7JyBFwZBKT8ZAxrPZBduhUanmxQZChHfEGTycemtF3P4RjlSvH3jsk4lm3g24aBd0A7UAnJUAwsUp4nHDUBtQyfP4ZCXaa4Hs9zt0ZCOJwZDZD",
+    "id": "178138748896336"
+  },
+  {
+    "name": "По-добре да бъдеш малка светлинка, Отколкото голяма сянка.",
+    "access_token": "EAAAAKjoDhIYBAIPbNn85Rh87FOBU1Bsj4UuvneQZACZBzE66gfko3t7FMEjZA3Hay6Pb5I56IjZCbadyHvl2W1mH9QdDKVVyEZA6KT7ZCN6DqNpe8bZBhIFqMBfVtVT10aLuH4V8MOibdOfXrLZBCZAjgQXS9SYrDQToDMuRhYUpNIwZDZD",
+    "id": "192099707481098"
+  },
+  {
+    "name": "Пари пилееш с огромна лекота, а всъщност си купуваш самота...",
+    "access_token": "EAAAAKjoDhIYBAKWykQZABhwWJq8NOoGOdu2EFHVQ7DaskhZA20SyyidTuCHf5VkBtbBZCsynnXZB93IR3VHDDwHlUufxBDf7GMCnaFbwJ2ssNgQahK5U1ZCNZA4WnGlls3lKsn86n2TFzHZCZBxGrhUrLM3uQkkiM82kPZBBw5ISkSwZDZD",
+    "id": "145412268854070"
+  },
+  {
+    "name": "Човек е толкова голям, колкото големи са мечтите му!",
+    "access_token": "EAAAAKjoDhIYBAHZBDEw3VZBCFcE1spM6WsT1XdHF3NLcBJTsHMcTL8ZB1keoOaWys3YmCrFj2G4qUSGXYXk0aa9yXZA6r8ezMgmFC2DZALjMdqeFNuHYmSL8YPr8gSTlPTzzZCFttprr1ZA2X72vVCHHWmSEz9No58dap9Ra6679AZDZD",
+    "id": "166422040071515"
+  },
+  {
+    "name": "Дълбокият поглед, чрез който гледаш в нечия душа и виждаш всичко, което трябва - това е уникално! ",
+    "access_token": "EAAAAKjoDhIYBAKRDvgZBh8IH3kNwFYPfOyMOayjXqEM5e4d3EdSXZBWk2nUHZCDvlZCpZAtavGufqDmQOprAoEFtr3frJPe0vhAKbPjNXNUL4rxZA8q5W7f3PElHesUryqPvFDS4jbhvZBMRl0wRrluUfyXbqEopmLiVd0K9hRZCiAZDZD",
+    "id": "173943505967161"
+  },
+  {
     "name": "На жената и е нужна причина, за да прави секс, а на мъжа-място.",
+    "access_token": "EAAAAKjoDhIYBAJZCw8jrZBvDxZCFADsvmz0RDMuXoOZCUWgFCH1BAo18Vv9pxJqCYzjsJggOTLar6Ih425xzv4EeqR6eeHcelPT3s8kOxWPZCEwe2nZBglwa7Qv8fNr2yGZBJlzJz5Y8Ft7F3iBk29gmbwUgrncprVZBC6fztpl7XwZDZD",
     "id": "103472043058631"
   },
   {
-    "access_token": "EAAAAKjoDhIYBAJCyMLZBYXjTklUO7C3C35rSknE0fjhFIubSsjajz6yZCgLASV1mumrOLap0qbH5kOvDe6ZCJ4omYS0h4YFiqE1qq9CzGjZCWxTdAGohBFmkn7723j8gh4NCjoSDUcDGGsEgdoaKmU4I2xlhjWAMr1CqIDfmTQZDZD",
-    "name": "Най-силно е почувствал любовта, този който еобичал, но не е бил обичан!!",
-    "id": "134081373311575"
+    "name": "\"Слушаш ли ме?!\" - \"Да!\". \"Колко е часът?\" - \"Да\"... :D",
+    "access_token": "EAAAAKjoDhIYBADZAOOPp6kVEZAbrNKak8VjY70UkEPCXvWUQIfZAAEQ4S6VUye18ZCipz8kJpKZCZCgB2X1dhbqtWjjiCldzRGNCA7jgbR4dPp1PRhcljGn5xSHOU3eDW102F4IEJIVUx4YUcN1RDVEOrn7hU9CPeBibN6I7vqkAZDZD",
+    "id": "106708359397320"
+  },
+  {
+    "name": "Sega",
+    "access_token": "EAAAAKjoDhIYBAArizkL3tytAxZBcIZCgYYGgSJyVK5Q54wQI49XxqHRZCCIp7R0RgoWI8B5GYTUSic5DKhPJUSYhXvrLOvI19ns7ZC7CfLSXeS3pCmBJl1J5gt5ZBiB2AZAx9IuDHdrQlc9tjz42CQMbTZAvpQZAjZCS2cH1VTA08HQZDZD",
+    "id": "143177282395998"
+  },
+  {
+    "name": "I love when I see your name on my notifications...",
+    "access_token": "EAAAAKjoDhIYBAM5nr5OAKbndUP8IdAJWkBpfJ0a7cC7coIFBzX8FdG8yJqDuZB3KvYvC6k6CrvztdZBGLibhnpSt285HwxmILbZAeohdOIZB0wUIpeLFZCZCkH2Dr2IuhJjlqE1x2UZBVmUVjHUjcGM3kLZCVrOt3UL6PJJl9Q10SAZDZD",
+    "id": "168780433150031"
+  },
+  {
+    "name": "Пътеката е като приятелството, ако не вървиш по нея - буренясва!",
+    "access_token": "EAAAAKjoDhIYBAPVYajOPLbJ9nWOaZC5YFZBHRDZCmiT4E0JhNLEQBUbZABwUHnGqZCDZCLL6AC0pCs6VTHlDAQxZCwP6DR0ZCSdeGjKC1W5dF2U8tLpZAK5MMy44uUZBijNACzRFQWW6PNdyRbNXvXshixRlPFUTGbc7ForQNjdeETuAZDZD",
+    "id": "174716912538678"
+  },
+  {
+    "name": "Някои хора обичаме заради определени неща,a други - въпреки всичко!",
+    "access_token": "EAAAAKjoDhIYBAIfl6EdWEQ02dMmQ1AVXL78vP4SNlPgNKPPRPZBhYqs7Ub9Gs7g6xunvz8zgkbPzb4cDT3nEZB0ttLG8Bx7cY3L7Bb3uOw6vPZBAHJ39vqnHs34jFxHMCZAhxsZCwHZAOh4n91wyr8B1mZBvZC7CWAozBC8tVHRQSgZDZD",
+    "id": "166434180043291"
+  },
+  {
+    "name": "Не си давай много-много зор, най-хубавите работи се случват, когато най-малко ги очакваш.",
+    "access_token": "EAAAAKjoDhIYBAEYh60yQIZBRqs5LDu85pKYG4WTRNM4upg5TeVN50jafJmdnkyeDiP6rLKMNya2bgqjnKCF9HWZAnYco3FKghNeGSZA1mV6ZBoavz9gJCw0ZAv1csXLHSU2zsZCKQTDMfsK4GUvFEt03lUadNY9ZCflPj321z8hBwZDZD",
+    "id": "160306927338904"
+  },
+  {
+    "name": "Моето си е мое, чуждото е общо!",
+    "access_token": "EAAAAKjoDhIYBAEJqY293sZBb98sjhbVNy2LBbKSkMZCqUTmhpYSHWVUPwu7ZCR440nZBvftyNzDD6BZBTqpWcE6MLeuAJopyO2IPdchljH9UfULe6kdQnujMnrEMa9SE0bDZBPjchC1fXInoAq0t8lZCkkN5f5LpBYTw4ZBq5XU1UQZDZD",
+    "id": "169183119776000"
+  },
+  {
+    "name": "Ако някои се опита да те засенчи, остави го да слънчаса.",
+    "access_token": "EAAAAKjoDhIYBAC0L6oINWrlJZChajPnvEk4mnLHbrZBIQrGJoFQtaSAaGxr5HUfmmrFQpMIRZCvoIEVvKaGZCr0dpcZApfdrBZCT86VSeUWE83g0fpKB3l9WIndHUNdrbhnYnFz9KdZCQ7VxfNlbZBvZAZB11ZAHQKWFldlmwFy9A2x4gZDZD",
+    "id": "174886349191696"
+  },
+  {
+    "name": "Друга заблуждаваш,но влюбен в мен оставаш!",
+    "access_token": "EAAAAKjoDhIYBAFNDQTQe165tAhXQRg56luIXZBqbmJJTGdxPU8eHf2ZCRf1QNILRJZAM5ykNzFZBGhzVXEyP35aVdZCb2NscgGDZA9lVtW3RxOEo6bjnNZC9pSde71ZBdKlka4dRTaKhQYvP9O91LLEZAVyzSvf1Q5OWpJymLwHoOfwZDZD",
+    "id": "172118806148676"
+  },
+  {
+    "name": "Обичам кварталът, в който живея и ще го пазя чист!!!!",
+    "access_token": "EAAAAKjoDhIYBADmNSlAApdgCt2xOaQRy9OH1CLYkCGHrptoGwAEjkQkqa6MXqS90gmJQXynctlpKmGwK4xC1m1ZBZCC6qEpwDfFV1omGXMpKPoki3GIOSgsV3pLVZA9PnmU6IkWkVZBLQE6ybrZCWVLq7zl2nxTjaEesxjgqtHQZDZD",
+    "id": "100712006667258"
+  },
+  {
+    "name": "When my bestfriend crys - i feel like crying :",
+    "access_token": "EAAAAKjoDhIYBAMzZBovRVVkdNqeCJEt6CAYEybjnFjLpQ54qkXUMOEgPTDOrK2ngVc2vtWYhef8CvHy18GEUrR8yf0WCsugHbMLePGnzSJERo7Bg2vemzWfyNZB3Etq5buiIa8DHcRZBSoa0mj7WExwIqwAqcZCEbVZBvEEeqQQZDZD",
+    "id": "173346709343609"
+  },
+  {
+    "name": "Да казваш,че не ти пука,а вътрешно да се разкъсваш!! ;",
+    "access_token": "EAAAAKjoDhIYBAMIEIftSZCQuSqaKpnPFcMQh06RQGmdR7bCDe2lD1O7Y33uXvK5ZAxklsx63AZBbnOIDwEjQRQrYMKTkNHeNdAskVfY5ZCJtdP0OrYq2NdyKUvLv8JkIsmlZA7Q7bCmiwsYW16UEcorvMVqW7nsJvRIPEgwA94gZDZD",
+    "id": "169009813129073"
+  },
+  {
+    "name": "Не можем да избираме как да изглеждаме, но можем да избираме как да се държим.",
+    "access_token": "EAAAAKjoDhIYBAL52LGIBEAnrhXZAqgM6OQZAPdciISf0WYIYewTA7RgtZCxFjKuTG0VXolWJKBSzZAxu5lRwZB6814LOy0BvzZCSLtKTZBX8ASZC1b7hk9mycocIcLNVPIMnWKFvBWh50rVkyWwmYwaZADMobPrHQZCpqYMliyZArCd2wZDZD",
+    "id": "175213309156749"
+  },
+  {
+    "name": "За незабравимите моменти!!! Наздраве / Unforgettable moments!!! Cheers",
+    "access_token": "EAAAAKjoDhIYBAIL2bSG4XdD6TO1waKtMJDcOKtTsrKrMub50WZBZA3MYWSYoAvZCybSinZCZCZBrpb4vs1YiURZA8yTu4SXHmcorUVTePkvZBmScULraXHFUbNtshJxFWwzX5lFBw8kbHuv7xlUqWPNZAb2J4RZATLF78zgqBYTlZB1XQZDZD",
+    "id": "128675803855924"
+  },
+  {
+    "name": "Ние Обичаме България",
+    "access_token": "EAAAAKjoDhIYBALZAhNOTUQCZCSly4GyoacbfPm0aTNOlINgfZA9VZB0lYJ2WPQWTc1tK2zrBs6uegZCdV7x9aVoiuo4SCMVv3dpdHxEvVQ20v63lIRVXS2oRFTbGy2E4ZAwf4Nwy9VNxmpCKPIbzlUnqaX90oylFysUYAN77C58AZDZD",
+    "id": "159198854121771"
+  },
+  {
+    "name": "Join Me in Death",
+    "access_token": "EAAAAKjoDhIYBAIbDzoPibkOR8sNfQwYHoJBgWOwgSaceB5imau02VFZCY4eZCOghDz3a2YqOsHtUlsaPeEvIOZBIbZAQz1gqTHAGsWxZAUrRZCbMnR1zRRUVyq8AtZAdpqfBWnhIGcbsCXPwFT7j15dIaQUWl6qxEKavq0xoHsESgZDZD",
+    "id": "101846976554982"
+  },
+  {
+    "name": "Using complicated words when arguing against dumb people.",
+    "access_token": "EAAAAKjoDhIYBAP0br8UZC9fHrHFWDG4r5a0ZACW44XaIaf4aZAi4LJ8dbag9IaJ2Wr8n0eWbfC2ahlGLmcHVXDQPCM9VuDDxCEwEXCZB6iCKEKeJl7eyKkRjKZCCMYHaVZAMVeeLpzDq5GgNTsdjwfqZC7maU1PqYkUyAlwzeFLxwZDZD",
+    "id": "118542568209411"
+  },
+  {
+    "name": "„Бъди единствено себе си в света, който се опитва да те превърне в някои друг.“",
+    "access_token": "EAAAAKjoDhIYBAJaCcJcGTIy0Cev3GBsgQBYpeaccXqsRJs3RlY2njpO600zyLzZCZCQuTsKSyHQ7IB8jUmjTqhhjC0c17UUCINS91UJFmAVLicjWcQvyigYTM9gUE6HNucUtCQL2s4M3mtpYsZBG9m8JVLAXyU3kNkIfn9b1QZDZD",
+    "id": "156463027719289"
+  },
+  {
+    "name": "Ягоди.. сметана.. и гореща вана!",
+    "access_token": "EAAAAKjoDhIYBALrLHbJw7QncZAZBZCC1UZBcrXhW07NcYsnfZAY4F7R4OtZAZAKCWAtRbHlZAbACqW6PdMfB50lz63LR4ndTGPSRtN0zsfoe3ii5UAGaF0r4KURR6SfBkwTxlpnDrfpTuntT5vokZCHNSgtzFxyvFZBvttuzZB3iYIuGwZDZD",
+    "id": "123754024350820"
+  },
+  {
+    "name": "Попитах в Рая дали липсва едно ангелче, защото ангел като теб не може да се роди на Земята !",
+    "access_token": "EAAAAKjoDhIYBAP4GteoEZA4w8gs8Vy1vSdM4dXcX32LR3OZBvjBRTm5ZB8yXzGfKKakfgx6zjgOjB0PAgQiKAEl0GgSH6XvwQ5ZBSFSFoy5ysnyZCFZADZCUHKAczsVIZAWIQ4oSSdN5h4Aw8SLtJZC7lUeteGttFkmCBkchRFrspGQZDZD",
+    "id": "103405359732886"
+  },
+  {
+    "name": "“Да се съпротивляваш на любовта, означава да я снабдиш с ново оръжие.”  Жорж Санд",
+    "access_token": "EAAAAKjoDhIYBALAqq6ZBQXWvs4BxgZBTp7X8Hc3S3t9RsrSkZCsNbInWkhXn0GuPUx6S8K9jH2tlvy2lpizOIYcUbTWevy09wZCGB0BI07ZALwASZCis7HjSvPh0loXvnTGH4dy12qXXqiG7yBjVF97nHt0ZBg0OfoTQplbmUdVCwZDZD",
+    "id": "176031265756326"
+  },
+  {
+    "name": "Блондинка пита своя приятека също блондинка за новата й кола:   - Мацко, как си я купи таз кола, ма?   - На лизинг, - отвърнала тя. А ти твойта?   - А?",
+    "access_token": "EAAAAKjoDhIYBABdFyHClPJYcnwnYkZBYCRp7uI7jbHuHZB9nEzlB7l9W6Wnq4btB5DO5Rtkz5TZCBC0o06uZCyxmedbgbDhZCo5ztoYHHZCSWQZCFiIX4aZAsVmMCl7AAYDdGImBT4EARPCkVlV0y29jdhYSE7SZCYU65MBogzI4hswZDZD",
+    "id": "173634229315784"
+  },
+  {
+    "name": "Animated Vistas ♥♥",
+    "access_token": "EAAAAKjoDhIYBAHAGBPw86ockdwU3L0rFO86XTGOTchvq81aqMBG4bJO5sQfQD8RquK9LZArOEMmoXfwFbCjSNUEYyZA8eUk5PpYnd2dJbH70SShk9Xb63KzuWX6QUawZA5dpdMIawX3bzbXQ162sVGpNxEdTamxjvvjgD9OZBQZDZD",
+    "id": "155979611111905"
+  },
+  {
+    "name": "Една истинска жена не се нуждае от мъж-за да бъде щастлива!",
+    "access_token": "EAAAAKjoDhIYBAOZCmaPCYI36ncgpMZBrzrSFbg4g7JRDNM84FUF9gahLwT0PGnldsbPO662nreBRpCqzkfKjdlBMW5P58YdBFuYzYauZB7Rtaf0L9nTYR801fzTK0WJZCIFLPfgZCaBlAuZCyVTEvb8ZBs74ZCeJwqEHovYRw4ZCnhgZDZD",
+    "id": "175906602420402"
+  },
+  {
+    "name": "Home Alone",
+    "access_token": "EAAAAKjoDhIYBAAmVe0UwY73Kihvy5Y3ZByfhkpF7t3er6Qev9EPL3knRNm8FysfDsH7XEzfaYoH7GZAU0lNIlZCIR9IsVzvrZAlxi0daIBimSdwZBv7Dt72IjgAVfZAfzlQK0WZBMhZCUEjpvBRzjDXbwJSIH39EQJZBCuFwsflda6wZDZD",
+    "id": "140697295982582"
+  },
+  {
+    "name": "Мисля, следователно може да ударим по още едно голямо.",
+    "access_token": "EAAAAKjoDhIYBAAJmOAARHFktl9Qop24bXMwXG5NW1qtIq6wUzjYyA5SIsZBH2ZAJ4bxezS28WsiXUo0fBh55Q4xvgnDCt7ZBa0zwx6T4dwJTIVcCy9wqx4jTgzKWKrfMbrHg7GZAMHOCnZBKOFPzTEScfNiUbYOCV3mTtazKvygZDZD",
+    "id": "112061008859341"
+  },
+  {
+    "name": "За всяко нещо си има определени хора, време и място. Важно е да попаднеш на точния човек в подходящото време и на правилното място!",
+    "access_token": "EAAAAKjoDhIYBAMMotaYOsf3r6iTQY4H3FhDDjusTON8rjdmMlISVEHqiFIkI1ZCwkY32MfevtocVGQT1ZApfgKRcIdZCq6I3jRMGXZCc54MV3fa0VtBausS96Lg6FDoNcnY13ZAeoNRiQP9iXOCa3ggDYCTWXI3Y5fEnJMkZBuKQZDZD",
+    "id": "162687640437649"
+  },
+  {
+    "name": "За всяко нещо си има определени хора, време и място. Важно е да попаднеш на точния човек в подходящото време и на правилното място!",
+    "access_token": "EAAAAKjoDhIYBAOIOT4HexxsvlxC9RnyPRnRUPO4XNwupZCBQe1IFouH7Mx01IeKvCXTXX5GVRPFZBLXuNyfDqpCUcfPa1OULinZC26oRReNwIZBIR0opquyXZCWjWslQuNqLZCxyZCFprIH3c9ZADlNhd4xs9pMbJ1xLybTCyOxL5AZDZD",
+    "id": "118254498238441"
+  },
+  {
+    "name": "Правим се на непознати, но знаем, че не е така ;",
+    "access_token": "EAAAAKjoDhIYBAGaXiS4x7Kj6MGFnENSa27FL9pEo0tTY1ZBHZAnWGanoo9ZCgH1mjB5tzLiDVSD3we9xCDDmlbxmo0qw7vwpUqCGvkVi1ZA4FLQmYF4JypGsvajpnXuKlZCchhZBjosbKkiJmnIsyX06YdzZCQoT6BZCgLBYErAEMAZDZD",
+    "id": "133037513417447"
   }
 ]

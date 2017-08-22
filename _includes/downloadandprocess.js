@@ -67,7 +67,7 @@ function post_img(url, callback) {
             if (jsxon.data) {
               callback({
                 url: 1,
-                _id: `${json.data.id  }_1`,
+                _id: `${json.data.id}_1`,
                 url_big: 1,
                 img: jsxon.data.image.original.url.split('originals/')[1],
               });
@@ -152,8 +152,7 @@ const downloadnprocess = function (id, stack, callback) {
                             },
                           );
                         } else {
-                          console.log(pindata.err);
-                          callback();
+                          callback(pindata.err);
                         }
                       },
                     );
@@ -161,26 +160,16 @@ const downloadnprocess = function (id, stack, callback) {
                 },
               );
             } else {
-              callback();
+              callback({ err: 'already exist' });
             }
           });
         });
       });
     } else {
-      callback();
+      callback({ err: 'already exist' });
     }
   });
 };
-
-if (!process.env.PORT) {
-  // function post_img(url, callback) {
-  post_img(
-    'https://external.xx.fbcdn.net/safe_image.php?d=AQAw8VuxhUm6Oaw-&url=https%3A%2F%2Fm5.netinfo.bg%2Fmedia%2Fimages%2F32677%2F32677463%2F638-397-barselona-betis.jpg&_nc_hash=AQB4eC8m8CDaqdnZ',
-    (data) => {
-      console.log(data);
-    },
-  );
-}
 
 module.exports = {
   go: downloadnprocess,
