@@ -214,8 +214,7 @@ async function post_and_insert_db_fresh (arr, collectiondb) {
             insertjson.provider = insertjson.link.split ('/')[2];
             insertjson.source = insertjson.link;
             insertjson.url_big = insertjson.full_picture;
-            insertjson._id =
-              insertjson.id.split ('_')[1] + '.' + insertjson.id.split ('_')[0];
+            insertjson._id = insertjson.id.split ('_')[1] + '_1';
             db.put (insertjson, function () {
               post (insertjson._id, zzmata => {
                 cb ();
