@@ -117,7 +117,7 @@ async function get_pages (file) {
       pagestoget.rows,
       (itemx, cb) => {
         request (
-          `https://graph.facebook.com/${itemx.id}/feed?access_token=${doken}&fields=id,type&limit=1`,
+          `https://graph.facebook.com/${itemx.id}/feed?access_token=${doken}&fields=id,type&limit=10`,
           (error, response, body) => {
             if (!error && response.statusCode === 200) {
               arr = arr.concat (JSON.parse (body).data);
@@ -218,6 +218,7 @@ async function post_and_insert_db_fresh (arr, collectiondb) {
             insertjson.url_big = insertjson.full_picture;
             insertjson._id =
               new Date (insertjson.created_time).getTime () + '_1';
+
             db.put (insertjson, function () {
               //post (insertjson._id, zzmata => {
               cb ();
@@ -245,7 +246,6 @@ async function statii (params, callback) {
   const process_fresh = await fresh_ones_beautify (get_fresh);
   const ifarraypost = await post_and_insert_db_fresh (process_fresh, 'newsbg');
   const pre_step_notify = await scheduled_post ();
-  console.log (ifarraypost);
 
   callback (ifarraypost);
 
@@ -255,7 +255,10 @@ async function statii_en (params, callback) {
   const step1 = await get_pages ('_en_source_statii');
   const get_fresh = await get_fresh_ones (step1, 'link');
   const process_fresh = await fresh_ones_beautify (get_fresh);
-  const ifarraypost = await post_and_insert_db_fresh (process_fresh, 'newsen');
+  const ifarraypost = await post_and_insert_db_fresh (
+    process_fresh,
+    'newsenglish'
+  );
 
   console.log (ifarraypost);
 
