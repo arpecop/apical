@@ -24,7 +24,7 @@ if (cluster.isMaster) {
   const kartinki = require('./_kartinki.js');
   const statii = require('./_statii.js');
   const cookie = require('./_fortune.js');
-  const mash = require('./_mashable.js');
+  // const mash = require('./_mashable.js');
   const pr0gramm = require('./_pr0gramm.js');
 
   const app = require('express')();
@@ -83,34 +83,6 @@ if (cluster.isMaster) {
       (one, cb) => {
         pr0gramm.ninegag('hot', () => {
           cb(null, '');
-        });
-      },
-
-      (one, cb) => {
-        mash.newsapi('1', () => {
-          cb(null, '📦 delivered all newsapi');
-        });
-      },
-      (one, cb) => {
-        mash.crunch('crunch', () => {
-          cb(null, '📦 delivered crunch');
-        });
-      },
-      (one, cb) => {
-        mash.upworthy('upworthy', () => {
-          cb(null, '📦 delivered upworthy');
-        });
-      },
-      (one, cb) => {
-        mash.distractify('distractify', () => {
-          cb(null, {
-            distractify: '📦 delivered ',
-          });
-        });
-      },
-      (one, cb) => {
-        mash.huffingtonpost('buzz', () => {
-          cb(null, '📦 delivered huffingtonpost');
         });
       },
       (one, cb) => {
