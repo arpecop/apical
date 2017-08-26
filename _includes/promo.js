@@ -61,11 +61,11 @@ function post(url, token, title, db, callback) {
                   async.each(
                     JSON.parse(body),
                     (ix, cbx) => {
-                      if (httpResponse.statusCode !== '200') {
+                      if (httpResponse.statusCode === 200) {
+                        count++;
+                      } else {
                         console.log(body);
                         counterr++;
-                      } else {
-                        count++;
                       }
                       cbx();
                     },
