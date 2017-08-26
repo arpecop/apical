@@ -7,7 +7,7 @@ const _ = require ('underscore');
 const extend = require ('extend');
 const sizeOf = require ('image-size');
 const downloadnprocess = require ('./_includes/downloadandprocess.js');
-
+const doken = '122683342943|i6JbMuSGKjhZnt3piT-nSOJNNao';
 const db = require (`${__dirname}/_includes/dbaws.js`);
 const pagestoget = require (`${__dirname}/_includes/source_statii.json`);
 //const pagestoget = require (`${__dirname}/_includes/source.json`);
@@ -115,7 +115,7 @@ async function get_pages () {
     async.each (
       pagestoget.rows,
       (itemx, cb) => {
-        let rtoken = _.shuffle (pages)[0].access_token;
+        let rtoken = doken;
         request (
           `https://graph.facebook.com/${itemx.id}/feed?access_token=${rtoken}&fields=id,type&limit=1`,
           (error, response, body) => {
@@ -170,11 +170,13 @@ async function fresh_ones_beautify (postids) {
       {
         url: 'https://graph.facebook.com/',
         form: {
-          access_token: _.shuffle (pages)[0].access_token,
+          access_token: doken,
           batch: JSON.stringify (postids),
         },
       },
       (err, httpResponse, body) => {
+        console.log (body);
+
         async.each (
           JSON.parse (body),
           (postx, cb) => {
