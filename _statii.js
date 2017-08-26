@@ -115,10 +115,10 @@ async function get_pages () {
     async.each (
       pagestoget.rows,
       (itemx, cb) => {
-        let rtoken = doken;
         request (
-          `https://graph.facebook.com/${itemx.id}/feed?access_token=${rtoken}&fields=id,type&limit=1`,
+          `https://graph.facebook.com/${itemx.id}/feed?access_token=${doken}&fields=id,type&limit=1`,
           (error, response, body) => {
+          
             if (!error && response.statusCode === 200) {
               arr = arr.concat (JSON.parse (body).data);
               cb ();
