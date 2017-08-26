@@ -9,7 +9,7 @@ const sizeOf = require ('image-size');
 const downloadnprocess = require ('./_includes/downloadandprocess.js');
 const doken = '122683342943|i6JbMuSGKjhZnt3piT-nSOJNNao';
 const db = require (`${__dirname}/_includes/dbaws.js`);
-const pagestoget = require (`${__dirname}/_includes/source_statii.json`);
+
 //const pagestoget = require (`${__dirname}/_includes/source.json`);
 const pages = require (`${__dirname}/_includes/pages.json`);
 const promo = require (`${__dirname}/_includes/promo.js`);
@@ -109,7 +109,8 @@ function populatedb (id, callback) {
     }
   });
 }
-async function get_pages () {
+async function get_pages (file) {
+  const pagestoget = require (`${__dirname}/_includes/${file}.json`);
   let arr = [];
   return new Promise (resolve => {
     async.each (
@@ -239,7 +240,7 @@ async function post_and_insert_db_fresh (arr, collectiondb) {
 }
 
 async function statii (params, callback) {
-  const step1 = await get_pages ();
+  const step1 = await get_pages ('_source_statii');
   const get_fresh = await get_fresh_ones (step1, 'link');
   const process_fresh = await fresh_ones_beautify (get_fresh);
   const ifarraypost = await post_and_insert_db_fresh (process_fresh, 'newsbg');
@@ -247,16 +248,30 @@ async function statii (params, callback) {
   console.log (ifarraypost);
 
   callback (ifarraypost);
+
+  console.log ('== D O N E  B G ==');
 }
+async function statii_en (params, callback) {
+  const step1 = await get_pages ('_en_source_statii');
+  const get_fresh = await get_fresh_ones (step1, 'link');
+  const process_fresh = await fresh_ones_beautify (get_fresh);
+  const ifarraypost = await post_and_insert_db_fresh (process_fresh, 'newsen');
+
+  console.log (ifarraypost);
+
+  callback (ifarraypost);
+  console.log ('== D O N E  E N ==');
+}
+
 //dsadasdasddadsadsd
 if (!process.env.PORT) {
-  statii ('1', function (data) {
+  statii_en ('1', function (data) {
     console.log (data);
-    console.log ('D O N E');
   });
 }
 
 module.exports = {
   statii,
+  statii_en,
 };
 //dasda
