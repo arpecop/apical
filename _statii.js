@@ -118,7 +118,6 @@ async function get_pages () {
         request (
           `https://graph.facebook.com/${itemx.id}/feed?access_token=${doken}&fields=id,type&limit=1`,
           (error, response, body) => {
-          
             if (!error && response.statusCode === 200) {
               arr = arr.concat (JSON.parse (body).data);
               cb ();
@@ -219,9 +218,9 @@ async function post_and_insert_db_fresh (arr, collectiondb) {
             insertjson._id =
               new Date (insertjson.created_time).getTime () + '_1';
             db.put (insertjson, function () {
-              post (insertjson._id, zzmata => {
-                cb ();
-              });
+              //post (insertjson._id, zzmata => {
+              cb ();
+              //});
             });
           } else if (item.type === 'photo') {
             cb ();
