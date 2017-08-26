@@ -50,7 +50,7 @@ function get(id, callback) {
                 item =>
                   new Promise((cb, rj) => {
                     arr.push(
-                      Object.assign(item.value.value, {
+                      Object.assign(item.value, {
                         key: item.id,
                         id: item.id,
                         _date: new Date(item.value.time),
