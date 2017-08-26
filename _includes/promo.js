@@ -61,8 +61,8 @@ function post(url, token, title, db, callback) {
                   async.each(
                     JSON.parse(body),
                     (ix, cbx) => {
-                      if (err || !IsJsonString(ix.body)) {
-                        console.log(ix.body);
+                      if (httpResponse.statusCode !== '200') {
+                        console.log(body);
                         counterr++;
                       } else {
                         count++;
