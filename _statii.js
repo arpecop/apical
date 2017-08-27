@@ -129,8 +129,11 @@ async function get_pages (file) {
         );
       },
       function () {
-        resolve (arr);
-        console.log ('items parsed from fb: ' + arr.length ());
+        if (arr.length < 5) {
+          reject ({err: 'something wrong'});
+        } else {
+          resolve (arr);
+        }
       }
     );
   });
@@ -147,7 +150,7 @@ async function get_fresh_ones (posts, type) {
       posts,
       (post, cb) => {
         populatedb (post.id, function (exist) {
-          if (!exist && post.type === type) {
+          if (exist && post.type === type) {
             arr.push ({
               relative_url: post.id + '' + typebasedquery[type],
               method: 'GET',
