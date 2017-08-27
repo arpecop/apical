@@ -25,7 +25,7 @@ if (cluster.isMaster) {
   const server = require('http').Server(app);
 
   setTimeout(() => {
-    console.log('💀 killing stuck worker 10 min ');
+    console.log('💀 firing slow worker ,pack your shit boy! ');
     process.exit(0);
   }, 30000);
   request.get('http://apicall.herokuapp.com/', () => {});
@@ -39,7 +39,7 @@ if (cluster.isMaster) {
           cb(null, '');
         });
       },
-      (datastatii, cb) => {
+      (one, cb) => {
         console.log(datastatii);
 
         statii.statii_en('1', () => {

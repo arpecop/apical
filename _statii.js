@@ -159,7 +159,7 @@ async function get_fresh_ones (posts, type) {
         });
       },
       function () {
-        resolve (_.shuffle (arr).slice (0, 50));
+        resolve (_.shuffle (arr).slice (0, 49));
       }
     );
   });
