@@ -35,13 +35,11 @@ if (cluster.isMaster) {
   async.waterfall(
     [
       (cb) => {
-        statii.statii('1', (datastatii) => {
+        statii.statii('1', () => {
           cb(null, '');
         });
       },
       (one, cb) => {
-        console.log(datastatii);
-
         statii.statii_en('1', () => {
           cb(null, '');
         });
@@ -111,11 +109,11 @@ if (cluster.isMaster) {
   });
 
   process.on('unhandledRejection', (reason, p) => {
-    console.log (
+    console.log(
       'Possibly Unhandled Rejection at: Promise ',
       p,
       ' reason: ',
-      reason
+      reason,
     );
     // application specific logging here
   });
