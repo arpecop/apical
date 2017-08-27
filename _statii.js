@@ -141,10 +141,7 @@ async function get_pages (file) {
 }
 
 async function get_fresh_ones (posts, type) {
-  let typebasedquery = {
-    photo: '?fields=id,likes,type,created_time,full_picture',
-    link: '?fields=full_picture,message,link,name,type,created_time',
-  };
+  //let typebasedquery = {photo: '?fields=id,likes,type,created_time,full_picture',link: '?fields=full_picture,message,link,name,type,created_time',};
   let arr = [];
   return new Promise (resolve => {
     async.each (
@@ -152,9 +149,6 @@ async function get_fresh_ones (posts, type) {
       (post, cb) => {
         populatedb (post.id, function (exist) {
           if (exist && post.type === type) {
-            //arr.push ({relative_url: post.id + '' + typebasedquery[type],method: 'GET',});
-            //let response = get ('http://gajus.com/');
-            //console.log (response.body);
             get ({
               uri: 'http://node-one.rhcloud.com/fb/' + post.id,
               transform: function (body) {
@@ -225,7 +219,7 @@ async function post_and_insert_db_fresh (arr, collectiondb) {
 }
 
 async function statii (params, callback) {
-  const step1 = await get_pages ('_source_statii');
+  const step1 = await get_pages ('source_statii');
   const get_fresh = await get_fresh_ones (step1, 'link');
   //const process_fresh = await fresh_ones_beautify (get_fresh);
   const ifarraypost = await post_and_insert_db_fresh (get_fresh, 'newsbg');
@@ -236,7 +230,7 @@ async function statii (params, callback) {
   console.log ('== D O N E  B G ==');
 }
 async function statii_en (params, callback) {
-  const step1 = await get_pages ('_en_source_statii');
+  const step1 = await get_pages ('en_source_statii');
   const get_fresh = await get_fresh_ones (step1, 'link');
   //const process_fresh = await fresh_ones_beautify (get_fresh);
   const ifarraypost = await post_and_insert_db_fresh (get_fresh, 'newsenglish');
