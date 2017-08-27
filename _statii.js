@@ -118,7 +118,7 @@ async function get_pages (file) {
       pagestoget.rows,
       (itemx, cb) => {
         request (
-          `https://graph.facebook.com/${itemx.id}/feed?access_token=${doken}&fields=id,type&limit=20`,
+          `http://node-one.rhcloud.com/fbfeed/${itemx.id}`,
           (error, response, body) => {
             if (!error && response.statusCode === 200) {
               arr = arr.concat (JSON.parse (body).data);
@@ -241,7 +241,7 @@ async function statii_en (params, callback) {
 
 //dsadasdasddadsadsd
 if (!process.env.PORT) {
-  let pagestoget = require (`${__dirname}/_includes/_en_source_statii.json`);
+  let pagestoget = require (`${__dirname}/_includes/en_source_statii.json`);
 
   statii_en ('1', function (data) {
     console.log (data);
