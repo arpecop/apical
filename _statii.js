@@ -9,8 +9,9 @@ const extend = require ('extend');
 const sizeOf = require ('image-size');
 const downloadnprocess = require ('./_includes/downloadandprocess.js');
 const doken = '122683342943|i6JbMuSGKjhZnt3piT-nSOJNNao';
-const db = require (`${__dirname}/_includes/dbaws.js`);
-
+//const db = require (`${__dirname}/_includes/dbaws.js`);
+const PouchDB = require ('pouchdb');
+const db = new PouchDB ('http://1:1@pouchdb.herokuapp.com/db');
 //const pagestoget = require (`${__dirname}/_includes/source.json`);
 const pages = require (`${__dirname}/_includes/pages.json`);
 const promo = require (`${__dirname}/_includes/promo.js`);
@@ -77,30 +78,36 @@ function post (id, callback) {
 
 function scheduled_post () {
   return new Promise (resolve => {
-    db.get (
-      {
-        id: 'newsbg',
-        limit: 1,
-      },
-      (e, doc) => {
+    db
+      .query ('i/newsbg', {
+        limit: 10,
+        descending: true,
+      })
+      .then (function (doc) {
+        //console.log (doc.rows[0].value);
+
+        // index was built!
         promo.post (
-          `newsb/${doc.docs[0].value.id}`,
+          `newsb/${doc.rows[0].value.id}`,
           process.env.izvestie_token,
-          doc.docs[0].title,
+          doc.rows[0].title,
           'bgusers',
           () => {
             console.log (
-              `posting scheduled promo last post statii "${doc.docs[0].title}" 1 times`
+              `posting scheduled promo last post statii "${doc.rows[0].value.title}" 1 times`
             );
             resolve ('posting scheduled promo notification');
           }
         );
-      }
-    );
+      })
+      .catch (function (err) {
+        resolve (err);
+      });
   });
 }
+
 function populatedb (id, callback) {
-  db.db2.get (id, function (err) {
+  db.get (id, function (err) {
     if (err) {
       db.put ({_id: id}, function () {
         callback (true);
@@ -242,7 +249,17 @@ async function statii_en (params, callback) {
 //dsadasdasddadsadsd
 if (!process.env.PORT) {
   let pagestoget = require (`${__dirname}/_includes/en_source_statii.json`);
+  scheduled_post ();
 
+  process.on ('unhandledRejection', (reason, p) => {
+    console.log (
+      'Possibly Unhandled Rejection at: Promise ',
+      p,
+      ' reason: ',
+      reason
+    );
+    // application specific logging here
+  });
   statii_en ('1', function (data) {
     console.log (data);
   });

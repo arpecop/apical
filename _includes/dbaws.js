@@ -60,6 +60,8 @@ function get(id, callback) {
                   }),
               ),
             ).then((data) => {
+              console.log(arr);
+
               callback(null, {
                 docs: arr,
               });
@@ -74,12 +76,10 @@ function get(id, callback) {
         if (err) {
           callback({}, {});
         } else {
-          callback(
-            null,
-            Object.assign(doc.value, {
-              _id: doc._id,
-            }),
-          );
+          console.log('---');
+          console.log(doc.value);
+
+          callback(null, doc);
         }
       });
     }
