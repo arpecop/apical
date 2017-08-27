@@ -110,5 +110,15 @@ if (cluster.isMaster) {
     res.sendFile(`/tmp/${req.params.id}.jpg`);
   });
 
+  process.on('unhandledRejection', (reason, p) => {
+    console.log (
+      'Possibly Unhandled Rejection at: Promise ',
+      p,
+      ' reason: ',
+      reason
+    );
+    // application specific logging here
+  });
+
   server.listen(port);
 }
