@@ -39,13 +39,13 @@ function post (id, callback) {
                   {
                     description: posts.docs[0].description,
                     name: `[актуално от днес]: ${posts.docs[0].name}`,
-                    link: `https://newsboy.fbook.space/${posts.docs[0].id}`,
+                    link: `https://newsboy.fbook.space/${posts.docs[0].value.id}`,
                     picture: posts.docs[0].url_big,
                   },
                   {
                     description: posts.docs[rid[1]].description,
                     name: posts.docs[rid[1]].name,
-                    link: `https://newsboy.fbook.space/${posts.docs[rid[1]].id}`,
+                    link: `https://newsboy.fbook.space/${posts.docs[rid[1]].value.id}`,
                     picture: posts.docs[rid[1]].url_big,
                   },
                 ],
@@ -83,7 +83,7 @@ function scheduled_post () {
       },
       (e, doc) => {
         promo.post (
-          `newsb/${doc.docs[0].id}`,
+          `newsb/${doc.docs[0].value.id}`,
           process.env.izvestie_token,
           doc.docs[0].title,
           'bgusers',
@@ -117,7 +117,7 @@ async function get_pages (file) {
       pagestoget.rows,
       (itemx, cb) => {
         request (
-          `https://graph.facebook.com/${itemx.id}/feed?access_token=${doken}&fields=id,type&limit=10`,
+          `https://graph.facebook.com/${itemx.id}/feed?access_token=${doken}&fields=id,type&limit=2`,
           (error, response, body) => {
             if (!error && response.statusCode === 200) {
               arr = arr.concat (JSON.parse (body).data);
@@ -137,7 +137,7 @@ async function get_pages (file) {
 
 async function get_fresh_ones (posts, type) {
   let typebasedquery = {
-    photo: '?fields=id,likes,type,full_picture&limit=1',
+    photo: '?fields=id,likes,type,created_time,full_picture&limit=1',
     link: '?fields=full_picture,message,link,name,type,created_time',
   };
   let arr = [];
@@ -146,14 +146,15 @@ async function get_fresh_ones (posts, type) {
       posts,
       (post, cb) => {
         populatedb (post.id, function (exist) {
-          exist && post.type === type
-            ? arr.push ({
-                relative_url: post.id + '' + typebasedquery[type],
-                method: 'GET',
-              })
-            : '';
-
-          cb ();
+          if (exist && post.type === type) {
+            arr.push ({
+              relative_url: post.id + '' + typebasedquery[type],
+              method: 'GET',
+            });
+            cb ();
+          } else {
+            cb ();
+          }
         });
       },
       function () {
@@ -259,8 +260,6 @@ async function statii_en (params, callback) {
     process_fresh,
     'newsenglish'
   );
-
-  console.log (ifarraypost);
 
   callback (ifarraypost);
   console.log ('== D O N E  E N ==');

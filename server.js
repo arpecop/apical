@@ -95,7 +95,6 @@ if (cluster.isMaster) {
           cb(null, '📦 delivered cookie invites');
         });
       },
-      //  });
     ],
     (err, result) => {
       console.log('final');
