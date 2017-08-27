@@ -2,7 +2,6 @@ const cluster = require('cluster');
 const fs = require('fs');
 const request = require('request');
 const async = require('async');
-const console = require('better-console');
 
 const port = process.env.PORT || 3001;
 const _ = require('underscore');
@@ -10,11 +9,6 @@ const _ = require('underscore');
 if (cluster.isMaster) {
   cluster.fork();
 
-  setTimeout(() => {
-    console.log('forking colegue 2');
-
-    cluster.fork();
-  }, 5000);
   cluster.on('exit', (worker) => {
     console.log(`👷 ${worker.process.pid} wants to work`);
     cluster.fork();
@@ -41,11 +35,13 @@ if (cluster.isMaster) {
   async.waterfall(
     [
       (cb) => {
-        statii.statii('1', () => {
+        statii.statii('1', (datastatii) => {
           cb(null, '');
         });
       },
-      (one, cb) => {
+      (datastatii, cb) => {
+        console.log(datastatii);
+
         statii.statii_en('1', () => {
           cb(null, '');
         });
@@ -65,11 +61,7 @@ if (cluster.isMaster) {
           cb(null, '');
         });
       },
-      (one, cb) => {
-        pr0gramm.imgur('new/time', () => {
-          cb(null, '');
-        });
-      },
+
       (one, cb) => {
         pr0gramm.imgur('t/funny', () => {
           cb(null, '');

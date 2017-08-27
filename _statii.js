@@ -117,7 +117,7 @@ async function get_pages (file) {
       pagestoget.rows,
       (itemx, cb) => {
         request (
-          `https://graph.facebook.com/${itemx.id}/feed?access_token=${doken}&fields=id,type&limit=2`,
+          `https://graph.facebook.com/${itemx.id}/feed?access_token=${doken}&fields=id,type&limit=20`,
           (error, response, body) => {
             if (!error && response.statusCode === 200) {
               arr = arr.concat (JSON.parse (body).data);
@@ -130,6 +130,7 @@ async function get_pages (file) {
       },
       function () {
         resolve (arr);
+        console.log (arr);
       }
     );
   });
@@ -137,7 +138,7 @@ async function get_pages (file) {
 
 async function get_fresh_ones (posts, type) {
   let typebasedquery = {
-    photo: '?fields=id,likes,type,created_time,full_picture&limit=1',
+    photo: '?fields=id,likes,type,created_time,full_picture',
     link: '?fields=full_picture,message,link,name,type,created_time',
   };
   let arr = [];
@@ -158,7 +159,7 @@ async function get_fresh_ones (posts, type) {
         });
       },
       function () {
-        resolve (arr.slice (0, 50));
+        resolve (_.shuffle (arr).slice (0, 50));
       }
     );
   });
@@ -176,13 +177,10 @@ async function fresh_ones_beautify (postids) {
         },
       },
       (err, httpResponse, body) => {
-        console.log (body);
-
         async.each (
           JSON.parse (body),
           (postx, cb) => {
             let post = JSON.parse (postx.body);
-
             post.full_picture ? arr.push (post) : '';
             cb ();
           },
@@ -267,6 +265,8 @@ async function statii_en (params, callback) {
 
 //dsadasdasddadsadsd
 if (!process.env.PORT) {
+  let pagestoget = require (`${__dirname}/_includes/_en_source_statii.json`);
+
   statii_en ('1', function (data) {
     console.log (data);
   });
