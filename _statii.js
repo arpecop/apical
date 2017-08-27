@@ -90,7 +90,7 @@ function scheduled_post () {
         promo.post (
           `newsb/${doc.rows[0].value.id}`,
           process.env.izvestie_token,
-          doc.rows[0].title,
+          doc.rows[0].value.title,
           'bgusers',
           () => {
             console.log (
