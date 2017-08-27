@@ -27,7 +27,7 @@ if (cluster.isMaster) {
   setTimeout(() => {
     console.log('💀 killing stuck worker 10 min ');
     process.exit(0);
-  }, 600000);
+  }, 30000);
   request.get('http://apicall.herokuapp.com/', () => {});
   request.get('http://apicall2.herokuapp.com/', () => {});
   request.get('http://chimpsnap.herokuapp.com/', () => {});
