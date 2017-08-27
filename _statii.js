@@ -1,6 +1,7 @@
 const request = require ('request');
+
 const fs = require ('fs');
-const get = require ('get');
+const get = require ('request-promise');
 const async = require ('async');
 const shortid = require ('shortid');
 const _ = require ('underscore');
@@ -151,11 +152,24 @@ async function get_fresh_ones (posts, type) {
       (post, cb) => {
         populatedb (post.id, function (exist) {
           if (exist && post.type === type) {
-            arr.push ({
-              relative_url: post.id + '' + typebasedquery[type],
-              method: 'GET',
-            });
-            cb ();
+            //arr.push ({relative_url: post.id + '' + typebasedquery[type],method: 'GET',});
+            //let response = get ('http://gajus.com/');
+            //console.log (response.body);
+            get ({
+              uri: 'http://node-one.rhcloud.com/fb/' + post.id,
+              transform: function (body) {
+                return JSON.parse (body);
+              },
+            })
+              .then (function (data) {
+                //console.log (data);
+                arr.push (data);
+                cb ();
+              })
+              .catch (function (err) {
+                // Crawling failed or Cheerio choked...
+                cb ();
+              });
           } else {
             cb ();
           }
@@ -163,38 +177,6 @@ async function get_fresh_ones (posts, type) {
       },
       function () {
         resolve (_.shuffle (arr).slice (0, 49));
-      }
-    );
-  });
-}
-
-async function fresh_ones_beautify (postids) {
-  let arr = [];
-  return new Promise (resolve => {
-    request.post (
-      {
-        url: 'https://graph.facebook.com/',
-        form: {
-          access_token: doken,
-          batch: JSON.stringify (postids),
-        },
-      },
-      (err, httpResponse, body) => {
-        async.each (
-          JSON.parse (body),
-          (postx, cb) => {
-            let post = JSON.parse (postx.body);
-            post.full_picture ? arr.push (post) : '';
-            cb ();
-          },
-          function () {
-            if (arr[1]) {
-              resolve (arr);
-            } else {
-              resolve (null);
-            }
-          }
-        );
       }
     );
   });
@@ -245,8 +227,8 @@ async function post_and_insert_db_fresh (arr, collectiondb) {
 async function statii (params, callback) {
   const step1 = await get_pages ('_source_statii');
   const get_fresh = await get_fresh_ones (step1, 'link');
-  const process_fresh = await fresh_ones_beautify (get_fresh);
-  const ifarraypost = await post_and_insert_db_fresh (process_fresh, 'newsbg');
+  //const process_fresh = await fresh_ones_beautify (get_fresh);
+  const ifarraypost = await post_and_insert_db_fresh (get_fresh, 'newsbg');
   const pre_step_notify = await scheduled_post ();
 
   callback (ifarraypost);
@@ -256,11 +238,8 @@ async function statii (params, callback) {
 async function statii_en (params, callback) {
   const step1 = await get_pages ('_en_source_statii');
   const get_fresh = await get_fresh_ones (step1, 'link');
-  const process_fresh = await fresh_ones_beautify (get_fresh);
-  const ifarraypost = await post_and_insert_db_fresh (
-    process_fresh,
-    'newsenglish'
-  );
+  //const process_fresh = await fresh_ones_beautify (get_fresh);
+  const ifarraypost = await post_and_insert_db_fresh (get_fresh, 'newsenglish');
 
   callback (ifarraypost);
   console.log ('== D O N E  E N ==');
