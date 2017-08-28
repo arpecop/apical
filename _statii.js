@@ -163,12 +163,10 @@ async function get_fresh_ones (posts, type) {
               },
             })
               .then (function (data) {
-                //console.log (data);
                 arr.push (data);
                 cb ();
               })
               .catch (function (err) {
-                // Crawling failed or Cheerio choked...
                 cb ();
               });
           } else {
@@ -185,8 +183,7 @@ async function get_fresh_ones (posts, type) {
 
 async function post_and_insert_db_fresh (arr, collectiondb) {
   return new Promise (resolve => {
-    if (arr) {
-      //resolve (' new to get');
+    if (arr[1]) {
       async.eachSeries (
         arr,
         function (item, cb) {
@@ -204,7 +201,7 @@ async function post_and_insert_db_fresh (arr, collectiondb) {
             insertjson._id =
               new Date (insertjson.created_time).getTime () + '_1';
 
-            db.put (insertjson, function () {
+            db.put (insertjson, function (err, nonerr) {
               //post (insertjson._id, zzmata => {
               cb ();
               //});
@@ -226,11 +223,11 @@ async function post_and_insert_db_fresh (arr, collectiondb) {
 }
 
 async function statii (params, callback) {
+  const pre_step_notify = await scheduled_post ();
   const step1 = await get_pages ('source_statii');
   const get_fresh = await get_fresh_ones (step1, 'link');
 
   const ifarraypost = await post_and_insert_db_fresh (get_fresh, 'newsbg');
-  const pre_step_notify = await scheduled_post ();
 
   callback (ifarraypost);
 
@@ -243,13 +240,15 @@ async function statii_en (params, callback) {
   const ifarraypost = await post_and_insert_db_fresh (get_fresh, 'newsenglish');
 
   callback (ifarraypost);
-  console.log ('== D O N E  E N ==');
+  console.log ('== D O N E  E N ==' + ifarraypost.length);
 }
 
 //dsadasdasddadsadsd
 if (!process.env.PORT) {
+  console.log (new Date ());
+
   let pagestoget = require (`${__dirname}/_includes/en_source_statii.json`);
-  scheduled_post ();
+  // scheduled_post ();
 
   process.on ('unhandledRejection', (reason, p) => {
     console.log (
@@ -260,7 +259,8 @@ if (!process.env.PORT) {
     );
     // application specific logging here
   });
-  statii ('1', function (data) {
+  db.put ({_id: 'test'}, function () {});
+  statii_en ('1', function (data) {
     console.log (data);
   });
 }
