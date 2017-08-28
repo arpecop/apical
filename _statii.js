@@ -76,22 +76,19 @@ function post (id, callback) {
   );
 }
 
-function scheduled_post () {
+function scheduled_post (dbx, preurl, token, usersdb) {
   return new Promise (resolve => {
     db
-      .query ('i/newsbg', {
+      .query ('i/' + dbx, {
         limit: 10,
         descending: true,
       })
       .then (function (doc) {
-        //console.log (doc.rows[0].value);
-
-        // index was built!
         promo.post (
-          `newsb/${doc.rows[0].value.id}`,
-          process.env.izvestie_token,
+          preurl + '' + doc.rows[0].value.id,
+          token,
           doc.rows[0].value.title,
-          'bgusers',
+          usersdb,
           () => {
             console.log (
               `posting scheduled promo last post statii "${doc.rows[0].value.title}" 1 times`
@@ -101,7 +98,9 @@ function scheduled_post () {
         );
       })
       .catch (function (err) {
-        resolve (err);
+        console.log (err);
+
+        reject (err);
       });
   });
 }
@@ -223,7 +222,12 @@ async function post_and_insert_db_fresh (arr, collectiondb) {
 }
 
 async function statii (params, callback) {
-  const pre_step_notify = await scheduled_post ();
+  const pre_step_notify = await scheduled_post (
+    'newsbg', //view to retrieve latest post and send the title
+    'newsb/', //before the _id
+    process.env.izvestie_token,
+    'bgusers' //userbase on localhost to randomize
+  );
   const step1 = await get_pages ('source_statii');
   const get_fresh = await get_fresh_ones (step1, 'link');
 
@@ -234,6 +238,12 @@ async function statii (params, callback) {
   console.log ('== D O N E  B G ==');
 }
 async function statii_en (params, callback) {
+  const pre_step_notify = await scheduled_post (
+    'newsen', //view to retrieve latest post and send the title
+    '/', //before the _id
+    process.env.article_token,
+    'poparticles' //userbase on localhost to randomize
+  );
   const step1 = await get_pages ('en_source_statii');
   const get_fresh = await get_fresh_ones (step1, 'link');
   //const process_fresh = await fresh_ones_beautify (get_fresh);
@@ -259,7 +269,7 @@ if (!process.env.PORT) {
     );
     // application specific logging here
   });
-  db.put ({_id: 'test'}, function () {});
+
   statii_en ('1', function (data) {
     console.log (data);
   });
