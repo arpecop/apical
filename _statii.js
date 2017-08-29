@@ -253,7 +253,7 @@ async function statii_en (params, callback) {
   );
   const step1 = await get_pages ('en_source_statii');
   const get_fresh = await get_fresh_ones (step1, 'link');
-  //const process_fresh = await fresh_ones_beautify (get_fresh);
+
   const ifarraypost = await post_and_insert_db_fresh (get_fresh, 'newsenglish');
 
   callback (ifarraypost);
@@ -285,5 +285,8 @@ if (!process.env.PORT) {
 module.exports = {
   statii,
   statii_en,
+  post_and_insert_db_fresh,
+  scheduled_post,
+  get_pages,
 };
 //dasda
