@@ -244,6 +244,13 @@ async function statii_en (params, callback) {
     process.env.article_token,
     'poparticles' //userbase on localhost to randomize
   );
+
+  const pre_step_notify2 = await scheduled_post (
+    'newsen', //view to retrieve latest post and send the title
+    '/news/', //before the _id
+    process.env.mystbox_token,
+    'mystic' //userbase on localhost to randomize
+  );
   const step1 = await get_pages ('en_source_statii');
   const get_fresh = await get_fresh_ones (step1, 'link');
   //const process_fresh = await fresh_ones_beautify (get_fresh);
