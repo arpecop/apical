@@ -83,19 +83,24 @@ function scheduled_post (dbx, preurl, token, usersdb) {
         limit: 10,
         descending: true,
       })
-      .then (function (doc) {
-        promo.post (
-          preurl + '' + doc.rows[0].value.id,
-          token,
-          doc.rows[0].value.title,
-          usersdb,
-          () => {
-            console.log (
-              `posting scheduled promo last post statii "${doc.rows[0].value.title}" 1 times`
-            );
-            resolve ('posting scheduled promo notification');
-          }
-        );
+      .then (function (doc, doc2) {
+        console.log (doc);
+        if (doc.total_rows > 2) {
+          promo.post (
+            preurl + '' + doc.rows[0].value.id,
+            token,
+            doc.rows[0].value.title,
+            usersdb,
+            () => {
+              console.log (
+                `posting scheduled promo last post statii "${doc.rows[0].value.title}" 1 times`
+              );
+              resolve ('posting scheduled promo notification');
+            }
+          );
+        } else {
+          resolve ('not enough posts');
+        }
       })
       .catch (function (err) {
         console.log (err);
