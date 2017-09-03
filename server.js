@@ -35,7 +35,7 @@ if (cluster.isMaster) {
   async.waterfall(
     [
       (cb) => {
-        statii.statii('1', () => {
+        kartinki.kartinki_bg('1', () => {
           cb(null, '');
         });
       },
@@ -45,7 +45,7 @@ if (cluster.isMaster) {
         });
       },
       (one, cb) => {
-        kartinki.kartinki_bg('1', () => {
+        statii.statii('1', () => {
           cb(null, '');
         });
       },
