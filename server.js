@@ -51,7 +51,7 @@ if (cluster.isMaster) {
       },
     ],
     (err, result) => {
-      console.log('final');
+      console.log('=== SHIFT DONE ===');
       console.log(err || result);
 
       process.exit(0);
