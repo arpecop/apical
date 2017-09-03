@@ -5,8 +5,8 @@ const async = require('async');
 const md5 = require('md5');
 const _ = require('underscore');
 const pintetez = require('node-pinterest');
-
-const db = require(`${__dirname}/dbaws.js`);
+ 
+const db = require('nano')('http://1:1@pouchdb.herokuapp.com/db');
 const tempcdn = require('nano')('http://1:1@pouchdb.herokuapp.com/content');
 
 const pintokens = [

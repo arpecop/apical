@@ -1,9 +1,0 @@
-[ignore]
-
-[include]
-./slack.js
-[libs]
-
-[lints]
-
-[options]

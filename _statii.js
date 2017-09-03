@@ -84,7 +84,6 @@ function scheduled_post (dbx, preurl, token, usersdb) {
         descending: true,
       })
       .then (function (doc, doc2) {
-        console.log (doc);
         if (doc.total_rows > 2) {
           promo.post (
             preurl + '' + doc.rows[0].value.id,
@@ -122,7 +121,7 @@ function populatedb (id, callback) {
   });
 }
 async function get_pages (file) {
-  const pagestoget = require (`${__dirname}/_includes/${file}.json`);
+  const pagestoget = require (`${__dirname}/_includes/sources/${file}.json`);
   let arr = [];
   return new Promise (resolve => {
     async.each (
@@ -211,7 +210,15 @@ async function post_and_insert_db_fresh (arr, collectiondb) {
               //});
             });
           } else if (item.type === 'photo') {
-            cb ();
+            let insertjson = item;
+            insertjson.type = collectiondb;
+            insertjson._id =
+              new Date (insertjson.created_time).getTime () + '_1';
+            db.put (insertjson, function (err, nonerr) {
+              //post (insertjson._id, zzmata => {
+              cb ();
+              //});
+            });
           } else {
             cb ();
           }
@@ -266,26 +273,6 @@ async function statii_en (params, callback) {
 }
 
 //dsadasdasddadsadsd
-if (!process.env.PORT) {
-  console.log (new Date ());
-
-  let pagestoget = require (`${__dirname}/_includes/en_source_statii.json`);
-  // scheduled_post ();
-
-  process.on ('unhandledRejection', (reason, p) => {
-    console.log (
-      'Possibly Unhandled Rejection at: Promise ',
-      p,
-      ' reason: ',
-      reason
-    );
-    // application specific logging here
-  });
-
-  statii_en ('1', function (data) {
-    console.log (data);
-  });
-}
 
 module.exports = {
   statii,
@@ -293,5 +280,6 @@ module.exports = {
   post_and_insert_db_fresh,
   scheduled_post,
   get_pages,
+  get_fresh_ones,
 };
 //dasda

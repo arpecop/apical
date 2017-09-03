@@ -17,9 +17,9 @@ if (cluster.isMaster) {
   const express = require('express');
   const kartinki = require('./_kartinki.js');
   const statii = require('./_statii.js');
-  const cookie = require('./_fortune.js');
+
   // const mash = require('./_mashable.js');
-  const pr0gramm = require('./_pr0gramm.js');
+  // const pr0gramm = require('./_pr0gramm.js');
 
   const app = require('express')();
   const server = require('http').Server(app);
@@ -45,44 +45,8 @@ if (cluster.isMaster) {
         });
       },
       (one, cb) => {
-        kartinki.kartinki('1', () => {
+        kartinki.kartinki_bg('1', () => {
           cb(null, '');
-        });
-      },
-      (one, cb) => {
-        pr0gramm.pr0gramm('1', () => {
-          cb(null, '');
-        });
-      },
-      (one, cb) => {
-        pr0gramm.imgur('top/time', () => {
-          cb(null, '');
-        });
-      },
-
-      (one, cb) => {
-        pr0gramm.imgur('t/funny', () => {
-          cb(null, '');
-        });
-      },
-      (one, cb) => {
-        pr0gramm.imgur('hot/viral', () => {
-          cb(null, '');
-        });
-      },
-      (one, cb) => {
-        pr0gramm.ninegag('trending', () => {
-          cb(null, '');
-        });
-      },
-      (one, cb) => {
-        pr0gramm.ninegag('hot', () => {
-          cb(null, '');
-        });
-      },
-      (one, cb) => {
-        cookie.go('1', (data) => {
-          cb(null, '📦 delivered cookie invites');
         });
       },
     ],
