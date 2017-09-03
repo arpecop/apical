@@ -53,9 +53,8 @@ if (cluster.isMaster) {
     (err, result) => {
       console.log('final');
       console.log(err || result);
-      setTimeout(() => {
-        process.exit(0);
-      }, Math.floor(Math.random() * 15000 + 1000));
+
+      process.exit(0);
     },
   );
 
