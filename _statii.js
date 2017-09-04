@@ -158,7 +158,7 @@ async function get_fresh_ones (posts, type) {
       posts,
       (post, cb) => {
         populatedb (post.id, function (exist) {
-          if (exist && post.type === type) {
+          if (!exist && post.type === type) {
             get ({
               uri: 'http://node-one.rhcloud.com/fb/' + post.id,
               transform: function (body) {

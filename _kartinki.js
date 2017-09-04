@@ -20,7 +20,7 @@ async function kartinki_en (params, callback) {
     get_fresh,
     'enimgsx'
   );
-  //console.log (ifarraypost);
+  console.log (ifarraypost);
   console.log ('== D O N E  K A R T I N K I   E N ==' + ifarraypost.length);
   callback (ifarraypost);
 }
