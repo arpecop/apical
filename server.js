@@ -34,12 +34,12 @@ if (cluster.isMaster) {
 
   async.waterfall(
     [
+      // (cb) => {
       (cb) => {
-        kartinki.kartinki_bg('1', () => {
+        statii.statii('1', () => {
           cb(null, '');
         });
       },
-
       (one, cb) => {
         kartinki.kartinki_en('1', () => {
           cb(null, '');
@@ -51,7 +51,7 @@ if (cluster.isMaster) {
         });
       },
       (one, cb) => {
-        statii.statii('1', () => {
+        kartinki.kartinki_bg('1', () => {
           cb(null, '');
         });
       },
