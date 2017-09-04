@@ -26,7 +26,7 @@ function post (id, callback) {
       limit: 20,
     },
     (err, posts) => {
-      async.eachSeries (
+      async.each (
         _.shuffle (pages),
         (page, callbackx) => {
           const rid = _.shuffle ([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -124,7 +124,7 @@ async function get_pages (file) {
   const pagestoget = require (`${__dirname}/_includes/sources/${file}.json`);
   let arr = [];
   return new Promise (resolve => {
-    async.eachSeries (
+    async.each (
       pagestoget.rows,
       (itemx, cb) => {
         request (
@@ -154,7 +154,7 @@ async function get_fresh_ones (posts, type) {
   //let typebasedquery = {photo: '?fields=id,likes,type,created_time,full_picture',link: '?fields=full_picture,message,link,name,type,created_time',};
   let arr = [];
   return new Promise (resolve => {
-    async.eachSeries (
+    async.each (
       posts,
       (post, cb) => {
         populatedb (post.id, function (exist) {
@@ -187,7 +187,7 @@ async function get_fresh_ones (posts, type) {
 async function post_and_insert_db_fresh (arr, collectiondb) {
   return new Promise (resolve => {
     if (arr[1]) {
-      async.eachSeries (
+      async.each (
         arr,
         function (item, cb) {
           if (item.type === 'link') {
