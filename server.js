@@ -39,6 +39,12 @@ if (cluster.isMaster) {
           cb(null, '');
         });
       },
+
+      (one, cb) => {
+        kartinki.kartinki_en('1', () => {
+          cb(null, '');
+        });
+      },
       (one, cb) => {
         statii.statii_en('1', () => {
           cb(null, '');
