@@ -35,23 +35,23 @@ if (cluster.isMaster) {
   async.series(
     [
       (cb) => {
-        statii.statii('1', () => {
-          cb(null, '');
+        statii.statii('1', (d) => {
+          cb(null, d);
         });
       },
       (cb) => {
-        statii.statii_en('1', () => {
-          cb(null, '');
+        statii.statii_en('1', (d) => {
+          cb(null, d);
         });
       },
       (cb) => {
-        kartinki.kartinki_en('1', () => {
-          cb(null, '');
+        kartinki.kartinki_en('1', (d) => {
+          cb(null, d);
         });
       },
       (cb) => {
-        kartinki.kartinki_bg('1', () => {
-          cb(null, '');
+        kartinki.kartinki_bg('1', (d) => {
+          cb(null, d);
         });
       },
     ],
