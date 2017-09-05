@@ -7,8 +7,8 @@ async function kartinki_bg (params, callback) {
     get_fresh,
     'bgimgsx'
   );
-  //console.log (ifarraypost);
-  console.log ('== D O N E  K A R T I N K I   B G ==' + ifarraypost.length);
+  console.log (ifarraypost);
+  console.log ('== D O N E  K A R T I N K I   B G ==');
   callback (ifarraypost);
 }
 
@@ -21,8 +21,7 @@ async function kartinki_en (params, callback) {
     'enimgsx'
   );
   console.log (ifarraypost);
-  console.log ('== D O N E  K A R T I N K I   E N ==' + ifarraypost.length);
-  callback (ifarraypost);
+  console.log ('== D O N E  K A R T I N K I   E N ==');
 }
 
 if (!process.env.PORT) {

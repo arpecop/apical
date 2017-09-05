@@ -151,7 +151,6 @@ async function get_pages (file) {
 }
 
 async function get_fresh_ones (posts, type) {
-  //let typebasedquery = {photo: '?fields=id,likes,type,created_time,full_picture',link: '?fields=full_picture,message,link,name,type,created_time',};
   let arr = [];
   return new Promise (resolve => {
     async.each (
