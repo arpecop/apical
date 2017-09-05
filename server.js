@@ -84,6 +84,7 @@ if (cluster.isMaster) {
       reason,
     );
     // application specific logging here
+    process.exit(0);
   });
 
   server.listen(port);
