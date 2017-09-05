@@ -32,24 +32,24 @@ if (cluster.isMaster) {
   request.get('http://apicall2.herokuapp.com/', () => {});
   request.get('http://chimpsnap.herokuapp.com/', () => {});
 
-  async.waterfall(
+  async.series(
     [
       (cb) => {
         statii.statii('1', () => {
           cb(null, '');
         });
       },
-      (one, cb) => {
+      (cb) => {
         statii.statii_en('1', () => {
           cb(null, '');
         });
       },
-      (one, cb) => {
+      (cb) => {
         kartinki.kartinki_en('1', () => {
           cb(null, '');
         });
       },
-      (one, cb) => {
+      (cb) => {
         kartinki.kartinki_bg('1', () => {
           cb(null, '');
         });
