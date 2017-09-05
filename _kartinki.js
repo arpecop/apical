@@ -22,12 +22,11 @@ async function kartinki_en (params, callback) {
   );
   console.log (ifarraypost);
   console.log ('== D O N E  K A R T I N K I   E N ==');
+  callback (ifarraypost);
 }
 
 if (!process.env.PORT) {
-  kartinki_en ('1', data => {
-    console.log (data);
-  });
+  //kartinki_en ('1', data => { console.log (data);});
 }
 
 module.exports = {

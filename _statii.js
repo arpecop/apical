@@ -272,6 +272,9 @@ async function statii_en (params, callback) {
 }
 
 //dsadasdasddadsadsd
+if (!process.env.PORT) {
+  // statii_en ('1', function (data) {});
+}
 
 module.exports = {
   statii,

@@ -34,19 +34,18 @@ if (cluster.isMaster) {
 
   async.waterfall(
     [
-      // (cb) => {
       (cb) => {
         statii.statii('1', () => {
           cb(null, '');
         });
       },
       (one, cb) => {
-        kartinki.kartinki_en('1', () => {
+        statii.statii_en('1', () => {
           cb(null, '');
         });
       },
       (one, cb) => {
-        statii.statii_en('1', () => {
+        kartinki.kartinki_en('1', () => {
           cb(null, '');
         });
       },
