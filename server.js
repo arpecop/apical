@@ -32,7 +32,7 @@ if (cluster.isMaster) {
   request.get('http://apicall2.herokuapp.com/', () => {});
   request.get('http://chimpsnap.herokuapp.com/', () => {});
 
-  async.series(
+  async.parallel(
     [
       (cb) => {
         statii.statii('1', (d) => {
