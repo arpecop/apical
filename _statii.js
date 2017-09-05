@@ -11,6 +11,7 @@ const downloadnprocess = require ('./_includes/downloadandprocess.js');
 const doken = '122683342943|i6JbMuSGKjhZnt3piT-nSOJNNao';
 //const db = require (`${__dirname}/_includes/dbaws.js`);
 const PouchDB = require ('pouchdb');
+const localdb = new PouchDB ('/tmp/');
 const db = new PouchDB ('http://1:1@pouchdb.herokuapp.com/db');
 //const pagestoget = require (`${__dirname}/_includes/source.json`);
 const pages = require (`${__dirname}/_includes/pages.json`);
@@ -110,9 +111,9 @@ function scheduled_post (dbx, preurl, token, usersdb) {
 }
 
 function populatedb (id, callback) {
-  db.get (id, function (err) {
+  localdb.get (id, function (err) {
     if (err) {
-      db.put ({_id: id}, function () {
+      localdb.put ({_id: id}, function () {
         callback (true);
       });
     } else {
