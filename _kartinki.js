@@ -3,24 +3,35 @@ const async = require ('async');
 const _ = require ('underscore');
 const request = require ('request');
 const pages = require (`${__dirname}/_includes/pages.json`);
+const PouchDB = require ('pouchdb');
+const md5 = require ('md5');
+const db = new PouchDB ('http://1:1@pouchdb.herokuapp.com/db');
 async function post_to_bg (arritem) {
   return new Promise (resolve => {
     if (arritem) {
-      async.each (_.shuffle (pages), (page, callbackx) => {
-        request.post (
-          `https://graph.facebook.com/${page.id}/photos`,
-          {
-            form: {
-              url: arritem.full_picture,
-              access_token: page.access_token,
-            },
-          },
-          function (e, m, body) {
-            console.log (body);
+      db.get (md5 (arritem.full_picture), function (err) {
+        if (err) {
+          db.put ({_id: md5 (arritem)}, function () {
+            async.each (_.shuffle (pages), (page, callbackx) => {
+              request.post (
+                `https://graph.facebook.com/${page.id}/photos`,
+                {
+                  form: {
+                    url: arritem.full_picture,
+                    access_token: page.access_token,
+                  },
+                },
+                function (e, m, body) {
+                  console.log (body);
 
-            callbackx ();
-          }
-        );
+                  callbackx ();
+                }
+              );
+            });
+          });
+        } else {
+          resolve ();
+        }
       });
     } else {
       resolve ();
