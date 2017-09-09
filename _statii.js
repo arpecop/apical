@@ -224,11 +224,11 @@ async function post_and_insert_db_fresh (arr, collectiondb) {
           }
         },
         function () {
-          resolve ('posted ' + arr.length + 'new items to' + collectiondb);
+          resolve (arr);
         }
       );
     } else {
-      resolve ('nothing new to get');
+      resolve ([]);
     }
   });
 }
@@ -279,9 +279,6 @@ async function statii_en (params, callback) {
 }
 
 //dsadasdasddadsadsd
-if (!process.env.PORT) {
-  statii_en ('1', function (data) {});
-}
 
 module.exports = {
   statii,
