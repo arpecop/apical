@@ -240,6 +240,12 @@ async function statii (params, callback) {
     process.env.izvestie_token,
     'bgusers' //userbase on localhost to randomize
   );
+  const pre_step_notify1 = await scheduled_post (
+    'newsbg', //view to retrieve latest post and send the title
+    'newsb/', //before the _id
+    process.env.izvestie_token,
+    'bgusers' //userbase on localhost to randomize
+  );
   const step1 = await get_pages ('source_statii');
   const get_fresh = await get_fresh_ones (step1, 'link');
 
