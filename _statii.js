@@ -1,38 +1,40 @@
-const request = require ('request');
+const request = require('request');
 
-const fs = require ('fs');
-const get = require ('request-promise');
-const async = require ('async');
-const shortid = require ('shortid');
-const _ = require ('underscore');
-const extend = require ('extend');
-const sizeOf = require ('image-size');
-const downloadnprocess = require ('./_includes/downloadandprocess.js');
+const fs = require('fs');
+const get = require('request-promise');
+const async = require('async');
+const shortid = require('shortid');
+const _ = require('underscore');
+const extend = require('extend');
+const sizeOf = require('image-size');
+const downloadnprocess = require('./_includes/downloadandprocess.js');
+
 const doken = '122683342943|i6JbMuSGKjhZnt3piT-nSOJNNao';
-//const db = require (`${__dirname}/_includes/dbaws.js`);
-const PouchDB = require ('pouchdb');
-const localdb = new PouchDB ('/tmp/' + new Date ().getHours ());
-const db = new PouchDB ('http://1:1@pouchdb.herokuapp.com/db');
-//const pagestoget = require (`${__dirname}/_includes/source.json`);
-const pages = require (`${__dirname}/_includes/pages.json`);
-const promo = require (`${__dirname}/_includes/promo.js`);
+// const db = require (`${__dirname}/_includes/dbaws.js`);
+const PouchDB = require('pouchdb');
 
-function post (id, callback) {
+const localdb = new PouchDB(`/tmp/${new Date().getHours()}`);
+const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
+// const pagestoget = require (`${__dirname}/_includes/source.json`);
+const pages = require(`${__dirname}/_includes/pages.json`);
+const promo = require(`${__dirname}/_includes/promo.js`);
+
+function post(id, callback) {
   count = 0;
   counterr = 0;
 
-  db.get (
+  db.get(
     {
       id: 'newsbg',
       limit: 20,
     },
     (err, posts) => {
-      async.each (
-        _.shuffle (pages),
+      async.each(
+        _.shuffle(pages),
         (page, callbackx) => {
-          const rid = _.shuffle ([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+          const rid = _.shuffle([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
-          request.post (
+          request.post(
             `https://graph.facebook.com/${page.id}/feed`,
             {
               form: {
@@ -62,223 +64,221 @@ function post (id, callback) {
               } else {
                 count++;
               }
-              callbackx ();
-            }
+              callbackx();
+            },
           );
         },
         () => {
-          console.log (
-            `📘 posted to facebook pages news 🚨:${counterr} ✅:${count}`
+          console.log(
+            `📘 posted to facebook pages news 🚨:${counterr} ✅:${count}`,
           );
-          callback ();
-        }
+          callback();
+        },
       );
-    }
+    },
   );
 }
 
-function scheduled_post (dbx, preurl, token, usersdb) {
-  return new Promise (resolve => {
+function scheduled_post(dbx, preurl, token, usersdb) {
+  return new Promise((resolve) => {
     db
-      .query ('i/' + dbx, {
+      .query(`i/${dbx}`, {
         limit: 10,
         descending: true,
       })
-      .then (function (doc, doc2) {
+      .then((doc, doc2) => {
         if (doc.total_rows > 2) {
-          promo.post (
-            preurl + '' + doc.rows[0].value.id,
+          promo.post(
+            `${preurl}${doc.rows[0].value.id}`,
             token,
             doc.rows[0].value.title,
             usersdb,
             () => {
-              console.log (
-                `posting scheduled promo last post statii "${doc.rows[0].value.title}" 1 times`
+              console.log(
+                `posting scheduled promo last post statii "${doc.rows[0].value.title}" 1 times`,
               );
-              resolve ('posting scheduled promo notification');
-            }
+              resolve('posting scheduled promo notification');
+            },
           );
         } else {
-          resolve ('not enough posts');
+          resolve('not enough posts');
         }
       })
-      .catch (function (err) {
-        console.log (err);
+      .catch((err) => {
+        console.log(err);
 
-        reject (err);
+        reject(err);
       });
   });
 }
 
-function populatedb (id, callback) {
-  localdb.get (id, function (err) {
+function populatedb(id, callback) {
+  localdb.get(id, (err) => {
     if (err) {
-      localdb.put ({_id: id}, function () {
-        callback (true);
+      localdb.put({ _id: id }, () => {
+        callback(true);
       });
     } else {
-      callback (false);
+      callback(false);
     }
   });
 }
-async function get_pages (file) {
-  const pagestoget = require (`${__dirname}/_includes/sources/${file}.json`);
+async function get_pages(file) {
+  const pagestoget = require(`${__dirname}/_includes/sources/${file}.json`);
   let arr = [];
-  return new Promise (resolve => {
-    async.each (
+  return new Promise((resolve) => {
+    async.each(
       pagestoget.rows,
       (itemx, cb) => {
-        request (
+        request(
           `http://node-one.rhcloud.com/fbfeed/${itemx.id}`,
           (error, response, body) => {
             if (!error && response.statusCode === 200) {
-              arr = arr.concat (JSON.parse (body).data);
-              cb ();
+              arr = arr.concat(JSON.parse(body).data);
+              cb();
             } else {
-              cb ();
+              cb();
             }
-          }
+          },
         );
       },
-      function () {
+      () => {
         if (arr.length < 5) {
-          resolve ({err: 'something wrong'});
+          resolve({ err: 'something wrong' });
         } else {
-          resolve (arr);
+          resolve(arr);
         }
-      }
+      },
     );
   });
 }
 
-async function get_fresh_ones (posts, type) {
-  let arr = [];
-  return new Promise (resolve => {
-    async.each (
+async function get_fresh_ones(posts, type) {
+  const arr = [];
+  return new Promise((resolve) => {
+    async.each(
       posts,
       (post, cb) => {
-        populatedb (post.id, function (exist) {
+        populatedb(post.id, (exist) => {
           if (exist && post.type === type) {
-            get ({
-              uri: 'http://node-one.rhcloud.com/fb/' + post.id,
-              transform: function (body) {
-                return JSON.parse (body);
+            get({
+              uri: `http://node-one.rhcloud.com/fb/${post.id}`,
+              transform(body) {
+                return JSON.parse(body);
               },
             })
-              .then (function (data) {
-                arr.push (data);
-                cb ();
+              .then((data) => {
+                arr.push(data);
+                cb();
               })
-              .catch (function (err) {
-                cb ();
+              .catch((err) => {
+                cb();
               });
           } else {
-            cb ();
+            cb();
           }
         });
       },
-      function () {
-        resolve (_.shuffle (arr).slice (0, 49));
-      }
+      () => {
+        resolve(_.shuffle(arr).slice(0, 49));
+      },
     );
   });
 }
 
-async function post_and_insert_db_fresh (arr, collectiondb) {
-  return new Promise (resolve => {
+async function post_and_insert_db_fresh(arr, collectiondb) {
+  return new Promise((resolve) => {
     if (arr[1]) {
-      async.each (
+      async.each(
         arr,
-        function (item, cb) {
+        (item, cb) => {
           if (item.type === 'link') {
-            let insertjson = item;
+            const insertjson = item;
             insertjson.type = collectiondb;
             insertjson.title = insertjson.name;
             insertjson.description = insertjson.message
               ? insertjson.message
               : ' ';
             insertjson.url = insertjson.picture;
-            insertjson.provider = insertjson.link.split ('/')[2];
+            insertjson.provider = insertjson.link.split('/')[2];
             insertjson.source = insertjson.link;
             insertjson.url_big = insertjson.full_picture;
-            insertjson._id =
-              new Date (insertjson.created_time).getTime () + '_1';
+            insertjson._id = `${new Date(insertjson.created_time).getTime()}_1`;
 
-            db.put (insertjson, function (err, nonerr) {
-              //post (insertjson._id, zzmata => {
-              cb ();
-              //});
+            db.put(insertjson, (err, nonerr) => {
+              // post (insertjson._id, zzmata => {
+              cb();
+              // });
             });
           } else if (item.type === 'photo') {
-            let insertjson = item;
+            const insertjson = item;
             insertjson.type = collectiondb;
-            insertjson._id =
-              new Date (insertjson.created_time).getTime () + '_1';
-            db.put (insertjson, function (err, nonerr) {
-              //post (insertjson._id, zzmata => {
-              cb ();
-              //});
+            insertjson._id = `${new Date(insertjson.created_time).getTime()}_1`;
+            db.put(insertjson, (err, nonerr) => {
+              // post (insertjson._id, zzmata => {
+              cb();
+              // });
             });
           } else {
-            cb ();
+            cb();
           }
         },
-        function () {
-          resolve (arr);
-        }
+        () => {
+          resolve(arr);
+        },
       );
     } else {
-      resolve ([]);
+      resolve([]);
     }
   });
 }
 
-async function statii (params, callback) {
-  const pre_step_notify = await scheduled_post (
-    'newsbg', //view to retrieve latest post and send the title
-    'newsb/', //before the _id
+async function statii(params, callback) {
+  const pre_step_notify = await scheduled_post(
+    'newsbg', // view to retrieve latest post and send the title
+    'newsb/', // before the _id
     process.env.izvestie_token,
-    'bgusers' //userbase on localhost to randomize
+    'bgusers', // userbase on localhost to randomize
   );
-  const pre_step_notify1 = await scheduled_post (
-    'newsbg', //view to retrieve latest post and send the title
-    'newsb/', //before the _id
+  const pre_step_notify1 = await scheduled_post(
+    'newsbg', // view to retrieve latest post and send the title
+    'newsb/', // before the _id
     process.env.izvestie_token,
-    'bgusers' //userbase on localhost to randomize
+    'bgusers', // userbase on localhost to randomize
   );
-  const step1 = await get_pages ('source_statii');
-  const get_fresh = await get_fresh_ones (step1, 'link');
+  const step1 = await get_pages('source_statii');
+  const get_fresh = await get_fresh_ones(step1, 'link');
 
-  const ifarraypost = await post_and_insert_db_fresh (get_fresh, 'newsbg');
+  const ifarraypost = await post_and_insert_db_fresh(get_fresh, 'newsbg');
 
-  callback (ifarraypost);
+  callback(ifarraypost);
 
-  console.log ('== D O N E  B G ==');
+  console.log('== D O N E  B G ==');
 }
-async function statii_en (params, callback) {
-  const pre_step_notify = await scheduled_post (
-    'newsen', //view to retrieve latest post and send the title
-    '/', //before the _id
+async function statii_en(params, callback) {
+  const pre_step_notify = await scheduled_post(
+    'newsen', // view to retrieve latest post and send the title
+    '/', // before the _id
     process.env.article_token,
-    'poparticles' //userbase on localhost to randomize
+    'poparticles', // userbase on localhost to randomize
   );
 
-  const pre_step_notifyx = await scheduled_post (
-    'newsen', //view to retrieve latest post and send the title
-    '/news/', //before the _id
+  const pre_step_notifyx = await scheduled_post(
+    'newsen', // view to retrieve latest post and send the title
+    '/news/', // before the _id
     process.env.mystbox_token,
-    'mystic' //userbase on localhost to randomize
+    'mystic', // userbase on localhost to randomize
   );
-  const step1 = await get_pages ('en_source_statii');
-  const get_fresh = await get_fresh_ones (step1, 'link');
+  const step1 = await get_pages('en_source_statii');
+  const get_fresh = await get_fresh_ones(step1, 'link');
 
-  const ifarraypost = await post_and_insert_db_fresh (get_fresh, 'newsenglish');
+  const ifarraypost = await post_and_insert_db_fresh(get_fresh, 'newsenglish');
 
-  callback (ifarraypost);
-  console.log ('== D O N E  E N ==' + ifarraypost.length);
+  callback(ifarraypost);
+  console.log(`== D O N E  E N ==${ifarraypost.length}`);
 }
 
-//dsadasdasddadsadsd
+// dsadasdasddadsadsd
 
 module.exports = {
   statii,
@@ -288,4 +288,4 @@ module.exports = {
   get_pages,
   get_fresh_ones,
 };
-//dasda
+// dasda
