@@ -6,7 +6,7 @@ const request = require('request');
 const pages = require(`${__dirname}/_includes/pages.json`);
 const PouchDB = require('pouchdb');
 const md5 = require('md5');
-
+// ds
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
 async function post_to_bg(arritem) {
   return new Promise((resolve) => {
