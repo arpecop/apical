@@ -39,10 +39,6 @@ function post(url, token, title, db, callback) {
           method: 'POST',
           relative_url: `${fr}/notifications?href=${url}&template=${title}`,
         });
-        arr.push({
-          method: 'POST',
-          relative_url: `${fr}/apprequests?data=${url}&message=${title}`,
-        });
 
         cb();
       },
