@@ -5,22 +5,6 @@ const pouch = require(`${__dirname}/pouch.js`);
 const console = require('better-console');
 const _ = require('lodash');
 
-const chunk = function (n) {
-  if (!this.length) {
-    return [];
-  }
-  return [this.slice(0, n)].concat(this.slice(n).chunk(n));
-};
-// dsad
-function IsJsonString(str) {
-  try {
-    JSON.parse(str);
-  } catch (e) {
-    return false;
-  }
-  return true;
-}
-
 function post(url, token, title, db, callback) {
   const logx = {
     url,
