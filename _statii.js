@@ -265,7 +265,7 @@ async function statii(params, callback) {
 async function statii_en(params, callback) {
   const pre_step_notify = await scheduled_post(
     'newsen', // view to retrieve latest post and send the title
-    '/', // before the _id
+    '', // before the _id
     process.env.article_token,
     'poparticles', // userbase on localhost to randomize
   );
