@@ -272,7 +272,7 @@ async function statii_en(params, callback) {
 
   const pre_step_notifyx = await scheduled_post(
     'newsen', // view to retrieve latest post and send the title
-    '/news/', // before the _id
+    'news', // before the _id
     process.env.mystbox_token,
     'mystic', // userbase on localhost to randomize
   );
