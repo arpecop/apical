@@ -89,7 +89,7 @@ function scheduled_post(dbx, preurl, token, usersdb) {
       .then((doc, doc2) => {
         if (doc.total_rows > 2) {
           promo.post(
-            `${preurl}${doc.rows[0].value.id}`,
+            `${preurl}/${doc.rows[0].value.id}`,
             token,
             doc.rows[0].value.title,
             usersdb,
@@ -236,19 +236,19 @@ async function post_and_insert_db_fresh(arr, collectiondb) {
 async function statii(params, callback) {
   const pre_step_notify = await scheduled_post(
     'newsbg', // view to retrieve latest post and send the title
-    'newsboy/', // before the _id
+    'newsboy', // before the _id
     process.env.izvestie_token,
     'bgusers', // userbase on localhost to randomize
   );
   const pre_step_notify1 = await scheduled_post(
     'newsbg', // view to retrieve latest post and send the title
-    'newsfly/', // before the _id
+    'newsfly', // before the _id
     process.env.izvestie_token,
     'bgusers', // userbase on localhost to randomize
   );
   const pre_step_notify2 = await scheduled_post(
     'newsbg', // view to retrieve latest post and send the title
-    'newsfly/', // before the _id
+    'newsfly', // before the _id
     process.env.izvestie_token,
     'bgusers', // userbase on localhost to randomize
   );
