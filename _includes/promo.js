@@ -2,7 +2,7 @@ const async = require('async');
 const request = require('request');
 
 const pouch = require(`${__dirname}/pouch.js`);
-const console = require('better-console');
+
 const _ = require('lodash');
 
 function post(url, token, title, db, callback) {
@@ -61,7 +61,7 @@ function post(url, token, title, db, callback) {
               );
             },
             () => {
-              console.info(
+              console.log(
                 ` 👍:${count} 🚨:${counterr} 💾:${db}  http://fbook.space/${url}`,
               );
               callback();
