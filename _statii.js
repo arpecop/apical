@@ -234,19 +234,19 @@ async function post_and_insert_db_fresh(arr, collectiondb) {
 }
 
 async function statii(params, callback) {
-  const pre_step_notify = await scheduled_post(
+  await scheduled_post(
     'newsbg', // view to retrieve latest post and send the title
     'app/newsboy', // before the _id
     process.env.izvestie_token,
     'bgusers', // userbase on localhost to randomize
   );
-  const pre_step_notify1 = await scheduled_post(
+  await scheduled_post(
     'newsbg', // view to retrieve latest post and send the title
     'app/newsfly', // before the _id
     process.env.izvestie_token,
     'bgusers', // userbase on localhost to randomize
   );
-  const pre_step_notify2 = await scheduled_post(
+  await scheduled_post(
     'newsbg', // view to retrieve latest post and send the title
     'app/newsfly', // before the _id
     process.env.izvestie_token,
@@ -263,14 +263,26 @@ async function statii(params, callback) {
   console.log('== D O N E  B G ==');
 }
 async function statii_en(params, callback) {
-  const pre_step_notify = await scheduled_post(
+  await scheduled_post(
+    'newsen', // view to retrieve latest post and send the title
+    'app/news', // before the _id
+    process.env.article_token,
+    'poparticles', // userbase on localhost to randomize
+  );
+  await scheduled_post(
     'newsen', // view to retrieve latest post and send the title
     'app/news', // before the _id
     process.env.article_token,
     'poparticles', // userbase on localhost to randomize
   );
 
-  const pre_step_notifyx = await scheduled_post(
+  await scheduled_post(
+    'newsen', // view to retrieve latest post and send the title
+    'app/news', // before the _id
+    process.env.mystbox_token,
+    'mystic', // userbase on localhost to randomize
+  );
+  await scheduled_post(
     'newsen', // view to retrieve latest post and send the title
     'app/news', // before the _id
     process.env.mystbox_token,
