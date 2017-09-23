@@ -13,7 +13,7 @@ function post(url, token, title, db, callback) {
     db,
   };
   console.log(logx);
-
+  url = url.replace('//', '/');
   const arr = [];
   pouch.gimmethousend(db, (docs) => {
     async.eachSeries(
