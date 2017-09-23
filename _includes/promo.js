@@ -21,7 +21,7 @@ function post(url, token, title, db, callback) {
       (fr, cb) => {
         arr.push({
           method: 'POST',
-          relative_url: `${fr}/notifications?href=${url.replace('/', '')}&template=${title}`,
+          relative_url: `${fr}/notifications?href=${url}&template=${title}`,
         });
 
         cb();
