@@ -13,7 +13,7 @@ function post(url, token, title, db, callback) {
     db,
   };
   console.log(logx);
-  url = url.replace('//', '/');
+
   const arr = [];
   pouch.gimmethousend(db, (docs) => {
     async.eachSeries(
@@ -21,7 +21,7 @@ function post(url, token, title, db, callback) {
       (fr, cb) => {
         arr.push({
           method: 'POST',
-          relative_url: `${fr}/notifications?href=${url}&template=${title}`,
+          relative_url: `${fr}/notifications?href=${url.replace('/', '')}&template=${title}`,
         });
 
         cb();
