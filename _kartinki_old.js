@@ -16,6 +16,8 @@ const promo = require(`${__dirname}/_includes/promo.js`);
 
 const template = 'тази снимка от приятел става популярна.';
 
+// function name(params, callback) {}
+
 function datex(prefix) {
   const coeff = 1000 * 60 * 3;
   const date = new Date(); // or use any other date
