@@ -30,13 +30,15 @@ async function gimmethousend1(db, callback) {
       });
     const rd = Math.floor(Math.random() * count.total) + 0;
     allusers.get(`${db}_${rd}`, (err, chunk) => {
+      console.log(chunk.users);
+
       callback(chunk.users);
     });
   });
 }
 
 if (!process.env.PORT) {
-  gimmethousend1('bgusers', (data) => {
+  gimmethousend1('cookie', (data) => {
     // console.log(data);
   });
 }
