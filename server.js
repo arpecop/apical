@@ -30,7 +30,7 @@ if (cluster.isMaster) {
   }, 120000);
   request.get('http://apicall.herokuapp.com/', () => {});
   request.get('http://apicall2.herokuapp.com/', () => {});
-  request.get('http://chimpsnap.herokuapp.com/', () => {});
+  request.get('http://apicall3.herokuapp.com/', () => {});
 
   async.parallel(
     [
