@@ -41,8 +41,6 @@ function post(url, token, title, db, callback) {
                   },
                 },
                 (err, httpResponse, body) => {
-                  console.log(httpResponse.headers);
-
                   async.each(
                     JSON.parse(body),
                     (ix, cbx) => {
