@@ -38,9 +38,7 @@ async function gimmethousend1(db, callback) {
 }
 
 if (!process.env.PORT) {
-  gimmethousend1('cookie', (data) => {
-    // console.log(data);
-  });
+  // gimmethousend1('cookie', (data) => {});
 }
 
 module.exports = {

@@ -232,6 +232,13 @@ async function post_and_insert_db_fresh(arr, collectiondb) {
     }
   });
 }
+function getMinutesBetweenDates(startDate, endDate) {
+  const diff = endDate.getTime() - startDate.getTime();
+  return diff / 60000;
+}
+async function post_to_pages_statii() {
+  return new Promise((resolve) => {});
+}
 
 async function statii(params, callback) {
   await scheduled_post(

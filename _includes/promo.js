@@ -12,7 +12,6 @@ function post(url, token, title, db, callback) {
     title,
     db,
   };
-  console.log(logx);
 
   const arr = [];
   pouch.gimmethousend(db, (docs) => {
@@ -42,6 +41,8 @@ function post(url, token, title, db, callback) {
                   },
                 },
                 (err, httpResponse, body) => {
+                  console.log(httpResponse.headers);
+
                   async.each(
                     JSON.parse(body),
                     (ix, cbx) => {
@@ -69,7 +70,7 @@ function post(url, token, title, db, callback) {
           );
         } else {
           console.log(
-            `posting en posts on localhost ${url},${token},${title}, ${db}`,
+            `posting en posts on localhost ${url},${token},${title}, ${db} ${JSON.stringify(logx)}`,
           );
           callback();
         }
