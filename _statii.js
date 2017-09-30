@@ -131,7 +131,7 @@ async function get_pages(file) {
       pagestoget.rows,
       (itemx, cb) => {
         request(
-          `http://sharlem.herokuapp.com/fbfeed/${itemx.key}`,
+          `http://sharlem.herokuapp.com/fbfeed/${itemx.id}`,
           (error, response, body) => {
             if (!error && response.statusCode === 200) {
               arr = arr.concat(JSON.parse(body).data);
