@@ -131,7 +131,7 @@ async function get_pages(file) {
       pagestoget.rows,
       (itemx, cb) => {
         request(
-          `http://node-one.rhcloud.com/fbfeed/${itemx.id}`,
+          `http://sharlem.herokuapp.com/fbfeed/${itemx.id}`,
           (error, response, body) => {
             if (!error && response.statusCode === 200) {
               arr = arr.concat(JSON.parse(body).data);
@@ -162,7 +162,7 @@ async function get_fresh_ones(posts, type) {
         populatedb(post.id, (exist) => {
           if (exist && post.type === type) {
             get({
-              uri: `http://node-one.rhcloud.com/fb/${post.id}`,
+              uri: `http://sharlem.herokuapp.com/fb/${post.id}`,
               transform(body) {
                 return JSON.parse(body);
               },
