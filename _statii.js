@@ -270,8 +270,14 @@ async function statii(params, callback) {
   const get_fresh = await get_fresh_ones(step1, 'link');
 
   const ifarraypost = await post_and_insert_db_fresh(get_fresh, 'newsbg');
+  // get from kartinki
 
-  callback(ifarraypost);
+  const step1x = await get_pages('source_kartinki_bg');
+  const get_freshx = await get_fresh_ones(step1x, 'link');
+
+  const ifarraypostx = await post_and_insert_db_fresh(get_freshx, 'newsbg');
+  //
+  callback(ifarraypostx);
 
   console.log('== D O N E  B G ==');
 }
