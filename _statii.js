@@ -1,6 +1,6 @@
 const request = require('request');
 
-const fs = require('fs');
+const fs = require('await-fs');
 const get = require('request-promise');
 const async = require('async');
 const shortid = require('shortid');
@@ -19,64 +19,37 @@ const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
 const pages = require(`${__dirname}/_includes/pages.json`);
 const promo = require(`${__dirname}/_includes/promo.js`);
 
-function post(id, callback) {
-  count = 0;
-  counterr = 0;
-
-  db.get(
-    {
-      id: 'newsbg',
-      limit: 20,
-    },
-    (err, posts) => {
-      async.each(
-        _.shuffle(pages),
-        (page, callbackx) => {
-          const rid = _.shuffle([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-
-          request.post(
-            `https://graph.facebook.com/${page.id}/feed`,
-            {
-              form: {
-                published: process.env.PORT ? 1 : 0,
-                link: 'https://newsboy.fbook.space/',
-                child_attachments: [
-                  {
-                    description: posts.docs[0].description,
-                    name: `[актуално от днес]: ${posts.docs[0].name}`,
-                    link: `https://newsboy.fbook.space/${posts.docs[0].value.id}`,
-                    picture: posts.docs[0].url_big,
+async function post_to_bg(arritem) {
+  return new Promise((resolve) => {
+    if (arritem) {
+      db.get(md5(arritem.full_picture), (err) => {
+        if (err) {
+          db.put({ _id: md5(arritem) }, () => {
+            async.each(_.shuffle(pages), (page, callbackx) => {
+              request.post(
+                `https://graph.facebook.com/${page.id}/feed`,
+                {
+                  form: {
+                    url: `http://izteglisi.com/app/newsboy/${arritem.id}`,
+                    access_token: page.access_token,
                   },
-                  {
-                    description: posts.docs[rid[1]].description,
-                    name: posts.docs[rid[1]].name,
-                    link: `https://newsboy.fbook.space/${posts.docs[rid[1]].value.id}`,
-                    picture: posts.docs[rid[1]].url_big,
-                  },
-                ],
-                access_token: page.access_token,
-              },
-            },
-            (error, response, body) => {
-              // const resp = JSON.parse (body);
-              if (response && response.statusCode === 200) {
-                counterr++;
-              } else {
-                count++;
-              }
-              callbackx();
-            },
-          );
-        },
-        () => {
-          console.log(
-            `📘 posted to facebook pages news 🚨:${counterr} ✅:${count}`,
-          );
-          callback();
-        },
-      );
-    },
-  );
+                },
+                (e, m, body) => {
+                  console.log(body);
+
+                  callbackx();
+                },
+              );
+            });
+          });
+        } else {
+          resolve();
+        }
+      });
+    } else {
+      resolve();
+    }
+  });
 }
 
 function scheduled_post(dbx, preurl, token, usersdb) {
@@ -247,12 +220,7 @@ async function statii(params, callback) {
     process.env.izvestie_token,
     'bgusers', // userbase on localhost to randomize
   );
-  await scheduled_post(
-    'newsbg', // view to retrieve latest post and send the title
-    'app/newsboy', // before the _id
-    process.env.izvestie_token,
-    'bgusers', // userbase on localhost to randomize
-  );
+
   await scheduled_post(
     'newsbg', // view to retrieve latest post and send the title
     'app/newsfly', // before the _id
@@ -276,6 +244,7 @@ async function statii(params, callback) {
   const get_freshx = await get_fresh_ones(step1x, 'link');
 
   const ifarraypostx = await post_and_insert_db_fresh(get_freshx, 'newsbg');
+  const postfirstarritem = await post_to_bg(ifarraypost[0]);
   //
   callback(ifarraypostx);
 
@@ -316,6 +285,22 @@ async function statii_en(params, callback) {
   console.log(`== D O N E  E N ==${ifarraypost.length}`);
 }
 
+async function post_statii() {
+  try {
+    const check = await fs.stat('/tmp/last_bg_statii');
+
+    const past = check.birthtimeMs;
+
+    const isPast = !(new Date().getTime() - past < 1000 * 60 * 10);
+    console.log(isPast);
+  } catch (err) {
+    fs.writeFile('/tmp/last_bg_statii', 'x', 'utf-8');
+    console.log(err);
+  }
+}
+if (!process.env.PORT) {
+  post_statii();
+}
 // dsadasdasddadsadsd
 
 module.exports = {

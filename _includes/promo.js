@@ -47,7 +47,6 @@ function post(url, token, title, db, callback) {
                       if (httpResponse.statusCode === 200) {
                         count++;
                       } else {
-                        console.log(body);
                         counterr++;
                       }
                       cbx();
