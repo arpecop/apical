@@ -31,7 +31,7 @@ async function post_to_bg(arritem) {
                 `https://graph.facebook.com/${page.id}/feed`,
                 {
                   form: {
-                    url: `http://izteglisi.com/app/newsboy/${arritem.id}`,
+                    link: `http://izteglisi.com/app/newsboy/${arritem.id}`,
                     access_token: page.access_token,
                   },
                 },
