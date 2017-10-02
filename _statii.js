@@ -7,6 +7,7 @@ const shortid = require('shortid');
 const _ = require('underscore');
 const extend = require('extend');
 const sizeOf = require('image-size');
+const md5 = require('md5');
 const downloadnprocess = require('./_includes/downloadandprocess.js');
 
 const doken = '122683342943|i6JbMuSGKjhZnt3piT-nSOJNNao';
