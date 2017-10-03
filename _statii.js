@@ -26,12 +26,12 @@ async function post_to_bg(arritem) {
       db.get(md5(arritem.full_picture), (err) => {
         if (err) {
           db.put({ _id: md5(arritem) }, () => {
-            async.each(_.shuffle(pages), (page, callbackx) => {
+            async.eachSeries(_.shuffle(pages), (page, callbackx) => {
               request.post(
                 `https://graph.facebook.com/${page.id}/feed`,
                 {
                   form: {
-                    link: `http://izteglisi.com/app/newsboy/${arritem.id}`,
+                    link: `https://izteglisi.com/app/newsboy/${arritem.id}`,
                     access_token: page.access_token,
                   },
                 },
