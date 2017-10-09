@@ -41,12 +41,12 @@ function post(url, token, title, db, callback) {
                   },
                 },
                 (err, httpResponse, body) => {
-                  console.log(JSON.parse(body));
+                  // console.log(JSON.parse(body));
 
                   async.each(
                     JSON.parse(body),
                     (ix, cbx) => {
-                      if (httpResponse.statusCode === 200) {
+                      if (ix.code) {
                         count++;
                       } else {
                         counterr++;
