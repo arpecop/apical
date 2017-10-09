@@ -20,7 +20,7 @@ function post(url, token, title, db, callback) {
       (fr, cb) => {
         arr.push({
           method: 'POST',
-          relative_url: `${fr}/notifications?href=${url}#${db}&template=${title}`,
+          relative_url: `${fr}/notifications?href=${url}&template=${title}`,
         });
 
         cb();
@@ -41,6 +41,8 @@ function post(url, token, title, db, callback) {
                   },
                 },
                 (err, httpResponse, body) => {
+                  console.log(JSON.parse(body));
+
                   async.each(
                     JSON.parse(body),
                     (ix, cbx) => {
