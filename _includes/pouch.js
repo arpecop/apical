@@ -23,15 +23,14 @@ async function gimmethousend1(db, callback) {
   allusers.get(`0_${db}`, (err, count) => {
     // _.shuffle(_.keys(emptyArray)
     const whatever = _.flatten(
-      new Array(50).fill(
+      new Array(150).fill(
         _.shuffle(_.keys(new Array(count.total).join('0').split(''))),
       ),
-    ).map((val, index) => ({ _id: `${index}`, val }));
-    console.log(whatever);
-    whatever.push({ _id: 'counter', val: '0' });
-    dbxx.bulkDocs(whatever, (err, ass) => {
-      console.log(err || ass);
-    });
+    ).map((val, index) => val);
+    // { _id: `${index}`, val }
+    console.log(JSON.stringify(whatever));
+    // whatever.push({ _id: 'counter', val: '0' });
+
     const rd = Math.floor(Math.random() * count.total) + 0;
     console.log(rd);
 
@@ -42,7 +41,7 @@ async function gimmethousend1(db, callback) {
 }
 
 if (!process.env.PORT) {
-  // gimmethousend1('cookie', (data) => {});
+  gimmethousend1('cookie', (data) => {});
 }
 
 module.exports = {

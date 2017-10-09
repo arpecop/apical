@@ -277,6 +277,21 @@ async function statii_en(params, callback) {
     process.env.mystbox_token,
     'mystic', // userbase on localhost to randomize
   );
+  // cookie
+
+  await scheduled_post(
+    'newsen', // view to retrieve latest post and send the title
+    'app/news', // before the _id
+    process.env.cookie_token,
+    'cookie', // userbase on localhost to randomize
+  );
+
+  await scheduled_post(
+    'newsen', // view to retrieve latest post and send the title
+    'app/news', // before the _id
+    process.env.cookie_token,
+    'cookie', // userbase on localhost to randomize
+  );
   const step1 = await get_pages('en_source_statii');
   const get_fresh = await get_fresh_ones(step1, 'link');
 
