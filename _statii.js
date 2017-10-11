@@ -224,13 +224,13 @@ async function statii(params, callback) {
 
   await scheduled_post(
     'newsbg', // view to retrieve latest post and send the title
-    'app/newsfly', // before the _id
+    'app/newsboy', // before the _id
     process.env.izvestie_token,
     'bgusers', // userbase on localhost to randomize
   );
   await scheduled_post(
     'newsbg', // view to retrieve latest post and send the title
-    'app/newsfly', // before the _id
+    'app/newsboy', // before the _id
     process.env.izvestie_token,
     'bgusers', // userbase on localhost to randomize
   );
