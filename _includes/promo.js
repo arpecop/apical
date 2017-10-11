@@ -48,12 +48,17 @@ function post(url, token, title, db, callback) {
                     (ix, cbx) => {
                       console.log(ix.body.length);
 
-                      if (ix.code === 200) {
-                        count++;
+                      if (ix.body) {
+                        if (ix.code === 200) {
+                          count++;
+                        } else {
+                          counterr++;
+                        }
+                        cbx();
                       } else {
                         counterr++;
+                        cbx();
                       }
-                      cbx();
                     },
                     () => {
                       cb();
