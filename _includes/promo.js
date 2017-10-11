@@ -46,7 +46,7 @@ function post(url, token, title, db, callback) {
                   async.each(
                     JSON.parse(body),
                     (ix, cbx) => {
-                      console.log(ix);
+                      console.log(ix.body.length);
 
                       if (ix.code === 200) {
                         count++;
