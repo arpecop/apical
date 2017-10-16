@@ -15,7 +15,7 @@ function post(url, token, title, db, callback) {
 
   const arr = [];
   pouch.gimmethousend(db, (docs) => {
-    async.eachSeries(
+    async.each(
       docs,
       (fr, cb) => {
         arr.push({
