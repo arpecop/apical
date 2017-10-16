@@ -11,6 +11,7 @@ const async = require('async');
 const levelup = require('levelup');
 const leveldown = require('leveldown');
 
+const dbx = levelup(leveldown('/tmp/xx'));
 // 1) Create our store
 
 //
@@ -25,7 +26,7 @@ function gimmethousend1(db, callback) {
 }
 
 // /////gimmethousend advanced
-const dbx = levelup(leveldown('/tmp/xx'));
+
 async function gimmethousend(db, callback) {
   dbx.get(`next${db}`, (err, next) => {
     if (err) {
@@ -60,6 +61,8 @@ async function gimmethousend(db, callback) {
     } else {
       dbx.put(`next${db}`, Math.round(next.toString()) + 1, () => {
         dbx.get(`${next.toString()}${db}`, (err, val) => {
+          console.log(`${next.toString()}_${db}_${val.toString()}`);
+
           allusers.get(`${db}_${val.toString()}`, (err, chunk) => {
             callback(chunk.users);
           });
