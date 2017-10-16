@@ -15,7 +15,7 @@ const leveldown = require('leveldown');
 
 //
 
-function gimmethousend2(db, callback) {
+function gimmethousend1(db, callback) {
   allusers.get(`0_${db}`, (err, count) => {
     const rd = Math.floor(Math.random() * count.total) + 0;
     allusers.get(`${db}_${rd}`, (err, chunk) => {
@@ -24,11 +24,10 @@ function gimmethousend2(db, callback) {
   });
 }
 
-// /////
-
+// /////gimmethousend advanced
+const dbx = levelup(leveldown('/tmp/xx'));
 async function gimmethousend(db, callback) {
-  const dbx = levelup(leveldown(`/tmp/${db}xx`));
-  dbx.get('next', (err, next) => {
+  dbx.get(`next${db}`, (err, next) => {
     if (err) {
       allusers.get(`0_${db}`, (err, count) => {
         const whatever = _.flatten(
@@ -43,13 +42,13 @@ async function gimmethousend(db, callback) {
         async.each(
           whatever,
           (val, cb) => {
-            dbx.put(val._id, val.val, (err) => {
+            dbx.put(`${val._id}${db}`, val.val, (err) => {
               // console.log(val);
               cb();
             });
           },
           (err) => {
-            dbx.put('next', 0, () => {
+            dbx.put(`next${db}`, 0, () => {
               allusers.get(`${db}_${whatever[0].val}`, (err, chunk) => {
                 callback(chunk.users);
               });
@@ -59,8 +58,8 @@ async function gimmethousend(db, callback) {
         // whatever.push({ _id: 'counter', val: '0' });
       });
     } else {
-      dbx.put('next', Math.round(next.toString()) + 1, () => {
-        dbx.get(next.toString(), (err, val) => {
+      dbx.put(`next${db}`, Math.round(next.toString()) + 1, () => {
+        dbx.get(`${next.toString()}${db}`, (err, val) => {
           allusers.get(`${db}_${val.toString()}`, (err, chunk) => {
             callback(chunk.users);
           });
