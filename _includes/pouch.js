@@ -6,6 +6,15 @@ const allusers = new PouchDB(`${__dirname}/db/allusers`);
 const wordb = new PouchDB('/tmp/allusers');
 const _ = require('underscore');
 
+//
+let levelup = require('levelup');
+let leveldown = require('leveldown');
+
+// 1) Create our store
+let db = levelup(leveldown('./mydb'));
+
+//
+
 function gimmethousend(db, callback) {
   allusers.get(`0_${db}`, (err, count) => {
     const rd = Math.floor(Math.random() * count.total) + 0;
@@ -41,8 +50,7 @@ async function gimmethousend1(db, callback) {
 }
 
 if (!process.env.PORT) {
-  // gimmethousend('cookie', (data) => {
-  // });
+  gimmethousend1('cookie', (data) => {});
 }
 
 module.exports = {
