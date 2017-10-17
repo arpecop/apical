@@ -55,37 +55,35 @@ async function post_to_bg(arritem) {
   });
 }
 
-function scheduled_post(dbx, preurl, token, usersdb) {
-  return new Promise((resolve) => {
-    db
-      .query(`i/${dbx}`, {
-        limit: 10,
-        descending: true,
-      })
-      .then((doc, doc2) => {
-        if (doc.total_rows > 2) {
-          promo.post(
-            `${preurl}/${doc.rows[0].value.id}`,
-            token,
-            doc.rows[0].value.title,
-            usersdb,
-            () => {
-              console.log(
-                `posting scheduled promo last post statii "${doc.rows[0].value.title}" 1 times`,
-              );
-              resolve('posting scheduled promo notification');
-            },
-          );
-        } else {
-          resolve('not enough posts');
-        }
-      })
-      .catch((err) => {
-        console.log(err);
+function scheduled_post(dbx, preurl, token, usersdb, callback) {
+  db
+    .query(`i/${dbx}`, {
+      limit: 10,
+      descending: true,
+    })
+    .then((doc, doc2) => {
+      if (doc.total_rows > 2) {
+        promo.post(
+          `${preurl}/${doc.rows[0].value.id}`,
+          token,
+          doc.rows[0].value.title,
+          usersdb,
+          () => {
+            console.log(
+              `posting scheduled promo last post statii "${doc.rows[0].value.title}" 1 times`,
+            );
+            callback('posting scheduled promo notification');
+          },
+        );
+      } else {
+        resolve('not enough posts');
+      }
+    })
+    .catch((err) => {
+      console.log(err);
 
-        reject(err);
-      });
-  });
+      callback(err);
+    });
 }
 
 function populatedb(id, callback) {
