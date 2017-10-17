@@ -49,7 +49,7 @@ async function kartinki_bg(params, callback) {
     get_fresh,
     'bgimgsx',
   );
-  const postfirstarritem = await post_to_bg(ifarraypost[0]);
+  // const postfirstarritem = await post_to_bg(ifarraypost[0]);
   console.log(`== D O N E  K A R T I N K I   B G ==${ifarraypost.length}`);
   callback(ifarraypost);
 }
