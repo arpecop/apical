@@ -31,6 +31,8 @@ if (cluster.isMaster) {
   request.get(`https://${process.env.appslug}.herokuapp.com/`, () => {});
 
   if (process.env.appslug === 'apicall') {
+    console.log('apicall');
+
     async.parallel(
       [
         (cb) => {
@@ -83,6 +85,7 @@ if (cluster.isMaster) {
       },
     );
   } else {
+    console.log('others');
     async.parallel(
       [
         (cb) => {
