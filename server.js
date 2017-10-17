@@ -81,17 +81,6 @@ if (cluster.isMaster) {
             },
           );
         },
-        (cb) => {
-          statii.scheduled_post(
-            'newsbg', // view to retrieve latest post and send the title
-            'app/newsboy', // before the _id
-            process.env.izvestie_token,
-            'bgusers',
-            () => {
-              cb(null, 'd');
-            },
-          );
-        },
       ],
       (err, result) => {
         console.log('=== SHIFT DONE ===');
