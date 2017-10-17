@@ -89,7 +89,7 @@ function scheduled_post(dbx, preurl, token, usersdb, callback) {
 function populatedb(id, callback) {
   localdb.get(id, (err) => {
     if (err) {
-      localdb.put({ _id: id }, () => {
+      localdb.put(id, 'c', () => {
         callback(true);
       });
     } else {
@@ -99,6 +99,8 @@ function populatedb(id, callback) {
 }
 async function get_pages(file) {
   const pagestoget = require(`${__dirname}/_includes/sources/${file}.json`);
+  // console.log(pagestoget);
+
   let arr = [];
   return new Promise((resolve) => {
     async.each(
@@ -109,6 +111,7 @@ async function get_pages(file) {
           (error, response, body) => {
             if (!error && response.statusCode === 200) {
               arr = arr.concat(JSON.parse(body).data);
+
               cb();
             } else {
               cb();
@@ -206,16 +209,10 @@ async function post_and_insert_db_fresh(arr, collectiondb) {
     }
   });
 }
-function getMinutesBetweenDates(startDate, endDate) {
-  const diff = endDate.getTime() - startDate.getTime();
-  return diff / 60000;
-}
-async function post_to_pages_statii() {
-  return new Promise((resolve) => {});
-}
 
 async function statii(params, callback) {
   const step1 = await get_pages('source_statii');
+
   const get_fresh = await get_fresh_ones(step1, 'link');
 
   const ifarraypost = await post_and_insert_db_fresh(get_fresh, 'newsbg');
@@ -239,20 +236,6 @@ async function statii_en(params, callback) {
 
   callback(ifarraypost);
   console.log(`== D O N E  E N ==${ifarraypost.length}`);
-}
-
-async function post_statii() {
-  try {
-    const check = await fs.stat('/tmp/last_bg_statii');
-
-    const past = check.birthtimeMs;
-
-    const isPast = !(new Date().getTime() - past < 1000 * 60 * 10);
-    console.log(isPast);
-  } catch (err) {
-    fs.writeFile('/tmp/last_bg_statii', 'x', 'utf-8');
-    console.log(err);
-  }
 }
 
 // dsadasdasddadsadsd
