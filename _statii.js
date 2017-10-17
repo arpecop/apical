@@ -1,3 +1,8 @@
+const PouchDB = require('pouchdb');
+
+const levelup = require('levelup');
+const leveldown = require('leveldown');
+
 const request = require('request');
 
 const fs = require('await-fs');
@@ -10,11 +15,8 @@ const sizeOf = require('image-size');
 const md5 = require('md5');
 const downloadnprocess = require('./_includes/downloadandprocess.js');
 
-const doken = '122683342943|i6JbMuSGKjhZnt3piT-nSOJNNao';
-// const db = require (`${__dirname}/_includes/dbaws.js`);
-const PouchDB = require('pouchdb');
+const localdb = levelup(leveldown(`/tmp/${new Date().getHours()}`));
 
-const localdb = new PouchDB(`/tmp/${new Date().getHours()}`);
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
 // const pagestoget = require (`${__dirname}/_includes/source.json`);
 const pages = require(`${__dirname}/_includes/pages.json`);
