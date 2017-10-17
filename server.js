@@ -41,54 +41,22 @@ if (cluster.isMaster) {
             'poparticles', // userbase on localhost to randomize
           );
         },
-        (cb) => {
-          statii.scheduled_post(
-            'newsen', // view to retrieve latest post and send the title
-            'app/news', // before the _id
-            process.env.article_token,
-            'poparticles', // userbase on localhost to randomize
-          );
-        },
-        (cb) => {
-          statii.scheduled_post(
-            'newsen', // view to retrieve latest post and send the title
-            'app/news', // before the _id
-            process.env.mystbox_token,
-            'mystic', // userbase on localhost to randomize
-          );
-        },
-        (cb) => {
-          statii.scheduled_post(
-            'newsen', // view to retrieve latest post and send the title
-            'app/news', // before the _id
-            process.env.mystbox_token,
-            'mystic', // userbase on localhost to randomize
-          );
-        },
-        (cb) => {
-          statii.scheduled_post(
-            'newsen', // view to retrieve latest post and send the title
-            'app/news', // before the _id
-            process.env.cookie_token,
-            'cookie', // userbase on localhost to randomize
-          );
-        },
-        (cb) => {
-          statii.scheduled_post(
-            'newsen', // view to retrieve latest post and send the title
-            'app/news', // before the _id
-            process.env.cookie_token,
-            'cookie', // userbase on localhost to randomize
-          );
-        },
-        (cb) => {
-          // BG
 
+        (cb) => {
           statii.scheduled_post(
-            'newsbg', // view to retrieve latest post and send the title
-            'app/newsboy', // before the _id
-            process.env.izvestie_token,
-            'bgusers', // userbase on localhost to randomize
+            'newsen', // view to retrieve latest post and send the title
+            'app/news', // before the _id
+            process.env.mystbox_token,
+            'mystic', // userbase on localhost to randomize
+          );
+        },
+
+        (cb) => {
+          statii.scheduled_post(
+            'newsen', // view to retrieve latest post and send the title
+            'app/news', // before the _id
+            process.env.cookie_token,
+            'cookie', // userbase on localhost to randomize
           );
         },
         (cb) => {
