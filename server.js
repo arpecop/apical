@@ -42,7 +42,7 @@ if (cluster.isMaster) {
             process.env.article_token,
             'poparticles',
             () => {
-              cb(null, d);
+              cb(null, 'd');
             },
           );
         },
@@ -54,7 +54,7 @@ if (cluster.isMaster) {
             process.env.mystbox_token,
             'mystic',
             () => {
-              cb(null, d);
+              cb(null, 'd');
             },
           );
         },
@@ -66,7 +66,7 @@ if (cluster.isMaster) {
             process.env.cookie_token,
             'cookie',
             () => {
-              cb(null, d);
+              cb(null, 'd');
             },
           );
         },
@@ -77,7 +77,7 @@ if (cluster.isMaster) {
             process.env.izvestie_token,
             'bgusers',
             () => {
-              cb(null, d);
+              cb(null, 'd');
             },
           );
         },
@@ -88,7 +88,7 @@ if (cluster.isMaster) {
             process.env.izvestie_token,
             'bgusers',
             () => {
-              cb(null, d);
+              cb(null, 'd');
             },
           );
         },
