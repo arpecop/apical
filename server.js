@@ -42,6 +42,7 @@ if (cluster.isMaster) {
             process.env.article_token,
             'poparticles', // userbase on localhost to randomize
           );
+          cb();
         },
 
         (cb) => {
@@ -51,6 +52,7 @@ if (cluster.isMaster) {
             process.env.mystbox_token,
             'mystic', // userbase on localhost to randomize
           );
+          cb();
         },
 
         (cb) => {
@@ -60,6 +62,7 @@ if (cluster.isMaster) {
             process.env.cookie_token,
             'cookie', // userbase on localhost to randomize
           );
+          cb();
         },
         (cb) => {
           statii.scheduled_post(
@@ -68,6 +71,7 @@ if (cluster.isMaster) {
             process.env.izvestie_token,
             'bgusers', // userbase on localhost to randomize
           );
+          cb();
         },
         (cb) => {
           statii.scheduled_post(
@@ -76,6 +80,7 @@ if (cluster.isMaster) {
             process.env.izvestie_token,
             'bgusers', // userbase on localhost to randomize
           );
+          cb();
         },
       ],
       (err, result) => {
