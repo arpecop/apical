@@ -217,26 +217,6 @@ async function post_to_pages_statii() {
 }
 
 async function statii(params, callback) {
-  await scheduled_post(
-    'newsbg', // view to retrieve latest post and send the title
-    'app/newsboy', // before the _id
-    process.env.izvestie_token,
-    'bgusers', // userbase on localhost to randomize
-  );
-
-  await scheduled_post(
-    'newsbg', // view to retrieve latest post and send the title
-    'app/newsboy', // before the _id
-    process.env.izvestie_token,
-    'bgusers', // userbase on localhost to randomize
-  );
-  await scheduled_post(
-    'newsbg', // view to retrieve latest post and send the title
-    'app/newsboy', // before the _id
-    process.env.izvestie_token,
-    'bgusers', // userbase on localhost to randomize
-  );
-
   const step1 = await get_pages('source_statii');
   const get_fresh = await get_fresh_ones(step1, 'link');
 
@@ -254,46 +234,6 @@ async function statii(params, callback) {
   console.log('== D O N E  B G ==');
 }
 async function statii_en(params, callback) {
-  await scheduled_post(
-    'newsen', // view to retrieve latest post and send the title
-    'app/news', // before the _id
-    process.env.article_token,
-    'poparticles', // userbase on localhost to randomize
-  );
-  await scheduled_post(
-    'newsen', // view to retrieve latest post and send the title
-    'app/news', // before the _id
-    process.env.article_token,
-    'poparticles', // userbase on localhost to randomize
-  );
-
-  await scheduled_post(
-    'newsen', // view to retrieve latest post and send the title
-    'app/news', // before the _id
-    process.env.mystbox_token,
-    'mystic', // userbase on localhost to randomize
-  );
-  await scheduled_post(
-    'newsen', // view to retrieve latest post and send the title
-    'app/news', // before the _id
-    process.env.mystbox_token,
-    'mystic', // userbase on localhost to randomize
-  );
-  // cookie
-
-  await scheduled_post(
-    'newsen', // view to retrieve latest post and send the title
-    'app/news', // before the _id
-    process.env.cookie_token,
-    'cookie', // userbase on localhost to randomize
-  );
-
-  await scheduled_post(
-    'newsen', // view to retrieve latest post and send the title
-    'app/news', // before the _id
-    process.env.cookie_token,
-    'cookie', // userbase on localhost to randomize
-  );
   const step1 = await get_pages('en_source_statii');
   const get_fresh = await get_fresh_ones(step1, 'link');
 
@@ -316,9 +256,7 @@ async function post_statii() {
     console.log(err);
   }
 }
-if (!process.env.PORT) {
-  post_statii();
-}
+
 // dsadasdasddadsadsd
 
 module.exports = {

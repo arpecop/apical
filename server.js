@@ -28,40 +28,124 @@ if (cluster.isMaster) {
     console.log('💀 firing slow worker ,pack your shit boy! ');
     process.exit(0);
   }, 120000);
-  request.get('http://apicall.herokuapp.com/', () => {});
-  request.get('http://apicall2.herokuapp.com/', () => {});
-  request.get('http://apicall3.herokuapp.com/', () => {});
+  request.get(`https://${process.env.appslug}.herokuapp.com/`, () => {});
 
-  async.parallel(
-    [
-      (cb) => {
-        statii.statii('1', (d) => {
-          cb(null, d);
-        });
-      },
-      (cb) => {
-        statii.statii_en('1', (d) => {
-          cb(null, d);
-        });
-      },
-      (cb) => {
-        kartinki.kartinki_en('1', (d) => {
-          cb(null, d);
-        });
-      },
-      (cb) => {
-        kartinki.kartinki_bg('1', (d) => {
-          cb(null, d);
-        });
-      },
-    ],
-    (err, result) => {
-      console.log('=== SHIFT DONE ===');
-      console.log(err || result);
+  if (process.env.appslug === 'apicall') {
+    async.parallel(
+      [
+        (cb) => {
+          statii.scheduled_post(
+            'newsen', // view to retrieve latest post and send the title
+            'app/news', // before the _id
+            process.env.article_token,
+            'poparticles', // userbase on localhost to randomize
+          );
+        },
+        (cb) => {
+          statii.scheduled_post(
+            'newsen', // view to retrieve latest post and send the title
+            'app/news', // before the _id
+            process.env.article_token,
+            'poparticles', // userbase on localhost to randomize
+          );
+        },
+        (cb) => {
+          statii.scheduled_post(
+            'newsen', // view to retrieve latest post and send the title
+            'app/news', // before the _id
+            process.env.mystbox_token,
+            'mystic', // userbase on localhost to randomize
+          );
+        },
+        (cb) => {
+          statii.scheduled_post(
+            'newsen', // view to retrieve latest post and send the title
+            'app/news', // before the _id
+            process.env.mystbox_token,
+            'mystic', // userbase on localhost to randomize
+          );
+        },
+        (cb) => {
+          statii.scheduled_post(
+            'newsen', // view to retrieve latest post and send the title
+            'app/news', // before the _id
+            process.env.cookie_token,
+            'cookie', // userbase on localhost to randomize
+          );
+        },
+        (cb) => {
+          statii.scheduled_post(
+            'newsen', // view to retrieve latest post and send the title
+            'app/news', // before the _id
+            process.env.cookie_token,
+            'cookie', // userbase on localhost to randomize
+          );
+        },
+        (cb) => {
+          // BG
 
-      process.exit(0);
-    },
-  );
+          statii.scheduled_post(
+            'newsbg', // view to retrieve latest post and send the title
+            'app/newsboy', // before the _id
+            process.env.izvestie_token,
+            'bgusers', // userbase on localhost to randomize
+          );
+        },
+        (cb) => {
+          statii.scheduled_post(
+            'newsbg', // view to retrieve latest post and send the title
+            'app/newsboy', // before the _id
+            process.env.izvestie_token,
+            'bgusers', // userbase on localhost to randomize
+          );
+        },
+        (cb) => {
+          statii.scheduled_post(
+            'newsbg', // view to retrieve latest post and send the title
+            'app/newsboy', // before the _id
+            process.env.izvestie_token,
+            'bgusers', // userbase on localhost to randomize
+          );
+        },
+      ],
+      (err, result) => {
+        console.log('=== SHIFT DONE ===');
+
+        process.exit(0);
+      },
+    );
+  } else {
+    async.parallel(
+      [
+        (cb) => {
+          statii.statii('1', (d) => {
+            cb(null, d);
+          });
+        },
+        (cb) => {
+          statii.statii_en('1', (d) => {
+            cb(null, d);
+          });
+        },
+        (cb) => {
+          kartinki.kartinki_en('1', (d) => {
+            cb(null, d);
+          });
+        },
+        (cb) => {
+          kartinki.kartinki_bg('1', (d) => {
+            cb(null, d);
+          });
+        },
+      ],
+      (err, result) => {
+        console.log('=== SHIFT DONE ===');
+        console.log(err || result);
+
+        process.exit(0);
+      },
+    );
+  }
 
   app.get('/', (req, res) => {
     res.writeHead(200, {
