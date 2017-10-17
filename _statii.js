@@ -210,7 +210,7 @@ async function post_and_insert_db_fresh(arr, collectiondb) {
   });
 }
 
-async function statii(params, callback) {
+async function statii_bg(params, callback) {
   const step1 = await get_pages('source_statii');
 
   const get_fresh = await get_fresh_ones(step1, 'link');
@@ -241,7 +241,7 @@ async function statii_en(params, callback) {
 // dsadasdasddadsadsd
 
 module.exports = {
-  statii,
+  statii_bg,
   statii_en,
   post_and_insert_db_fresh,
   scheduled_post,

@@ -104,7 +104,7 @@ if (cluster.isMaster) {
     async.parallel(
       [
         (cb) => {
-          statii.statii('1', (d) => {
+          statii.statii_bg('1', (d) => {
             cb(null, d);
           });
         },
