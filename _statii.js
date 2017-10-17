@@ -226,7 +226,7 @@ async function statii(params, callback) {
   //
   callback(ifarraypostx);
 
-  console.log('== D O N E  B G ==');
+  console.log(`== D O N E   N E W S   B G ==${ifarraypost.length}`);
 }
 async function statii_en(params, callback) {
   const step1 = await get_pages('en_source_statii');
@@ -235,7 +235,7 @@ async function statii_en(params, callback) {
   const ifarraypost = await post_and_insert_db_fresh(get_fresh, 'newsenglish');
 
   callback(ifarraypost);
-  console.log(`== D O N E  E N ==${ifarraypost.length}`);
+  console.log(`== D O N E   N E W S   E N ==${ifarraypost.length}`);
 }
 
 // dsadasdasddadsadsd
