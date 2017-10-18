@@ -129,7 +129,7 @@ async function get_pages(file) {
     );
   });
 }
-
+// ddd
 async function get_fresh_ones(posts, type) {
   const arr = [];
   return new Promise((resolve) => {
