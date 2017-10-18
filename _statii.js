@@ -15,7 +15,7 @@ const sizeOf = require('image-size');
 const md5 = require('md5');
 const downloadnprocess = require('./_includes/downloadandprocess.js');
 
-const localdb = levelup(leveldown(`/tmp/${new Date().getHours()}`));
+const localdb = levelup(leveldown('/tmp/local'));
 
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
 // const pagestoget = require (`${__dirname}/_includes/source.json`);
