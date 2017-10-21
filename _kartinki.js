@@ -42,11 +42,11 @@ async function post_to_bg(arritem) {
   });
 }
 
-async function kartinki_bg(params, callback) {
+async function kartinkiBg(params, callback) {
   const step1 = await statcore.get_pages('source_kartinki_bg');
-  const get_fresh = await statcore.get_fresh_ones(step1, 'photo');
+  const getfresh = await statcore.get_fresh_ones(step1, 'photo');
   const ifarraypost = await statcore.postAndInsertDbFresh(
-    get_fresh,
+    getfresh,
     'bgimgsx',
   );
   // const postfirstarritem = await post_to_bg(ifarraypost[0]);
@@ -56,9 +56,9 @@ async function kartinki_bg(params, callback) {
 
 async function kartinki_en(params, callback) {
   const step1 = await statcore.get_pages('en_source_kartinki');
-  const get_fresh = await statcore.get_fresh_ones(step1, 'photo');
+  const getfresh = await statcore.get_fresh_ones(step1, 'photo');
   const ifarraypost = await statcore.postAndInsertDbFresh(
-    get_fresh,
+    getfresh,
     'enimgsx',
   );
 
@@ -68,12 +68,12 @@ async function kartinki_en(params, callback) {
 
 if (!process.env.PORT) {
   // post_to_bg ( 'https://scontent.xx.fbcdn.net/v/t1.0-9/21430127_1683783854988623_341643365042409039_n.jpg?oh=243f231a862e1b15b34dd1888da88b2e&oe=5A58F945');
-  kartinki_bg('1', (data) => {
+  kartinkiBg('1', (data) => {
     console.log(data);
   });
 }
 
 module.exports = {
-  kartinki_bg,
-  kartinki_en,
+  kartinkiBg,
+  kartinkiEn,
 };
