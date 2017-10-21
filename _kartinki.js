@@ -54,7 +54,7 @@ async function kartinkiBg(params, callback) {
   callback(ifarraypost.length);
 }
 
-async function kartinki_en(params, callback) {
+async function kartinkiEn(params, callback) {
   const step1 = await statcore.get_pages('en_source_kartinki');
   const getfresh = await statcore.get_fresh_ones(step1, 'photo');
   const ifarraypost = await statcore.postAndInsertDbFresh(
