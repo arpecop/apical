@@ -66,12 +66,12 @@ if (cluster.isMaster) {
           });
         },
         (cb) => {
-          kartinki.kartinki_en('1', (d) => {
+          kartinki.kartinkiEn('1', (d) => {
             cb(null, d);
           });
         },
         (cb) => {
-          kartinki.kartinki_bg('1', (d) => {
+          kartinki.kartinkiBg('1', (d) => {
             cb(null, d);
           });
         },
