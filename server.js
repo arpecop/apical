@@ -29,8 +29,8 @@ if (cluster.isMaster) {
     process.exit(0);
   }, 120000);
   request.get(`https://${process.env.appslug}.herokuapp.com/`, () => {});
-
-  if (process.env.appslug === 'apicall' || process.env.appslug === 'apicall2' || process.env.appslug === 'apicall3') {
+  // test
+  if (process.env.appslug === 'apicall1' || process.env.appslug === 'apicall2' || process.env.appslug === 'apicall3') {
     console.log('apicall');
 
     async.parallel(
