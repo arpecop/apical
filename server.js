@@ -25,7 +25,7 @@ if (cluster.isMaster) {
   const server = require('http').Server(app);
 
   setTimeout(() => {
-    console.log('💀 firing slow worker ,pack your shit boy! ');
+    console.log('💀 slow ass worker ,pack your shit boy! ');
     process.exit(0);
   }, 120000);
   request.get(`https://${process.env.appslug}.herokuapp.com/`, () => {});
@@ -54,7 +54,7 @@ if (cluster.isMaster) {
     );
   } else {
     console.log('others');
-    async.eachSeries(
+    async.parallel(
       [
         (cb) => {
           statii.statiiBg('1', (d) => {
