@@ -51,7 +51,7 @@ async function kartinki_bg(params, callback) {
   );
   // const postfirstarritem = await post_to_bg(ifarraypost[0]);
   console.log(`== D O N E  K A R T I N K I   B G ==${ifarraypost.length}`);
-  callback(ifarraypost);
+  callback(ifarraypost.length);
 }
 
 async function kartinki_en(params, callback) {
@@ -63,7 +63,7 @@ async function kartinki_en(params, callback) {
   );
 
   console.log(`== D O N E  K A R T I N K I   E N ==${ifarraypost.length}`);
-  callback(ifarraypost);
+  callback(ifarraypost.length);
 }
 
 if (!process.env.PORT) {

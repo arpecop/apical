@@ -208,7 +208,7 @@ async function statiiBg(params, callback) {
   const ifarraypostx = await postAndInsertDbFresh(getfreshx, 'newsbg');
   const postfirstarritem = await tweet(ifarraypostx);
 
-  callback(postfirstarritem);
+  callback(ifarraypostx.length);
   console.log(`== D O N E   N E W S   B G ==${ifarraypostx.length}`);
 }
 
@@ -219,7 +219,7 @@ async function statiiEn(params, callback) {
 
   const ifarraypost = await postAndInsertDbFresh(getfresh, 'newsenglish');
   const postfirstarritem = await tweet(ifarraypost);
-  callback(postfirstarritem);
+  callback(ifarraypost.length);
   console.log(`== D O N E   N E W S   E N ==${ifarraypost.length}`);
 }
 
