@@ -71,7 +71,7 @@ function scheduled_post(dbx, preurl, token, usersdb, callback) {
           },
         );
       } else {
-        resolve('not enough posts');
+        callback('not enough posts');
       }
     })
     .catch((err) => {
@@ -82,15 +82,19 @@ function scheduled_post(dbx, preurl, token, usersdb, callback) {
 }
 
 function populatedb(id, callback) {
-  localdb.get(id, (err) => {
-    if (err) {
-      localdb.put(id, 'c', () => {
-        callback(true);
-      });
-    } else {
-      callback(false);
-    }
-  });
+  if (id) {
+    localdb.get(id, (err) => {
+      if (err) {
+        localdb.put(id, 'c', () => {
+          callback(true);
+        });
+      } else {
+        callback(false);
+      }
+    });
+  } else {
+    callback(false);
+  }
 }
 async function get_pages(file) {
   const pagestoget = require(`${__dirname}/_includes/sources/${file}.json`);
