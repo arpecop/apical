@@ -34,17 +34,53 @@ if (cluster.isMaster) {
     console.log('apicall');
 
     async.parallel(
-      [(cb) => {
-        statii.scheduled_post(
-          'newsbg', // view to retrieve latest post and send the title
-          'app/newsboy', // before the _id
-          process.env.izvestie_token,
-          'bgusers',
-          () => {
-            cb(null, 'd');
-          },
-        );
-      },
+      [
+        (cb) => {
+          statii.scheduled_post(
+            'newsen', // view to retrieve latest post and send the title
+            'app/news', // before the _id
+            process.env.article_token,
+            'poparticles',
+            () => {
+              cb(null, 'd');
+            },
+          );
+        },
+
+        (cb) => {
+          statii.scheduled_post(
+            'newsen', // view to retrieve latest post and send the title
+            'app/news', // before the _id
+            process.env.mystbox_token,
+            'mystic',
+            () => {
+              cb(null, 'd');
+            },
+          );
+        },
+
+        (cb) => {
+          statii.scheduled_post(
+            'newsen', // view to retrieve latest post and send the title
+            'app/news', // before the _id
+            process.env.cookie_token,
+            'cookie',
+            () => {
+              cb(null, 'd');
+            },
+          );
+        },
+        (cb) => {
+          statii.scheduled_post(
+            'newsbg', // view to retrieve latest post and send the title
+            'app/newsboy', // before the _id
+            process.env.izvestie_token,
+            'bgusers',
+            () => {
+              cb(null, 'd');
+            },
+          );
+        },
       ],
       (err, result) => {
         console.log('=== SHIFT DONE ===');
@@ -57,12 +93,12 @@ if (cluster.isMaster) {
     async.parallel(
       [
         (cb) => {
-          statii.statiiBg('1', (d) => {
+          statii.statii_bg('1', (d) => {
             cb(null, d);
           });
         },
         (cb) => {
-          statii.statiiEn('1', (d) => {
+          statii.statii_en('1', (d) => {
             cb(null, d);
           });
         },

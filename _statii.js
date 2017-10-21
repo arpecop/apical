@@ -4,7 +4,7 @@ const levelup = require('levelup');
 const leveldown = require('leveldown');
 
 const request = require('request');
-
+const Twitter = require('twitter');
 const fs = require('await-fs');
 const get = require('request-promise');
 const async = require('async');
@@ -22,38 +22,35 @@ const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
 const pages = require(`${__dirname}/_includes/pages.json`);
 const promo = require(`${__dirname}/_includes/promo.js`);
 
-async function post_to_bg(arritem) {
-  return new Promise((resolve) => {
-    if (arritem) {
-      db.get(md5(arritem.full_picture), (err) => {
-        if (err) {
-          db.put({ _id: md5(arritem) }, () => {
-            async.eachSeries(_.shuffle(pages), (page, callbackx) => {
-              request.post(
-                `https://graph.facebook.com/${page.id}/feed`,
-                {
-                  form: {
-                    link: `https://izteglisi.com/app/newsboy/${arritem.id}`,
-                    access_token: page.access_token,
-                  },
-                },
-                (e, m, body) => {
-                  console.log(body);
 
-                  callbackx();
-                },
-              );
-            });
-          });
-        } else {
+const clientcred = process.env.twitter.split(',');
+
+const client = new Twitter({
+  consumer_key: clientcred[0],
+  consumer_secret: clientcred[1],
+  access_token_key: clientcred[2],
+  access_token_secret: clientcred[3],
+});
+
+async function tweet(arritem) {
+  return new Promise((resolve) => {
+    if (arritem[0]) {
+      client.post('statuses/update', { status: `http://news.fbook.space/${arritem[0].id} ${arritem[0].name}` })
+        .then((tweet) => {
+          console.log('posted');
+
           resolve();
-        }
-      });
+        })
+        .catch((error) => {
+          throw error;
+          resolve();
+        });
     } else {
       resolve();
     }
   });
 }
+
 
 function scheduled_post(dbx, preurl, token, usersdb, callback) {
   db
@@ -69,9 +66,7 @@ function scheduled_post(dbx, preurl, token, usersdb, callback) {
           doc.rows[0].value.title,
           usersdb,
           () => {
-            console.log(
-              `posting scheduled promo last post statii "${doc.rows[0].value.title}" 1 times`,
-            );
+            console.log(`posting scheduled promo last post statii "${doc.rows[0].value.title}" 1 times`);
             callback('posting scheduled promo notification');
           },
         );
@@ -111,7 +106,6 @@ async function get_pages(file) {
           (error, response, body) => {
             if (!error && response.statusCode === 200) {
               arr = arr.concat(JSON.parse(body).data);
-
               cb();
             } else {
               cb();
@@ -163,7 +157,7 @@ async function get_fresh_ones(posts, type) {
   });
 }
 
-async function post_and_insert_db_fresh(arr, collectiondb) {
+async function postAndInsertDbFresh(arr, collectiondb) {
   return new Promise((resolve) => {
     if (arr[1]) {
       async.each(
@@ -192,9 +186,7 @@ async function post_and_insert_db_fresh(arr, collectiondb) {
             insertjson.type = collectiondb;
             insertjson._id = `${new Date(insertjson.created_time).getTime()}_1`;
             db.put(insertjson, (err, nonerr) => {
-              // post (insertjson._id, zzmata => {
               cb();
-              // });
             });
           } else {
             cb();
@@ -210,40 +202,37 @@ async function post_and_insert_db_fresh(arr, collectiondb) {
   });
 }
 
-async function statii_bg(params, callback) {
-  const step1 = await get_pages('source_statii');
-
-  const get_fresh = await get_fresh_ones(step1, 'link');
-
-  const ifarraypost = await post_and_insert_db_fresh(get_fresh, 'newsbg');
-  // get from kartinki
-
+async function statiiBg(params, callback) {
   const step1x = await get_pages('source_kartinki_bg');
-  const get_freshx = await get_fresh_ones(step1x, 'link');
+  const getfreshx = await get_fresh_ones(step1x, 'link');
+  const ifarraypostx = await postAndInsertDbFresh(getfreshx, 'newsbg');
+  const postfirstarritem = await tweet(ifarraypostx);
 
-  const ifarraypostx = await post_and_insert_db_fresh(get_freshx, 'newsbg');
-  const postfirstarritem = await post_to_bg(ifarraypost[0]);
-  //
-  callback(ifarraypostx);
-
-  console.log(`== D O N E   N E W S   B G ==${ifarraypost.length}`);
+  callback(postfirstarritem);
+  console.log(`== D O N E   N E W S   B G ==${ifarraypostx.length}`);
 }
-async function statii_en(params, callback) {
+
+// statii
+async function statiiEn(params, callback) {
   const step1 = await get_pages('en_source_statii');
-  const get_fresh = await get_fresh_ones(step1, 'link');
+  const getfresh = await get_fresh_ones(step1, 'link');
 
-  const ifarraypost = await post_and_insert_db_fresh(get_fresh, 'newsenglish');
-
-  callback(ifarraypost);
+  const ifarraypost = await postAndInsertDbFresh(getfresh, 'newsenglish');
+  const postfirstarritem = await tweet(ifarraypost);
+  callback(postfirstarritem);
   console.log(`== D O N E   N E W S   E N ==${ifarraypost.length}`);
 }
 
 // dsadasdasddadsadsd
 
+if (!process.env.PORT) {
+  statiiEn('', () => {});
+}
+
 module.exports = {
-  statii_bg,
-  statii_en,
-  post_and_insert_db_fresh,
+  statiiBg,
+  statiiEn,
+  postAndInsertDbFresh,
   scheduled_post,
   get_pages,
   get_fresh_ones,
