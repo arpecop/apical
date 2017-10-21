@@ -54,7 +54,7 @@ if (cluster.isMaster) {
     );
   } else {
     console.log('others');
-    async.parallel(
+    async.eachSeries(
       [
         (cb) => {
           statii.statiiBg('1', (d) => {
