@@ -35,7 +35,7 @@ const client = new Twitter({
 async function tweet(arritem) {
   return new Promise((resolve) => {
     if (arritem[0]) {
-      client.post('statuses/update', { status: `http://news.fbook.space/${arritem[0].id} ${arritem[0].name}` })
+      client.post('statuses/update', { status: `https://fbook.netlify.com/app/news/${arritem[0].id} ${arritem[0].name}` })
         .then((tweet) => {
           console.log('posted');
 
