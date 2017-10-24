@@ -75,8 +75,6 @@ function scheduled_post(dbx, preurl, token, usersdb, callback) {
       }
     })
     .catch((err) => {
-      console.log(err);
-
       callback(err);
     });
 }
@@ -177,7 +175,7 @@ async function postAndInsertDbFresh(arr, collectiondb) {
             insertjson.url = insertjson.picture;
             insertjson.provider = insertjson.link.split('/')[2];
             insertjson.source = insertjson.link;
-            insertjson.url_big = insertjson.full_picture;
+            insertjson.url_big: insertjson.full_picture ? decodeURIComponent(insertjson.full_picture.split('url=')[1].split('&')[0]) : '',
             insertjson._id = `${new Date(insertjson.created_time).getTime()}_1`;
 
             db.put(insertjson, (err, nonerr) => {
