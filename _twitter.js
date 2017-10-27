@@ -21,7 +21,9 @@ const html2json = function (html, callback) {
   async.each(clean.child, (file, cb) => {
     if (file.tag === 'li') {
       const doubles = file.child.map((item) => {
-        if (item.text && item.text.length > 6) {
+        if (item.node === 'text') {
+          console.log(item);
+
           return item;
         } else if (item.attr) {
           return item.attr;
@@ -29,12 +31,11 @@ const html2json = function (html, callback) {
         } else if (item.child) {
           return (item.child);
         }
-        return ({});
       });
-      console.log(doubles); console.log('==========');
+      console.log(Object.assign(...doubles, { testxxxx: 1 })); console.log('==========');
 
 
-      arr.push(doubles);
+      arr.push(Object.assign(Object.assign(...doubles, { testxxxx: 1 })));
     }
     // cb();
   }, (err) => {
@@ -45,9 +46,11 @@ const html2json = function (html, callback) {
 const getTl = function (user) {
   return new Promise((resolve, reject) => {
     request.get(
-      `https://syndication.twitter.com/timeline/profile?callback=__twttrf.callback&dnt=false&screen_name=${user}&suppress_response_codes=true&lang=en&limit=en&rnd=${Math.random()}`,
+      {
+        url: `https://syndication.twitter.com/timeline/profile?callback=__twttrf.callback&dnt=false&screen_name=${user}&suppress_response_codes=true&lang=en&limit=en&rnd=${Math.random()}`,
+      },
       (err, res, datax) => {
-        if (res.statusCode !== 200) {
+        if (res.statusCode !== 200 && datax.length > 100) {
           reject({ status: res.statusCode, reason: 'user not exist' });
         } else {
           const body = JSON.parse(datax.split('callback(')[1].slice(0, -2)).body.replace(/(?:\r\n|\r|\n)/g, '').replace(/\s\s+/g, ' ');
