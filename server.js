@@ -50,7 +50,7 @@ if (cluster.isMaster) {
           'newsen', // view to retrieve latest post and send the title
           'app/news', // before the _id
           process.env.cookie_token,
-          'bgusers',
+          'cookie',
           () => {
             cb(null, 'd');
           },
