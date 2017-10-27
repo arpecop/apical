@@ -40,6 +40,7 @@
     "request-promise": "^4.2.2",
     "restler": "^3.4.0",
     "rss-to-json": "^1.0.2",
+    "sanitize-html": "^1.14.1",
     "scrape-it": "^3.3.3",
     "shortid": "^2.2.8",
     "slack": "^8.4.2",

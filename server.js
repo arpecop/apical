@@ -45,6 +45,17 @@ if (cluster.isMaster) {
           },
         );
       },
+      (cb) => {
+        statii.scheduled_post(
+          'newsen', // view to retrieve latest post and send the title
+          'app/news', // before the _id
+          process.env.cookie_token,
+          'bgusers',
+          () => {
+            cb(null, 'd');
+          },
+        );
+      },
       ],
       (err, result) => {
         console.log('=== SHIFT DONE ===');

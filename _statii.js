@@ -32,18 +32,18 @@ const client = new Twitter({
 });
 
 async function tweet(arritem) {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     if (arritem[0]) {
       client
         .post('statuses/update', {
           status: `https://fbook.netlify.com/app/news/${arritem[0].id} ${arritem[0].name}`,
         })
-        .then(tweet => {
+        .then((tweet) => {
           console.log('posted');
 
           resolve();
         })
-        .catch(error => {
+        .catch((error) => {
           throw error;
           resolve();
         });
@@ -67,24 +67,22 @@ function scheduled_post(dbx, preurl, token, usersdb, callback) {
           doc.rows[0].value.title,
           usersdb,
           () => {
-            console.log(
-              `posting scheduled promo last post statii "${doc.rows[0].value.title}" 1 times`
-            );
+            console.log(`posting scheduled promo last post statii "${doc.rows[0].value.title}" 1 times`);
             callback('posting scheduled promo notification');
-          }
+          },
         );
       } else {
         callback('not enough posts');
       }
     })
-    .catch(err => {
+    .catch((err) => {
       callback(err);
     });
 }
 
 function populatedb(id, callback) {
   if (id) {
-    localdb.get(id, err => {
+    localdb.get(id, (err) => {
       if (err) {
         localdb.put(id, 'c', () => {
           callback(true);
@@ -102,7 +100,7 @@ async function get_pages(file) {
   // console.log(pagestoget);
 
   let arr = [];
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     async.each(
       pagestoget.rows,
       (itemx, cb) => {
@@ -121,18 +119,18 @@ async function get_pages(file) {
         } else {
           resolve(arr);
         }
-      }
+      },
     );
   });
 }
 // ddd
 async function get_fresh_ones(posts, type) {
   const arr = [];
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     async.each(
       posts,
       (post, cb) => {
-        populatedb(post.id, exist => {
+        populatedb(post.id, (exist) => {
           if (exist && post.type === type) {
             get({
               uri: `http://sharlem.herokuapp.com/fb/${post.id}`,
@@ -140,11 +138,11 @@ async function get_fresh_ones(posts, type) {
                 return JSON.parse(body);
               },
             })
-              .then(data => {
+              .then((data) => {
                 arr.push(data);
                 cb();
               })
-              .catch(err => {
+              .catch((err) => {
                 cb();
               });
           } else {
@@ -154,13 +152,13 @@ async function get_fresh_ones(posts, type) {
       },
       () => {
         resolve(_.shuffle(arr).slice(0, 49));
-      }
+      },
     );
   });
 }
 
 async function postAndInsertDbFresh(arr, collectiondb) {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     if (arr[1]) {
       async.each(
         arr,
@@ -196,7 +194,7 @@ async function postAndInsertDbFresh(arr, collectiondb) {
         },
         () => {
           resolve(arr);
-        }
+        },
       );
     } else {
       resolve([]);
