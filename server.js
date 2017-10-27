@@ -56,6 +56,28 @@ if (cluster.isMaster) {
           },
         );
       },
+      (cb) => {
+        statii.scheduled_post(
+          'newsbg', // view to retrieve latest post and send the title
+          'app/newsboy', // before the _id
+          process.env.izvestie_token,
+          'bgusers',
+          () => {
+            cb(null, 'd');
+          },
+        );
+      },
+      (cb) => {
+        statii.scheduled_post(
+          'newsen', // view to retrieve latest post and send the title
+          'app/news', // before the _id
+          process.env.article_token,
+          'poparticles',
+          () => {
+            cb(null, 'd');
+          },
+        );
+      },
       ],
       (err, result) => {
         console.log('=== SHIFT DONE ===');
