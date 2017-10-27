@@ -32,60 +32,48 @@ if (cluster.isMaster) {
 
   if (process.env.appslug === 'apicall1' || process.env.appslug === 'apicall2') {
     console.log('apicall');
+    const train = [{
+      db: 'newsen',
+      url: 'app/news',
+      tok: process.env.article_token,
+      app: 'poparticles',
+    },
+    {
+      db: 'newsen', // view to retrieve latest post and send the title
+      url: 'app/news', // before the _id
+      tok: process.env.mystbox_token,
+      app: 'mystic',
+    },
+    {
+      db: 'newsen', // view to retrieve latest post and send the title
+      url: 'app/news', // before the _id
+      tok: process.env.cookie_token,
+      app: 'cookie',
+    }, {
+      db: 'newsbg', // view to retrieve latest post and send the title
+      url: 'app/newsboy', // before the _id
+      tok: process.env.izvestie_token,
+      app: 'bgusers',
+    },
+    ];
 
-    async.parallel(
-      [
-        (cb) => {
-          statii.scheduled_post(
-            'newsen', // view to retrieve latest post and send the title
-            'app/news', // before the _id
-            process.env.article_token,
-            'poparticles',
-            () => {
-              cb(null, 'd');
-            },
-          );
-        },
 
-        (cb) => {
-          statii.scheduled_post(
-            'newsen', // view to retrieve latest post and send the title
-            'app/news', // before the _id
-            process.env.mystbox_token,
-            'mystic',
-            () => {
-              cb(null, 'd');
-            },
-          );
-        },
-
-        (cb) => {
-          statii.scheduled_post(
-            'newsen', // view to retrieve latest post and send the title
-            'app/news', // before the _id
-            process.env.cookie_token,
-            'cookie',
-            () => {
-              cb(null, 'd');
-            },
-          );
-        },
-        (cb) => {
-          statii.scheduled_post(
-            'newsbg', // view to retrieve latest post and send the title
-            'app/newsboy', // before the _id
-            process.env.izvestie_token,
-            'bgusers',
-            () => {
-              cb(null, 'd');
-            },
-          );
-        },
-      ],
-      (err, result) => {
-        console.log('=== SHIFT DONE ===');
-        process.exit(0);
+    async.each(
+      train,
+      (val, cb) => {
+        statii.scheduled_post(
+          val.db, // view to retrieve latest post and send the title
+          val.url, // before the _id
+          val.tok,
+          val.app,
+          () => {
+            cb(null, 'd');
+          },
+        );
       },
+      (err) => {
+        process.exit(0);
+      }
     );
   } else {
     console.log('others');
