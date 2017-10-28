@@ -16,28 +16,30 @@ const html2json = function (html, callback) {
     selfClosing: ['img'],
   }));
   const arr = [];
-  console.log('');
+
 
   async.each(clean.child, (file, cb) => {
     if (file.tag === 'li') {
+      const text = [];
       const doubles = file.child.map((item) => {
-        if (item.node === 'text') {
-          console.log(item);
-
-          return item;
+        if (item.text) {
+          text.push(item.text);
+          return {};
         } else if (item.attr) {
           return item.attr;
-          console.log(item.attr);
         } else if (item.child) {
           return (item.child);
         }
       });
-      console.log(Object.assign(...doubles, { testxxxx: 1 })); console.log('==========');
+      // console.log(Object.assign(...doubles, { testxxxx: 1 })); console.log('==========');
 
 
-      arr.push(Object.assign(Object.assign(...doubles, { testxxxx: 1 })));
+      console.log('-------');
+
+
+      arr.push(Object.assign(Object.assign(...doubles, { tweet: text })));
     }
-    // cb();
+    cb();
   }, (err) => {
     callback(arr);
   });
@@ -64,9 +66,9 @@ const getTl = function (user) {
   });
 };
 
-getTl('MKBHD')
+getTl('RooCaroliina')
   .then((data) => {
-    // console.log(data);
+    console.log(data[1]);
   })
   .catch((reason) => {
     console.log(reason);
