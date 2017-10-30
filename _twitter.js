@@ -114,12 +114,11 @@ async function get_fresh_ones(posts) {
           if (exist) {
             // `${post.id.split('/')[2]}_t`
             db.put({
-              _id: `${post.id.split('/')[2]}check`,
+              _id: post.id,
             }, (errx) => {
               if (errx) {
                 db.put(Object.assign(post, {
-                  id: `${post.id.split('/')[2]}`,
-                  _id: `${new Date().getTime()}_t`
+                  _id: `${new Date().getTime()}_t`,
                   created_time: new Date().getTime(),
                 }), (err, nonerr) => {
                   cb();
