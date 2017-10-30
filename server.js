@@ -17,6 +17,7 @@ if (cluster.isMaster) {
   const express = require('express');
   const kartinki = require('./_kartinki.js');
   const statii = require('./_statii.js');
+  const twitter = require('./_twitter.js');
 
   // const mash = require('./_mashable.js');
   // const pr0gramm = require('./_pr0gramm.js');dsad dsaddsad
@@ -98,6 +99,11 @@ if (cluster.isMaster) {
         },
         (cb) => {
           kartinki.kartinkiBg('1', (d) => {
+            cb(null, d);
+          });
+        },
+        (cb) => {
+          twitter.gowork('1', (d) => {
             cb(null, d);
           });
         },
