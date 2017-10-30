@@ -105,10 +105,10 @@ if (cluster.isMaster) {
         (cb) => {
           if (process.env.appslug === 'collector1') {
             twitter.gowork('1', (d) => {
-              cb(null, d);
+              cb(null, 'twitter worker');
             });
           } else {
-            cb(null, d);
+            cb(null, 'not twitter worker');
           }
         },
       ],
