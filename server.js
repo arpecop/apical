@@ -103,9 +103,13 @@ if (cluster.isMaster) {
           });
         },
         (cb) => {
-          twitter.gowork('1', (d) => {
+          if (process.env.appslug === 'collector1') {
+            twitter.gowork('1', (d) => {
+              cb(null, d);
+            });
+          } else {
             cb(null, d);
-          });
+          }
         },
       ],
       (err, result) => {
