@@ -24,7 +24,9 @@ const client = new Twitter({
   access_token_secret: tCred[3],
 });
 
-const params = { id: '210462857140252672' };
+const params = {
+  id: '210462857140252672',
+};
 
 function populatedb(id, callback) {
   if (id) {
@@ -71,7 +73,9 @@ const html2json = function (html, callback) {
           return {};
         } else if (item.attr.href) {
           const itemx = item.attr.href.replace('https://twitter.com/', '');
-          tid.push({ [tidkey[itemx.split('/').length]]: itemx });
+          tid.push({
+            [tidkey[itemx.split('/').length]]: itemx,
+          });
 
           return {};
         } else if (item.child) {
@@ -82,7 +86,10 @@ const html2json = function (html, callback) {
 
       const tweet = text.join(' ');
       if (tweet.length > 15) {
-        arr.push(Object.assign(...doubles, ...tid, { tweet: text.join(' '), type: 'twitter' }));
+        arr.push(Object.assign(...doubles, ...tid, {
+          tweet: text.join(' '),
+          type: 'twitter',
+        }));
         cb();
       } else {
         cb();
@@ -105,8 +112,21 @@ async function get_fresh_ones(posts) {
       (post, cb) => {
         populatedb(post.id, (exist) => {
           if (exist) {
-            db.put(Object.assign(post, { id: `${post.id.split('/')[2]}`, _id: `${post.id.split('/')[2]}_t`, created_time: new Date() }), (err, nonerr) => {
-              cb();
+            // `${post.id.split('/')[2]}_t`
+            db.put({
+              _id: `${post.id.split('/')[2]}check`,
+            }, (errx) => {
+              if (errx) {
+                db.put(Object.assign(post, {
+                  id: `${post.id.split('/')[2]}`,
+                  _id: `${new Date().getTime()}_t`
+                  created_time: new Date().getTime(),
+                }), (err, nonerr) => {
+                  cb();
+                });
+              } else {
+                cb();
+              }
             });
           } else {
             cb();
