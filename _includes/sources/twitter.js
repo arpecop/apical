@@ -4,7 +4,6 @@ module.exports = [
   'TechCrunch',
   'BuzzFeed',
   'tmz',
-  'thehill',
   'guardiantech',
   'ForbesTech',
   'Independent',
