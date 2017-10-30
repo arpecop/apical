@@ -146,7 +146,7 @@ async function getTl(user) {
 
 
 async function gowork(params, callback) {
-  const timelinesArr = require('/Users/rudix/Desktop/apical/_includes/sources/twitter.js');
+  const timelinesArr = require(`${__dirname}/_includes/sources/twitter.js`);
 
   const all = [].concat.apply([], await Promise.all(timelinesArr.map(async (name) => await getTl(name))));
   const prox = await get_fresh_ones(all);
