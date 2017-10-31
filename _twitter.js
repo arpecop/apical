@@ -116,7 +116,7 @@ async function get_fresh_ones(posts, type) {
             db.put({
               _id: md5(post.id),
             }, (errx) => {
-              if (errx) {
+              if (!errx) {
                 db.put(Object.assign(post, {
                   _id: `${new Date().getTime()}_t`,
                   created_time: new Date().getTime(),
