@@ -68,9 +68,7 @@ async function kartinkiEn(params, callback) {
 
 if (!process.env.PORT) {
   // post_to_bg ( 'https://scontent.xx.fbcdn.net/v/t1.0-9/21430127_1683783854988623_341643365042409039_n.jpg?oh=243f231a862e1b15b34dd1888da88b2e&oe=5A58F945');
-  kartinkiBg('1', (data) => {
-    console.log(data);
-  });
+
 }
 
 module.exports = {

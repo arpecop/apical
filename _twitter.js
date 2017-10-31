@@ -175,7 +175,7 @@ async function gowork(params, callback) {
   callback({});
 }
 if (!process.env.PORT) {
-  gowork(1, () => {});
+  // gowork(1, () => {});
 }
 
 module.exports = {

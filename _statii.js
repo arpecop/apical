@@ -225,9 +225,6 @@ async function statiiEn(params, callback) {
 
 // dsadasdasddadsadsd
 
-if (!process.env.PORT) {
-  statiiEn('', () => {});
-}
 
 module.exports = {
   statiiBg,

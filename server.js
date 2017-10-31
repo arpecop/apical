@@ -10,7 +10,7 @@ if (cluster.isMaster) {
   cluster.fork();
 
   cluster.on('exit', (worker) => {
-    console.log(`👷 ${worker.process.pid} wants to work`);
+    console.log(`👷 ${worker.process.pid}`);
     cluster.fork();
   });
 } else {
@@ -26,7 +26,7 @@ if (cluster.isMaster) {
   const server = require('http').Server(app);
 
   setTimeout(() => {
-    console.log('💀 slow ass worker ,pack your shit boy! ');
+    console.log('💀  pack your shit boy! ');
     process.exit(0);
   }, 120000);
   request.get(`https://${process.env.appslug}.herokuapp.com/`, () => {});
@@ -80,41 +80,48 @@ if (cluster.isMaster) {
     );
   } else {
     console.log('others');
-    async.parallel(
+    const tout = 1000;
+    async.series(
       [
         (cb) => {
           statii.statiiBg('1', (d) => {
-            cb(null, d);
+            setTimeout(() => {
+              cb(null, d);
+            }, tout);
           });
         },
         (cb) => {
           statii.statiiEn('1', (d) => {
-            cb(null, d);
+            setTimeout(() => {
+              cb(null, d);
+            }, tout);
           });
         },
         (cb) => {
           kartinki.kartinkiEn('1', (d) => {
-            cb(null, d);
+            setTimeout(() => {
+              cb(null, d);
+            }, tout);
           });
         },
         (cb) => {
           kartinki.kartinkiBg('1', (d) => {
-            cb(null, d);
+            setTimeout(() => {
+              cb(null, d);
+            }, tout);
           });
         },
         (cb) => {
-          if (process.env.appslug === 'collector1') {
-            twitter.gowork('1', (d) => {
+          twitter.gowork('1', (d) => {
+            setTimeout(() => {
               cb(null, 'twitter worker');
-            });
-          } else {
-            cb(null, 'not twitter worker');
-          }
+            }, tout);
+          });
         },
       ],
       (err, result) => {
-        console.log('=== SHIFT DONE ===');
-        console.log(err || result);
+        console.log('== SHIFT DONE 🤷🏻‍ ==\n\n');
+
 
         process.exit(0);
       },
