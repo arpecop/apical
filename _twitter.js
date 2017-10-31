@@ -3,8 +3,9 @@ const request = require('request');
 const async = require('async');
 const levelup = require('levelup');
 const leveldown = require('leveldown');
+const md5 = require('md5');
 // const cheerio = require('cheerio');
-const console = require('better-console');
+
 const jsonizehtml = require('html2json').html2json;
 const sanitizeHtml = require('sanitize-html');
 const pretty = require('pretty');
@@ -113,7 +114,7 @@ async function get_fresh_ones(posts, type) {
           if (exist) {
             // `${post.id.split('/')[2]}_t`
             db.put({
-              _id: post.id,
+              _id: md5(post.id),
             }, (errx) => {
               if (errx) {
                 db.put(Object.assign(post, {
