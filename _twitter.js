@@ -176,11 +176,7 @@ async function gowork(params, callback) {
   callback({});
 }
 if (!process.env.PORT) {
-  async function test() {
-    const timelinesArr = require(`${__dirname}/_includes/sources/twitter.js`);
-    const allBg = [].concat.apply([], await Promise.all(timelinesArr.bg.map(async (name) => await getTl(name))));
-    await get_fresh_ones(allBg, 'twitterbg');
-  }
+
   // test();
   // gowork(1, () => {});
 }
