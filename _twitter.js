@@ -120,6 +120,7 @@ async function get_fresh_ones(posts, type) {
                 db.put(Object.assign(post, {
                   _id: `${new Date().getTime()}_t`,
                   created_time: new Date().getTime(),
+                  id: post.id.split('/')[2],
                   type,
                 }), (err, nonerr) => {
                   cb();
