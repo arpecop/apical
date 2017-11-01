@@ -7,7 +7,7 @@
     "vault": "watcher.js"
   },
   "engines": {
-    "node": ">=8.3.0"
+    "node": "8.9.0"
   },
   "dependencies": {
     "async": "^2.5.0",
