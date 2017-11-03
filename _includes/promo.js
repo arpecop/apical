@@ -9,7 +9,6 @@ function post(latest, preurl, token, db, callback) {
   const logx = {
     latest,
     token,
-
     db,
   };
 
@@ -32,7 +31,7 @@ function post(latest, preurl, token, db, callback) {
       () => {
         let count = 0;
         let counterr = 0;
-        console.log(arr);
+
 
         if (process.env.PORT) {
           async.each(
@@ -70,12 +69,12 @@ function post(latest, preurl, token, db, callback) {
               );
             },
             () => {
-              console.log(` 👍:${count} 🚨:${counterr} 💾:${db} `,);
+              console.log(` 👍:${count} 🚨:${counterr} 💾:${db} `, );
               callback();
             },
           );
         } else {
-          console.log(`posting en posts on localhost ${url},${token},  ${db}  `,);
+          console.log(`posting en posts on localhost ${url},${token},  ${db}  `, );
           callback();
         }
       },
