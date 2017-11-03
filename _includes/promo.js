@@ -3,11 +3,11 @@ const request = require('request');
 
 const pouch = require(`${__dirname}/pouch.js`);
 
-const _ = require('lodash');
+const _ = require('underscore');
 //
-function post(url, token, title, db, callback) {
+function post(latest, preurl, token, db, callback) {
   const logx = {
-    url,
+    chunk,
     token,
     title,
     db,
@@ -18,9 +18,10 @@ function post(url, token, title, db, callback) {
     async.each(
       docs,
       (fr, cb) => {
+        const item = _.shuffle(latest)[0];
         arr.push({
           method: 'POST',
-          relative_url: `${fr}/notifications?href=${url}&template=${title}`,
+          relative_url: `${fr}/notifications?href=${preurl}/${item.value.id}&template=${item.value.title}`,
         });
 
         cb();
@@ -41,7 +42,7 @@ function post(url, token, title, db, callback) {
                   },
                 },
                 (err, httpResponse, body) => {
-                  // console.log(JSON.parse(body));
+                  console.log(JSON.parse(body));
 
                   async.each(
                     JSON.parse(body),
@@ -66,16 +67,12 @@ function post(url, token, title, db, callback) {
               );
             },
             () => {
-              console.log(
-                ` 👍:${count} 🚨:${counterr} 💾:${db}  http://fbook.space/${url}`,
-              );
+              console.log(` 👍:${count} 🚨:${counterr} 💾:${db} `,);
               callback();
             },
           );
         } else {
-          console.log(
-            `posting en posts on localhost ${url},${token},${title}, ${db} ${JSON.stringify(logx)}`,
-          );
+          console.log(`posting en posts on localhost ${url},${token},${title}, ${db} ${JSON.stringify(logx)}`,);
           callback();
         }
       },
