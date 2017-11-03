@@ -3,7 +3,7 @@ const request = require('request');
 
 const pouch = require(`${__dirname}/pouch.js`);
 
-const _ = require('underscore');
+const _ = require('lodash');
 //
 function post(latest, preurl, token, db, callback) {
   const logx = {
@@ -70,12 +70,12 @@ function post(latest, preurl, token, db, callback) {
               );
             },
             () => {
-              console.log(` 👍:${count} 🚨:${counterr} 💾:${db} `, );
+              console.log(` 👍:${count} 🚨:${counterr} 💾:${db} `,);
               callback();
             },
           );
         } else {
-          console.log(`posting en posts on localhost ${url},${token},${title}, ${db} ${JSON.stringify(logx)}`, );
+          console.log(`posting en posts on localhost ${url},${token},  ${db}  `,);
           callback();
         }
       },
