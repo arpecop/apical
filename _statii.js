@@ -56,7 +56,7 @@ async function tweet(arritem) {
 function scheduled_post(dbx, preurl, token, usersdb, callback) {
   db
     .query(`i/${dbx}`, {
-      limit: 30,
+      limit: 100,
       descending: true,
     })
     .then((doc) => {
