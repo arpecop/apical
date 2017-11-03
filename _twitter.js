@@ -111,8 +111,7 @@ async function get_fresh_ones(posts, type) {
       posts,
       (post, cb) => {
         populatedb(post.id, (exist) => {
-          if (exist) {
-            // `${post.id.split('/')[2]}_t`
+          if (exist) { // exist only
             db.put({
               _id: md5(post.id),
             }, (errx) => {
@@ -120,7 +119,7 @@ async function get_fresh_ones(posts, type) {
                 db.put(Object.assign(post, {
                   _id: `${new Date().getTime()}_t`,
                   created_time: new Date().getTime(),
-                  id: post.id.split('/')[2],
+                  tid: post.id.split('/')[2],
                   type,
                 }), (err, nonerr) => {
                   cb();
@@ -171,14 +170,15 @@ async function gowork(params, callback) {
 
   const allEn = [].concat.apply([], await Promise.all(timelinesArr.en.map(async (name) => await getTl(name))));
   const allBg = [].concat.apply([], await Promise.all(timelinesArr.bg.map(async (name) => await getTl(name))));
+
+
   await get_fresh_ones(allEn, 'twitteren');
   await get_fresh_ones(allBg, 'twitterbg');
   callback({});
 }
 if (!process.env.PORT) {
-
   // test();
-  // gowork(1, () => {});
+  gowork(1, () => {});
 }
 
 module.exports = {
