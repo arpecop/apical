@@ -62,9 +62,9 @@ function scheduled_post(dbx, preurl, token, usersdb, callback) {
     .then((doc, doc2) => {
       if (doc.total_rows > 2) {
         promo.post(
-          `${preurl}/${doc.rows[0].value.id}`,
+          doc.rows,
+          preurl,
           token,
-          doc.rows[0].value.title,
           usersdb,
           () => {
             console.log(`posting scheduled promo last post statii "${doc.rows[0].value.title}" 1 times`);
