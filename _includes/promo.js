@@ -7,11 +7,12 @@ const _ = require('underscore');
 //
 function post(latest, preurl, token, db, callback) {
   const logx = {
-    chunk,
+    latest,
     token,
-    title,
+
     db,
   };
+
 
   const arr = [];
   pouch.gimmethousend(db, (docs) => {
@@ -19,6 +20,8 @@ function post(latest, preurl, token, db, callback) {
       docs,
       (fr, cb) => {
         const item = _.shuffle(latest)[0];
+
+
         arr.push({
           method: 'POST',
           relative_url: `${fr}/notifications?href=${preurl}/${item.value.id}&template=${item.value.title}`,
@@ -29,6 +32,8 @@ function post(latest, preurl, token, db, callback) {
       () => {
         let count = 0;
         let counterr = 0;
+        console.log(arr);
+
         if (process.env.PORT) {
           async.each(
             _.chunk(arr, 50),
@@ -42,8 +47,6 @@ function post(latest, preurl, token, db, callback) {
                   },
                 },
                 (err, httpResponse, body) => {
-                  console.log(JSON.parse(body));
-
                   async.each(
                     JSON.parse(body),
                     (ix, cbx) => {
@@ -67,12 +70,12 @@ function post(latest, preurl, token, db, callback) {
               );
             },
             () => {
-              console.log(` 👍:${count} 🚨:${counterr} 💾:${db} `,);
+              console.log(` 👍:${count} 🚨:${counterr} 💾:${db} `, );
               callback();
             },
           );
         } else {
-          console.log(`posting en posts on localhost ${url},${token},${title}, ${db} ${JSON.stringify(logx)}`,);
+          console.log(`posting en posts on localhost ${url},${token},${title}, ${db} ${JSON.stringify(logx)}`, );
           callback();
         }
       },

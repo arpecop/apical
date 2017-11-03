@@ -59,7 +59,7 @@ function scheduled_post(dbx, preurl, token, usersdb, callback) {
       limit: 30,
       descending: true,
     })
-    .then((doc, doc2) => {
+    .then((doc) => {
       if (doc.total_rows > 2) {
         promo.post(
           doc.rows,
@@ -224,7 +224,11 @@ async function statiiEn(params, callback) {
 }
 
 // dsadasdasddadsadsd
+if (!process.env.PORT) {
+  scheduled_post('newsbg', 'app/newsboy', 'token', 'bgusers', (data) => {
 
+  });
+}
 
 module.exports = {
   statiiBg,
