@@ -59,7 +59,7 @@ if (cluster.isMaster) {
     ];
 
 
-    async.series(
+    async.eachSeries(
       train,
       (val, cb) => {
         statii.scheduled_post(
