@@ -5,47 +5,36 @@ const async = require('async');
 const md5 = require('md5');
 const _ = require('underscore');
 const pintetez = require('node-pinterest');
- 
-const db = require('nano')('http://1:1@pouchdb.herokuapp.com/db');
-const tempcdn = require('nano')('http://1:1@pouchdb.herokuapp.com/content');
 
-const pintokens = [
-  {
-    id: '195554877508708250',
-    token: 'AeI49loHXJ5cLDWJVRkl41CouDttFL1aAVF1pZVD-s__umBBdgAAAAA',
-  },
-  {
-    token: 'ATyXx8cFSAVfdzvz0LOcdnfl7nYqFL1Zq1IV_vpEABate-BEIwAAAAA',
-    id: '822470019387553676',
-  },
-  {
-    token: 'AfB6L4UIIf_pxeFYYBhp6i4UY4WDFL1aXdkDIT1EABgj4aAsUgAAAAA',
-    id: '696369229821180914',
-  },
-  {
-    token: 'AW0khR-wW7c8ZFFXPBT7qhsY_s5BFL1anfzTmpVEABiqpqA4IQAAAAA',
-    id: '728879589631261225',
-  },
-  {
-    token: 'AVsm6IPRCRqwE7ZOCN3qB7DHcK5zFL2ForcN1gBEAHLhXWA_EAAAAAA',
-    id: '643944515408822125',
-  },
-  {
-    token: 'AVltJ91yn4LTSUmk_vNfrsmJc6VFFL2Fy3o4C7FEAHM3gQBASwAAAAA',
-    id: '769482355021774579',
-  },
-];
-
-const console = require('better-console');
-const sizeOf = require('image-size');
-const shortid = require('shortid');
-//
-
-const pages = require('./pages.json');
 
 function post_img(url, callback) {
+  const pintokens = [
+    {
+      id: '195554877508708250',
+      token: 'AeI49loHXJ5cLDWJVRkl41CouDttFL1aAVF1pZVD-s__umBBdgAAAAA',
+    },
+    {
+      token: 'ATyXx8cFSAVfdzvz0LOcdnfl7nYqFL1Zq1IV_vpEABate-BEIwAAAAA',
+      id: '822470019387553676',
+    },
+    {
+      token: 'AfB6L4UIIf_pxeFYYBhp6i4UY4WDFL1aXdkDIT1EABgj4aAsUgAAAAA',
+      id: '696369229821180914',
+    },
+    {
+      token: 'AW0khR-wW7c8ZFFXPBT7qhsY_s5BFL1anfzTmpVEABiqpqA4IQAAAAA',
+      id: '728879589631261225',
+    },
+    {
+      token: 'AVsm6IPRCRqwE7ZOCN3qB7DHcK5zFL2ForcN1gBEAHLhXWA_EAAAAAA',
+      id: '643944515408822125',
+    },
+    {
+      token: 'AVltJ91yn4LTSUmk_vNfrsmJc6VFFL2Fy3o4C7FEAHM3gQBASwAAAAA',
+      id: '769482355021774579',
+    },
+  ];
   const pintoken = _.shuffle(pintokens)[0];
-
   const pinterest = pintetez.init(pintoken.token);
   pinterest
     .api('pins', {

@@ -174,7 +174,7 @@ if (!process.env.PORT) {
 }
 
 module.exports = {
-  pr0gramm: programm,
+  programm,
   imgur,
   ninegag,
 };
