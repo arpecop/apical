@@ -15,7 +15,7 @@ const sizeOf = require('image-size');
 const md5 = require('md5');
 const downloadnprocess = require('./_includes/downloadandprocess.js');
 
-const localdb = levelup(leveldown('/tmp/local'));
+const localdb = levelup(leveldown('/tmp/localx'));
 
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
 // const pagestoget = require (`${__dirname}/_includes/source.json`);
@@ -37,13 +37,10 @@ async function tweet(arritem) {
       client
         .post('statuses/update', {
           status: `https://fbook.netlify.com/app/news/${arritem[0].id} ${arritem[0].name}`,
-        })
-        .then((tweet) => {
+        }).then((tweet) => {
           console.log('posted');
-
           resolve();
-        })
-        .catch((error) => {
+        }).catch((error) => {
           throw error;
           resolve();
         });
@@ -127,12 +124,14 @@ async function get_pages(file) {
 async function get_fresh_ones(posts, type) {
   const arr = [];
   return new Promise((resolve) => {
-    if (posts.length >= 1) {
-      async.each(
-        posts,
-        (post, cb) => {
+    async.each(
+      posts,
+      (post, cb) => {
+        if (post) {
           populatedb(post.id, (exist) => {
             if (exist && post.type === type) {
+              console.log(post);
+
               get({
                 uri: `http://sharlem.herokuapp.com/fb/${post.id}`,
                 transform(body) {
@@ -150,14 +149,14 @@ async function get_fresh_ones(posts, type) {
               cb();
             }
           });
-        },
-        () => {
-          resolve(_.shuffle(arr).slice(0, 49));
-        },
-      );
-    } else {
-      resolve({});
-    }
+        } else {
+          cb();
+        }
+      },
+      () => {
+        resolve(_.shuffle(arr).slice(0, 49));
+      },
+    );
   });
 }
 

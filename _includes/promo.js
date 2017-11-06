@@ -69,12 +69,12 @@ function post(latest, preurl, token, db, callback) {
               );
             },
             () => {
-              console.log(` 👍:${count} 🚨:${counterr} 💾:${db} `,);
+              console.log(` 👍:${count} 🚨:${counterr} 💾:${db} `, );
               callback();
             },
           );
         } else {
-          console.log(`posting en posts on localhost ${url},${token},  ${db}  `,);
+          console.log(`posting en posts on localhost  ${token},  ${db}  `, );
           callback();
         }
       },
