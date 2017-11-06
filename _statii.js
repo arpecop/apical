@@ -130,8 +130,6 @@ async function get_fresh_ones(posts, type) {
         if (post) {
           populatedb(post.id, (exist) => {
             if (exist && post.type === type) {
-              console.log(post);
-
               get({
                 uri: `http://sharlem.herokuapp.com/fb/${post.id}`,
                 transform(body) {
