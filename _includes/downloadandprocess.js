@@ -9,23 +9,10 @@ const pintetez = require('node-pinterest');
 
 //
 
-const admin = require('firebase-admin');
 
-const serviceAccount = require(`${__dirname}/rudixfiredb.json`);
-
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-});
-
-const db = admin.firestore();
-const docRef = db.collection('test').doc('test2');
-
-db.collection('objects').doc('test').set({}).then((data) => {
-  console.log(data);
-});
 //
 
-function post_img(url, callback) {
+function go(url, callback) {
   const pintokens = [
     {
       id: '195554877508708250',
@@ -99,5 +86,5 @@ function post_img(url, callback) {
 
 
 module.exports = {
-  post_img,
+  go,
 };

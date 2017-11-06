@@ -1,8 +1,6 @@
 const PouchDB = require('pouchdb');
-
 const levelup = require('levelup');
 const leveldown = require('leveldown');
-
 const request = require('request');
 const Twitter = require('twitter');
 const fs = require('await-fs');

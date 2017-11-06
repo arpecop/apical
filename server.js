@@ -18,7 +18,7 @@ if (cluster.isMaster) {
   const kartinki = require('./_kartinki.js');
   const statii = require('./_statii.js');
   const twitter = require('./_twitter.js');
-
+  const pr0gramm = require('./_pr0gramm.js');
   // const mash = require('./_mashable.js');
   // const pr0gramm = require('./_pr0gramm.js');dsad dsaddsad
 
@@ -115,6 +115,27 @@ if (cluster.isMaster) {
           twitter.gowork('1', (d) => {
             setTimeout(() => {
               cb(null, 'twitter worker');
+            }, tout);
+          });
+        },
+        (cb) => {
+          pr0gramm.imgur('top', (d) => {
+            setTimeout(() => {
+              cb(null, 'imgur worker');
+            }, tout);
+          });
+        },
+        (cb) => {
+          pr0gramm.programm('1', (d) => {
+            setTimeout(() => {
+              cb(null, 'pr0gramm worker');
+            }, tout);
+          });
+        },
+        (cb) => {
+          pr0gramm.ninegag('hot', (d) => {
+            setTimeout(() => {
+              cb(null, 'ninegag worker');
             }, tout);
           });
         },
