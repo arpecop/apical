@@ -13,7 +13,7 @@ const _ = require('underscore');
 const extend = require('extend');
 const sizeOf = require('image-size');
 const md5 = require('md5');
-const downloadnprocess = require('./_includes/downloadandprocess.js');
+
 
 const localdb = levelup(leveldown('/tmp/localx'));
 
