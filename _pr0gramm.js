@@ -76,7 +76,7 @@ function ninegag(params, callback) {
                   }
                 },
               );
-            },);
+            }, );
           } else {
             cb();
           }
