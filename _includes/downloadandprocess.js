@@ -7,6 +7,24 @@ const _ = require('underscore');
 const pintetez = require('node-pinterest');
 
 
+//
+
+const admin = require('firebase-admin');
+
+const serviceAccount = require(`${__dirname}/rudixfiredb.json`);
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+});
+
+const db = admin.firestore();
+const docRef = db.collection('test').doc('test2');
+
+db.collection('objects').doc('test').set({}).then((data) => {
+  console.log(data);
+});
+//
+
 function post_img(url, callback) {
   const pintokens = [
     {
@@ -42,7 +60,7 @@ function post_img(url, callback) {
       body: {
         board: pintoken.id,
         note: '',
-        link: 'https://box.fbook.space/',
+        link: 'https://box.netlify.com/',
         image_url: url,
       },
     })
@@ -52,7 +70,6 @@ function post_img(url, callback) {
         (err, ser, body) => {
           if (!err) {
             const jsxon = JSON.parse(body);
-
             if (jsxon.data) {
               callback({
                 url: 1,
@@ -80,86 +97,7 @@ function post_img(url, callback) {
     });
 }
 
-const gm = require('gm').subClass({
-  imageMagick: true,
-});
-
-const downloadnprocess = function (id, stack, callback) {
-  db.db1.get(md5(id), (err) => {
-    if (err) {
-      db.db1.put(
-        {
-          _id: md5(id),
-        },
-        () => {},
-      );
-      const shortie = shortid.generate();
-      const xid = `${new Date().getTime()}_${Math.floor(Math.random() * 10 + 1)}`;
-      const file = `/tmp/${shortie}.jpg`;
-      const dl = get(id);
-      dl.toDisk(file, (err, filename) => {
-        const readStream = fs.createReadStream(file);
-        fs.readFile(file, (err, filedata) => {
-          db.db1.get(md5(filedata), (err) => {
-            if (err) {
-              db.db1.put(
-                {
-                  _id: md5(filedata),
-                },
-                () => {},
-              );
-              tempcdn.attachment.insert(
-                shortie,
-                'f.jpg',
-                filedata,
-                'image/jpeg',
-                (err, body) => {
-                  sizeOf(file, (err, dimensions) => {
-                    post_img(
-                      `http://pouchdb.herokuapp.com/content/${shortie}/f.jpg`,
-                      (pindata) => {
-                        if (!pindata.err) {
-                          db.put(
-                            Object.assign(
-                              {
-                                // _id: xid,
-                                arr: 'true',
-                                w: dimensions.width,
-                                h: dimensions.height,
-                                type: stack,
-                              },
-                              pindata,
-                            ),
-                            (err, doc) => {
-                              fs.rename(
-                                `/tmp/${shortie}.jpg`,
-                                `/tmp/${doc.id}.jpg`,
-                                (err) => {
-                                  callback(doc.id);
-                                },
-                              );
-                            },
-                          );
-                        } else {
-                          callback(pindata.err);
-                        }
-                      },
-                    );
-                  });
-                },
-              );
-            } else {
-              callback({ err: 'already exist' });
-            }
-          });
-        });
-      });
-    } else {
-      callback({ err: 'already exist' });
-    }
-  });
-};
 
 module.exports = {
-  go: downloadnprocess,
+  post_img,
 };

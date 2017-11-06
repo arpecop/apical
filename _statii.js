@@ -127,33 +127,37 @@ async function get_pages(file) {
 async function get_fresh_ones(posts, type) {
   const arr = [];
   return new Promise((resolve) => {
-    async.each(
-      posts,
-      (post, cb) => {
-        populatedb(post.id, (exist) => {
-          if (exist && post.type === type) {
-            get({
-              uri: `http://sharlem.herokuapp.com/fb/${post.id}`,
-              transform(body) {
-                return JSON.parse(body);
-              },
-            })
-              .then((data) => {
-                arr.push(data);
-                cb();
+    if (posts.length >= 1) {
+      async.each(
+        posts,
+        (post, cb) => {
+          populatedb(post.id, (exist) => {
+            if (exist && post.type === type) {
+              get({
+                uri: `http://sharlem.herokuapp.com/fb/${post.id}`,
+                transform(body) {
+                  return JSON.parse(body);
+                },
               })
-              .catch((err) => {
-                cb();
-              });
-          } else {
-            cb();
-          }
-        });
-      },
-      () => {
-        resolve(_.shuffle(arr).slice(0, 49));
-      },
-    );
+                .then((data) => {
+                  arr.push(data);
+                  cb();
+                })
+                .catch((err) => {
+                  cb();
+                });
+            } else {
+              cb();
+            }
+          });
+        },
+        () => {
+          resolve(_.shuffle(arr).slice(0, 49));
+        },
+      );
+    } else {
+      resolve({});
+    }
   });
 }
 

@@ -19,6 +19,7 @@
     "dynamodb": "^0.3.6",
     "express": "^4.16.2",
     "extend": "^3.0.1",
+    "firebase-admin": "^5.4.3",
     "follow": "^1.0.0",
     "get": "^1.4.0",
     "gm": "^1.23.0",

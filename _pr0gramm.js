@@ -3,7 +3,7 @@ const async = require('async');
 const fs = require('fs');
 const Twitter = require('twitter');
 const cheerio = require('cheerio');
-const db = require('./_includes/dbaws.js');
+
 const get = require('get');
 const restler = require('restler');
 const slug = require('slug');
@@ -14,7 +14,7 @@ const downloadnprocess = require('./_includes/downloadandprocess.js');
 const template = '🔥 a friend uploaded hot picture';
 
 const post = function (task, callback) {
-  downloadnprocess.go(task.imagex, 'enimgsx', (shortie) => {
+  downloadnprocess.go(task.imagex, (shortie) => {
     callback();
   });
 };
