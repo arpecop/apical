@@ -9,12 +9,6 @@ const firedb = require('./_includes/firedb.js');
 const downloadnprocess = require('./_includes/downloadandprocess.js');
 
 
-const post = function (task, callback) {
-  downloadnprocess.go(task.imagex, (shortie) => {
-    callback();
-  });
-};
-
 function programm(ass, callbackyyy) {
   request(
     'http://pr0gramm.com/api/items/get?flags=1&promoted=1',
@@ -74,10 +68,7 @@ function ninegag(params, callback) {
                 `http://img-9gag-fun.9cache.com/photo/${item}_700b.jpg`,
                 (e, h, bodyx) => {
                   if (h.headers['content-type'] === 'image/jpeg') {
-                    console.log();
                     downloadnprocess.go(`http://img-9gag-fun.9cache.com/photo/${item}_700b.jpg`, (shortie) => {
-                      console.log(shortie);
-
                       cb();
                     });
                   } else {
@@ -113,8 +104,6 @@ function imgur(params, callback) {
     async.each(
       arr,
       (item, cb) => {
-        console.log(item);
-
         firedb.get(`${item}-ur`, (doc) => {
           if (doc.err) {
             firedb.put(
