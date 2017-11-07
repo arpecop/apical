@@ -119,9 +119,16 @@ if (cluster.isMaster) {
           });
         },
         (cb) => {
-          pr0gramm.imgur('top', (d) => {
+          pr0gramm.imgur('hot/time', (d) => {
             setTimeout(() => {
-              cb(null, 'imgur worker');
+              cb(null, 'imgur worker 2');
+            }, tout);
+          });
+        },
+        (cb) => {
+          pr0gramm.imgur('new/time', (d) => {
+            setTimeout(() => {
+              cb(null, 'imgur worker 2');
             }, tout);
           });
         },
