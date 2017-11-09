@@ -1,13 +1,9 @@
 const request = require('request');
 const async = require('async');
-
-
 const cheerio = require('cheerio');
 const firedb = require('./_includes/firedb.js');
 
-
 const downloadnprocess = require('./_includes/downloadandprocess.js');
-
 
 function programm(ass, callbackyyy) {
   request(
@@ -24,14 +20,14 @@ function programm(ass, callbackyyy) {
             if (checkmedia[1] === 'jpg') {
               firedb.get(`${item.id}-pr0`, (d) => {
                 if (d.err) {
-                  firedb.put(
-                    `${item.id}-pr0`,
-                    () => {
-                      downloadnprocess.go(`http://img.pr0gramm.com/${item.image}`, (shortie) => {
+                  firedb.put(`${item.id}-pr0`, () => {
+                    downloadnprocess.go(
+                      `http://img.pr0gramm.com/${item.image}`,
+                      (shortie) => {
                         callbackx();
-                      });
-                    },
-                  );
+                      },
+                    );
+                  });
                 } else {
                   callbackx();
                 }
@@ -48,7 +44,6 @@ function programm(ass, callbackyyy) {
     },
   );
 }
-
 
 function ninegag(params, callback) {
   request.get(`http://9gag.com/${params}`, (err, d, body) => {
@@ -68,15 +63,18 @@ function ninegag(params, callback) {
                 `http://img-9gag-fun.9cache.com/photo/${item}_700b.jpg`,
                 (e, h, bodyx) => {
                   if (h.headers['content-type'] === 'image/jpeg') {
-                    downloadnprocess.go(`http://img-9gag-fun.9cache.com/photo/${item}_700b.jpg`, (shortie) => {
-                      cb();
-                    });
+                    downloadnprocess.go(
+                      `http://img-9gag-fun.9cache.com/photo/${item}_700b.jpg`,
+                      (shortie) => {
+                        cb();
+                      },
+                    );
                   } else {
                     cb();
                   }
                 },
               );
-            }, );
+            });
           } else {
             cb();
           }
@@ -88,10 +86,6 @@ function ninegag(params, callback) {
     );
   });
 }
-if (!process.env.PORT) {
-  ninegag('hot', (data) => {});
-}
-
 
 function imgur(params, callback) {
   request.get(`http://imgur.com/${params}`, (err, d, body) => {
@@ -102,29 +96,22 @@ function imgur(params, callback) {
     });
 
     async.each(
-      arr,
-      (item, cb) => {
+      arr, (item, cb) => {
         firedb.get(`${item}-ur`, (doc) => {
           if (doc.err) {
-            firedb.put(
-              `${item}-ur`,
-              (err, ass) => {
-                request.get(
-                  `http://imgur.com/gallery/${item}`,
-                  (e, r, body) => {
-                    const $ = cheerio.load(body);
-                    const img = $('link[rel="image_src"]').attr('href');
-                    if (img) {
-                      downloadnprocess.go(img, (shortie) => {
-                        cb();
-                      });
-                    } else {
-                      cb();
-                    }
-                  },
-                );
-              },
-            );
+            firedb.put(`${item}-ur`, (err, ass) => {
+              request.get(`http://imgur.com/gallery/${item}`, (e, r, body) => {
+                const $ = cheerio.load(body);
+                const img = $('link[rel="image_src"]').attr('href');
+                if (img) {
+                  downloadnprocess.go(img, (shortie) => {
+                    cb();
+                  });
+                } else {
+                  cb();
+                }
+              });
+            });
           } else {
             cb();
           }
@@ -136,7 +123,6 @@ function imgur(params, callback) {
     );
   });
 }
-
 
 module.exports = {
   programm,

@@ -223,11 +223,7 @@ async function statiiEn(params, callback) {
 }
 
 // dsadasdasddadsadsd
-if (!process.env.PORT) {
-  scheduled_post('newsbg', 'app/newsboy', 'token', 'bgusers', (data) => {
 
-  });
-}
 
 module.exports = {
   statiiBg,

@@ -76,7 +76,7 @@ if (cluster.isMaster) {
         console.log('=== SHIFT DONE ===');
 
         process.exit(0);
-      }
+      },
     );
   } else {
     console.log('others');
@@ -143,6 +143,13 @@ if (cluster.isMaster) {
           pr0gramm.ninegag('hot', (d) => {
             setTimeout(() => {
               cb(null, 'ninegag worker');
+            }, tout);
+          });
+        },
+        (cb) => {
+          kartinki.rebuildPinterest((d) => {
+            setTimeout(() => {
+              cb(null, 'pinterest rebuild');
             }, tout);
           });
         },

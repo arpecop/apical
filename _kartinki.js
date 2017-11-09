@@ -2,12 +2,31 @@ const statcore = require('./_statii.js');
 const async = require('async');
 const _ = require('underscore');
 const request = require('request');
-
-const pages = require(`${__dirname}/_includes/pages.json`);
+const axios = require('axios');
 const PouchDB = require('pouchdb');
 const md5 = require('md5');
-// ds
+
+const pages = require(`${__dirname}/_includes/pages.json`);
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
+
+//
+
+function sortByKey(array, key) {
+  return array.sort((a, b) => {
+    let x = a[key];
+    let y = b[key];
+
+    if (typeof x === 'string') {
+      x = x.toLowerCase();
+    }
+    if (typeof y === 'string') {
+      y = y.toLowerCase();
+    }
+    return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+  });
+}
+
+
 async function post_to_bg(arritem) {
   return new Promise((resolve) => {
     if (arritem) {
@@ -66,12 +85,34 @@ async function kartinkiEn(params, callback) {
   callback(ifarraypost.length);
 }
 
-if (!process.env.PORT) {
-  // post_to_bg ( 'https://scontent.xx.fbcdn.net/v/t1.0-9/21430127_1683783854988623_341643365042409039_n.jpg?oh=243f231a862e1b15b34dd1888da88b2e&oe=5A58F945');
 
+async function rebuildPinterest(callback) {
+  axios.all([
+    axios.get('https://widgets.pinterest.com/v3/pidgets/boards/rudixlab3/fun/pins'),
+    axios.get('https://widgets.pinterest.com/v3/pidgets/boards/yzrid/funny/pins'),
+    axios.get('https://widgets.pinterest.com/v3/pidgets/boards/rudixlab/funny/pins'),
+    axios.get('https://widgets.pinterest.com/v3/pidgets/boards/rudixrudix/worth/pins'),
+    axios.get('https://widgets.pinterest.com/v3/pidgets/boards/likewall/funny-hits/pins'),
+    axios.get('https://widgets.pinterest.com/v3/pidgets/boards/rudixlab1/news/pins'),
+  ])
+    .then(axios.spread((one, two, three, four, five, six) => {
+      const test = Array.prototype.concat.apply([], [one.data.data.pins, two.data.data.pins, three.data.data.pins, four.data.data.pins, five.data.data.pins, six.data.data.pins]);
+      const sorted = sortByKey(test, 'id').map((val, index) => { const one = 1; return (Object.assign(val.images['237x'])); });
+      request.post('http://sharlem.herokuapp.com/', { json: { _id: 'kartinkien', payload: sorted.reverse() } }, (e, a, body) => {
+        callback(sorted);
+        console.log('---P I N T E R E S T---');
+      });
+    }))
+    .catch((error) => {
+      callback();
+    });
+}
+if (!process.env.PORT) {
+  rebuildPinterest(() => {});
 }
 
 module.exports = {
   kartinkiBg,
   kartinkiEn,
+  rebuildPinterest,
 };

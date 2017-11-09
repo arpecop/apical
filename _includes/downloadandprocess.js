@@ -1,8 +1,6 @@
 const request = require('request');
-const fs = require('fs');
-const get = require('get');
-const async = require('async');
-const md5 = require('md5');
+
+
 const _ = require('underscore');
 const pintetez = require('node-pinterest');
 const pintokens = [
@@ -33,26 +31,6 @@ const pintokens = [
 ];
 
 
-function rebuildPinterest(callback) {
-  const arr = ['likewall/funny-hits',
-    'rudixlab/funny',
-    'rudixrudix/worth',
-    'rudixlab1/news',
-    'yzrid/funny',
-    'rudixlab3/fun11111'];
-
-  https:// widgets.pinterest.com/v3/pidgets/boards/yzrid/funny/pins/
-  async.each(arr, (item, cb) => {
-    request.get(`https://widgets.pinterest.com/v3/pidgets/boards/${item}/pins`, (e, x, body) => {
-      if (!e && body.length > 300) {
-        console.log(JSON.parse(body).data.pins);
-        cb();
-      } else {
-        cb();
-      }
-    });
-  }, (done) => {});
-}
 // rebuildPinterest(() => {});
 function go(url, callback) {
   const pintoken = _.shuffle(pintokens)[0];
