@@ -97,7 +97,7 @@ async function rebuildPinterest(callback) {
   ])
     .then(axios.spread((one, two, three, four, five, six) => {
       const test = Array.prototype.concat.apply([], [one.data.data.pins, two.data.data.pins, three.data.data.pins, four.data.data.pins, five.data.data.pins, six.data.data.pins]);
-      const sorted = sortByKey(test, 'id').map((val, index) => { const one = 1; return (Object.assign(val.images['237x'], { id: val.id })); });
+      const sorted = sortByKey(test, 'id').map((val, index) => { const one = 1; return (Object.assign(val.images['237x'], { id: val.id, color: val.dominant_color })); });
       request.post('http://sharlem.herokuapp.com/', { json: { _id: 'kartinkien', payload: sorted.reverse() } }, (e, a, body) => {
         callback(sorted);
         console.log('---P I N T E R E S T---');
