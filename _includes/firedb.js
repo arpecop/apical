@@ -1,7 +1,9 @@
 const levelup = require('levelup');
 const leveldown = require('leveldown');
+
 const localdb = levelup(leveldown('/tmp/fire'));
 const admin = require('firebase-admin');
+
 const serviceAccount = require(`${__dirname}/rudixfiredb.json`);
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -14,7 +16,7 @@ function ldbupdate(params) {
       params._id ? params._id : params,
       params._id ? JSON.stringify(Object.assign(params, { cached: true })) : '{"cached":true}', () => {
         resolve({});
-      }
+      },
     );
   });
 }
