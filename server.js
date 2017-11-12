@@ -13,21 +13,18 @@ if (cluster.isMaster) {
   });
 } else {
   const _ = require('underscore');
-  const fs = require('fs');
+
   const request = require('request');
   const async = require('async');
+  const http = require('http');
   const kartinki = require('./_kartinki.js');
   const statii = require('./_statii.js');
   const twitter = require('./_twitter.js');
   const pr0gramm = require('./_pr0gramm.js');
-  const express = require('express');
-
-  // const mash = require('./_mashable.js');
-  // const pr0gramm = require('./_pr0gramm.js');dsad dsaddsad
-
-  const app = require('express')();
-  const server = require('http').Server(app);
-
+  const server = http.createServer((req, resp) => {
+    resp.end('i got work to do mmmkay!');
+  });
+  server.listen(port);
   setTimeout(() => {
     console.log('💀  pack your shit boy! ');
     process.exit(0);
@@ -166,18 +163,6 @@ if (cluster.isMaster) {
     );
   }
 
-  app.get('/', (req, res) => {
-    res.writeHead(200, {
-      'content-type': 'text/plain;charset=utf-8',
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers': 'X-Requested-With',
-    });
-    res.end('i got work to do mmmkay!');
-  });
-
-  app.get('/:id.jpg', (req, res) => {
-    res.sendFile(`/tmp/${req.params.id}.jpg`);
-  });
 
   process.on('unhandledRejection', (reason, p) => {
     console.log(
@@ -186,9 +171,6 @@ if (cluster.isMaster) {
       ' reason: ',
       reason,
     );
-    // application specific logging here
     process.exit(0);
   });
-
-  server.listen(port);
 }
