@@ -12,8 +12,6 @@ if (cluster.isMaster) {
     cluster.fork();
   });
 } else {
-  const _ = require('underscore');
-
   const request = require('request');
   const async = require('async');
   const http = require('http');

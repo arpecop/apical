@@ -6,11 +6,8 @@ const Twitter = require('twitter');
 const fs = require('await-fs');
 const get = require('request-promise');
 const async = require('async');
-const shortid = require('shortid');
+
 const _ = require('underscore');
-const extend = require('extend');
-const sizeOf = require('image-size');
-const md5 = require('md5');
 
 
 const localdb = levelup(leveldown('/tmp/localx'));
