@@ -1,14 +1,8 @@
 const cluster = require('cluster');
-const fs = require('fs');
-const request = require('request');
-const async = require('async');
+
 
 const port = process.env.PORT || 3001;
-const _ = require('underscore');
-const kartinki = require('./_kartinki.js');
-const statii = require('./_statii.js');
-const twitter = require('./_twitter.js');
-const pr0gramm = require('./_pr0gramm.js');
+
 
 if (cluster.isMaster) {
   cluster.fork();
@@ -18,6 +12,14 @@ if (cluster.isMaster) {
     cluster.fork();
   });
 } else {
+  const _ = require('underscore');
+  const fs = require('fs');
+  const request = require('request');
+  const async = require('async');
+  const kartinki = require('./_kartinki.js');
+  const statii = require('./_statii.js');
+  const twitter = require('./_twitter.js');
+  const pr0gramm = require('./_pr0gramm.js');
   const express = require('express');
 
   // const mash = require('./_mashable.js');

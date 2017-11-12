@@ -8,7 +8,7 @@ const md5 = require('md5');
 const jsonizehtml = require('html2json').html2json;
 const sanitizeHtml = require('sanitize-html');
 
-const localdb = levelup(leveldown('./db/twitter'));
+const localdb = levelup(leveldown('/tmp/twitter'));
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
 
 
