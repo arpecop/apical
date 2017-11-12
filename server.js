@@ -52,7 +52,7 @@ if (cluster.isMaster) {
       tok: process.env.cookie_token,
       app: 'cookie',
     }, {
-      db: 'newsbg', // view to retrieve latest post and send the title
+      db: 'newsbg', // view to retrieve latest post and send the titleds
       url: 'n/newsboy', // before the _id
       tok: process.env.izvestie_token,
       app: 'bgusers',
