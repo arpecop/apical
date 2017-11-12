@@ -4,14 +4,13 @@ const async = require('async');
 const levelup = require('levelup');
 const leveldown = require('leveldown');
 const md5 = require('md5');
-// const cheerio = require('cheerio');
 
 const jsonizehtml = require('html2json').html2json;
 const sanitizeHtml = require('sanitize-html');
-const pretty = require('pretty');
+
 const localdb = levelup(leveldown('/tmp/twitter'));
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
-const fs = require('fs');
+
 
 const Twitter = require('twitter');
 
@@ -45,7 +44,7 @@ function populatedb(id, callback) {
   }
 }
 
-const html2json = function (html, callback) {
+function html2json(html, callback) {
   // console.log(jsonizehtml(`<ul ${arr[1]}`).child);
   const clean = jsonizehtml(sanitizeHtml(html, {
     allowedTags: ['img', 'li', 'a', 'ol'],
@@ -100,7 +99,7 @@ const html2json = function (html, callback) {
   }, (err) => {
     callback(arr);
   });
-};
+}
 
 //
 // http://maps.googleapis.com/maps/api/geocode/json?address=dobrich&sensor=false
@@ -167,11 +166,8 @@ async function getTl(user) {
 
 async function gowork(params, callback) {
   const timelinesArr = require(`${__dirname}/_includes/sources/twitter.js`);
-
-  const allEn = [].concat.apply([], await Promise.all(timelinesArr.en.map(async (name) => await getTl(name))));
-  const allBg = [].concat.apply([], await Promise.all(timelinesArr.bg.map(async (name) => await getTl(name))));
-
-
+  const allEn = [].concat.apply([], await Promise.all(timelinesArr.en.map(async name => await getTl(name))));
+  const allBg = [].concat.apply([], await Promise.all(timelinesArr.bg.map(async name => await getTl(name))));
   await get_fresh_ones(allEn, 'twitteren');
   await get_fresh_ones(allBg, 'twitterbg');
   callback({});

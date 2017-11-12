@@ -5,6 +5,10 @@ const async = require('async');
 
 const port = process.env.PORT || 3001;
 const _ = require('underscore');
+const kartinki = require('./_kartinki.js');
+const statii = require('./_statii.js');
+const twitter = require('./_twitter.js');
+const pr0gramm = require('./_pr0gramm.js');
 
 if (cluster.isMaster) {
   cluster.fork();
@@ -15,10 +19,7 @@ if (cluster.isMaster) {
   });
 } else {
   const express = require('express');
-  const kartinki = require('./_kartinki.js');
-  const statii = require('./_statii.js');
-  const twitter = require('./_twitter.js');
-  const pr0gramm = require('./_pr0gramm.js');
+
   // const mash = require('./_mashable.js');
   // const pr0gramm = require('./_pr0gramm.js');dsad dsaddsad
 
@@ -35,24 +36,24 @@ if (cluster.isMaster) {
     console.log('apicall');
     const train = [{
       db: 'newsen',
-      url: 'app/news',
+      url: 'n/news',
       tok: process.env.article_token,
       app: 'poparticles',
     },
     {
       db: 'newsen', // view to retrieve latest post and send the title
-      url: 'app/news', // before the _id
+      url: 'n/news', // before the _id
       tok: process.env.mystbox_token,
       app: 'mystic',
     },
     {
       db: 'newsen', // view to retrieve latest post and send the title
-      url: 'app/news', // before the _id
+      url: 'n/news', // before the _id
       tok: process.env.cookie_token,
       app: 'cookie',
     }, {
       db: 'newsbg', // view to retrieve latest post and send the title
-      url: 'app/newsboy', // before the _id
+      url: 'n/newsboy', // before the _id
       tok: process.env.izvestie_token,
       app: 'bgusers',
     },
