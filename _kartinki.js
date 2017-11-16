@@ -6,7 +6,8 @@ const axios = require('axios');
 const PouchDB = require('pouchdb');
 const md5 = require('md5');
 
-const pages = require(`${__dirname}/_includes/pages.json`);
+const pages = require('./_includes/pages.json');
+
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
 
 //
