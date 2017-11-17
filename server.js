@@ -1,8 +1,6 @@
 const cluster = require('cluster');
 
-
 const port = process.env.PORT || 3001;
-
 
 if (cluster.isMaster) {
   cluster.fork();
@@ -29,26 +27,38 @@ if (cluster.isMaster) {
   }, 120000);
   request.get(`https://${process.env.appslug}.herokuapp.com/`, () => {});
 
-  if (process.env.appslug === 'apicall1' || process.env.appslug === 'apicall2' || process.env.appslug === 'apicall3' || process.env.appslug === 'apicall4') {
+  if (
+    process.env.appslug === 'apicall1' ||
+    process.env.appslug === 'apicall2' ||
+    process.env.appslug === 'apicall3' ||
+    process.env.appslug === 'apicall4'
+  ) {
     console.log('apicall');
-    const train = [{
-      db: 'newsen',
-      url: 'n/news',
-      tok: process.env.article_token,
-      app: 'poparticles',
-    },
-    {
-      db: 'newsen', // view to retrieve latest post and send the title
-      url: 'n/news', // before the _id
-      tok: process.env.mystbox_token,
-      app: 'mystic',
-    },
-    {
-      db: 'newsen', // view to retrieve latest post and send the title
-      url: 'n/news', // before the _id
-      tok: process.env.cookie_token,
-      app: 'cookie',
-    },
+    const train = [
+      {
+        db: 'newsen',
+        url: 'n/news',
+        tok: process.env.article_token,
+        app: 'poparticles',
+      },
+      {
+        db: 'newsen', // view to retrieve latest post and send the title
+        url: 'n/news', // before the _id
+        tok: process.env.mystbox_token,
+        app: 'mystic',
+      },
+      {
+        db: 'newsen', // view to retrieve latest post and send the title
+        url: 'n/news', // before the _id
+        tok: process.env.cookie_token,
+        app: 'cookie',
+      },
+      {
+        db: 'newsbg', // view to retrieve latest post and send the titleds
+        url: 'n/newsboy', // before the _id
+        tok: process.env.izvestie_token,
+        app: 'bgusers',
+      },
     ];
 
     /*
@@ -70,14 +80,14 @@ if (cluster.isMaster) {
           val.app,
           () => {
             cb(null, 'd');
-          },
+          }
         );
       },
       (err) => {
         console.log('=== SHIFT DONE ===');
 
         process.exit(0);
-      },
+      }
     );
   } else {
     console.log('others');
@@ -158,19 +168,17 @@ if (cluster.isMaster) {
       (err, result) => {
         console.log('== SHIFT DONE 🤷🏻‍ ==\n\n');
 
-
         process.exit(0);
-      },
+      }
     );
   }
-
 
   process.on('unhandledRejection', (reason, p) => {
     console.log(
       'Possibly Unhandled Rejection at: Promise ',
       p,
       ' reason: ',
-      reason,
+      reason
     );
     process.exit(0);
   });

@@ -23,7 +23,7 @@
     "firebase-admin": "^5.5.0",
     "follow": "^1.0.0",
     "get": "^1.4.0",
-    "gm": "^1.23.0",
+ 
     "himalaya": "^0.2.13",
     "html2json": "^1.0.2",
     "image-size": "^0.5.5",
