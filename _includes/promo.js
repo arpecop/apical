@@ -75,7 +75,7 @@ function post(latest, preurl, token, db, callback) {
             );
           },
           () => {
-            console.log(` 👍:${count} 🚨:${counterr} 💾:${db} `, );
+            console.log(` 👍:${count} 🚨:${counterr} 💾:${db} `,);
             callback();
           },
         );
