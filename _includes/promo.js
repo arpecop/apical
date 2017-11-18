@@ -9,7 +9,7 @@ const _ = require('lodash');
 
 const PouchDB = require('pouchdb');
 
-const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
+const db = new PouchDB('http://pouchdb.herokuapp.com/api');
 
 function post(latest, preurl, token, db, callback) {
   const logx = {
@@ -25,12 +25,13 @@ function post(latest, preurl, token, db, callback) {
       docs,
       (fr, cb) => {
         const item = _.shuffle(latest)[0];
-        const title = `${item.value.title}   ${item.value.desc}` ? item.value.desc : '';
-        if (title.length > 10) {
+
+        if (item.value.title.length > 5) {
           arr.push({
             method: 'POST',
-            relative_url: `${fr}/notifications?href=${preurl}${item.value.id}&template=${title}`,
+            relative_url: `${fr}/notifications?href=${preurl}${item.value.id}&template=${item.value.title} ${item.value.desc ? item.value.desc : ''}`,
           });
+
           cb();
         } else {
           console.log(item.value.title);
