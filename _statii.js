@@ -3,7 +3,6 @@ const levelup = require('levelup');
 const leveldown = require('leveldown');
 const request = require('request');
 const Twitter = require('twitter');
-const fs = require('await-fs');
 const get = require('request-promise');
 const async = require('async');
 
@@ -14,8 +13,8 @@ const localdb = levelup(leveldown('/tmp/localx'));
 
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
 // const pagestoget = require (`${__dirname}/_includes/source.json`);
-const pages = require(`${__dirname}/_includes/pages.json`);
-const promo = require(`${__dirname}/_includes/promo.js`);
+// const pages = require(`${__dirname}/_includes/pages.json`);
+// const promo = require(`${__dirname}/_includes/promo.js`);
 
 const clientcred = process.env.twitter.split(',');
 
@@ -45,32 +44,6 @@ async function tweet(arritem) {
   });
 }
 
-function scheduled_post(dbx, preurl, token, usersdb, callback) {
-  db
-    .query(`i/${dbx}`, {
-      limit: 100,
-      descending: true,
-    })
-    .then((doc) => {
-      if (doc.total_rows > 2) {
-        promo.post(
-          doc.rows,
-          preurl,
-          token,
-          usersdb,
-          () => {
-            console.log(`posting scheduled promo last post statii "${doc.rows[0].value.title}" 1 times`);
-            callback('posting scheduled promo notification');
-          },
-        );
-      } else {
-        callback('not enough posts');
-      }
-    })
-    .catch((err) => {
-      callback(err);
-    });
-}
 
 function populatedb(id, callback) {
   if (id) {
@@ -226,7 +199,6 @@ module.exports = {
   statiiBg,
   statiiEn,
   postAndInsertDbFresh,
-  scheduled_post,
   get_pages,
   get_fresh_ones,
 };

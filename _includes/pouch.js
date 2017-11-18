@@ -1,9 +1,8 @@
 const PouchDB = require('pouchdb');
-const fs = require('mz/fs');
 
 const allusers = new PouchDB(`${__dirname}/db/allusers`);
 
-const wordb = new PouchDB('/tmp/allusers');
+const remotedb = new PouchDB('http://1:1@pouchdb.herokuapp.com/db/');
 const _ = require('underscore');
 const async = require('async');
 
@@ -16,14 +15,6 @@ const dbx = levelup(leveldown('/tmp/xx'));
 
 //
 
-function gimmethousend1(db, callback) {
-  allusers.get(`0_${db}`, (err, count) => {
-    const rd = Math.floor(Math.random() * count.total) + 0;
-    allusers.get(`${db}_${rd}`, (err, chunk) => {
-      callback(chunk.users);
-    });
-  });
-}
 
 // /////gimmethousend advanced
 
@@ -75,4 +66,5 @@ if (!process.env.PORT) {
 
 module.exports = {
   gimmethousend,
+  remotedb,
 };

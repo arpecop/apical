@@ -1,6 +1,6 @@
 const cluster = require('cluster');
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 
 if (cluster.isMaster) {
   cluster.fork();
@@ -15,6 +15,7 @@ if (cluster.isMaster) {
   const http = require('http');
   const kartinki = require('./_kartinki.js');
   const statii = require('./_statii.js');
+  const promo = require('./_includes/promo.js');
   const twitter = require('./_twitter.js');
   const pr0gramm = require('./_pr0gramm.js');
   const server = http.createServer((req, resp) => {
@@ -59,21 +60,19 @@ if (cluster.isMaster) {
         tok: process.env.izvestie_token,
         app: 'bgusers',
       },
+      {
+        db: 'promoted_bg', // view to retrieve latest post and send the titleds
+        url: '', // before the _id
+        tok: process.env.izvestie_token,
+        app: 'bgusers',
+      },
     ];
 
-    /*
- {
-      db: 'newsbg', // view to retrieve latest post and send the titleds
-      url: 'n/newsboy', // before the _id
-      tok: process.env.izvestie_token,
-      app: 'bgusers',
-    },
-    */
 
     async.eachSeries(
       train,
       (val, cb) => {
-        statii.scheduled_post(
+        promo.scheduled_post(
           val.db, // view to retrieve latest post and send the title
           val.url, // before the _id
           val.tok,

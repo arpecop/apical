@@ -5,13 +5,19 @@ const pouch = require(`${__dirname}/pouch.js`);
 
 const _ = require('lodash');
 //
+
+
+const PouchDB = require('pouchdb');
+
+const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
+
 function post(latest, preurl, token, db, callback) {
   const logx = {
-    latest,
+
     token,
     db,
   };
-
+  console.log(logx);
 
   const arr = [];
   pouch.gimmethousend(db, (docs) => {
@@ -19,8 +25,6 @@ function post(latest, preurl, token, db, callback) {
       docs,
       (fr, cb) => {
         const item = _.shuffle(latest)[0];
-
-
         arr.push({
           method: 'POST',
           relative_url: `${fr}/notifications?href=${preurl}/${item.value.id}&template=${item.value.title}`,
@@ -31,56 +35,81 @@ function post(latest, preurl, token, db, callback) {
       () => {
         let count = 0;
         let counterr = 0;
-
-
-        if (process.env.PORT) {
-          async.each(
-            _.chunk(arr, 50),
-            (chunk, cb) => {
-              request.post(
-                {
-                  url: 'https://graph.facebook.com/',
-                  form: {
-                    access_token: token,
-                    batch: JSON.stringify(chunk),
-                  },
+        async.each(
+          _.chunk(arr, 50),
+          (chunk, cb) => {
+            request.post(
+              {
+                url: 'https://graph.facebook.com/',
+                form: {
+                  access_token: token,
+                  batch: JSON.stringify(chunk),
                 },
-                (err, httpResponse, body) => {
-                  async.each(
-                    JSON.parse(body),
-                    (ix, cbx) => {
-                      if (ix.body) {
-                        if (ix.code === 200) {
-                          count++;
-                        } else {
-                          counterr++;
-                        }
-                        cbx();
+              },
+              (err, httpResponse, body) => {
+                async.each(
+                  JSON.parse(body),
+                  (ix, cbx) => {
+                    if (ix.body) {
+                      if (ix.code === 200) {
+                        count++;
                       } else {
                         counterr++;
-                        cbx();
                       }
-                    },
-                    () => {
-                      cb();
-                    },
-                  );
-                },
-              );
-            },
-            () => {
-              console.log(` 👍:${count} 🚨:${counterr} 💾:${db} `, );
-              callback();
-            },
-          );
-        } else {
-          console.log(`posting en posts on localhost  ${token},  ${db}  `, );
-          callback();
-        }
+                      cbx();
+                    } else {
+                      counterr++;
+                      cbx();
+                    }
+                  },
+                  () => {
+                    cb();
+                  },
+                );
+              },
+            );
+          },
+          () => {
+            console.log(` 👍:${count} 🚨:${counterr} 💾:${db} `, );
+            callback();
+          },
+        );
       },
     );
   });
 }
+
+function scheduled_post(dbx, preurl, token, usersdb, callback) {
+  db
+    .query(`i/${dbx}`, {
+      limit: 100,
+      descending: true,
+    })
+    .then((doc) => {
+      if (doc.total_rows > 2) {
+        post(
+          doc.rows,
+          preurl,
+          token,
+          usersdb,
+          () => {
+            callback('posting scheduled promo notification');
+          },
+        );
+      } else {
+        callback('not enough posts');
+      }
+    }).catch((err) => {
+      callback(err);
+    });
+}
+if (!process.env.PORT) {
+  console.log('trying the shit');
+  scheduled_post('promoted_bg', '', process.env.izvestie_token, 'bgusers', () => {});
+}
+
+
 module.exports = {
+  scheduled_post,
   post,
 };

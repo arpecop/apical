@@ -1,73 +1,47 @@
 {
-  "name": "vault",
-  "version": "1.0.0",
-  "description": "dsdvault rdsdunning underground heroku lands",
-  "main": "server.js",
-  "bin": {
-    "vault": "watcher.js"
-  },
-  "engines": {
-    "node": "8.9.0"
-  },
-  "dependencies": {
-    "async": "^2.6.0",
-    "async-request": "^1.2.0",
-    "await-fs": "^1.0.0",
-    "aws-sdk": "^2.151.0",
-    "axios": "^0.17.1",
-    "better-console": "^1.0.1",
-    "cheerio": "^0.22.0",
-    "dynamodb": "^0.3.6",
-    "express": "^4.16.2",
-    "extend": "^3.0.1",
-    "firebase-admin": "^5.5.0",
-    "follow": "^1.0.0",
-    "get": "^1.4.0",
- 
-    "himalaya": "^0.2.13",
-    "html2json": "^1.0.2",
-    "image-size": "^0.5.5",
-    "leveldown": "^2.0.1",
-    "levelup": "^2.0.1",
-    "lodash": "^4.17.4",
-    "md5": "^2.2.1",
-    "mz": "^2.7.0",
-    "nano": "^6.4.2",
-    "node-pinterest": "0.0.3",
-    "node-readability": "^3.0.0",
-    "node-readability-cheerio": "^1.0.0",
-    "openscraping": "^0.3.1",
-    "pouchdb": "^6.3.4",
-    "pretty": "^2.0.0",
-    "request": "^2.83.0",
-    "request-promise": "^4.2.2",
-    "restler": "^3.4.0",
-    "rss-to-json": "^1.0.3",
-    "sanitize-html": "^1.15.0",
-    "scrape-it": "^3.3.3",
-    "shortid": "^2.2.8",
-    "slack": "^8.4.2",
-    "slug": "^0.9.1",
-    "striptags": "^3.1.0",
-    "time": "^0.12.0",
-    "twitter": "^1.7.1",
-    "twitter-scraper": "^5.1.0",
-    "underscore": "^1.8.3",
-    "unicode": "^0.6.1"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/arpecop/vault.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/arpecop/vault/issues"
-  },
-  "homepage": "https://github.com/arpecop/vault#readme"
+    "name": "vault",
+    "version": "1.0.0",
+    "description": "vaudsdlt runnindsdg underground heroku lands",
+    "engines": {
+        "node": "8.9.0"
+    },
+    "dependencies": {
+        "apicache": "^0.8.7",
+        "async": "^2.6.0",
+        "axios": "^0.17.1",
+        "body-parser": "^1.18.2",
+        "cheerio": "^1.0.0-rc.2",
+        "chokidar": "^1.7.0",
+        "compression": "^1.7.1",
+        "cors": "^2.8.4",
+        "express": "^4.16.2",
+        "express-http-proxy": "^1.0.7",
+        "express-pouchdb": "^2.3.7",
+        "firebase-admin": "^5.5.0",
+        "har-validator": "^5.1.0",
+        "html2json": "^1.0.2",
+        "level": "2.0.1",
+        "leveldown": "2.0.1",
+        "levelup": "2.0.1",
+        "md5": "^2.2.1",
+        "nano": "^6.4.2",
+        "node-pinterest": "0.0.4",
+        "node-readability": "^2.2.0",
+        "pouchdb": "^5.4.5",
+        "request": "^2.83.0",
+        "request-promise": "^4.2.2",
+        "sanitize-html": "^1.15.0",
+        "slug": "^0.9.1",
+        "twitter": "^1.7.1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/arpecop/vault.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/arpecop/vault/issues"
+    },
+    "homepage": "https://github.com/arpecop/vault#readme"
 }
