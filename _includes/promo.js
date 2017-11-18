@@ -25,8 +25,8 @@ function post(latest, preurl, token, db, callback) {
       docs,
       (fr, cb) => {
         const item = _.shuffle(latest)[0];
-        const title = `${item.value.title} ${item.value.desc}` ? item.value.desc : '';
-        if (title > 10) {
+        const title = `${item.value.title}   ${item.value.desc}` ? item.value.desc : '';
+        if (title.length > 10) {
           arr.push({
             method: 'POST',
             relative_url: `${fr}/notifications?href=${preurl}${item.value.id}&template=${title}`,
@@ -75,7 +75,7 @@ function post(latest, preurl, token, db, callback) {
             );
           },
           () => {
-            console.log(` 👍:${count} 🚨:${counterr} 💾:${db} `,);
+            console.log(` 👍:${count} 🚨:${counterr} 💾:${db} `, );
             callback();
           },
         );
