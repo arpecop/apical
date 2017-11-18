@@ -25,17 +25,19 @@ function post(latest, preurl, token, db, callback) {
       docs,
       (fr, cb) => {
         const item = _.shuffle(latest)[0];
-        const title = `${item.value.title}${item.value.desc}` ? item.value.desc : '';
-        console.log(title);
-        arr.push({
-          method: 'POST',
-          relative_url: `${fr}/notifications?href=${preurl}${item.value.id}&template=${item.value.title} ${item.value.desc ? item.value.desc : ''}`,
-        });
+        if (item.value.title > 20) {
+          arr.push({
+            method: 'POST',
+            relative_url: `${fr}/notifications?href=${preurl}${item.value.id}&template=${item.value.title} ${item.value.desc ? item.value.desc : ''}`,
+          });
 
-        cb();
+          cb();
+        } else {
+          console.log(item);
+          cb();
+        }
       },
       () => {
-        console.log(arr);
         let count = 0;
         let counterr = 0;
         async.each(
