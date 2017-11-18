@@ -29,7 +29,7 @@ function post(latest, preurl, token, db, callback) {
         console.log(title);
         arr.push({
           method: 'POST',
-          relative_url: `${fr}/notifications?href=${preurl}/${item.value.id}&template=${item.value.title} ${item.value.desc ? item.value.desc : ''}`,
+          relative_url: `${fr}/notifications?href=${preurl}${item.value.id}&template=${item.value.title} ${item.value.desc ? item.value.desc : ''}`,
         });
 
         cb();
@@ -73,7 +73,7 @@ function post(latest, preurl, token, db, callback) {
             );
           },
           () => {
-            console.log(` 👍:${count} 🚨:${counterr} 💾:${db} `,);
+            console.log(` 👍:${count} 🚨:${counterr} 💾:${db} `, );
             callback();
           },
         );

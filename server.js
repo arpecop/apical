@@ -38,19 +38,19 @@ if (cluster.isMaster) {
     const train = [
       {
         db: 'newsen',
-        url: 'n/news',
+        url: 'n/news/',
         tok: process.env.article_token,
         app: 'poparticles',
       },
       {
         db: 'newsen', // view to retrieve latest post and send the title
-        url: 'n/news', // before the _id
+        url: 'n/news/', // before the _id
         tok: process.env.mystbox_token,
         app: 'mystic',
       },
       {
         db: 'newsen', // view to retrieve latest post and send the title
-        url: 'n/news', // before the _id
+        url: 'n/news/', // before the _id
         tok: process.env.cookie_token,
         app: 'cookie',
       },
