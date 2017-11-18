@@ -33,7 +33,7 @@ function post(latest, preurl, token, db, callback) {
 
           cb();
         } else {
-          console.log(item);
+          console.log(item.value.title);
           cb();
         }
       },
@@ -75,7 +75,7 @@ function post(latest, preurl, token, db, callback) {
             );
           },
           () => {
-            console.log(` 👍:${count} 🚨:${counterr} 💾:${db} `, );
+            console.log(` 👍:${count} 🚨:${counterr} 💾:${db} `,);
             callback();
           },
         );
