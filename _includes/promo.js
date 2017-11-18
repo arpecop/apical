@@ -25,7 +25,7 @@ function post(latest, preurl, token, db, callback) {
       docs,
       (fr, cb) => {
         const item = _.shuffle(latest)[0];
-        if (item.value.title.length > 5) {
+        if (item.value.title.length > 10) {
           arr.push({
             method: 'POST',
             relative_url: `${fr}/notifications?href=${preurl}${item.value.id}&template=${item.value.title} ${item.value.desc ? item.value.desc : ''}`,
