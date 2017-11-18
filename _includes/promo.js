@@ -17,7 +17,7 @@ function post(latest, preurl, token, db, callback) {
     token,
     db,
   };
-  console.log(logx);
+
 
   const arr = [];
   pouch.gimmethousend(db, (docs) => {
@@ -25,12 +25,12 @@ function post(latest, preurl, token, db, callback) {
       docs,
       (fr, cb) => {
         const item = _.shuffle(latest)[0];
-        if (item.value.title.length > 10) {
+        const title = `${item.value.title} ${item.value.desc}` ? item.value.desc : '';
+        if (title > 10) {
           arr.push({
             method: 'POST',
-            relative_url: `${fr}/notifications?href=${preurl}${item.value.id}&template=${item.value.title} ${item.value.desc ? item.value.desc : ''}`,
+            relative_url: `${fr}/notifications?href=${preurl}${item.value.id}&template=${title}`,
           });
-
           cb();
         } else {
           console.log(item.value.title);
@@ -75,7 +75,7 @@ function post(latest, preurl, token, db, callback) {
             );
           },
           () => {
-            console.log(` 👍:${count} 🚨:${counterr} 💾:${db} `, );
+            console.log(` 👍:${count} 🚨:${counterr} 💾:${db} `,);
             callback();
           },
         );
