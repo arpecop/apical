@@ -69,7 +69,9 @@ async function postPages(arritem) {
           resolve();
         }
       );
-    } else {}
+    } else {
+      resolve();
+    }
   });
 }
 // postPages([{ id: '496839350351774_1507494082619624' }]);
