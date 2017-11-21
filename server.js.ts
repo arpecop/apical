@@ -23,13 +23,16 @@ if (cluster.isMaster) {
   });
   server.listen(port);
 
+ 
   request.get(`https://${process.env.appslug}.herokuapp.com/`, () => {});
+
   if (
     process.env.appslug === 'apicall1' ||
     process.env.appslug === 'apicall2' ||
     process.env.appslug === 'apicall3' ||
     process.env.appslug === 'apicall4'
   ) {
+    console.log('apicall');
     const train = [
       {
         db: 'newsen',
@@ -105,7 +108,7 @@ if (cluster.isMaster) {
           });
         },
         (cb) => {
-          kartinki.kartinkiEn('1', (d) => {
+             kartinki.kartinkiEn('1', (d) => {
             setTimeout(() => {
               cb(null, d);
             }, tout);

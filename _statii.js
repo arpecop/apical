@@ -5,7 +5,7 @@ const request = require('request');
 const Twitter = require('twitter');
 const get = require('request-promise');
 const async = require('async');
-
+const firedb = require('./_includes/firedb.js');
 const _ = require('underscore');
 
 
@@ -43,6 +43,36 @@ async function tweet(arritem) {
     }
   });
 }
+
+async function postPages(arritem) {
+  return new Promise((resolve) => {
+    if (arritem[0]) {
+      const pages = require('./_includes/sources/all_pages.json');
+      async.eachSeries(
+        pages,
+        (page, cb) => {
+        // `https://fbook.netlify.com/app/news/${arritem[0].id}
+          request.post(
+            {
+              url: 'https://graph.facebook.com/me/feed',
+              form: {
+                access_token: page.access_token,
+                link: `https://apps.facebook.com/izvestie/app/newsboy/${arritem[0].id}`,
+              },
+            },
+            (err, httpResponse, body) => {
+              console.log(body);
+              cb();
+            }
+          );
+        }, () => {
+          resolve();
+        }
+      );
+    } else {}
+  });
+}
+// postPages([{ id: '496839350351774_1507494082619624' }]);
 
 
 function populatedb(id, callback) {
@@ -175,7 +205,7 @@ async function statiiBg(params, callback) {
   const step1x = await get_pages('source_kartinki_bg');
   const getfreshx = await get_fresh_ones(step1x, 'link');
   const ifarraypostx = await postAndInsertDbFresh(getfreshx, 'newsbg');
-  const postfirstarritem = await tweet(ifarraypostx);
+  const postfirstarritem = await postPages(ifarraypostx);
 
   callback(ifarraypostx.length);
   console.log(`== D O N E   N E W S   B G ==${ifarraypostx.length}`);
