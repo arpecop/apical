@@ -12,13 +12,6 @@ const PouchDB = require('pouchdb');
 const db = new PouchDB('http://pouchdb.herokuapp.com/api');
 
 function post(latest, preurl, token, db, callback) {
-  const logx = {
-
-    token,
-    db,
-  };
-
-
   const arr = [];
   pouch.gimmethousend(db, (docs) => {
     async.each(
@@ -109,12 +102,6 @@ function scheduled_post(dbx, preurl, token, usersdb, callback) {
       callback(err);
     });
 }
-if (!process.env.PORT) {
-  console.log('trying the shit');
-  scheduled_post('newsen', '', process.env.izvestie_token, 'bgusers', () => {});
-}
-
-
 module.exports = {
   scheduled_post,
   post,

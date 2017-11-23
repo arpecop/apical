@@ -89,21 +89,20 @@ async function kartinkiEn(params, callback) {
 
 async function rebuildPinterest(callback) {
   axios.all([
-    axios.get('https://widgets.pinterest.com/v3/pidgets/boards/rudixlab3/fun/pins'),
     axios.get('https://widgets.pinterest.com/v3/pidgets/boards/yzrid/funny/pins'),
     axios.get('https://widgets.pinterest.com/v3/pidgets/boards/rudixlab/funny/pins'),
     axios.get('https://widgets.pinterest.com/v3/pidgets/boards/rudixrudix/worth/pins'),
     axios.get('https://widgets.pinterest.com/v3/pidgets/boards/likewall/funny-hits/pins'),
     axios.get('https://widgets.pinterest.com/v3/pidgets/boards/rudixlab1/news/pins'),
   ])
-    .then(axios.spread((one, two, three, four, five, six) => {
+    .then(axios.spread((one, two, three, four, five) => {
       const test = Array.prototype.concat.apply([], [
         one.data.data.pins,
         two.data.data.pins,
         three.data.data.pins,
         four.data.data.pins,
         five.data.data.pins,
-        six.data.data.pins,
+
       ]);
       const sorted = sortByKey(test, 'id').map((val, index) => {
         const one = 1;
@@ -120,6 +119,7 @@ async function rebuildPinterest(callback) {
       });
     }))
     .catch((error) => {
+      console.log(error);
       callback();
     });
 }
