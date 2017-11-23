@@ -3,6 +3,7 @@ const request = require('request');
 
 const _ = require('underscore');
 const pintetez = require('node-pinterest');
+
 const pintokens = [
   {
     id: '195554877508708250',
@@ -23,10 +24,6 @@ const pintokens = [
   {
     token: 'AVsm6IPRCRqwE7ZOCN3qB7DHcK5zFL2ForcN1gBEAHLhXWA_EAAAAAA',
     id: '643944515408822125',
-  },
-  {
-    token: 'AVltJ91yn4LTSUmk_vNfrsmJc6VFFL2Fy3o4C7FEAHM3gQBASwAAAAA',
-    id: '769482355021774579',
   },
 ];
 
