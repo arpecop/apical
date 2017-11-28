@@ -87,7 +87,7 @@ if (cluster.isMaster) {
     );
   } else {
     console.log('others');
-    const tout = 5000;
+    const tout = 1000;
     async.series(
       [
         (cb) => {
