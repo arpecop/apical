@@ -4,7 +4,6 @@ const port = process.env.PORT || 3000;
 
 if (cluster.isMaster) {
   cluster.fork();
-
   cluster.on('exit', (worker) => {
     console.log(`👷 ${worker.process.pid}`);
     cluster.fork();

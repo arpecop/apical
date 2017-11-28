@@ -23,7 +23,7 @@ if (cluster.isMaster) {
   });
   server.listen(port);
 
-  request.get(`https://${process.env.appslug}.herokuapp.com/`, () => {});
+
   if (
     process.env.appslug === 'apicall1' ||
     process.env.appslug === 'apicall2' ||
