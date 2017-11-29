@@ -46,7 +46,7 @@ function post(json, callback) {
                 },
               },
               (err, httpResponse, body) => {
-                console.log(JSON.parse(body).data);
+                console.log(JSON.parse(body)[0]);
                 cb();
               },
             );
