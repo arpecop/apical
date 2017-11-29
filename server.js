@@ -2,6 +2,33 @@ const cluster = require('cluster');
 
 const port = process.env.PORT || 3000;
 
+const train = [
+  {
+    db: 'newsen',
+    url: 'n/news/',
+    tok: process.env.article_token,
+    app: 'poparticles',
+  },
+  {
+    db: 'newsen', // view to retrieve latest post and send the title
+    url: 'n/news/', // before the _id
+    tok: process.env.mystbox_token,
+    app: 'mystic',
+  },
+  {
+    db: 'newsen', // view to retrieve latest post and send the title
+    url: 'n/news/', // before the _id
+    tok: process.env.cookie_token,
+    app: 'cookie',
+  },
+  {
+    db: 'promoted_bg', // view to retrieve latest post and send the titleds
+    url: '', // before the _id
+    tok: process.env.izvestie_token,
+    app: 'bgusers',
+  },
+];
+console.log(process.env.LOGNAME);
 if (cluster.isMaster) {
   cluster.fork();
 
@@ -13,11 +40,10 @@ if (cluster.isMaster) {
   const request = require('request');
   const async = require('async');
   const http = require('http');
-  const kartinki = require('./_kartinki.js');
-  const statii = require('./_statii.js');
+
+
   const promo = require('./_includes/promo.js');
-  const twitter = require('./_twitter.js');
-  const pr0gramm = require('./_pr0gramm.js');
+
   const server = http.createServer((req, resp) => {
     resp.end('i got work to do mmmkay!');
   });
@@ -26,51 +52,15 @@ if (cluster.isMaster) {
   setTimeout(() => {
     console.log('slow dyno');
     process.exit(0);
-  }, 10000);
-
+  }, 50000);
 
   if (
     process.env.appslug === 'apicall1' ||
     process.env.appslug === 'apicall2' ||
     process.env.appslug === 'apicall3' ||
-    process.env.appslug === 'apicall4'
+    process.env.appslug === 'apicall4' ||
+    process.env.LOGNAME === 'rudix'
   ) {
-    const train = [
-      {
-        db: 'newsen',
-        url: 'n/news/',
-        tok: process.env.article_token,
-        app: 'poparticles',
-      },
-      {
-        db: 'newsen', // view to retrieve latest post and send the title
-        url: 'n/news/', // before the _id
-        tok: process.env.mystbox_token,
-        app: 'mystic',
-      },
-      {
-        db: 'newsen', // view to retrieve latest post and send the title
-        url: 'n/news/', // before the _id
-        tok: process.env.cookie_token,
-        app: 'cookie',
-      },
-      {
-        db: 'promoted_bg', // view to retrieve latest post and send the titleds
-        url: '', // before the _id
-        tok: process.env.izvestie_token,
-        app: 'bgusers',
-      },
-    ];
-
-    /*
-       {
-        db: 'newsbg', // view to retrieve latest post and send the titleds
-        url: 'n/newsboy', // before the _id
-        tok: process.env.izvestie_token,
-        app: 'bgusers',
-      },
-
-      */
     async.each(
       train,
       (val, cb) => {
@@ -91,7 +81,10 @@ if (cluster.isMaster) {
       }
     );
   } else {
-    console.log('others');
+    const kartinki = require('./_kartinki.js');
+    const statii = require('./_statii.js');
+    const twitter = require('./_twitter.js');
+    const pr0gramm = require('./_pr0gramm.js');
     const tout = 1000;
     async.series(
       [
@@ -173,7 +166,6 @@ if (cluster.isMaster) {
       }
     );
   }
-
 
   process.on('unhandledRejection', (reason, p) => {
     console.log(
