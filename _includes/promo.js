@@ -78,9 +78,11 @@ function post(latest, preurl, token, db, callback) {
   });
 }
 
-function scheduled_post(dbx, preurl, token, usersdb, callback) {
+function scheduled_post(json, callback) {
+  // dbx, preurl, token, usersdb
+
   db
-    .query(`i/${dbx}`, {
+    .query(`i/${json.db}`, {
       limit: 100,
       descending: true,
     })
@@ -88,9 +90,9 @@ function scheduled_post(dbx, preurl, token, usersdb, callback) {
       if (doc.total_rows > 2) {
         post(
           doc.rows,
-          preurl,
-          token,
-          usersdb,
+          json.url,
+          json.tok,
+          json.app,
           () => {
             callback('posting scheduled promo notification');
           },

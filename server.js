@@ -65,10 +65,7 @@ if (cluster.isMaster) {
       train,
       (val, cb) => {
         promo.scheduled_post(
-          val.db, // view to retrieve latest post and send the title
-          val.url, // before the _id
-          val.tok,
-          val.app,
+          val,
           () => {
             cb(null, 'd');
           }
