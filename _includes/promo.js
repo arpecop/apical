@@ -32,8 +32,8 @@ function post(json, callback) {
         }
       },
       () => {
-        let count = 0;
-        let counterr = 0;
+        const count = 0;
+        const counterr = 0;
         async.each(
           _.chunk(arr, 50),
           (chunk, cb) => {
@@ -46,30 +46,12 @@ function post(json, callback) {
                 },
               },
               (err, httpResponse, body) => {
-                console.log(body);
-                async.each(
-                  (ix, cbx) => {
-                    if (ix.body) {
-                      if (ix.code === 200) {
-                        count++;
-                      } else {
-                        counterr++;
-                      }
-                      cbx();
-                    } else {
-                      counterr++;
-                      cbx();
-                    }
-                  },
-                  () => {
-                    cb();
-                  },
-                );
+                cb();
               },
             );
           },
           () => {
-            console.log(` 👍:${count} 🚨:${counterr} 💾:${db} `, );
+            console.log(` 👍:${count} 🚨:${counterr} 💾:${db} `);
             callback();
           },
         );
