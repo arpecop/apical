@@ -11,9 +11,9 @@ const PouchDB = require('pouchdb');
 
 const db = new PouchDB('http://pouchdb.herokuapp.com/api');
 
-function post(latest, preurl, token, db, callback) {
+function post(latest, preurl, token, dbx, callback) {
   const arr = [];
-  pouch.gimmethousend(db, (docs) => {
+  pouch.gimmethousend(dbx, (docs) => {
     async.each(
       docs,
       (fr, cb) => {
