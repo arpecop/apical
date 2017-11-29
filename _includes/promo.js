@@ -46,9 +46,7 @@ function post(latest, preurl, token, db, callback) {
                 },
               },
               (err, httpResponse, body) => {
-                console.log(JSON.parse(body));
                 async.each(
-                  JSON.parse(body),
                   (ix, cbx) => {
                     if (ix.body) {
                       if (ix.code === 200) {
@@ -70,7 +68,7 @@ function post(latest, preurl, token, db, callback) {
             );
           },
           () => {
-            console.log(` 👍:${count} 🚨:${counterr} 💾:${db} `, );
+            console.log(` 👍:${count} 🚨:${counterr} 💾:${db} `,);
             callback();
           },
         );
