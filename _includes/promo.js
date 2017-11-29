@@ -12,6 +12,7 @@ const PouchDB = require('pouchdb');
 const db = new PouchDB('http://pouchdb.herokuapp.com/api');
 
 function post(json, callback) {
+  console.log(json);
   const arr = [];
   pouch.gimmethousend(json.db, (docs) => {
     async.each(
@@ -69,7 +70,7 @@ function post(json, callback) {
             );
           },
           () => {
-            console.log(` 👍:${count} 🚨:${counterr} 💾:${db} `,);
+            console.log(` 👍:${count} 🚨:${counterr} 💾:${db} `, );
             callback();
           },
         );
