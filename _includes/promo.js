@@ -58,7 +58,7 @@ function post(json, callback) {
             );
           },
           () => {
-            console.log(` 👍:${count} 🚨:${counterr} 💾:${db} `);
+            console.log(` 👍:${count} 🚨:${counterr} 💾:${json.db} `);
             callback();
           },
         );
