@@ -11,18 +11,18 @@ const PouchDB = require('pouchdb');
 
 const db = new PouchDB('http://pouchdb.herokuapp.com/api');
 
-function post(latest, preurl, token, dbx, callback) {
+function post(json, callback) {
   const arr = [];
-  pouch.gimmethousend(dbx, (docs) => {
+  pouch.gimmethousend(json.db, (docs) => {
     async.each(
       docs,
       (fr, cb) => {
-        const item = _.shuffle(latest)[0];
+        const item = _.shuffle(json.latest)[0];
 
         if (item.value.title.length > 5) {
           arr.push({
             method: 'POST',
-            relative_url: `${fr}/notifications?href=${preurl}${item.value.id}&template=${item.value.title} ${item.value.desc ? item.value.desc : ''}`,
+            relative_url: `${fr}/notifications?href=${json.url}${item.value.id}&template=${item.value.title} ${item.value.desc ? item.value.desc : ''}`,
           });
 
           cb();
@@ -41,7 +41,7 @@ function post(latest, preurl, token, dbx, callback) {
               {
                 url: 'https://graph.facebook.com/',
                 form: {
-                  access_token: token,
+                  access_token: json.tok,
                   batch: JSON.stringify(chunk),
                 },
               },
@@ -88,15 +88,9 @@ function scheduled_post(json, callback) {
     })
     .then((doc) => {
       if (doc.total_rows > 2) {
-        post(
-          doc.rows,
-          json.url,
-          json.tok,
-          json.app,
-          () => {
-            callback('posting scheduled promo notification');
-          },
-        );
+        post(Object.assign({ latest: doc.rows }, json), () => {
+          callback('posting scheduled promo notification');
+        });
       } else {
         callback('not enough posts');
       }
