@@ -23,6 +23,11 @@ if (cluster.isMaster) {
   });
   server.listen(port);
 
+  setTimeout(() => {
+    console.log('slow dyno');
+    process.exit(0);
+  }, 60000);
+
 
   if (
     process.env.appslug === 'apicall1' ||
