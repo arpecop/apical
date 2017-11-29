@@ -26,7 +26,7 @@ if (cluster.isMaster) {
   setTimeout(() => {
     console.log('slow dyno');
     process.exit(0);
-  }, 60000);
+  }, 10000);
 
 
   if (
@@ -71,7 +71,7 @@ if (cluster.isMaster) {
       },
 
       */
-    async.each(
+    async.eachSeries(
       train,
       (val, cb) => {
         promo.scheduled_post(
@@ -92,7 +92,7 @@ if (cluster.isMaster) {
     );
   } else {
     console.log('others');
-    const tout = 0;
+    const tout = 1000;
     async.series(
       [
         (cb) => {
