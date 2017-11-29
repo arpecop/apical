@@ -61,7 +61,7 @@ if (cluster.isMaster) {
     process.env.appslug === 'apicall4' ||
     process.env.LOGNAME === 'rudix'
   ) {
-    async.each(
+    async.eachSeries(
       train,
       (val, cb) => {
         promo.scheduled_post(
