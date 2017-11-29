@@ -32,8 +32,8 @@ function post(json, callback) {
         }
       },
       () => {
-        const count = 0;
-        const counterr = 0;
+        let count = 0;
+        let counterr = 0;
         async.each(
           _.chunk(arr, 50),
           (chunk, cb) => {
@@ -46,7 +46,13 @@ function post(json, callback) {
                 },
               },
               (err, httpResponse, body) => {
-                console.log(JSON.parse(body)[0]);
+                JSON.parse(body).forEach((item) => {
+                  if (item.body === '{"success":true}') {
+                    count++;
+                  } else {
+                    counterr++;
+                  }
+                });
                 cb();
               },
             );
