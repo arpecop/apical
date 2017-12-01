@@ -29,7 +29,7 @@ const train = [
   },
   {
     db: 'newsbg', // view to retrieve latest post and send the title
-    url: 'app/newsboy', // before the _id
+    url: 'app/newsboy/', // before the _id
     tok: process.env.izvestie_token,
     app: 'bgusers',
   },
