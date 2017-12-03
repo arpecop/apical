@@ -30,7 +30,7 @@ async function tweet(arritem) {
     if (arritem[0]) {
       client
         .post('statuses/update', {
-          status: `https://fbook.netlify.com/app/news/${arritem[0].id} ${arritem[0].name}`,
+          status: `https://fbook.netlify.com/app/news/${arritem[0]._id} ${arritem[0].name}`,
         }).then((tweet) => {
           console.log('posted');
           resolve();
@@ -57,7 +57,7 @@ async function postPages(arritem) {
               url: 'https://graph.facebook.com/me/feed',
               form: {
                 access_token: page.access_token,
-                link: `https://apps.facebook.com/izvestie/app/newsboy/${arritem[0].id}`,
+                link: `https://apps.facebook.com/izvestie/app/newsboy/${arritem[0]._id}`,
               },
             },
             (err, httpResponse, body) => {
