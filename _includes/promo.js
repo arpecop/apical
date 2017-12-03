@@ -18,11 +18,10 @@ function post(json, callback) {
       docs,
       (fr, cb) => {
         const item = _.shuffle(json.latest)[0];
-
         if (item.value.title.length > 5) {
           arr.push({
             method: 'POST',
-            relative_url: `${fr}/notifications?href=${json.url}${item.value.id}&template=${item.value.title} ${item.value.desc ? item.value.desc : ''}`,
+            relative_url: `${fr}/notifications?href=${json.url}${item._id}&template=${item.value.title} ${item.value.desc ? item.value.desc : ''}`,
           });
           arr.push({
             method: 'POST',
