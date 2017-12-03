@@ -52,6 +52,7 @@ async function tweet(arritem) {
 
 async function postPages(arritem) {
   return new Promise((resolve) => {
+    console.log(arritem[0]);
     if (arritem[0]) {
       const pages = require('./_includes/sources/all_pages.json');
       async.eachSeries(
