@@ -7,7 +7,13 @@ const get = require('request-promise');
 const async = require('async');
 const firedb = require('./_includes/firedb.js');
 const _ = require('underscore');
+const AWS = require('aws-sdk');
 
+const s3 = new AWS.S3({
+  endpoint: new AWS.Endpoint('nyc3.digitaloceanspaces.com'),
+  accessKeyId: process.env.s31,
+  secretAccessKey: process.env.s32,
+});
 
 const localdb = levelup(leveldown('/tmp/localx'));
 
@@ -30,7 +36,7 @@ async function tweet(arritem) {
     if (arritem[0]) {
       client
         .post('statuses/update', {
-          status: `https://fbook.netlify.com/app/news/${arritem[0].key} ${arritem[0].name}`,
+          status: `https://fbook.netlify.com/app/news/${arritem[0].id} ${arritem[0].name}`,
         }).then((tweet) => {
           console.log('posted');
           resolve();
@@ -57,7 +63,7 @@ async function postPages(arritem) {
               url: 'https://graph.facebook.com/me/feed',
               form: {
                 access_token: page.access_token,
-                link: `https://apps.facebook.com/izvestie/app/newsboy/${arritem[0].key}`,
+                link: `https://apps.facebook.com/izvestie/app/newsboy/${arritem[0].id}`,
               },
             },
             (err, httpResponse, body) => {
@@ -137,8 +143,16 @@ async function get_fresh_ones(posts, type) {
                 },
               })
                 .then((data) => {
-                  arr.push(data);
-                  cb();
+                  s3.putObject({
+                    Body: JSON.stringify(data),
+                    Bucket: 'pouch',
+                    ACL: 'public-read-write',
+                    Key: `db/${data.id}`,
+                    ContentType: 'application/json',
+                  }, () => {
+                    arr.push(data);
+                    cb();
+                  });
                 })
                 .catch((err) => {
                   cb();
