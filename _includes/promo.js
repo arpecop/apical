@@ -75,7 +75,7 @@ function scheduled_post(json, callback) {
 
   db1
     .query(`i/${json.db}`, {
-      limit: 100,
+      limit: 10,
       descending: true,
     })
     .then((doc) => {
