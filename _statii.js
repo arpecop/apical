@@ -5,7 +5,6 @@ const request = require('request');
 const Twitter = require('twitter');
 const get = require('request-promise');
 const async = require('async');
-const firedb = require('./_includes/firedb.js');
 const _ = require('underscore');
 const AWS = require('aws-sdk');
 
@@ -18,6 +17,8 @@ const s3 = new AWS.S3({
 const localdb = levelup(leveldown('/tmp/localx'));
 
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
+const db = require('nano')('http://pouchdb.herokuapp.com/api/');
+const db1 = require('nano')('https://pouch.nyc3.digitaloceanspaces.com/db/');
 // const pagestoget = require (`${__dirname}/_includes/source.json`);
 // const pages = require(`${__dirname}/_includes/pages.json`);
 // const promo = require(`${__dirname}/_includes/promo.js`);

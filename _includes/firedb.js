@@ -8,7 +8,8 @@ const serviceAccount = require(`${__dirname}/rudixfiredb.json`);
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
-const db = admin.firestore();
+// const db = admin.firestore();
+const db = require('nano')('https://pouch.nyc3.digitaloceanspaces.com/db/');
 const AWS = require('aws-sdk');
 
 const s3 = new AWS.S3({
@@ -16,7 +17,12 @@ const s3 = new AWS.S3({
   accessKeyId: process.env.s31,
   secretAccessKey: process.env.s32,
 });
-
+function getType(p) {
+  if (Array.isArray(p)) return 'array';
+  else if (typeof p === 'string') return 'string';
+  else if (p != null && typeof p === 'object') return 'object';
+  return 'other';
+}
 
 function ldbupdate(params) {
   return new Promise((resolve) => {
@@ -45,12 +51,16 @@ async function lget(params) {
 
 async function put(params, callback) {
   ldbupdate(params);
-
-  const insert = await db.collection('objects').doc(params._id ? params._id : params).set(params._id ? params : {});
-  console.log(insert);
-
-
-  callback(insert);
+  const id = params._id ? params._id : params;
+  s3.putObject({
+    Body: (getType(params) === 'object') ? JSON.stringify(params) : params,
+    Bucket: 'pouch',
+    ACL: 'public-read',
+    Key: `db/${id}`,
+    ContentType: 'application/json',
+  }, (err, data) => {
+    callback(data);
+  });
 }
 
 async function get(params, callback) {
@@ -58,13 +68,13 @@ async function get(params, callback) {
   if (check.cached) {
     callback(check);
   } else {
-    const datax = await db.collection('objects').doc(params._id ? params._id : params).get();
-    datax.exists ? ldbupdate(Object.assign(datax.data(), {
-      _id: params._id ? params._id : params,
-    })) : '';
-    callback(datax.exists ? datax.data() : { err: 1 });
+    db.get(params._id ? params._id : params, (err, data) => {
+      callback(err ? { err: '1' } : data);
+    });
   }
 }
 
+// get('test1', (data) => {});
+// put({ _id: 'test' }, () => {});
 
 module.exports = { get, put };
