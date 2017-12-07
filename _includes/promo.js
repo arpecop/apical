@@ -18,7 +18,6 @@ function post(json, callback) {
       docs,
       (fr, cb) => {
         const item = _.shuffle(json.latest)[0];
-        console.log(item);
         if (item.value.title.length > 5) {
           arr.push({
             method: 'POST',
