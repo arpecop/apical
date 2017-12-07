@@ -10,7 +10,7 @@ const _ = require('lodash');
 const PouchDB = require('pouchdb');
 
 const db = new PouchDB('http://pouchdb.herokuapp.com/api');
-
+const db1 = new PouchDB('http://pouchdb.herokuapp.com/db');
 function post(json, callback) {
   const arr = [];
   pouch.gimmethousend(json.app, (docs) => {
@@ -74,7 +74,7 @@ function post(json, callback) {
 function scheduled_post(json, callback) {
   // dbx, preurl, token, usersdb
 
-  db
+  db1
     .query(`i/${json.db}`, {
       limit: 100,
       descending: true,
