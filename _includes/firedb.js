@@ -2,12 +2,7 @@ const levelup = require('levelup');
 const leveldown = require('leveldown');
 
 const localdb = levelup(leveldown('/tmp/fire'));
-const admin = require('firebase-admin');
 
-const serviceAccount = require(`${__dirname}/rudixfiredb.json`);
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-});
 // const db = admin.firestore();
 const db = require('nano')('https://pouch.nyc3.digitaloceanspaces.com/db/');
 const AWS = require('aws-sdk');

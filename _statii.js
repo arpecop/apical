@@ -17,7 +17,7 @@ const s3 = new AWS.S3({
 const localdb = levelup(leveldown('/tmp/localx'));
 
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
-const db = require('nano')('http://pouchdb.herokuapp.com/api/');
+// const db = require('nano')('http://pouchdb.herokuapp.com/api/');
 const db1 = require('nano')('https://pouch.nyc3.digitaloceanspaces.com/db/');
 // const pagestoget = require (`${__dirname}/_includes/source.json`);
 // const pages = require(`${__dirname}/_includes/pages.json`);
