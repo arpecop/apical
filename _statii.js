@@ -31,6 +31,21 @@ const client = new Twitter({
   access_token_secret: clientcred[3],
 });
 
+const tokens = [
+  '210665145671703|2GFZgdD3y5uR2I-GfxvzIncSjRY',
+  '1776695622588995|k60zRml6f3HxHufsUzGCnGX1m2U',
+  '767881309896992|QqTxcQFDCBx5KfE2Ap4EKZfYEsc',
+  '127550380613969|eH3FkmqOZV8Y5HO12V1yU1wm63s',
+  '1626293370948828|UZw8jNqS7NSFYpape_fR2xjx1K4',
+  '925645240820290|QiKOZd7-6lSKZHB2KFeP1_BiM4E',
+  '146470212065341|lj4ImMpgMkFzmkKN3rQWJU5cGB0',
+  '368897760172030|K9B3e77oCGfnYG6_k_txCfcUBG8',
+  '646098862244678|4WrxTQays9OoJa2PmVaiN3e-tyg',
+  '177579968987113|m1mxZVGLJOSN8DxjnyotKakgKOs',
+  '1803576159873324|EioW4GdMxJbBAHSrn-KhFana4eE',
+  '260256070983293|2710385e8b869f36f79d3b0bc0d1df75',
+];
+
 async function tweet(arritem) {
   return new Promise((resolve) => {
     if (arritem[0]) {
@@ -108,7 +123,8 @@ async function get_pages(file) {
     async.each(
       pagestoget.rows,
       (itemx, cb) => {
-        request(`http://sharlem.herokuapp.com/fbfeed/${itemx.id}`, (error, response, body) => {
+        request(`https://graph.facebook.com/${itemx.id}/feed?access_token=${_.shuffle(tokens)[0]}&fields=id,type&limit=50`, (error, response, body) => {
+        // request(`http://sharlem.herokuapp.com/fbfeed/${itemx.id}`, (error, response, body) => {
           if (!error && response.statusCode === 200) {
             arr = arr.concat(JSON.parse(body).data);
             cb();

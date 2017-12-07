@@ -9,12 +9,22 @@ admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
 const db = admin.firestore();
+const AWS = require('aws-sdk');
+
+const s3 = new AWS.S3({
+  endpoint: new AWS.Endpoint('nyc3.digitaloceanspaces.com'),
+  accessKeyId: process.env.s31,
+  secretAccessKey: process.env.s32,
+});
+
 
 function ldbupdate(params) {
   return new Promise((resolve) => {
     localdb.put(
       params._id ? params._id : params,
-      params._id ? JSON.stringify(Object.assign(params, { cached: true })) : '{"cached":true}', () => {
+      params._id ? JSON.stringify(Object.assign(params, {
+        cached: true,
+      })) : '{"cached":true}', () => {
         resolve({});
       },
     );
@@ -24,7 +34,11 @@ function ldbupdate(params) {
 async function lget(params) {
   return new Promise((resolve) => {
     localdb.get(params._id ? params._id : params, (err, data) => {
-      resolve(err ? { exists: false } : Object.assign(JSON.parse(data), { cached: true }));
+      resolve(err ? {
+        exists: false,
+      } : Object.assign(JSON.parse(data), {
+        cached: true,
+      }));
     });
   });
 }
@@ -45,7 +59,9 @@ async function get(params, callback) {
     callback(check);
   } else {
     const datax = await db.collection('objects').doc(params._id ? params._id : params).get();
-    datax.exists ? ldbupdate(Object.assign(datax.data(), { _id: params._id ? params._id : params })) : '';
+    datax.exists ? ldbupdate(Object.assign(datax.data(), {
+      _id: params._id ? params._id : params,
+    })) : '';
     callback(datax.exists ? datax.data() : { err: 1 });
   }
 }
