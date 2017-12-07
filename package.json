@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "vaudsdlt runnindsdg underground heroku lands",
     "engines": {
-        "node": "8.9.0"
+        "node": ">=9.2.0"
     },
     "dependencies": {
         "apicache": "^0.8.7",
@@ -18,12 +18,11 @@
         "express": "^4.16.2",
         "express-http-proxy": "^1.0.7",
         "express-pouchdb": "^2.3.7",
-        "firebase-admin": "^5.5.0",
         "har-validator": "^5.1.0",
         "html2json": "^1.0.2",
-        "level": "2.0.1",
-        "leveldown": "2.0.1",
-        "levelup": "2.0.1",
+        "level": "^2.0.1",
+        "leveldown": "^2.1.1",
+        "levelup": "^2.0.1",
         "md5": "^2.2.1",
         "nano": "^6.4.2",
         "node-pinterest": "0.0.4",

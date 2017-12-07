@@ -10,7 +10,7 @@ const async = require('async');
 const levelup = require('levelup');
 const leveldown = require('leveldown');
 
-const dbx = levelup(leveldown('/tmp/xx'));
+const dbx = levelup(leveldown('/tmp/xx11'));
 // 1) Create our store
 
 //
@@ -22,6 +22,7 @@ async function gimmethousend(db, callback) {
   dbx.get(`next${db}`, (err, next) => {
     if (err) {
       allusers.get(`0_${db}`, (err, count) => {
+        console.log(err);
         const whatever = _.flatten(new Array(150).fill(_.shuffle(_.keys(new Array(count.total).join('0').split(''))), ), ).map((val, _id) => ({
           _id,
           val,
@@ -60,8 +61,7 @@ async function gimmethousend(db, callback) {
 }
 
 if (!process.env.PORT) {
-  // gimmethousend('bgusers', (data) => {
-  // });
+  gimmethousend('bgusers', (data) => {});
 }
 
 module.exports = {
