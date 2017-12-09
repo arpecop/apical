@@ -71,11 +71,9 @@ function post(json, callback) {
 }
 
 function scheduled_post(json, callback) {
-  // dbx, preurl, token, usersdb
-
   db1
     .query(`i/${json.db}`, {
-      limit: 10,
+      limit: json.limit,
       descending: true,
     })
     .then((doc) => {
