@@ -7,6 +7,7 @@ const get = require('request-promise');
 const async = require('async');
 const _ = require('underscore');
 const AWS = require('aws-sdk');
+const pages = require('./_includes/sources/all_pages.json');
 
 const s3 = new AWS.S3({
   endpoint: new AWS.Endpoint('nyc3.digitaloceanspaces.com'),
@@ -68,30 +69,35 @@ async function tweet(arritem) {
 
 async function postPages(arritem) {
   return new Promise((resolve) => {
-    console.log(arritem[0]);
     if (arritem[0]) {
-      const pages = require('./_includes/sources/all_pages.json');
-      async.eachSeries(
-        pages,
-        (page, cb) => {
-        // `https://fbook.netlify.com/app/news/${arritem[0].id}
-          request.post(
-            {
-              url: 'https://graph.facebook.com/me/feed',
-              form: {
-                access_token: page.access_token,
-                link: `https://apps.facebook.com/izvestie/app/newsboy/${arritem[0].id}`,
+      request.post('https://graph.facebook.com/', {
+        form: {
+          access_token: _.shuffle(tokens)[0],
+          id: `https://apps.facebook.com/izvestie/app/newsboy/${arritem[0].id}`,
+          scrape: true,
+        },
+      }, () => {
+        async.each(
+          _.shuffle(pages),
+          (page, cb) => {
+            request.post(
+              {
+                url: 'https://graph.facebook.com/me/feed',
+                form: {
+                  access_token: page.access_token,
+                  link: `https://apps.facebook.com/izvestie/app/newsboy/${arritem[0].id}`,
+                },
               },
-            },
-            (err, httpResponse, body) => {
-              console.log(body);
-              cb();
-            }
-          );
-        }, () => {
-          resolve();
-        }
-      );
+              (err, httpResponse, body) => {
+                console.log(body);
+                cb();
+              }
+            );
+          }, () => {
+            resolve();
+          }
+        );
+      });
     } else {
       resolve();
     }
