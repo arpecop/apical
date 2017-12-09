@@ -23,10 +23,7 @@ function post(json, callback) {
             method: 'POST',
             relative_url: `${fr}/notifications?href=${json.url}${item.id}&template=${item.value.title} ${item.value.desc ? item.value.desc : ''}`,
           });
-          arr.push({
-            method: 'POST',
-            relative_url: `${fr}/apprequests?message=${item.value.title} ${item.value.desc ? item.value.desc : ''}`,
-          });
+          // arr.push({method: 'POST',relative_url: `${fr}/apprequests?message=${item.value.title} ${item.value.desc ? item.value.desc : ''}`,});
 
           cb();
         } else {
