@@ -155,7 +155,7 @@ async function get_fresh_ones(posts, type) {
           populatedb(post.id, (exist) => {
             if (exist && post.type === type) {
               get({
-                uri: `http://sharlem.herokuapp.com/fb/${post.id}`,
+                uri: `https://graph.facebook.com/${post.id}?access_token=${_.shuffle(tokens)[0]}`,
                 transform(body) {
                   return JSON.parse(body);
                 },
