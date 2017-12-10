@@ -63,9 +63,16 @@ function html2json(html, callback) {
       const text = [];
 
       const tid = [];
+      let image = null;
       const tidkey = ['x', 'username', 'hashtag', 'id', 'url', 'photo'];
       const doubles = file.child.map((item) => {
-        if (item.text) {
+        if (item.child) {
+          if (item.child[0].attr) {
+            // console.log(item.child[0]);
+            image = item.child[0].attr['data-srcset'];
+          }
+          return {};
+        } else if (item.text) {
           text.push(item.text);
           return {};
         } else if (item.node.element) {
@@ -88,6 +95,7 @@ function html2json(html, callback) {
       if (tweet.length > 15) {
         arr.push(Object.assign(...doubles, ...tid, {
           tweet: text.join(' '),
+          image: image ? decodeURIComponent(image[0]) : null,
         }));
         cb();
       } else {
