@@ -2,44 +2,6 @@ const cluster = require('cluster');
 
 const port = process.env.PORT || 3000;
 
-const train = [
-  {
-    db: 'newsen',
-    url: 'n/news/',
-    tok: process.env.article_token,
-    app: 'poparticles',
-    limit: 10,
-  },
-  {
-    db: 'newsen', // view to retrieve latest post and send the title
-    url: 'n/news/', // before the _id
-    tok: process.env.mystbox_token,
-    app: 'mystic',
-    limit: 10,
-  },
-  {
-    db: 'newsen', // view to retrieve latest post and send the title
-    url: 'n/news/', // before the _id
-    tok: process.env.cookie_token,
-    app: 'cookie',
-    limit: 10,
-  },
-  {
-    db: 'promoted_bg', // view to retrieve latest post and send the titleds
-    url: '', // before the _id
-    tok: process.env.izvestie_token,
-    app: 'bgusers',
-    limit: 200,
-  },
-  {
-    db: 'newsbg', // view to retrieve latest post and send the title
-    url: 'app/newsboy/', // before the _id
-    tok: process.env.izvestie_token,
-    app: 'bgusers',
-    limit: 10,
-  },
-];
-console.log(process.env.LOGNAME);
 if (cluster.isMaster) {
   cluster.fork();
 
@@ -63,15 +25,52 @@ if (cluster.isMaster) {
   setTimeout(() => {
     console.log('slow dyno');
     process.exit(0);
-  }, 60000);
+  }, 160000);
 
   if (
     process.env.appslug === 'apicall1' ||
     process.env.appslug === 'apicall2' ||
     process.env.appslug === 'apicall3' ||
     process.env.appslug === 'apicall4' ||
-    process.env.LOGNAME === 'rudix'
+    process.env.LOGNAME === 'rudix1'
   ) {
+    const train = [
+      {
+        db: 'twitteren',
+        url: 'n/news/',
+        tok: process.env.article_token,
+        app: 'poparticles',
+        limit: 10,
+      },
+      {
+        db: 'twitteren', // view to retrieve latest post and send the title
+        url: 'n/news/', // before the _id
+        tok: process.env.mystbox_token,
+        app: 'mystic',
+        limit: 10,
+      },
+      {
+        db: 'twitteren', // view to retrieve latest post and send the title
+        url: 'n/news/', // before the _id
+        tok: process.env.cookie_token,
+        app: 'cookie',
+        limit: 10,
+      },
+      {
+        db: 'promoted_bg', // view to retrieve latest post and send the titleds
+        url: '', // before the _id
+        tok: process.env.izvestie_token,
+        app: 'bgusers',
+        limit: 200,
+      },
+      {
+        db: 'twitterbg', // view to retrieve latest post and send the title
+        url: 'app/newsboy/', // before the _id
+        tok: process.env.izvestie_token,
+        app: 'bgusers',
+        limit: 10,
+      },
+    ];
     async.eachSeries(
       train,
       (val, cb) => {
