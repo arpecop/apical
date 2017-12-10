@@ -18,7 +18,8 @@ function post(json, callback) {
       docs,
       (fr, cb) => {
         const item = _.shuffle(json.latest)[0];
-        if (item.value.title.length > 5) {
+
+        if (item.value.tweet.length > 20) {
           arr.push({
             method: 'POST',
             relative_url: `${fr}/notifications?href=${json.url}${item.id}&template=${item.value.title} ${item.value.desc ? item.value.desc : ''}`,
