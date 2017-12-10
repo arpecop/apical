@@ -36,6 +36,7 @@ function post(json, callback) {
       () => {
         let count = 0;
         let counterr = 0;
+        console.log(arr);
         async.each(
           _.chunk(arr, 50),
           (chunk, cb) => {
