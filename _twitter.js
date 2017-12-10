@@ -64,9 +64,17 @@ function html2json(html, callback) {
 
       const tid = [];
       let image = null;
+      let description = null;
+
       const tidkey = ['x', 'username', 'hashtag', 'id', 'url', 'photo'];
       const doubles = file.child.map((item) => {
-        if (item.text) {
+        if (item.child && item.child[0].attr) {
+          image = item.child[0].attr['data-srcset'];
+          return {};
+        } else if (item.child && item.child[0].text && !item.child[0].text.includes('http') && item.child[0].text.length > 40) {
+          description = item.child[0].text;
+          return {};
+        } else if (item.text) {
           text.push(item.text);
           return {};
         } else if (item.node.element) {
@@ -79,12 +87,6 @@ function html2json(html, callback) {
           });
 
           return {};
-        } else if (item.child) {
-          if (item.child[0].attr) {
-            // console.log(item.child[0]);
-            image = item.child[0].attr['data-srcset'];
-          }
-          return {};
         }
         return item;
       });
@@ -94,6 +96,7 @@ function html2json(html, callback) {
         arr.push(Object.assign(...doubles, ...tid, {
           tweet: text.join(' '),
           image: image ? decodeURIComponent(image[0]) : null,
+          description,
         }));
         cb();
       } else {
@@ -110,6 +113,11 @@ function html2json(html, callback) {
 //
 // http://maps.googleapis.com/maps/api/geocode/json?address=dobrich&sensor=false
 async function get_fresh_ones(posts, type) {
+  posts.forEach((element) => {
+    if (element.description) {
+      // console.log(element);
+    }
+  });
   const arr = [];
   return new Promise((resolve) => {
     async.each(
