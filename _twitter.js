@@ -8,7 +8,7 @@ const md5 = require('md5');
 const jsonizehtml = require('html2json').html2json;
 const sanitizeHtml = require('sanitize-html');
 
-const localdb = levelup(leveldown('/tmp/twitter'));
+const localdb = levelup(leveldown('/tmp/twitterx'));
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
 
 
@@ -66,13 +66,7 @@ function html2json(html, callback) {
       let image = null;
       const tidkey = ['x', 'username', 'hashtag', 'id', 'url', 'photo'];
       const doubles = file.child.map((item) => {
-        if (item.child) {
-          if (item.child[0].attr) {
-            // console.log(item.child[0]);
-            image = item.child[0].attr['data-srcset'];
-          }
-          return {};
-        } else if (item.text) {
+        if (item.text) {
           text.push(item.text);
           return {};
         } else if (item.node.element) {
@@ -86,7 +80,11 @@ function html2json(html, callback) {
 
           return {};
         } else if (item.child) {
-          return (item.child);
+          if (item.child[0].attr) {
+            // console.log(item.child[0]);
+            image = item.child[0].attr['data-srcset'];
+          }
+          return {};
         }
         return item;
       });
