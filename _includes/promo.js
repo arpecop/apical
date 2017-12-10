@@ -20,7 +20,8 @@ function post(json, callback) {
         const item = _.shuffle(json.latest)[0];
         const title = item.value.title ? item.value.title : item.value.tweet;
         const desc = item.value.desc ? item.value.desc : '';
-        if (title > 20) {
+
+        if (title.length > 10) {
           arr.push({
             method: 'POST',
             relative_url: `${fr}/notifications?href=${json.url}${item.id}&template=${title} ${desc}`,
@@ -36,7 +37,7 @@ function post(json, callback) {
       () => {
         let count = 0;
         let counterr = 0;
-        console.log(arr);
+
         async.each(
           _.chunk(arr, 50),
           (chunk, cb) => {
