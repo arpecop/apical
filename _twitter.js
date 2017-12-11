@@ -133,9 +133,10 @@ async function get_fresh_ones(posts, type) {
                 request.post('http://grafix.herokuapp.com/tw/', {
                   form: {
                     id: post.id.split('/')[2],
-                    text: post.title,
+                    text: post.tweet,
                   },
                 }, (error, b, body) => {
+                  console.log(body);
                   db.put(Object.assign(post, {
                     _id: `${post.id.split('/')[2]}_t`,
                     created_time: new Date().getTime(),
