@@ -121,7 +121,7 @@ async function get_fresh_ones(posts, type) {
   });
   const arr = [];
   return new Promise((resolve) => {
-    async.each(
+    async.eachSeries(
       posts,
       (post, cb) => {
         populatedb(post.id, (exist) => {
