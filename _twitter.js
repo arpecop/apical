@@ -95,6 +95,7 @@ function html2json(html, callback) {
       if (tweet.length > 15) {
         arr.push(Object.assign(...doubles, ...tid, {
           tweet: text.join(' '),
+          title: text.join(' '),
           image: image ? decodeURIComponent(image[0]) : null,
           description,
         }));
@@ -115,7 +116,7 @@ function html2json(html, callback) {
 async function get_fresh_ones(posts, type) {
   posts.forEach((element) => {
     if (element.description) {
-      // console.log(element);
+      console.log(element);
     }
   });
   const arr = [];
