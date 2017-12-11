@@ -130,13 +130,20 @@ async function get_fresh_ones(posts, type) {
               _id: md5(post.id),
             }, (errx) => {
               if (!errx) {
-                db.put(Object.assign(post, {
-                  _id: `${post.id.split('/')[2]}_t`,
-                  created_time: new Date().getTime(),
-                  tid: post.id.split('/')[2],
-                  type,
-                }), (err, nonerr) => {
-                  cb();
+                request.post('http://grafix.herokuapp.com/tw/', {
+                  form: {
+                    id: post.id.split('/')[2],
+                    text: post.title,
+                  },
+                }, (error, b, body) => {
+                  db.put(Object.assign(post, {
+                    _id: `${post.id.split('/')[2]}_t`,
+                    created_time: new Date().getTime(),
+                    tid: post.id.split('/')[2],
+                    type,
+                  }), (err, nonerr) => {
+                    cb();
+                  });
                 });
               } else {
                 cb();

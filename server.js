@@ -93,7 +93,7 @@ if (cluster.isMaster) {
     const twitter = require('./_twitter.js');
     const pr0gramm = require('./_pr0gramm.js');
     const tout = 1000;
-
+    // statii.statiiBg , kartinkiEn , statiiEn
     async.series(
       [
         (cb) => {
