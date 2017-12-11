@@ -25,7 +25,7 @@ if (cluster.isMaster) {
   setTimeout(() => {
     console.log('slow dyno');
     process.exit(0);
-  }, 160000);
+  }, 960000);
 
   if (
     process.env.appslug === 'apicall1' ||
