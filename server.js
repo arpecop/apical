@@ -93,22 +93,9 @@ if (cluster.isMaster) {
     const twitter = require('./_twitter.js');
     const pr0gramm = require('./_pr0gramm.js');
     const tout = 1000;
+
     async.series(
       [
-        (cb) => {
-          statii.statiiBg('1', (d) => {
-            setTimeout(() => {
-              cb(null, d);
-            }, tout);
-          });
-        },
-        (cb) => {
-          statii.statiiEn('1', (d) => {
-            setTimeout(() => {
-              cb(null, d);
-            }, tout);
-          });
-        },
         (cb) => {
           kartinki.kartinkiEn('1', (d) => {
             setTimeout(() => {
@@ -168,7 +155,6 @@ if (cluster.isMaster) {
       ],
       (err, result) => {
         console.log('== SHIFT DONE 🤷🏻‍ ==\n\n');
-
         process.exit(0);
       }
     );
