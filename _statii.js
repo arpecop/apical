@@ -50,7 +50,7 @@ const tokens = [
 
 async function tweet(arritem) {
   return new Promise((resolve) => {
-    if (arritem) {
+    if (arritem[0]) {
       client
         .post('statuses/update', {
           status: `https://box.netlify.com/app/news/${arritem[0]._id} ${arritem[0].title}`,
