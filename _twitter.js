@@ -192,6 +192,7 @@ async function gowork(params, callback) {
   const freshEn = await get_fresh_ones(allEn, 'twitteren');
   const freshBg = await get_fresh_ones(allBg, 'twitterbg');
   console.log(freshBg);
+  const postx = await statii.tweet(freshEn);
   const post = await statii.tweet(freshBg);
   console.log('done');
   callback({});
