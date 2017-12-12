@@ -117,7 +117,13 @@ async function get_fresh_ones(posts, type) {
             db.put({
               _id: md5(post.id),
             }, (errx) => {
-              if (!errx) {
+              if (!errx) { // !errx
+                const objectDefined = Object.assign(post, {
+                  _id: `${post.id.split('/')[2]}_t`,
+                  created_time: post.id.split('/')[2],
+                  tid: post.id.split('/')[2],
+                  type,
+                });
                 request.get(`https://pouch.nyc3.digitaloceanspaces.com/tw/${post.id.split('/')[2]}.png`, (err, x, h) => {
                   if (err) {
                     request.post('http://grafix.herokuapp.com/tw/', {
@@ -126,23 +132,14 @@ async function get_fresh_ones(posts, type) {
                         text: post.tweet,
                       },
                     }, (error, b, body) => {
-                      // same down
-                      db.put(Object.assign(post, {
-                        _id: `${post.id.split('/')[2]}_t`,
-                        created_time: post.id.split('/')[2],
-                        tid: post.id.split('/')[2],
-                        type,
-                      }), (err, nonerr) => {
+                      arr.push(objectDefined);
+                      db.put(objectDefined, (err, nonerr) => {
                         cb();
                       });
                     });
                   } else {
-                    db.put(Object.assign(post, {
-                      _id: `${post.id.split('/')[2]}_t`,
-                      created_time: post.id.split('/')[2],
-                      tid: post.id.split('/')[2],
-                      type,
-                    }), (err, nonerr) => {
+                    arr.push(objectDefined);
+                    db.put(objectDefined, (err, nonerr) => {
                       cb();
                     });
                   }
@@ -157,7 +154,7 @@ async function get_fresh_ones(posts, type) {
         });
       },
       () => {
-        resolve();
+        resolve(arr);
       },
     );
   });
