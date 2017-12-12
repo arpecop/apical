@@ -191,10 +191,9 @@ async function gowork(params, callback) {
   const allBg = [].concat.apply([], await Promise.all(timelinesArr.bg.map(async name => await getTl(name))));
   const freshEn = await get_fresh_ones(allEn, 'twitteren');
   const freshBg = await get_fresh_ones(allBg, 'twitterbg');
-  console.log(freshBg);
-  const postx = await statii.tweet(freshEn);
-  const post = await statii.tweet(freshBg);
-  const postPagesx = await statii.postPages(freshBg);
+  await statii.tweet(freshEn);
+  await statii.tweet(freshBg);
+  await statii.postPages(freshBg);
   console.log('== D O N E   T W I T T E R ==');
   callback({});
 }
