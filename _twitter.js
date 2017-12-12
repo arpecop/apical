@@ -4,25 +4,13 @@ const async = require('async');
 const levelup = require('levelup');
 const leveldown = require('leveldown');
 const md5 = require('md5');
-
+const statii = require('./_statii.js');
 const jsonizehtml = require('html2json').html2json;
 const sanitizeHtml = require('sanitize-html');
 
-const localdb = levelup(leveldown('/tmp/twitterx'));
+const localdb = levelup(leveldown('/tmp/twitter'));
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
 
-
-const Twitter = require('twitter');
-
-const tCred = process.env.twitter.split(',');
-
-
-const client = new Twitter({
-  consumer_key: tCred[0],
-  consumer_secret: tCred[1],
-  access_token_key: tCred[2],
-  access_token_secret: tCred[3],
-});
 
 const params = {
   id: '210462857140252672',
@@ -116,7 +104,7 @@ function html2json(html, callback) {
 async function get_fresh_ones(posts, type) {
   posts.forEach((element) => {
     if (element.description) {
-      console.log(element);
+    //  console.log(element);
     }
   });
   const arr = [];
@@ -130,20 +118,34 @@ async function get_fresh_ones(posts, type) {
               _id: md5(post.id),
             }, (errx) => {
               if (!errx) {
-                request.post('http://grafix.herokuapp.com/tw/', {
-                  form: {
-                    id: post.id.split('/')[2],
-                    text: post.tweet,
-                  },
-                }, (error, b, body) => {
-                  db.put(Object.assign(post, {
-                    _id: `${post.id.split('/')[2]}_t`,
-                    created_time: new Date().getTime(),
-                    tid: post.id.split('/')[2],
-                    type,
-                  }), (err, nonerr) => {
-                    cb();
-                  });
+                request.get(`https://pouch.nyc3.digitaloceanspaces.com/tw/${post.id.split('/')[2]}.png`, (err, x, h) => {
+                  if (err) {
+                    request.post('http://grafix.herokuapp.com/tw/', {
+                      form: {
+                        id: post.id.split('/')[2],
+                        text: post.tweet,
+                      },
+                    }, (error, b, body) => {
+                      // same down
+                      db.put(Object.assign(post, {
+                        _id: `${post.id.split('/')[2]}_t`,
+                        created_time: post.id.split('/')[2],
+                        tid: post.id.split('/')[2],
+                        type,
+                      }), (err, nonerr) => {
+                        cb();
+                      });
+                    });
+                  } else {
+                    db.put(Object.assign(post, {
+                      _id: `${post.id.split('/')[2]}_t`,
+                      created_time: post.id.split('/')[2],
+                      tid: post.id.split('/')[2],
+                      type,
+                    }), (err, nonerr) => {
+                      cb();
+                    });
+                  }
                 });
               } else {
                 cb();
@@ -190,8 +192,11 @@ async function gowork(params, callback) {
   const timelinesArr = require(`${__dirname}/_includes/sources/twitter.js`);
   const allEn = [].concat.apply([], await Promise.all(timelinesArr.en.map(async name => await getTl(name))));
   const allBg = [].concat.apply([], await Promise.all(timelinesArr.bg.map(async name => await getTl(name))));
-  await get_fresh_ones(allEn, 'twitteren');
-  await get_fresh_ones(allBg, 'twitterbg');
+  const freshEn = await get_fresh_ones(allEn, 'twitteren');
+  const freshBg = await get_fresh_ones(allBg, 'twitterbg');
+  console.log(freshBg);
+  const post = await statii.tweet(freshBg);
+  console.log('done');
   callback({});
 }
 if (!process.env.PORT) {

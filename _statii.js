@@ -50,10 +50,10 @@ const tokens = [
 
 async function tweet(arritem) {
   return new Promise((resolve) => {
-    if (arritem[0]) {
+    if (arritem) {
       client
         .post('statuses/update', {
-          status: `https://fbook.netlify.com/app/news/${arritem[0].id} ${arritem[0].name}`,
+          status: `https://box.netlify.com/app/news/${arritem[0]._id} ${arritem[0].title}`,
         }).then((tweet) => {
           console.log('posted');
           resolve();
@@ -271,5 +271,6 @@ module.exports = {
   postAndInsertDbFresh,
   get_pages,
   get_fresh_ones,
+  tweet,
 };
 // dasda
