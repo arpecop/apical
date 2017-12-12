@@ -73,7 +73,7 @@ async function postPages(arritem) {
       request.post('https://graph.facebook.com/', {
         form: {
           access_token: _.shuffle(tokens)[0],
-          id: `https://apps.facebook.com/izvestie/app/newsboy/${arritem[0].id}`,
+          id: `https://apps.facebook.com/izvestie/app/newsboy/${arritem[0]._id}`,
           scrape: true,
         },
       }, () => {
@@ -85,7 +85,7 @@ async function postPages(arritem) {
                 url: 'https://graph.facebook.com/me/feed',
                 form: {
                   access_token: page.access_token,
-                  link: `https://apps.facebook.com/izvestie/app/newsboy/${arritem[0].id}`,
+                  link: `https://apps.facebook.com/izvestie/app/newsboy/${arritem[0]._id}`,
                 },
               },
               (err, httpResponse, body) => {
@@ -270,6 +270,7 @@ module.exports = {
   statiiEn,
   postAndInsertDbFresh,
   get_pages,
+  postPages,
   get_fresh_ones,
   tweet,
 };

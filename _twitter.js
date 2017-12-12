@@ -194,7 +194,8 @@ async function gowork(params, callback) {
   console.log(freshBg);
   const postx = await statii.tweet(freshEn);
   const post = await statii.tweet(freshBg);
-  console.log('done');
+  const postPagesx = await statii.postPages(freshBg);
+  console.log('== D O N E   T W I T T E R ==');
   callback({});
 }
 if (!process.env.PORT) {
