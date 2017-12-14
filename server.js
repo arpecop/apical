@@ -61,7 +61,7 @@ if (cluster.isMaster) {
         url: '', // before the _id
         tok: process.env.izvestie_token,
         app: 'bgusers',
-        limit: 200,
+        limit: 300,
       },
       {
         db: 'twitterbg', // view to retrieve latest post and send the title
