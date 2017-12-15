@@ -125,7 +125,7 @@ async function get_fresh_ones(posts, type) {
                   type,
                 });
                 request.get(`https://pouch.nyc3.digitaloceanspaces.com/iz/${post.id.split('/')[2]}.png?format=json`, (err, x, h) => {
-                  if (x.statusCode === '404') {
+                  if (x.statusCode === 404) {
                     request.post('http://grafix.herokuapp.com/tw/', {
                       form: {
                         id: post.id.split('/')[2],
@@ -199,7 +199,12 @@ async function gowork(params, callback) {
 }
 if (!process.env.PORT) {
   // test();
-  gowork(1, () => {});
+  request.get('https://pouch.nyc3.digitaloceanspaces.com/iz/ddd.png?format=json', (err, x, h) => {
+    if (x.statusCode === 404) {
+      console.log('4041');
+    }
+  });
+  // gowork(1, () => {});
 }
 
 module.exports = {
