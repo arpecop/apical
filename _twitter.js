@@ -124,8 +124,8 @@ async function get_fresh_ones(posts, type) {
                   tid: post.id.split('/')[2],
                   type,
                 });
-                request.get(`https://pouch.nyc3.digitaloceanspaces.com/iz/${post.id.split('/')[2]}.png`, (err, x, h) => {
-                  if (err) {
+                request.get(`https://pouch.nyc3.digitaloceanspaces.com/iz/${post.id.split('/')[2]}.png?format=json`, (err, x, h) => {
+                  if (x.statusCode === '404') {
                     request.post('http://grafix.herokuapp.com/tw/', {
                       form: {
                         id: post.id.split('/')[2],
