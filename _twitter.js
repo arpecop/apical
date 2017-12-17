@@ -128,7 +128,7 @@ async function get_fresh_ones(posts, type) {
                     objectDefined.tweet = objectDefined.title;
                     objectDefined.description = $('meta[property="og:description"]').attr('content');
                     objectDefined.image = $('meta[property="og:image"]').attr('content');
-
+                    console.log(objectDefined);
 
                     db.put(objectDefined, (err, nonerr) => {
                       cb();
