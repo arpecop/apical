@@ -105,7 +105,7 @@ function html2json(html, callback) {
 async function get_fresh_ones(posts, type) {
   const arr = [];
   return new Promise((resolve) => {
-    async.eachSeries(
+    async.each(
       posts,
       (post, cb) => {
         populatedb(post.id, (exist) => {
@@ -128,7 +128,7 @@ async function get_fresh_ones(posts, type) {
                     objectDefined.tweet = objectDefined.title;
                     objectDefined.description = $('meta[property="og:description"]').attr('content');
                     objectDefined.image = $('meta[property="og:image"]').attr('content');
-                    console.log(objectDefined);
+
 
                     db.put(objectDefined, (err, nonerr) => {
                       cb();
@@ -140,6 +140,7 @@ async function get_fresh_ones(posts, type) {
                   arr.push(objectDefined);
                 });
               } else {
+                console.log('inserted');
                 cb();
               }
             });
