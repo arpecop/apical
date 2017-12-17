@@ -7,8 +7,9 @@ const md5 = require('md5');
 const statii = require('./_statii.js');
 const jsonizehtml = require('html2json').html2json;
 const sanitizeHtml = require('sanitize-html');
+const cheerio = require('cheerio');
 
-const localdb = levelup(leveldown('/tmp/twitter'));
+const localdb = levelup(leveldown(process.env.PORT ? '/tmp/twitter' : `/tmp/${new Date()}`));
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
 
 
@@ -102,11 +103,6 @@ function html2json(html, callback) {
 //
 // http://maps.googleapis.com/maps/api/geocode/json?address=dobrich&sensor=false
 async function get_fresh_ones(posts, type) {
-  posts.forEach((element) => {
-    if (element.description) {
-    //  console.log(element);
-    }
-  });
   const arr = [];
   return new Promise((resolve) => {
     async.eachSeries(
@@ -117,32 +113,31 @@ async function get_fresh_ones(posts, type) {
             db.put({
               _id: md5(post.id),
             }, (errx) => {
-              if (!errx) { // !errx
+              if (!errx && post.url) { // !errx EDIT
                 const objectDefined = Object.assign(post, {
                   _id: `${post.id.split('/')[2]}_t`,
                   created_time: post.id.split('/')[2],
                   tid: post.id.split('/')[2],
                   type,
                 });
-                request.get(`https://pouch.nyc3.digitaloceanspaces.com/iz/${post.id.split('/')[2]}.png?format=json`, (err, x, h) => {
-                  if (x.statusCode === 404) {
-                    request.post('http://grafix.herokuapp.com/tw/', {
-                      form: {
-                        id: post.id.split('/')[2],
-                        text: post.tweet,
-                      },
-                    }, (error, b, body) => {
-                      arr.push(objectDefined);
-                      db.put(objectDefined, (err, nonerr) => {
-                        cb();
-                      });
-                    });
-                  } else {
-                    arr.push(objectDefined);
+                request.get(post.url, (err, x, h) => {
+                  // request.post('http://grafix.herokuapp.com/tw/', {
+                  if (x.statusCode === 200) {
+                    const $ = cheerio.load(h);
+                    objectDefined.title = $('meta[property="og:title"]').attr('content');
+                    objectDefined.tweet = objectDefined.title;
+                    objectDefined.description = $('meta[property="og:description"]').attr('content');
+                    objectDefined.image = $('meta[property="og:image"]').attr('content');
+
+
                     db.put(objectDefined, (err, nonerr) => {
                       cb();
                     });
+                  } else {
+                    cb();
                   }
+
+                  arr.push(objectDefined);
                 });
               } else {
                 cb();
@@ -199,12 +194,8 @@ async function gowork(params, callback) {
 }
 if (!process.env.PORT) {
   // test();
-  request.get('https://pouch.nyc3.digitaloceanspaces.com/iz/ddd.png?format=json', (err, x, h) => {
-    if (x.statusCode === 404) {
-      console.log('4041');
-    }
-  });
-  // gowork(1, () => {});
+
+  gowork(1, () => {});
 }
 
 module.exports = {
