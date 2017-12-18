@@ -57,8 +57,6 @@ function html2json(html, callback) {
 
       const tidkey = ['x', 'username', 'hashtag', 'id', 'url', 'photo'];
       const doubles = file.child.map((item) => {
-        console.log(JSON.stringify(item), '\n\n\n\n\n');
-
         if (item.child && item.child[0].attr) {
           image = item.child[0].attr['data-srcset'];
           return {};
@@ -122,14 +120,15 @@ async function get_fresh_ones(posts, type) {
                   tid: post.id.split('/')[2],
                   type,
                 });
+                console.log(objectDefined);
+
                 db.put(objectDefined, (err, nonerr) => {
                   cb();
                 });
-                //request.get(post.url, (err, x, h) => { if (x.statusCode === 200) { const $ = cheerio.load(h);
-                 
+                // request.get(post.url, (err, x, h) => { if (x.statusCode === 200) { const $ = cheerio.load(h);
 
-                  arr.push(objectDefined);
-                });
+
+                arr.push(objectDefined);
               } else {
                 console.log('inserted');
                 cb();
