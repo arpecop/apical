@@ -57,6 +57,8 @@ function html2json(html, callback) {
 
       const tidkey = ['x', 'username', 'hashtag', 'id', 'url', 'photo'];
       const doubles = file.child.map((item) => {
+        console.log(JSON.stringify(item), '\n\n\n\n\n');
+
         if (item.child && item.child[0].attr) {
           image = item.child[0].attr['data-srcset'];
           return {};
@@ -120,22 +122,11 @@ async function get_fresh_ones(posts, type) {
                   tid: post.id.split('/')[2],
                   type,
                 });
-                request.get(post.url, (err, x, h) => {
-                  // request.post('http://grafix.herokuapp.com/tw/', {
-                  if (x.statusCode === 200) {
-                    const $ = cheerio.load(h);
-                    objectDefined.title = $('meta[property="og:title"]').attr('content');
-                    objectDefined.tweet = objectDefined.title;
-                    objectDefined.description = $('meta[property="og:description"]').attr('content');
-                    objectDefined.image = $('meta[property="og:image"]').attr('content');
-
-
-                    db.put(objectDefined, (err, nonerr) => {
-                      cb();
-                    });
-                  } else {
-                    cb();
-                  }
+                db.put(objectDefined, (err, nonerr) => {
+                  cb();
+                });
+                //request.get(post.url, (err, x, h) => { if (x.statusCode === 200) { const $ = cheerio.load(h);
+                 
 
                   arr.push(objectDefined);
                 });
