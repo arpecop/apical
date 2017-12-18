@@ -47,6 +47,8 @@ function html2json(html, callback) {
   }));
   // ds
   const arr = [];
+  console.log('================================================');
+
   async.each(clean.child[5].child, (file, cb) => {
     if (file.tag === 'li') {
       const text = [];
@@ -56,18 +58,16 @@ function html2json(html, callback) {
       let description = null;
 
       const tidkey = ['x', 'username', 'hashtag', 'id', 'url', 'photo'];
-      const doubles = file.child.map((item) => {
+
+      const doubles = file.child.map((item, i) => {
         if (item.child && item.child[0].attr) {
           image = item.child[0].attr['data-srcset'];
-          return {};
-        } else if (item.child && item.child[0].text && !item.child[0].text.includes('http') && item.child[0].text.length > 40) {
-          description = item.child[0].text;
+        } else if (item.tag === 'a' && item.attr && item.attr.class && item.attr.class[0] && item.attr.class[0] === 'js-openLink') {
+          image = item.child[1] ? item.child[1].attr.src : null;
+          description = item.child[2] ? item.child[2].text : null;
           return {};
         } else if (item.text) {
           text.push(item.text);
-          return {};
-        } else if (item.node.element) {
-          tid.push(item.attr.attr);
           return {};
         } else if (item.attr.href) {
           const itemx = item.attr.href.replace('https://twitter.com/', '');
@@ -108,6 +108,8 @@ async function get_fresh_ones(posts, type) {
     async.each(
       posts,
       (post, cb) => {
+        console.log(post);
+
         populatedb(post.id, (exist) => {
           if (exist) { // exist only
             db.put({
