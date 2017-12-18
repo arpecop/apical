@@ -47,7 +47,7 @@ function html2json(html, callback) {
   }));
   // ds
   const arr = [];
-  console.log('================================================');
+
 
   async.each(clean.child[5].child, (file, cb) => {
     if (file.tag === 'li') {
@@ -85,7 +85,7 @@ function html2json(html, callback) {
         arr.push(Object.assign(...doubles, ...tid, {
           tweet: text.join(' '),
           title: text.join(' '),
-          image: image ? decodeURIComponent(image[0]) : null,
+          image,
           description,
         }));
         cb();
@@ -108,8 +108,6 @@ async function get_fresh_ones(posts, type) {
     async.each(
       posts,
       (post, cb) => {
-        console.log(post);
-
         populatedb(post.id, (exist) => {
           if (exist) { // exist only
             db.put({
@@ -122,7 +120,7 @@ async function get_fresh_ones(posts, type) {
                   tid: post.id.split('/')[2],
                   type,
                 });
-                console.log(objectDefined);
+
 
                 db.put(objectDefined, (err, nonerr) => {
                   cb();
@@ -132,7 +130,6 @@ async function get_fresh_ones(posts, type) {
 
                 arr.push(objectDefined);
               } else {
-                console.log('inserted');
                 cb();
               }
             });
