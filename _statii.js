@@ -130,7 +130,7 @@ async function get_pages(file) {
     async.each(
       pagestoget.rows,
       (itemx, cb) => {
-        request(`https://graph.facebook.com/${itemx.id}/feed?access_token=${_.shuffle(tokens)[0]}&fields=id,type&limit=50`, (error, response, body) => {
+        request(`https://graph.facebook.com/${itemx.id}/feed?access_token=${_.shuffle(tokens)[0]}&fields=id,type&limit=5`, (error, response, body) => {
         // request(`http://sharlem.herokuapp.com/fbfeed/${itemx.id}`, (error, response, body) => {
           if (!error && response.statusCode === 200) {
             arr = arr.concat(JSON.parse(body).data);
@@ -159,7 +159,7 @@ async function get_fresh_ones(posts, type) {
       (post, cb) => {
         if (post) {
           populatedb(post.id, (exist) => {
-            if (exist && post.type === type) {
+            if (!exist && post.type === type) { // fix on production
               get({
                 uri: `https://graph.facebook.com/${post.id}?access_token=${_.shuffle(tokens)[0]}`,
                 transform(body) {
@@ -214,6 +214,7 @@ async function postAndInsertDbFresh(arr, collectiondb) {
               ? decodeURIComponent(insertjson.full_picture.split('url=')[1].split('&')[0])
               : '';
             insertjson._id = `${new Date(insertjson.created_time).getTime()}_1`;
+            console.log(insertjson);
 
             db.put(insertjson, (err, nonerr) => {
               // post (insertjson._id, zzmata => {
@@ -224,6 +225,9 @@ async function postAndInsertDbFresh(arr, collectiondb) {
             const insertjson = item;
             insertjson.type = collectiondb;
             insertjson._id = `${new Date(insertjson.created_time).getTime()}_1`;
+            console.log(insertjson);
+
+
             db.put(insertjson, (err, nonerr) => {
               cb();
             });

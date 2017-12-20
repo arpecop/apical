@@ -45,8 +45,6 @@ async function post_to_bg(arritem) {
                   },
                 },
                 (e, m, body) => {
-                  console.log(body);
-
                   callbackx();
                 },
               );
@@ -65,10 +63,13 @@ async function post_to_bg(arritem) {
 async function kartinkiBg(params, callback) {
   const step1 = await statcore.get_pages('source_kartinki_bg');
   const getfresh = await statcore.get_fresh_ones(step1, 'photo');
+
+
   const ifarraypost = await statcore.postAndInsertDbFresh(
     getfresh,
     'bgimgsx',
   );
+
   // const postfirstarritem = await post_to_bg(ifarraypost[0]);
   console.log(`== D O N E  K A R T I N K I   B G ==${ifarraypost.length}`);
   callback(ifarraypost.length);
@@ -124,7 +125,7 @@ async function rebuildPinterest(callback) {
     });
 }
 if (!process.env.PORT) {
-  rebuildPinterest(() => {});
+  kartinkiBg('1', () => {});
 }
 
 module.exports = {
