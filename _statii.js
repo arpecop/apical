@@ -159,7 +159,7 @@ async function get_fresh_ones(posts, type) {
       (post, cb) => {
         if (post) {
           populatedb(post.id, (exist) => {
-            if (!exist && post.type === type) { // fix on production
+            if (exist && post.type === type) { // fix on production
               get({
                 uri: `https://graph.facebook.com/${post.id}?access_token=${_.shuffle(tokens)[0]}`,
                 transform(body) {
