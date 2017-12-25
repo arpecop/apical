@@ -92,7 +92,7 @@ if (cluster.isMaster) {
     const statii = require('./_statii.js');
     const twitter = require('./_twitter.js');
     const pr0gramm = require('./_pr0gramm.js');
-    const tout = 1000;
+    const tout = 0;
     // statii.statiiBg , kartinkiEn , statiiEn
     async.series(
       [
