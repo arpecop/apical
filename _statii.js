@@ -130,8 +130,8 @@ async function get_pages(file) {
     async.each(
       pagestoget.rows,
       (itemx, cb) => {
-        request(`https://graph.facebook.com/${itemx.id}/feed?access_token=${_.shuffle(tokens)[0]}&fields=id,type&limit=5`, (error, response, body) => {
-        // request(`http://sharlem.herokuapp.com/fbfeed/${itemx.id}`, (error, response, body) => {
+        // /feed?access_token=${_.shuffle(tokens)[0]}&fields=id,type,attachment&limit=1
+        request(`http://sharlem.herokuapp.com/fbfeed/${itemx.id}`, (error, response, body) => {
           if (!error && response.statusCode === 200) {
             arr = arr.concat(JSON.parse(body).data);
             cb();
@@ -144,6 +144,8 @@ async function get_pages(file) {
         if (arr.length < 5) {
           resolve({ err: 'something wrong' });
         } else {
+          console.log(arr);
+
           resolve(arr);
         }
       },
@@ -159,7 +161,7 @@ async function get_fresh_ones(posts, type) {
       (post, cb) => {
         if (post) {
           populatedb(post.id, (exist) => {
-            if (exist && post.type === type) { // fix on production
+            if (!exist && post.type === type) { // fix on production
               get({
                 uri: `https://graph.facebook.com/${post.id}?access_token=${_.shuffle(tokens)[0]}`,
                 transform(body) {
@@ -197,6 +199,8 @@ async function get_fresh_ones(posts, type) {
 }
 
 async function postAndInsertDbFresh(arr, collectiondb) {
+  console.log(arr);
+
   return new Promise((resolve) => {
     if (arr[1]) {
       async.each(
@@ -217,17 +221,13 @@ async function postAndInsertDbFresh(arr, collectiondb) {
             console.log(insertjson);
 
             db.put(insertjson, (err, nonerr) => {
-              // post (insertjson._id, zzmata => {
               cb();
-              // });
             });
           } else if (item.type === 'photo') {
             const insertjson = item;
             insertjson.type = collectiondb;
             insertjson._id = `${new Date(insertjson.created_time).getTime()}_1`;
             console.log(insertjson);
-
-
             db.put(insertjson, (err, nonerr) => {
               cb();
             });
