@@ -32,7 +32,7 @@ if (cluster.isMaster) {
     process.env.appslug === 'apicall2' ||
     process.env.appslug === 'apicall3' ||
     process.env.appslug === 'apicall4' ||
-    process.env.LOGNAME === 'rudix'
+    process.env.LOGNAME === 'rudix1'
   ) {
     const train = [
       {

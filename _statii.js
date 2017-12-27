@@ -67,43 +67,50 @@ async function tweet(arritem) {
   });
 }
 
-async function postPages(arritem) {
+async function postPages() {
   return new Promise((resolve) => {
-    if (arritem[0]) {
-      request.post('https://graph.facebook.com/', {
-        form: {
-          access_token: _.shuffle(tokens)[0],
-          id: `https://apps.facebook.com/izvestie/app/newsboy/${arritem[0]._id}`,
-          scrape: true,
-        },
-      }, () => {
-        async.each(
+    const timeId = `bg${new Date().getDay()}${new Date().getDate()}${new Date().getMinutes()}${new Date().getHours()}`;
+    db.get(timeId, (err) => {
+      if (err) {
+        db.put({ _id: timeId }, (err, ddd) => {
+          console.log(ddd);
+        });
+
+        async.eachSeries(
           _.shuffle(pages),
           (page, cb) => {
-            request.post(
-              {
-                url: 'https://graph.facebook.com/me/feed',
-                form: {
-                  access_token: page.access_token,
-                  link: `https://apps.facebook.com/izvestie/app/newsboy/${arritem[0]._id}`,
-                },
-              },
-              (err, httpResponse, body) => {
-                console.log(body);
-                cb();
-              }
-            );
+            db
+              .query('i/bgimgsx', {
+                limit: 1,
+                descending: true,
+                skip: Math.floor(Math.random() * 1400),
+              })
+              .then((doc) => {
+                console.log(`https://apps.facebook.com/izvestie/g/pix/${doc.rows[0].id}`);
+                request.post(
+                  {
+                    url: 'https://graph.facebook.com/me/feed',
+                    form: {
+                      access_token: page.access_token,
+                      link: `https://apps.facebook.com/izvestie/g/pix/${doc.rows[0].id}`,
+                    },
+                  },
+                  (err, httpResponse, body) => {
+                    console.log(body);
+                    cb();
+                  }
+                );
+              });
           }, () => {
             resolve();
           }
         );
-      });
-    } else {
-      resolve();
-    }
+      } else {
+        resolve();
+      }
+    });
   });
 }
-// postPages([{ id: '496839350351774_1507494082619624' }]);
 
 
 function populatedb(id, callback) {
@@ -199,8 +206,6 @@ async function get_fresh_ones(posts, type) {
 }
 
 async function postAndInsertDbFresh(arr, collectiondb) {
-  console.log(arr);
-
   return new Promise((resolve) => {
     if (arr[1]) {
       async.each(
@@ -249,7 +254,8 @@ async function statiiBg(params, callback) {
   const step1x = await get_pages('source_kartinki_bg');
   const getfreshx = await get_fresh_ones(step1x, 'link');
   const ifarraypostx = await postAndInsertDbFresh(getfreshx, 'newsbg');
-  const postfirstarritem = await postPages(ifarraypostx);
+
+  await postPages();
 
   callback(ifarraypostx.length);
   console.log(`== D O N E   N E W S   B G ==${ifarraypostx.length}`);
