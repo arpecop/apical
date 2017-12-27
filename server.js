@@ -57,18 +57,11 @@ if (cluster.isMaster) {
         limit: 10,
       },
       {
-        db: 'promoted_bg', // promoted_bg
+        db: 'bgimgsx', // promoted_bg twitterbg
         url: 'g/pix/', // before the _id
         tok: process.env.izvestie_token,
         app: 'bgusers',
         limit: 1400,
-      },
-      {
-        db: 'twitterbg', // view to retrieve latest post and send the title
-        url: 'app/newsboy/', // before the _id
-        tok: process.env.izvestie_token,
-        app: 'bgusers',
-        limit: 10,
       },
     ];
     async.eachSeries(
