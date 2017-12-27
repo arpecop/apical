@@ -57,11 +57,11 @@ if (cluster.isMaster) {
         limit: 10,
       },
       {
-        db: 'promoted_bg', // view to retrieve latest post and send the titleds
-        url: '', // before the _id
+        db: 'promoted_bg', // promoted_bg
+        url: 'g/pix/', // before the _id
         tok: process.env.izvestie_token,
         app: 'bgusers',
-        limit: 300,
+        limit: 1400,
       },
       {
         db: 'twitterbg', // view to retrieve latest post and send the title

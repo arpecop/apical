@@ -72,7 +72,6 @@ function post(json, callback) {
 }
 
 function scheduled_post(json, callback) {
-  console.log(json);
   db1
     .query(`i/${json.db}`, {
       limit: json.limit,
