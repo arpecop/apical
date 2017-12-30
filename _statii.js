@@ -69,7 +69,7 @@ async function tweet(arritem) {
 
 async function postPages() {
   return new Promise((resolve) => {
-    const timeId = `bg${new Date().getDay()}${new Date().getDate()}${new Date().getMinutes()}${new Date().getHours()}`;
+    const timeId = `bg${new Date().getDay()}${new Date().getDate()}${Math.round(new Date().getMinutes() / 5)}${new Date().getHours()}`;
     db.get(timeId, (err) => {
       if (err) {
         db.put({ _id: timeId }, (err, ddd) => {
@@ -106,6 +106,7 @@ async function postPages() {
           }
         );
       } else {
+        console.log('too often');
         resolve();
       }
     });
