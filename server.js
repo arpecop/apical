@@ -36,25 +36,25 @@ if (cluster.isMaster) {
   ) {
     const train = [
       {
-        db: 'twitteren',
-        url: 'n/news/',
+        db: 'enimgsx',
+        url: 'g/box/',
         tok: process.env.article_token,
         app: 'poparticles',
-        limit: 10,
+        limit: 2671,
       },
       {
-        db: 'twitteren', // view to retrieve latest post and send the title
-        url: 'n/news/', // before the _id
+        db: 'enimgsx', // view to retrieve latest post and send the title
+        url: 'g/box/', // before the _id
         tok: process.env.mystbox_token,
         app: 'mystic',
-        limit: 10,
+        limit: 2671,
       },
       {
-        db: 'twitteren', // view to retrieve latest post and send the title
-        url: 'n/news/', // before the _id
+        db: 'enimgsx', // view to retrieve latest post and send the title
+        url: 'g/box/', // before the _id
         tok: process.env.cookie_token,
         app: 'cookie',
-        limit: 10,
+        limit: 2671,
       },
       {
         db: 'bgimgsx', // promoted_bg twitterbg
