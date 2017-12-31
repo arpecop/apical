@@ -15,7 +15,7 @@ const s3 = new AWS.S3({
   secretAccessKey: process.env.s32,
 });
 
-const localdb = levelup(leveldown('/tmp/localx'));
+const localdb = levelup(leveldown('/tmp/localx1'));
 
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
 // const db = require('nano')('http://pouchdb.herokuapp.com/api/');
@@ -70,11 +70,9 @@ async function tweet(arritem) {
 async function postPages() {
   return new Promise((resolve) => {
     const timeId = `bg${new Date().getDay()}${new Date().getDate()}${Math.round(new Date().getMinutes() / 5)}${new Date().getHours()}`;
-    db.get(timeId, (err) => {
+    localdb.get(timeId, (err) => {
       if (err) {
-        db.put({ _id: timeId }, (err, ddd) => {
-          console.log(ddd);
-        });
+        localdb.put(`${timeId}`, 'c', (err, ddd) => {});
 
         async.eachSeries(
           _.shuffle(pages),
@@ -83,19 +81,20 @@ async function postPages() {
               .query('i/bgimgsx', {
                 limit: 1,
                 descending: true,
+                include_docs: true,
                 skip: Math.floor(Math.random() * 1400),
               })
               .then((doc) => {
-                console.log(`https://apps.facebook.com/izvestie/g/pix/${doc.rows[0].id}`);
                 request.post(
+                  'https://graph.facebook.com/me/photos',
                   {
-                    url: 'https://graph.facebook.com/me/feed',
                     form: {
+                      caption: `${doc.rows[0].value.title} https://apps.facebook.com/izvestie/g/pix/${doc.rows[0].id}`,
+                      url: `http://pouch.nyc3.digitaloceanspaces.com/db/${_.shuffle(doc.rows[0].doc.images)[0]}`,
                       access_token: page.access_token,
-                      link: `https://apps.facebook.com/izvestie/g/pix/${doc.rows[0].id}`,
                     },
                   },
-                  (err, httpResponse, body) => {
+                  (e, m, body) => {
                     console.log(body);
                     cb();
                   }
@@ -112,7 +111,7 @@ async function postPages() {
     });
   });
 }
-
+postPages();
 
 function populatedb(id, callback) {
   if (id) {
