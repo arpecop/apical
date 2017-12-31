@@ -89,7 +89,7 @@ async function postPages() {
                   'https://graph.facebook.com/me/photos',
                   {
                     form: {
-                      caption: `${doc.rows[0].value.title} https://apps.facebook.com/izvestie/g/pix/${doc.rows[0].id}`,
+                      caption: `${doc.rows[0].value.title}: https://apps.facebook.com/izvestie/g/pix/${doc.rows[0].id}`,
                       url: `http://pouch.nyc3.digitaloceanspaces.com/db/${_.shuffle(doc.rows[0].doc.images)[0]}`,
                       access_token: page.access_token,
                     },
