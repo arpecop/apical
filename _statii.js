@@ -70,10 +70,9 @@ async function tweet(arritem) {
 async function postPages() {
   return new Promise((resolve) => {
     const timeId = `bg${new Date().getDay()}${new Date().getDate()}${Math.round(new Date().getMinutes() / 5)}${new Date().getHours()}`;
-    localdb.get(timeId, (err) => {
+    localdb.get(`${timeId}1`, (err) => {
       if (err) {
         localdb.put(`${timeId}`, 'c', (err, ddd) => {});
-
         async.eachSeries(
           _.shuffle(pages),
           (page, cb) => {
@@ -90,7 +89,7 @@ async function postPages() {
                   {
                     form: {
                       caption: `${doc.rows[0].value.title}: https://box.netlify.com/izvestie/g/pix/${doc.rows[0].id}`,
-                      url: `http://pouch.nyc3.digitaloceanspaces.com/db/${_.shuffle(doc.rows[0].doc.images)[0]}`,
+                      url: `${_.shuffle(doc.rows[0].doc.images)[0]}`,
                       access_token: page.access_token,
                     },
                   },
@@ -111,7 +110,7 @@ async function postPages() {
     });
   });
 }
-postPages();
+
 
 function populatedb(id, callback) {
   if (id) {
@@ -159,7 +158,7 @@ async function get_pages(file) {
     );
   });
 }
-// ddd
+// postPages()
 async function get_fresh_ones(posts, type) {
   const arr = [];
   return new Promise((resolve) => {
