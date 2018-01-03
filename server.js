@@ -61,7 +61,7 @@ if (cluster.isMaster) {
         url: 'g/pix/', // before the _id
         tok: process.env.izvestie_token,
         app: 'bgusers',
-        limit: 1758,
+        limit: 2690,
       },
     ];
     async.eachSeries(
