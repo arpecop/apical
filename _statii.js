@@ -111,7 +111,7 @@ async function postPages() {
     });
   });
 }
-postPages();
+
 
 function populatedb(id, callback) {
   if (id) {
