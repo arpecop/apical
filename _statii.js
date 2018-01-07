@@ -85,11 +85,12 @@ async function postPages() {
               })
               .then((doc) => {
                 request.post(
-                  'https://graph.facebook.com/me/photos',
+                  'https://graph.facebook.com/me/feed',
                   {
                     form: {
-                      caption: `${doc.rows[0].value.title}: https://box.netlify.com/fb/izvestie/g/pix/${doc.rows[0].id}`,
-                      url: `${_.shuffle(doc.rows[0].doc.images)[0]}`,
+                      // caption: `${doc.rows[0].value.title}: https://box.netlify.com/fb/izvestie/g/pix/${doc.rows[0].id}`,
+                      // link: `${_.shuffle(doc.rows[0].doc.images)[0]}`, // url in photos
+                      link: `https://box.netlify.com/fb/izvestie/g/pix/${doc.rows[0].id}`,
                       access_token: page.access_token,
                     },
                   },
@@ -110,7 +111,7 @@ async function postPages() {
     });
   });
 }
-
+postPages();
 
 function populatedb(id, callback) {
   if (id) {
@@ -253,9 +254,7 @@ async function statiiBg(params, callback) {
   const step1x = await get_pages('source_kartinki_bg');
   const getfreshx = await get_fresh_ones(step1x, 'link');
   const ifarraypostx = await postAndInsertDbFresh(getfreshx, 'newsbg');
-
   await postPages();
-
   callback(ifarraypostx.length);
   console.log(`== D O N E   N E W S   B G ==${ifarraypostx.length}`);
 }
@@ -264,7 +263,6 @@ async function statiiBg(params, callback) {
 async function statiiEn(params, callback) {
   const step1 = await get_pages('en_source_statii');
   const getfresh = await get_fresh_ones(step1, 'link');
-
   const ifarraypost = await postAndInsertDbFresh(getfresh, 'newsenglish');
   const postfirstarritem = await tweet(ifarraypost);
   callback(ifarraypost.length);
