@@ -17,7 +17,7 @@ const s3 = new AWS.S3({
 
 const localdb = levelup(leveldown('/tmp/localx1'));
 
-const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
+const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/api');
 // const db = require('nano')('http://pouchdb.herokuapp.com/api/');
 
 // const pagestoget = require (`${__dirname}/_includes/source.json`);
@@ -69,49 +69,56 @@ async function tweet(arritem) {
 
 async function postPages() {
   return new Promise((resolve) => {
-    const timeId = `bg${new Date().getDay()}${new Date().getDate()}${Math.round(new Date().getMinutes() / 5)}${new Date().getHours()}`;
-    localdb.get(`${timeId}1`, (err) => {
-      if (err) {
-        localdb.put(`${timeId}`, 'c', (err, ddd) => {});
-        async.each(
-          _.shuffle(pages),
-          (page, cb) => {
-            db
-              .query('i/bgimgsx', {
-                limit: 1,
-                descending: true,
-                include_docs: true,
-                skip: Math.floor(Math.random() * 1400),
-              })
-              .then((doc) => {
-                request.post(
-                  'https://graph.facebook.com/me/feed',
-                  {
-                    form: {
+    const dx = Math.round(new Date().getHours());
+    console.log('hours', dx);
+    if (dx > 10) {
+      const timeId = `bg${new Date().getDay()}${new Date().getDate()}${Math.round(new Date().getMinutes() / 5)}${new Date().getHours()}`;
+      localdb.get(`${timeId}1`, (err) => {
+        if (err) {
+          localdb.put(`${timeId}`, 'c', (err, ddd) => {});
+          async.eachSeries(
+            _.shuffle(pages),
+            (page, cb) => {
+              db
+                .query('i/bgimgsx', {
+                  limit: 1,
+                  descending: true,
+                  include_docs: true,
+                  skip: Math.floor(Math.random() * 1400),
+                })
+                .then((doc) => {
+                  request.post(
+                    'https://graph.facebook.com/me/feed',
+                    {
+                      form: {
                       // caption: `${doc.rows[0].value.title}: https://box.netlify.com/fb/izvestie/g/pix/${doc.rows[0].id}`,
                       // link: `${_.shuffle(doc.rows[0].doc.images)[0]}`, // url in photos
-                      link: `https://box.netlify.com/fb/izvestie/g/pix/${doc.rows[0].id}`,
-                      access_token: page.access_token,
+                        link: `https://box.netlify.com/fb/izvestie/g/pix/${doc.rows[0].id}`,
+                        access_token: page.access_token,
+                      },
                     },
-                  },
-                  (e, m, body) => {
-                    console.log(body);
-                    cb();
-                  }
-                );
-              });
-          }, () => {
-            resolve();
-          }
-        );
-      } else {
-        console.log('too often');
-        resolve();
-      }
-    });
+                    (e, m, body) => {
+                      console.log(body);
+                      cb();
+                    }
+                  );
+                });
+            }, () => {
+              resolve();
+            }
+          );
+        } else {
+          console.log('too often');
+          resolve();
+        }
+      });
+    } else {
+      console.log('its late in Bulgaria');
+      resolve();
+    }
   });
 }
-
+postPages();
 
 function populatedb(id, callback) {
   if (id) {
