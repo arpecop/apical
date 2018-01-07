@@ -73,7 +73,7 @@ async function postPages() {
     localdb.get(`${timeId}1`, (err) => {
       if (err) {
         localdb.put(`${timeId}`, 'c', (err, ddd) => {});
-        async.eachSeries(
+        async.each(
           _.shuffle(pages),
           (page, cb) => {
             db

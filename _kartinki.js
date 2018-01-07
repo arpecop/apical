@@ -5,12 +5,9 @@ const request = require('request');
 const axios = require('axios');
 const PouchDB = require('pouchdb');
 const md5 = require('md5');
-
 const pages = require('./_includes/pages.json');
 
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
-
-//
 
 function sortByKey(array, key) {
   return array.sort((a, b) => {
