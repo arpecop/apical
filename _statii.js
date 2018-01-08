@@ -74,19 +74,20 @@ async function postPage1() {
     console.log(doc);
     // Math.floor(Math.random() * doc1.total_rows)
     request.post(
-      'https://maker.ifttt.com/trigger/izglejdash/with/key/emJZiVFqogqttuDtMFleO',
+      'https://graph.facebook.com/me/feed',
       {
         form: {
-          value1: `https://box.netlify.com/fb/izvestie/g/pix/${doc.id}`,
+          link: `https://box.netlify.com/fb/izvestie/g/pix/${doc.id}`,
+          access_token: 'EAAAAHJBZCQF8BAMG6f1WZBr1z4OSQ6X5SZB0JZAi11yKbmgOvzzS2pJnZCVQ4XWUVSFPxOO8BFsxf40F6xvGPLAyOGVFXbf5WWUhhgIl0F6yjgQdJv25pVjmBZCL1fZBPSDuUnwvA2Fl28zFituCekfhLEO0Q7ZCNNSgM1cIyvdUNwZDZD',
         },
       },
       (e, m, body) => {
-        console.log(body);
+        console.log(e, body);
       }
     );
   });
 }
-// postPage1();
+
 async function postPages() {
   return new Promise((resolve) => {
     const dx = Math.round(new Date().getHours()) + 2;

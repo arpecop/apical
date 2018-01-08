@@ -138,13 +138,7 @@ if (cluster.isMaster) {
             }, tout);
           });
         },
-        (cb) => {
-          kartinki.rebuildPinterest((d) => {
-            setTimeout(() => {
-              cb(null, 'pinterest rebuild');
-            }, tout);
-          });
-        },
+
       ],
       (err, result) => {
         console.log('== SHIFT DONE 🤷🏻‍ ==\n\n');

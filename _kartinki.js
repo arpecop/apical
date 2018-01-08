@@ -128,5 +128,5 @@ if (!process.env.PORT) {
 module.exports = {
   kartinkiBg,
   kartinkiEn,
-  rebuildPinterest,
+
 };
