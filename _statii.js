@@ -70,9 +70,9 @@ async function tweet(arritem) {
 async function postPages() {
   return new Promise((resolve) => {
     const dx = Math.round(new Date().getHours()) + 2;
-    console.log('hours', dx);
+    const timeId = `bg${new Date().getDay()}${new Date().getDate()}${Math.round(new Date().getMinutes() / 5)}${new Date().getHours()}`;
+    console.log('hours', dx, timeId);
     if (dx >= 8) {
-      const timeId = `bg${new Date().getDay()}${new Date().getDate()}${Math.round(new Date().getMinutes() / 5)}${new Date().getHours()}`;
       db.get(timeId, (err) => {
         if (err) {
           db.put(timeId, 'c', (err, ddd) => {});
