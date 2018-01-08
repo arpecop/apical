@@ -73,7 +73,7 @@ async function postPages() {
     console.log('hours', dx);
     if (dx >= 8) {
       const timeId = `bg${new Date().getDay()}${new Date().getDate()}${Math.round(new Date().getMinutes() / 5)}${new Date().getHours()}`;
-      localdb.get(`${timeId}1`, (err) => {
+      localdb.get(`${timeId}`, (err) => {
         if (err) {
           localdb.put(`${timeId}`, 'c', (err, ddd) => {});
           async.eachSeries(
@@ -118,7 +118,7 @@ async function postPages() {
     }
   });
 }
-postPages();
+
 
 function populatedb(id, callback) {
   if (id) {
