@@ -158,8 +158,6 @@ async function get_pages(file) {
         if (arr.length < 5) {
           resolve({ err: 'something wrong' });
         } else {
-          console.log(arr);
-
           resolve(arr);
         }
       },
