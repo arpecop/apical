@@ -72,10 +72,11 @@ async function postPages() {
     const dx = Math.round(new Date().getHours()) + 2;
     console.log('hours', dx);
     if (dx >= 8) {
+      console.log();
       const timeId = `bg${new Date().getDay()}${new Date().getDate()}${Math.round(new Date().getMinutes() / 5)}${new Date().getHours()}`;
-      localdb.get(`${timeId}`, (err) => {
+      localdb.get(timeId, (err) => {
         if (err) {
-          localdb.put(`${timeId}`, 'c', (err, ddd) => {});
+          localdb.put(timeId, 'c', (err, ddd) => {});
           async.eachSeries(
             _.shuffle(pages),
             (page, cb) => {
