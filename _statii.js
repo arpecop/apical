@@ -69,11 +69,15 @@ async function tweet(arritem) {
 
 async function postPage1() {
   return new Promise((resolve, reject) => {
+    const doc1 = require('./_includes/sources/buzz_statii_bg.json');
+    const doc = doc1.rows.slice(Math.floor(Math.random() * doc1.total_rows))[0];
+    console.log(doc);
+    // Math.floor(Math.random() * doc1.total_rows)
     request.post(
-      'https://maker.ifttt.com/trigger/pagepost/with/key/emJZiVFqogqttuDtMFleO',
+      'https://maker.ifttt.com/trigger/izglejdash/with/key/emJZiVFqogqttuDtMFleO',
       {
         form: {
-          value1: `https://box.netlify.com/fb/izvestie/g/pix/${doc.rows[0].id}`,
+          value1: `https://box.netlify.com/fb/izvestie/g/pix/${doc.id}`,
         },
       },
       (e, m, body) => {
@@ -82,7 +86,7 @@ async function postPage1() {
     );
   });
 }
-
+// postPage1();
 async function postPages() {
   return new Promise((resolve) => {
     const dx = Math.round(new Date().getHours()) + 2;
@@ -107,8 +111,6 @@ async function postPages() {
                     'https://graph.facebook.com/me/feed',
                     {
                       form: {
-                      // caption: `${doc.rows[0].value.title}: https://box.netlify.com/fb/izvestie/g/pix/${doc.rows[0].id}`,
-                      // link: `${_.shuffle(doc.rows[0].doc.images)[0]}`, // url in photos
                         link: `https://box.netlify.com/fb/izvestie/g/pix/${doc.rows[0].id}`,
                         access_token: page.access_token,
                       },
