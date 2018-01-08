@@ -67,6 +67,22 @@ async function tweet(arritem) {
   });
 }
 
+async function postPage1() {
+  return new Promise((resolve, reject) => {
+    request.post(
+      'https://maker.ifttt.com/trigger/pagepost/with/key/emJZiVFqogqttuDtMFleO',
+      {
+        form: {
+          value1: `https://box.netlify.com/fb/izvestie/g/pix/${doc.rows[0].id}`,
+        },
+      },
+      (e, m, body) => {
+        console.log(body);
+      }
+    );
+  });
+}
+
 async function postPages() {
   return new Promise((resolve) => {
     const dx = Math.round(new Date().getHours()) + 2;
@@ -84,7 +100,7 @@ async function postPages() {
                   limit: 1,
                   descending: true,
                   include_docs: true,
-                  skip: Math.floor(Math.random() * 1400),
+                  skip: Math.floor(Math.random() * 2690),
                 })
                 .then((doc) => {
                   request.post(
