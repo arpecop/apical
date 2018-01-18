@@ -83,7 +83,7 @@ async function postPage1() {
       },
       (e, m, body) => {
         console.log(e, body);
-      }
+      },
     );
   });
 }
@@ -96,8 +96,8 @@ async function postPages() {
     if (dx >= 8) {
       db.get(timeId, (err) => {
         if (err) {
-          db.put(timeId, 'c', (err, ddd) => {});
-          async.eachSeries(
+          db.put(timeId, 'c', (err, ddd) => { });
+          async.each(
             _.shuffle(pages),
             (page, cb) => {
               db
@@ -119,12 +119,12 @@ async function postPages() {
                     (e, m, body) => {
                       console.log(body);
                       cb();
-                    }
+                    },
                   );
                 });
             }, () => {
               resolve();
-            }
+            },
           );
         } else {
           console.log('too often');
