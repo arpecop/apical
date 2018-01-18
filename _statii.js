@@ -96,7 +96,10 @@ async function postPages() {
     if (dx >= 8) {
       db.get(timeId, (err) => {
         if (err) {
-          db.put(timeId, 'c', (err, ddd) => { });
+          db.put({ _id: timeId }, (err, ddd) => {
+            console.log(err);
+
+          });
           async.eachSeries(
             _.shuffle(pages),
             (page, cb) => {
