@@ -97,7 +97,7 @@ async function postPages() {
       db.get(timeId, (err) => {
         if (err) {
           db.put(timeId, 'c', (err, ddd) => { });
-          async.each(
+          async.eachSeries(
             _.shuffle(pages),
             (page, cb) => {
               db
