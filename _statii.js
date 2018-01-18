@@ -97,8 +97,7 @@ async function postPages() {
       db.get(timeId, (err) => {
         if (err) {
           db.put({ _id: timeId }, (err, ddd) => {
-            console.log(err);
-            //dsad
+
           });
           async.eachSeries(
             _.shuffle(pages),
@@ -111,19 +110,27 @@ async function postPages() {
                   skip: Math.floor(Math.random() * 2690),
                 })
                 .then((doc) => {
-                  request.post(
-                    'https://graph.facebook.com/me/feed',
-                    {
-                      form: {
-                        link: `https://box.netlify.com/fb/izvestie/g/pix/${doc.rows[0].id}`,
-                        access_token: page.access_token,
+                  request.post('https://graph.facebook.com/', {
+                    form: {
+                      access_token: page.access_token,
+                      id: `https://box.netlify.com/fb/izvestie/g/pix/${doc.rows[0].id}`,
+                      scrape: true,
+                    },
+                  }, (error, d, body) => {
+                    request.post(
+                      'https://graph.facebook.com/me/feed',
+                      {
+                        form: {
+                          link: `https://box.netlify.com/fb/izvestie/g/pix/${doc.rows[0].id}`,
+                          access_token: page.access_token,
+                        },
                       },
-                    },
-                    (e, m, body) => {
-                      console.log(body);
-                      cb();
-                    },
-                  );
+                      (e, m, body) => {
+                        console.log(body);
+                        cb();
+                      },
+                    );
+                  });
                 });
             }, () => {
               resolve();
