@@ -1,6 +1,6 @@
 const cluster = require('cluster');
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 if (cluster.isMaster) {
   cluster.fork();
@@ -71,14 +71,14 @@ if (cluster.isMaster) {
           val,
           () => {
             cb(null, 'd');
-          }
+          },
         );
       },
       (err) => {
         console.log('=== SHIFT DONE ===');
 
         process.exit(0);
-      }
+      },
     );
   } else {
     const kartinki = require('./_kartinki.js');
@@ -143,7 +143,7 @@ if (cluster.isMaster) {
       (err, result) => {
         console.log('== SHIFT DONE 🤷🏻‍ ==\n\n');
         process.exit(0);
-      }
+      },
     );
   }
 
@@ -152,7 +152,7 @@ if (cluster.isMaster) {
       'Possibly Unhandled Rejection at: Promise ',
       p,
       ' reason: ',
-      reason
+      reason,
     );
     process.exit(0);
   });

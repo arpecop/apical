@@ -94,7 +94,7 @@ async function postPages() {
     const timeId = `bg${new Date().getDay()}-${new Date().getDate()}-${new Date().getHours()}-${Math.round(new Date().getMinutes())}`;
     console.log('hours', dx, timeId);
     if (dx >= 8) {
-      db.get(timeId, (err) => {
+      db.get(`${timeId}1`, (err) => {
         if (err) {
           db.put({ _id: timeId }, (err, ddd) => {
 
@@ -126,16 +126,14 @@ async function postPages() {
                         },
                       },
                       (e, m, body) => {
-                        console.log(_.shuffle(doc.rows[0].value.images));
-
                         if (JSON.parse(body).error) {
                           request.post(
                             'https://graph.facebook.com/me/photos',
                             {
                               form: {
-                                caption: `${doc.rows[0].value.title} : https://box.netlify.com/fb/izvestie/g/pix/${doc.rows[0].id}`,
+                                caption: `${doc.rows[0].doc.title} : https://box.netlify.com/fb/izvestie/g/pix/${doc.rows[0].id}`,
                                 access_token: page.access_token,
-                                url: _.shuffle(doc.rows[0].value.images)[0],
+                                url: _.shuffle(doc.rows[0].doc.images)[0],
                               },
                             },
                             (e, m, bodyx) => {
@@ -166,7 +164,9 @@ async function postPages() {
     }
   });
 }
-
+if (!process.env.PORT) {
+  postPages();
+}
 
 function populatedb(id, callback) {
   if (id) {
