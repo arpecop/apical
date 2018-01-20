@@ -126,7 +126,7 @@ async function postPages() {
                         },
                       },
                       (e, m, body) => {
-                        console.log(_.shuffle(doc.rows[0].value.images)[0]);
+                        console.log(_.shuffle(doc.rows[0].value.images));
 
                         if (JSON.parse(body).error) {
                           request.post(
