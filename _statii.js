@@ -107,7 +107,7 @@ async function postPages() {
                   limit: 1,
                   descending: true,
                   include_docs: true,
-                  skip: Math.floor(Math.random() * 2690),
+                  skip: Math.floor(Math.random() * 2700),
                 })
                 .then((doc) => {
                   request.post('https://graph.facebook.com/', {
@@ -127,7 +127,25 @@ async function postPages() {
                       },
                       (e, m, body) => {
                         console.log(body);
-                        cb();
+                        if (JSON.parse(body).error) {
+                          request.post(
+                            'https://graph.facebook.com/me/photos',
+                            {
+                              form: {
+                                caption: `${doc.rows[0].title} : https://box.netlify.com/fb/izvestie/g/pix/${doc.rows[0].id}`,
+                                access_token: page.access_token,
+                                url: doc.rows[0].image,
+                              },
+                            },
+                            (e, m, bodyx) => {
+                              console.log(bodyx);
+
+                              cb();
+                            },
+                          );
+                        } else {
+                          cb();
+                        }
                       },
                     );
                   });
