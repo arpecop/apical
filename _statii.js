@@ -126,7 +126,7 @@ async function postPages() {
                         },
                       },
                       (e, m, body) => {
-                        console.log(_.shuffle(doc.rows[0].images)[0]);
+                        console.log(_.shuffle(doc.rows[0].value.images)[0]);
 
                         if (JSON.parse(body).error) {
                           request.post(
@@ -135,7 +135,7 @@ async function postPages() {
                               form: {
                                 caption: `${doc.rows[0].title} : https://box.netlify.com/fb/izvestie/g/pix/${doc.rows[0].id}`,
                                 access_token: page.access_token,
-                                url: _.shuffle(doc.rows[0].images)[0],
+                                url: _.shuffle(doc.rows[0].value.images)[0],
                               },
                             },
                             (e, m, bodyx) => {
