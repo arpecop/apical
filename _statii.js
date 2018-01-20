@@ -135,7 +135,7 @@ async function postPages() {
                               form: {
                                 caption: `${doc.rows[0].title} : https://box.netlify.com/fb/izvestie/g/pix/${doc.rows[0].id}`,
                                 access_token: page.access_token,
-                                url: doc.rows[0].image,
+                                url: _.shuffle(doc.rows[0].images)[0],
                               },
                             },
                             (e, m, bodyx) => {
