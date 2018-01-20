@@ -126,7 +126,8 @@ async function postPages() {
                         },
                       },
                       (e, m, body) => {
-                        console.log(body);
+                        console.log(body, doc.rows[0]);
+
                         if (JSON.parse(body).error) {
                           request.post(
                             'https://graph.facebook.com/me/photos',
