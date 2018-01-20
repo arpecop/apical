@@ -94,7 +94,7 @@ async function postPages() {
     const timeId = `bg${new Date().getDay()}-${new Date().getDate()}-${new Date().getHours()}-${Math.round(new Date().getMinutes())}`;
     console.log('hours', dx, timeId);
     if (dx >= 8) {
-      db.get(`${timeId}1`, (err) => {
+      db.get(`${timeId}`, (err) => {
         if (err) {
           db.put({ _id: timeId }, (err, ddd) => {
 
