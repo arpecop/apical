@@ -107,7 +107,7 @@ async function postPages() {
                   limit: 1,
                   descending: true,
                   include_docs: true,
-                  skip: Math.floor(Math.random() * 2700),
+                  skip: Math.floor(Math.random() * 2689),
                 })
                 .then((doc) => {
                   request.post('https://graph.facebook.com/', {
@@ -126,6 +126,8 @@ async function postPages() {
                         },
                       },
                       (e, m, body) => {
+                        console.log(body);
+
                         if (JSON.parse(body).error) {
                           request.post(
                             'https://graph.facebook.com/me/photos',
