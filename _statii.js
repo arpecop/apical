@@ -53,7 +53,7 @@ async function tweet(arritem) {
     if (arritem[0]) {
       client
         .post('statuses/update', {
-          status: `https://arpecop.herokuapp.com/app/news/${arritem[0]._id} ${arritem[0].title}`,
+          status: `https://arpecop.com/app/news/${arritem[0]._id} ${arritem[0].title}`,
         }).then((tweet) => {
           console.log('posted');
           resolve();
@@ -77,7 +77,7 @@ async function postPage1() {
       'https://graph.facebook.com/me/feed',
       {
         form: {
-          link: `https://arpecop.herokuapp.com/fb/izvestie/g/pix/${doc.id}`,
+          link: `https://arpecop.com/fb/izvestie/g/pix/${doc.id}`,
           access_token: 'EAAAAHJBZCQF8BAMG6f1WZBr1z4OSQ6X5SZB0JZAi11yKbmgOvzzS2pJnZCVQ4XWUVSFPxOO8BFsxf40F6xvGPLAyOGVFXbf5WWUhhgIl0F6yjgQdJv25pVjmBZCL1fZBPSDuUnwvA2Fl28zFituCekfhLEO0Q7ZCNNSgM1cIyvdUNwZDZD',
         },
       },
@@ -113,7 +113,7 @@ async function postPages() {
                   request.post('https://graph.facebook.com/', {
                     form: {
                       access_token: page.access_token,
-                      id: `https://arpecop.herokuapp.com/fb/izvestie/g/pix/${doc.rows[0].id}`,
+                      id: `https://arpecop.com/fb/izvestie/g/pix/${doc.rows[0].id}`,
                       scrape: true,
                     },
                   }, (error, d, body) => {
@@ -121,7 +121,7 @@ async function postPages() {
                       'https://graph.facebook.com/me/feed',
                       {
                         form: {
-                          link: `https://arpecop.herokuapp.com/fb/izvestie/g/pix/${doc.rows[0].id}`,
+                          link: `https://arpecop.com/fb/izvestie/g/pix/${doc.rows[0].id}`,
                           access_token: page.access_token,
                         },
                       },
@@ -133,7 +133,7 @@ async function postPages() {
                             'https://graph.facebook.com/me/photos',
                             {
                               form: {
-                                caption: `${doc.rows[0].doc.title} : https://arpecop.herokuapp.com/fb/izvestie/g/pix/${doc.rows[0].id}`,
+                                caption: `${doc.rows[0].doc.title} : https://arpecop.com/fb/izvestie/g/pix/${doc.rows[0].id}`,
                                 access_token: page.access_token,
                                 url: _.shuffle(doc.rows[0].doc.images)[0],
                               },
