@@ -38,7 +38,7 @@ function go(url, callback) {
       body: {
         board: pintoken.id,
         note: '',
-        link: 'https://box.netlify.com/',
+        link: 'https://arpecop.herokuapp.com/',
         image_url: url,
       },
     })
