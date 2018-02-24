@@ -67,10 +67,23 @@ async function postPages() {
     const timeId = `bg${new Date().getDay()}-date:${new Date().getDate()}-hours:${new Date().getHours()}-${Math.round(
       new Date().getMinutes()
     )}`;
+    const mins = new Date().getMinutes();
+
     console.log("hours", dx, timeId);
     if (dx >= 8) {
       db.get(`${timeId}`, err => {
-        if (err) {
+        //if (err) {
+        if (
+          mins === 05 ||
+          mins === 10 ||
+          mins === 20 ||
+          mins === 25 ||
+          mins === 30 ||
+          mins === 35 ||
+          mins === 40 ||
+          mins === 45 ||
+          mins === 50
+        ) {
           db.put({ _id: timeId }, (err, ddd) => {
             console.log(err);
           });
