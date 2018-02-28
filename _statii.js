@@ -49,7 +49,7 @@ async function postPage1() {
       "https://graph.facebook.com/me/feed",
       {
         form: {
-          link: `https://www.izteglisi.club/fb/izvestie/g/pix/${doc.id}`,
+          link: `http://izteglisi.club/post/${doc.id}`,
           access_token:
             "EAAAAHJBZCQF8BAMG6f1WZBr1z4OSQ6X5SZB0JZAi11yKbmgOvzzS2pJnZCVQ4XWUVSFPxOO8BFsxf40F6xvGPLAyOGVFXbf5WWUhhgIl0F6yjgQdJv25pVjmBZCL1fZBPSDuUnwvA2Fl28zFituCekfhLEO0Q7ZCNNSgM1cIyvdUNwZDZD"
         }
@@ -74,6 +74,7 @@ async function postPages() {
       db.get(`${timeId}`, err => {
         //if (err) {
         if (
+          mins === 5 ||
           mins === 05 ||
           mins === 10 ||
           mins === 20 ||
@@ -103,7 +104,7 @@ async function postPages() {
                     {
                       form: {
                         access_token: page.access_token,
-                        id: `https://www.izteglisi.club/fb/izvestie/g/pix/${
+                        id: `https://www.izteglisi.club/post/${
                           doc.rows[0].id
                         }`,
                         scrape: true
@@ -114,7 +115,7 @@ async function postPages() {
                         "https://graph.facebook.com/me/feed",
                         {
                           form: {
-                            link: `https://www.izteglisi.club/fb/izvestie/g/pix/${
+                            link: `https://www.izteglisi.club/post/${
                               doc.rows[0].id
                             }`,
                             access_token: page.access_token
@@ -130,7 +131,7 @@ async function postPages() {
                                 form: {
                                   caption: `${
                                     doc.rows[0].doc.title
-                                  } : https://www.izteglisi.club/fb/izvestie/g/pix/${
+                                  } : https://www.izteglisi.club/post/${
                                     doc.rows[0].id
                                   }`,
                                   access_token: page.access_token,
