@@ -51,14 +51,14 @@ if (cluster.isMaster) {
       },
       {
         db: 'enimgsx', // view to retrieve latest post and send the title
-        url: 'g/box/', // before the _id
+        url: '/post/', // before the _id
         tok: process.env.cookie_token,
         app: 'cookie',
         limit: 651,
       },
       {
         db: 'bgimgsx', // promoted_bg twitterbg
-        url: 'g/pix/', // before the _id
+        url: '/post/', // before the _id
         tok: process.env.izvestie_token,
         app: 'bgusers',
         limit: 2690,
