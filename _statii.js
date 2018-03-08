@@ -115,7 +115,7 @@ async function postPages() {
                         "https://graph.facebook.com/me/feed",
                         {
                           form: {
-                            link: `https://www.izteglisi.club/post/${
+                            link: `https://izteglisi.club/post/${
                               doc.rows[0].id
                             }`,
                             access_token: page.access_token
@@ -131,7 +131,7 @@ async function postPages() {
                                 form: {
                                   caption: `${
                                     doc.rows[0].doc.title
-                                  } : https://www.izteglisi.club/post/${
+                                  } : https://izteglisi.club/post/${
                                     doc.rows[0].id
                                   }`,
                                   access_token: page.access_token,
