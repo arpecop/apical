@@ -70,7 +70,7 @@ async function postPages() {
     const mins = new Date().getMinutes();
 
     console.log("hours", dx, timeId);
-    if (dx >= 8) {
+    if (dx >= 7) {
       db.get(`${timeId}`, err => {
         //if (err) {
         if (

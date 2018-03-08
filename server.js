@@ -50,15 +50,15 @@ if (cluster.isMaster) {
         limit: 651,
       },
       {
-        db: 'enimgsx', // view to retrieve latest post and send the title
-        url: '/post/', // before the _id
+        db: 'enimgsx',
+        url: '/post/',
         tok: process.env.cookie_token,
         app: 'cookie',
         limit: 651,
       },
       {
-        db: 'bgimgsx', // promoted_bg twitterbg
-        url: '/post/', // before the _id
+        db: 'bgimgsx',
+        url: '/post/',
         tok: process.env.izvestie_token,
         app: 'bgusers',
         limit: 2690,
