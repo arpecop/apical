@@ -104,7 +104,7 @@ async function postPages() {
                     {
                       form: {
                         access_token: page.access_token,
-                        id: `https://www.izteglisi.club/post/${
+                        id: `https://izteglisi.club/post/${
                           doc.rows[0].id
                         }`,
                         scrape: true
