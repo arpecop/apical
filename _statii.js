@@ -76,14 +76,25 @@ async function postPages() {
         if (
           mins === 5 ||
           mins === 05 ||
+          mins === 07 ||
           mins === 10 ||
+          mins === 12 ||
+          mins === 15 ||
+          mins === 17 ||
           mins === 20 ||
+          mins === 22 ||
           mins === 25 ||
+          mins === 27 ||
           mins === 30 ||
+          mins === 32 ||
           mins === 35 ||
+          mins === 37 ||
           mins === 40 ||
+          mins === 42 ||
           mins === 45 ||
-          mins === 50
+          mins === 47 ||
+          mins === 50 ||
+          mins === 55
         ) {
           db.put({ _id: timeId }, (err, ddd) => {
             console.log(err);
