@@ -14,7 +14,6 @@ if (cluster.isMaster) {
   const async = require('async');
   const http = require('http');
 
-
   const promo = require('./_includes/promo.js');
 
   const server = http.createServer((req, resp) => {
@@ -51,14 +50,14 @@ if (cluster.isMaster) {
       },
       {
         db: 'enimgsx',
-        url: '/post/',
+        url: '/post',
         tok: process.env.cookie_token,
         app: 'cookie',
         limit: 651,
       },
       {
         db: 'bgimgsx',
-        url: '/post/',
+        url: '/post',
         tok: process.env.izvestie_token,
         app: 'bgusers',
         limit: 2690,
@@ -67,12 +66,9 @@ if (cluster.isMaster) {
     async.eachSeries(
       train,
       (val, cb) => {
-        promo.scheduled_post(
-          val,
-          () => {
-            cb(null, 'd');
-          },
-        );
+        promo.scheduled_post(val, () => {
+          cb(null, 'd');
+        });
       },
       (err) => {
         console.log('=== SHIFT DONE ===');
@@ -138,7 +134,6 @@ if (cluster.isMaster) {
             }, tout);
           });
         },
-
       ],
       (err, result) => {
         console.log('== SHIFT DONE 🤷🏻‍ ==\n\n');
