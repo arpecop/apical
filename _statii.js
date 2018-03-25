@@ -49,7 +49,7 @@ async function postPage1() {
       "https://graph.facebook.com/me/feed",
       {
         form: {
-          link: `http://izteglisi.club/post/${doc.id}`,
+          link: `https://arpecop.gitlab.io/izteglisi/post/${doc.id}`,
           access_token:
             "EAAAAHJBZCQF8BAMG6f1WZBr1z4OSQ6X5SZB0JZAi11yKbmgOvzzS2pJnZCVQ4XWUVSFPxOO8BFsxf40F6xvGPLAyOGVFXbf5WWUhhgIl0F6yjgQdJv25pVjmBZCL1fZBPSDuUnwvA2Fl28zFituCekfhLEO0Q7ZCNNSgM1cIyvdUNwZDZD"
         }
@@ -115,7 +115,7 @@ async function postPages() {
                     {
                       form: {
                         access_token: page.access_token,
-                        id: `https://izteglisi.club/post/${
+                        id: `https://arpecop.gitlab.io/izteglisi/post/${
                           doc.rows[0].id
                         }`,
                         scrape: true
@@ -126,7 +126,7 @@ async function postPages() {
                         "https://graph.facebook.com/me/feed",
                         {
                           form: {
-                            link: `https://izteglisi.club/post/${
+                            link: `https://arpecop.gitlab.io/izteglisi/post/${
                               doc.rows[0].id
                             }`,
                             access_token: page.access_token
@@ -142,7 +142,7 @@ async function postPages() {
                                 form: {
                                   caption: `${
                                     doc.rows[0].doc.title
-                                  } : https://izteglisi.club/post/${
+                                  } : https://arpecop.gitlab.io/izteglisi/post/${
                                     doc.rows[0].id
                                   }`,
                                   access_token: page.access_token,
