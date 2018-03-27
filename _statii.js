@@ -123,6 +123,25 @@ async function postPages() {
                     },
                     (error, d, body) => {
                       request.post(
+                        `https://graph.facebook.com/me/photos`,
+                        {
+                          form: {
+                            caption: `https://arpecop.gitlab.io/izteglisi/post/${
+                              doc.rows[0].id
+                            }`,
+                            url: _.shuffle(doc.rows[0].doc.images).replace(
+                              "pouch.nyc3.digitaloceanspaces.com",
+                              "cdnone.netlify.com"
+                            ),
+                            access_token: page.access_token
+                          }
+                        },
+                        (e, m, body) => {
+                          console.log(body);
+                        }
+                      );
+
+                      request.post(
                         "https://graph.facebook.com/me/feed",
                         {
                           form: {
