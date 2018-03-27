@@ -122,6 +122,7 @@ async function postPages() {
                       }
                     },
                     (error, d, body) => {
+                      //dsad
                       request.post(
                         `https://graph.facebook.com/me/photos`,
                         {
