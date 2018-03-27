@@ -50,14 +50,14 @@ if (cluster.isMaster) {
       },
       {
         db: 'enimgsx',
-        url: '/post',
+        url: '/post/',
         tok: process.env.cookie_token,
         app: 'cookie',
         limit: 651,
       },
       {
         db: 'bgimgsx',
-        url: '/post',
+        url: '/post/',
         tok: process.env.izvestie_token,
         app: 'bgusers',
         limit: 2690,
