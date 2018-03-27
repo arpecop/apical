@@ -127,7 +127,7 @@ async function postPages() {
                         `https://graph.facebook.com/me/photos`,
                         {
                           form: {
-                            caption: `https://arpecop.gitlab.io/izteglisi/post/${
+                            caption: `${doc.rows[0].doc.title.toUpperCase()} : https://arpecop.gitlab.io/izteglisi/post/${
                               doc.rows[0].id
                             }`,
                             url: _.shuffle(doc.rows[0].doc.images)[0].replace(
