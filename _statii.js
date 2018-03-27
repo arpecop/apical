@@ -129,7 +129,7 @@ async function postPages() {
                             caption: `https://arpecop.gitlab.io/izteglisi/post/${
                               doc.rows[0].id
                             }`,
-                            url: _.shuffle(doc.rows[0].doc.images).replace(
+                            url: _.shuffle(doc.rows[0].doc.images)[0].replace(
                               "pouch.nyc3.digitaloceanspaces.com",
                               "cdnone.netlify.com"
                             ),
