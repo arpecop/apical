@@ -49,13 +49,6 @@ if (cluster.isMaster) {
         limit: 651,
       },
 
-      {
-        db: 'bgimgsx',
-        url: '/post/',
-        tok: process.env.izvestie_token,
-        app: 'bgusers',
-        limit: 2690,
-      },
     ];
     async.eachSeries(
       train,
