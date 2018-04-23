@@ -48,13 +48,7 @@ if (cluster.isMaster) {
         app: 'mystic',
         limit: 651,
       },
-      {
-        db: 'enimgsx',
-        url: '/post/',
-        tok: process.env.cookie_token,
-        app: 'cookie',
-        limit: 651,
-      },
+
       {
         db: 'bgimgsx',
         url: '/post/',
