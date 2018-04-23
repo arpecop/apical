@@ -38,30 +38,11 @@ const tokens = [
   "1803576159873324|EioW4GdMxJbBAHSrn-KhFana4eE",
   "260256070983293|2710385e8b869f36f79d3b0bc0d1df75"
 ];
-
-async function postPage1() {
-  return new Promise((resolve, reject) => {
-    const doc1 = require("./_includes/sources/buzz_statii_bg.json");
-    const doc = doc1.rows.slice(Math.floor(Math.random() * doc1.total_rows))[0];
-    console.log(doc);
-    // Math.floor(Math.random() * doc1.total_rows)
-    request.post(
-      "https://graph.facebook.com/me/feed",
-      {
-        form: {
-          link: `https://arpecop.gitlab.io/izteglisi/post/${doc.id}`,
-          access_token:
-            "EAAAAHJBZCQF8BAMG6f1WZBr1z4OSQ6X5SZB0JZAi11yKbmgOvzzS2pJnZCVQ4XWUVSFPxOO8BFsxf40F6xvGPLAyOGVFXbf5WWUhhgIl0F6yjgQdJv25pVjmBZCL1fZBPSDuUnwvA2Fl28zFituCekfhLEO0Q7ZCNNSgM1cIyvdUNwZDZD"
-        }
-      },
-      (e, m, body) => {
-        console.log(e, body);
-      }
-    );
-  });
-}
-// dsdddd
+ 
+ 
 async function postPages() {
+  let domains = ['https://arpecop.gitlab.io/izteglisi/post/']
+  let domain = _.shuffle(domains)[0]
   return new Promise(resolve => {
     const dx = Math.round(new Date().getHours()) + 2;
     const timeId = `bg${new Date().getDay()}-date:${new Date().getDate()}-hours:${new Date().getHours()}-${Math.round(
@@ -115,38 +96,19 @@ async function postPages() {
                     {
                       form: {
                         access_token: page.access_token,
-                        id: `https://arpecop.gitlab.io/izteglisi/post/${
+                        id: `${domain}${
                           doc.rows[0].id
                         }`,
                         scrape: true
                       }
                     },
                     (error, d, body) => {
-                      //dsad
-                      request.post(
-                        `https://graph.facebook.com/me/photos`,
-                        {
-                          form: {
-                            caption: `${doc.rows[0].doc.title.toUpperCase()} : https://arpecop.gitlab.io/izteglisi/post/${
-                              doc.rows[0].id
-                            }`,
-                            url: _.shuffle(doc.rows[0].doc.images)[0].replace(
-                              "pouch.nyc3.digitaloceanspaces.com",
-                              "cdnone.netlify.com"
-                            ),
-                            access_token: page.access_token
-                          }
-                        },
-                        (e, m, body) => {
-                          console.log(body);
-                        }
-                      );
-
+ 
                       request.post(
                         "https://graph.facebook.com/me/feed",
                         {
                           form: {
-                            link: `https://arpecop.gitlab.io/izteglisi/post/${
+                            link: `${domain}${
                               doc.rows[0].id
                             }`,
                             access_token: page.access_token
@@ -162,7 +124,7 @@ async function postPages() {
                                 form: {
                                   caption: `${
                                     doc.rows[0].doc.title
-                                  } : https://arpecop.gitlab.io/izteglisi/post/${
+                                  } : ${domain}${
                                     doc.rows[0].id
                                   }`,
                                   access_token: page.access_token,
