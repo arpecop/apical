@@ -41,7 +41,7 @@ const tokens = [
  
  
 async function postPages() {
-  let domains = ['https://arpecop.gitlab.io/izteglisi/post/']
+  let domains = ['https://arpecop.gitlab.io/izteglisi/post/','https://wt-rudix_lab-gmail_com-0.sandbox.auth0-extend.com/share/']
   let domain = _.shuffle(domains)[0]
   return new Promise(resolve => {
     const dx = Math.round(new Date().getHours()) + 2;
