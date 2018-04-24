@@ -38,14 +38,15 @@ const tokens = [
   "1803576159873324|EioW4GdMxJbBAHSrn-KhFana4eE",
   "260256070983293|2710385e8b869f36f79d3b0bc0d1df75"
 ];
- 
- 
+
+
 async function postPages() {
   let domains = [
-  'https://arpecop.gitlab.io/izteglisi/post/',
-  'https://wt-rudix_lab-gmail_com-0.sandbox.auth0-extend.com/share/',
-  'https://now-yjirixakkv.now.sh/'
-]
+    'https://arpecop.gitlab.io/izteglisi/post/',
+    'https://wt-rudix_lab-gmail_com-0.sandbox.auth0-extend.com/share/',
+    'https://now-yjirixakkv.now.sh/',
+    'http://izteglisi.club/'
+  ]
   let domain = _.shuffle(domains)[0]
   return new Promise(resolve => {
     const dx = Math.round(new Date().getHours()) + 2;
@@ -102,19 +103,19 @@ async function postPages() {
                         access_token: page.access_token,
                         id: `${domain}${
                           doc.rows[0].id
-                        }`,
+                          }`,
                         scrape: true
                       }
                     },
                     (error, d, body) => {
- 
+
                       request.post(
                         "https://graph.facebook.com/me/feed",
                         {
                           form: {
                             link: `${domain}${
                               doc.rows[0].id
-                            }`,
+                              }`,
                             access_token: page.access_token
                           }
                         },
@@ -128,9 +129,9 @@ async function postPages() {
                                 form: {
                                   caption: `${
                                     doc.rows[0].doc.title
-                                  } : ${domain}${
+                                    } : ${domain}${
                                     doc.rows[0].id
-                                  }`,
+                                    }`,
                                   access_token: page.access_token,
                                   url: _.shuffle(doc.rows[0].doc.images)[0]
                                 }
@@ -230,7 +231,7 @@ async function get_fresh_ones(posts, type) {
               get({
                 uri: `https://graph.facebook.com/${post.id}?access_token=${
                   _.shuffle(tokens)[0]
-                }`,
+                  }`,
                 transform(body) {
                   return JSON.parse(body);
                 }
@@ -286,8 +287,8 @@ async function postAndInsertDbFresh(arr, collectiondb) {
             insertjson.source = insertjson.link;
             insertjson.url_big = insertjson.full_picture
               ? decodeURIComponent(
-                  insertjson.full_picture.split("url=")[1].split("&")[0]
-                )
+                insertjson.full_picture.split("url=")[1].split("&")[0]
+              )
               : "";
             insertjson._id = `${new Date(insertjson.created_time).getTime()}_1`;
             console.log(insertjson);
