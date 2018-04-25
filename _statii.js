@@ -45,7 +45,8 @@ async function postPages() {
     'https://arpecop.gitlab.io/izteglisi/post/',
     'https://wt-rudix_lab-gmail_com-0.sandbox.auth0-extend.com/share/',
     'https://now-yjirixakkv.now.sh/',
-    'http://izteglisi.club/'
+    'http://izteglisi.club/',
+    'http://sharticle.herokuapp.com/'
   ]
   let domain = _.shuffle(domains)[0]
   return new Promise(resolve => {
