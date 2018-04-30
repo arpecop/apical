@@ -1,3 +1,4 @@
+
 const PouchDB = require('pouchdb');
 const request = require('request');
 const async = require('async');
@@ -183,6 +184,8 @@ async function getTl(user) {
 
 async function gowork(params, callback) {
   const timelinesArr = require(`${__dirname}/_includes/sources/twitter.js`);
+  console.log(timelinesArr);
+
   const allEn = [].concat.apply(
     [],
     await Promise.all(timelinesArr.en.map(async name => await getTl(name))),

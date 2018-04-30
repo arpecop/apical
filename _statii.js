@@ -39,14 +39,14 @@ const tokens = [
   "260256070983293|2710385e8b869f36f79d3b0bc0d1df75"
 ];
 
-
+const domains = [
+  'https://arpecop.gitlab.io/izteglisi/post/',
+  'https://wt-rudix_lab-gmail_com-0.sandbox.auth0-extend.com/share/',
+  'https://now-yjirixakkv.now.sh/',
+  'http://izteglisi.club/izteglisi/post/' 
+]
 async function postPages() {
-  let domains = [
-    'https://arpecop.gitlab.io/izteglisi/post/',
-    'https://wt-rudix_lab-gmail_com-0.sandbox.auth0-extend.com/share/',
-    'https://now-yjirixakkv.now.sh/',
-    'http://izteglisi.club/izteglisi/post/' 
-  ]
+
   let domain = _.shuffle(domains)[0]
   return new Promise(resolve => {
     const dx = Math.round(new Date().getHours()) + 2;
@@ -166,9 +166,7 @@ async function postPages() {
     }
   });
 }
-if (!process.env.PORT) {
-  postPages();
-}
+ 
 
 function populatedb(id, callback) {
   if (id) {
