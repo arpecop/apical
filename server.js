@@ -27,27 +27,24 @@ if (cluster.isMaster) {
   }, 960000);
 
   if (
-    process.env.appslug === 'apicall1' ||
-    process.env.appslug === 'apicall2' ||
-    process.env.appslug === 'apicall3' ||
-    process.env.appslug === 'apicall4' ||
-    process.env.LOGNAME === 'rudix1'
+    process.env.appslug === 'apicall1'
   ) {
+    request.get('https://apicall1.herokuapp.com/', () => { });
     const train = [
       {
         db: 'enimgsx',
         url: 'g/box/',
         tok: process.env.article_token,
         app: 'poparticles',
-        limit: 651,
+        limit: 651
       },
       {
         db: 'enimgsx', // view to retrieve latest post and send the title
         url: 'g/box/', // before the _id
         tok: process.env.mystbox_token,
         app: 'mystic',
-        limit: 651,
-      },
+        limit: 651
+      }
 
     ];
     // dsa
@@ -65,8 +62,9 @@ if (cluster.isMaster) {
       },
     );
   } else {
+    request.get('https://collector1.herokuapp.com/', () => { });
     const kartinki = require('./_kartinki.js');
-    const statii = require('./_statii.js');
+    // const statii = require('./_statii.js');
     const twitter = require('./_twitter.js');
     const pr0gramm = require('./_pr0gramm.js');
     const tout = 0;
@@ -121,7 +119,7 @@ if (cluster.isMaster) {
               cb(null, 'ninegag worker');
             }, tout);
           });
-        },
+        }
       ],
       (err, result) => {
         console.log('== SHIFT DONE 🤷🏻‍ ==\n\n');
