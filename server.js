@@ -36,18 +36,18 @@ if (cluster.isMaster) {
         url: 'g/box/',
         tok: process.env.article_token,
         app: 'poparticles',
-        limit: 651
+        limit: 651,
       },
       {
         db: 'enimgsx', // view to retrieve latest post and send the title
         url: 'g/box/', // before the _id
         tok: process.env.mystbox_token,
         app: 'mystic',
-        limit: 651
-      }
+        limit: 651,
+      },
 
     ];
-    // dsa
+   
     async.eachSeries(
       train,
       (val, cb) => {
@@ -119,7 +119,7 @@ if (cluster.isMaster) {
               cb(null, 'ninegag worker');
             }, tout);
           });
-        }
+        },
       ],
       (err, result) => {
         console.log('== SHIFT DONE 🤷🏻‍ ==\n\n');

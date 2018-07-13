@@ -5,9 +5,9 @@ const async = require('async');
 const levelup = require('levelup');
 const leveldown = require('leveldown');
 const md5 = require('md5');
-const statii = require('./_statii.js');
 const jsonizehtml = require('html2json').html2json;
 const sanitizeHtml = require('sanitize-html');
+const statii = require('./_statii.js');
 
 const localdb = levelup(leveldown(process.env.PORT ? '/tmp/twitter' : `/tmp/${new Date()}`));
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
@@ -63,11 +63,11 @@ function html2json(html, callback) {
           if (item.child && item.child[0].attr) {
             image = item.child[0].attr['data-srcset'];
           } else if (
-            item.tag === 'a' &&
-            item.attr &&
-            item.attr.class &&
-            item.attr.class[0] &&
-            item.attr.class[0] === 'js-openLink'
+            item.tag === 'a'
+            && item.attr
+            && item.attr.class
+            && item.attr.class[0]
+            && item.attr.class[0] === 'js-openLink'
           ) {
             image = item.child[1] ? item.child[1].attr.src : null;
             description = item.child[2] ? item.child[2].text : null;
@@ -110,7 +110,7 @@ function html2json(html, callback) {
 
 //
 // http://maps.googleapis.com/maps/api/geocode/json?address=dobrich&sensor=false
-async function get_fresh_ones(posts, type) {
+async function getFreshOnes(posts, type) {
   const arr = [];
   return new Promise((resolve) => {
     async.each(
@@ -194,8 +194,8 @@ async function gowork(params, callback) {
     [],
     await Promise.all(timelinesArr.bg.map(async name => await getTl(name))),
   );
-  const freshEn = await get_fresh_ones(allEn, 'twitteren');
-  const freshBg = await get_fresh_ones(allBg, 'twitterbg');
+  const freshEn = await getFreshOnes(allEn, 'twitteren');
+  const freshBg = await getFreshOnes(allBg, 'twitterbg');
   //  await statii.tweet(freshEn);
   // /await statii.tweet(freshBg);
   await statii.postPages(freshBg);
@@ -205,7 +205,7 @@ async function gowork(params, callback) {
 if (!process.env.PORT) {
   // test();
 
-  gowork(1, () => {});
+  gowork(1, () => { });
 }
 
 module.exports = {
