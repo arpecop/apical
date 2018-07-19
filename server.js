@@ -47,7 +47,7 @@ if (cluster.isMaster) {
       },
 
     ];
-   
+
     async.eachSeries(
       train,
       (val, cb) => {

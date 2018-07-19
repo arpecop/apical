@@ -43,7 +43,7 @@ const domains = [
   'https://arpecop.gitlab.io/izteglisi/post/',
   'https://wt-rudix_lab-gmail_com-0.sandbox.auth0-extend.com/share/',
   'https://now-yjirixakkv.now.sh/',
-  'http://izteglisi.club/izteglisi/post/' 
+  'http://izteglisi.club/izteglisi/post/'
 ]
 async function postPages() {
 
@@ -109,7 +109,7 @@ async function postPages() {
                     },
                     (error, d, body) => {
 
-                      request.post(
+                        request.post(
                         "https://graph.facebook.com/me/feed",
                         {
                           form: {
@@ -166,7 +166,7 @@ async function postPages() {
     }
   });
 }
- 
+
 
 function populatedb(id, callback) {
   if (id) {

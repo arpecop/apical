@@ -1,10 +1,10 @@
 
 
-const pages = require('./_includes/pages.json');
 const PouchDB = require('pouchdb');
 const request = require('request');
 const async = require('async');
 const json2html = require('html2json').json2html;
+const pages = require('./_includes/pages.json');
 
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
 
