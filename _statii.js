@@ -7,7 +7,7 @@ const get = require("request-promise");
 const async = require("async");
 const _ = require("underscore");
 const AWS = require("aws-sdk");
-const pages = require("./_includes/sources/all_pages.json");
+const pages = require("./_includes/pages.json");
 
 const s3 = new AWS.S3({
   endpoint: new AWS.Endpoint("nyc3.digitaloceanspaces.com"),
@@ -53,15 +53,17 @@ async function postPages() {
     const timeId = `bg${new Date().getDay()}-date:${new Date().getDate()}-hours:${new Date().getHours()}-${Math.round(
       new Date().getMinutes()
     )}`;
+     
+    
     const mins = new Date().getMinutes();
 
     console.log("hours", dx, timeId);
     if (dx >= 7) {
       db.get(`${timeId}`, err => {
-        //if (err) {
+      
         if (
+          !process.env.PORT ||
           mins === 5 ||
-          mins === 05 ||
           mins === 07 ||
           mins === 10 ||
           mins === 12 ||
@@ -101,15 +103,14 @@ async function postPages() {
                     {
                       form: {
                         access_token: page.access_token,
-                        id: `${domain}${
-                          doc.rows[0].id
-                          }`,
+                        id: `${domain}${doc.rows[0].id}`,
                         scrape: true
                       }
                     },
                     (error, d, body) => {
-
-                        request.post(
+                       
+                      
+                      request.post(
                         "https://graph.facebook.com/me/feed",
                         {
                           form: {
@@ -216,7 +217,7 @@ async function get_pages(file) {
   });
 }
 
-async function get_fresh_ones(posts, type) {
+    async function get_fresh_ones(posts, type) {
   const arr = [];
   return new Promise(resolve => {
     async.each(
@@ -325,6 +326,10 @@ async function statiiBg(params, callback) {
   console.log(`== D O N E   N E W S   B G ==${ifarraypostx.length}`);
 }
 
+
+if(!process.env.PORT) {
+  postPages();
+}
 // statii
 async function statiiEn(params, callback) {
   const step1 = await get_pages("en_source_statii");
