@@ -50,13 +50,15 @@ function post(json, callback) {
                 },
               },
               (err, httpResponse, body) => {
-                JSON.parse(body).forEach((item) => {
-                  if (item.body === '{"success":true}') {
-                    count++;
-                  } else {
-                    counterr++;
-                  }
-                });
+                if (body) {
+                  JSON.parse(body).forEach((item) => {
+                    if (item.body === '{"success":true}') {
+                      count++;
+                    } else {
+                      counterr++;
+                    }
+                  });
+                }
                 cb();
               },
             );
