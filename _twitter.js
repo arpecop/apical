@@ -167,9 +167,11 @@ async function getTl(user) {
         url: `https://syndication.twitter.com/timeline/profile?callback=__twttrf.callback&dnt=false&screen_name=${user}&suppress_response_codes=true&lang=en&limit=en&rnd=${Math.random()}`,
       },
       (err, res, datax) => {
-        if (err || res.statusCode !== 200) {
+        if (err || res.statusCode !== 200 || datax.length < 1000) {
           reject(err);
         } else {
+          console.log(datax.length);
+
           const body = JSON.parse(datax.split('callback(')[1].slice(0, -2))
             .body.replace(/(?:\r\n|\r|\n)/g, '')
             .replace(/\s\s+/g, ' ');

@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "vaudsdlt runnindsdg underground heroku lands",
     "engines": {
-        "node": ">=10.0.0"
+        "node": ">=10.11.0"
     },
     "dependencies": {
         "apicache": "^0.8.7",
@@ -20,9 +20,9 @@
         "express-pouchdb": "^2.3.7",
         "har-validator": "^5.1.0",
         "html2json": "^1.0.2",
-        "level": "2.1.1",
-        "leveldown": "2.1.1",
-        "levelup": "2.0.1",
+        "level": "^2.1.1",
+        "leveldown": "^2.1.1",
+        "levelup": "^2.0.1",
         "lodash": "^4.17.10",
         "md5": "^2.2.1",
         "nano": "^6.4.2",
