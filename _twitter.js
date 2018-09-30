@@ -12,9 +12,6 @@ const statii = require('./_statii.js');
 const localdb = levelup(leveldown(process.env.PORT ? '/tmp/twitter' : `/tmp/${new Date()}`));
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
 
-const params = {
-  id: '210462857140252672',
-};
 
 function populatedb(id, callback) {
   if (id) {
@@ -59,7 +56,7 @@ function html2json(html, callback) {
 
         const tidkey = ['x', 'username', 'hashtag', 'id', 'url', 'photo'];
 
-        const doubles = file.child.map((item, i) => {
+        const doubles = file.child.map((item) => {
           if (item.child && item.child[0].attr) {
             image = item.child[0].attr['data-srcset'];
           } else if (
@@ -102,7 +99,7 @@ function html2json(html, callback) {
         cb();
       }
     },
-    (err) => {
+    () => {
       callback(arr);
     },
   );
@@ -116,38 +113,41 @@ async function getFreshOnes(posts, type) {
     async.each(
       posts,
       (post, cb) => {
-        populatedb(post.id, (exist) => {
-          if (exist) {
-            // exist only
-            db.put(
-              {
-                _id: md5(post.id),
-              },
-              (errx) => {
-                if (!errx && post.url) {
+        if (post) {
+          populatedb(post.id, (exist) => {
+            if (exist) {
+              db.put(
+                {
+                  _id: md5(post.id),
+                },
+                (errx) => {
+                  if (!errx && post.url) {
                   // !errx EDIT
-                  const objectDefined = Object.assign(post, {
-                    _id: `${post.id.split('/')[2]}_t`,
-                    created_time: post.id.split('/')[2],
-                    tid: post.id.split('/')[2],
-                    type,
-                  });
+                    const objectDefined = Object.assign(post, {
+                      _id: `${post.id.split('/')[2]}_t`,
+                      created_time: post.id.split('/')[2],
+                      tid: post.id.split('/')[2],
+                      type,
+                    });
 
-                  db.put(objectDefined, (err, nonerr) => {
+                    db.put(objectDefined, () => {
+                      cb();
+                    });
+
+
+                    arr.push(objectDefined);
+                  } else {
                     cb();
-                  });
-                  // request.get(post.url, (err, x, h) => { if (x.statusCode === 200) { const $ = cheerio.load(h);
-
-                  arr.push(objectDefined);
-                } else {
-                  cb();
-                }
-              },
-            );
-          } else {
-            cb();
-          }
-        });
+                  }
+                },
+              );
+            } else {
+              cb();
+            }
+          });
+        } else {
+          cb();
+        }
       },
       () => {
         resolve(arr);
@@ -168,10 +168,8 @@ async function getTl(user) {
       },
       (err, res, datax) => {
         if (err || res.statusCode !== 200 || datax.length < 1000) {
-          reject(err);
+          resolve(err);
         } else {
-          console.log(datax.length);
-
           const body = JSON.parse(datax.split('callback(')[1].slice(0, -2))
             .body.replace(/(?:\r\n|\r|\n)/g, '')
             .replace(/\s\s+/g, ' ');
@@ -183,9 +181,8 @@ async function getTl(user) {
     );
   });
 }
-
+const timelinesArr = require(`${__dirname}/_includes/sources/twitter.js`);
 async function gowork(params, callback) {
-  const timelinesArr = require(`${__dirname}/_includes/sources/twitter.js`);
   console.log(timelinesArr);
 
   const allEn = [].concat.apply(
@@ -196,10 +193,9 @@ async function gowork(params, callback) {
     [],
     await Promise.all(timelinesArr.bg.map(async name => await getTl(name))),
   );
-  const freshEn = await getFreshOnes(allEn, 'twitteren');
+  await getFreshOnes(allEn, 'twitteren');
   const freshBg = await getFreshOnes(allBg, 'twitterbg');
-  //  await statii.tweet(freshEn);
-  // /await statii.tweet(freshBg);
+
   await statii.postPages(freshBg);
   console.log('== D O N E   T W I T T E R ==');
   callback({});

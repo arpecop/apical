@@ -41,7 +41,7 @@ const tokens = [
 
 const domains = [
   'https://arpecop.gitlab.io/izteglisi/post/',
-  'https://wt-rudix_lab-gmail_com-0.sandbox.auth0-extend.com/share/',
+  //'https://wt-rudix_lab-gmail_com-0.sandbox.auth0-extend.com/share/',
   'https://now-yjirixakkv.now.sh/',
   'http://izteglisi.club/izteglisi/post/'
 ]
