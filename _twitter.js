@@ -157,7 +157,7 @@ async function getFreshOnes(posts, type) {
 }
 
 async function getTl(user) {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     request.get(
       {
         headers: {
@@ -204,6 +204,7 @@ if (!process.env.PORT) {
   // test();
 
   gowork(1, () => { });
+  process.stdin.resume();
 }
 
 module.exports = {

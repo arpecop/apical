@@ -42,8 +42,8 @@ const tokens = [
 const domains = [
   'https://arpecop.gitlab.io/izteglisi/post/',
   //'https://wt-rudix_lab-gmail_com-0.sandbox.auth0-extend.com/share/',
-  'https://now-yjirixakkv.now.sh/',
-  'http://izteglisi.club/izteglisi/post/'
+ // 'https://now-yjirixakkv.now.sh/',
+  //'http://izteglisi.club/izteglisi/post/'
 ]
 async function postPages() {
 
@@ -58,7 +58,7 @@ async function postPages() {
     const mins = new Date().getMinutes();
 
     console.log("hours", dx, timeId);
-    if (dx >= 7) {
+    if (dx >= 7 || !process.env.PORT) {
       db.get(`${timeId}`, err => {
       
         if (
@@ -104,7 +104,8 @@ async function postPages() {
                       form: {
                         access_token: page.access_token,
                         id: `${domain}${doc.rows[0].id}`,
-                        scrape: true
+                        scrape: true,
+                        published: process.env.PORT ? false:true
                       }
                     },
                     (error, d, body) => {
