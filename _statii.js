@@ -322,15 +322,13 @@ async function statiiBg(params, callback) {
   const step1x = await get_pages("source_kartinki_bg");
   const getfreshx = await get_fresh_ones(step1x, "link");
   const ifarraypostx = await postAndInsertDbFresh(getfreshx, "newsbg");
-  await postPages();
+  //await postPages();
   callback(ifarraypostx.length);
   console.log(`== D O N E   N E W S   B G ==${ifarraypostx.length}`);
 }
 
 
-if(!process.env.PORT) {
-  postPages();
-}
+ 
 // statii
 async function statiiEn(params, callback) {
   const step1 = await get_pages("en_source_statii");

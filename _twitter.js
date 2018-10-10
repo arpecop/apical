@@ -84,13 +84,19 @@ function html2json(html, callback) {
         });
 
         const tweet = text.join(' ');
-        if (tweet.length > 15) {
-          arr.push(Object.assign(...doubles, ...tid, {
-            tweet: text.join(' '),
-            title: text.join(' '),
+        if (tweet.length > 15 && image) {
+          // ...doubles,
+          // ...tid,
+          const tweet1 = {
+            tweet,
+            title: tweet,
             image,
             description,
-          }));
+          };
+          // console.log(tweet1.image);
+
+
+          arr.push(tweet1);
           cb();
         } else {
           cb();
@@ -183,8 +189,6 @@ async function getTl(user) {
 }
 const timelinesArr = require(`${__dirname}/_includes/sources/twitter.js`);
 async function gowork(params, callback) {
-  console.log(timelinesArr);
-
   const allEn = [].concat.apply(
     [],
     await Promise.all(timelinesArr.en.map(async name => await getTl(name))),
@@ -195,8 +199,9 @@ async function gowork(params, callback) {
   );
   await getFreshOnes(allEn, 'twitteren');
   const freshBg = await getFreshOnes(allBg, 'twitterbg');
+  console.log(freshBg);
 
-  await statii.postPages(freshBg);
+  // await statii.postPages(freshBg);
   console.log('== D O N E   T W I T T E R ==');
   callback({});
 }
