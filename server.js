@@ -107,13 +107,6 @@ if (cluster.isMaster) {
           });
         },
         (cb) => {
-          pr0gramm.programm('1', (d) => {
-            setTimeout(() => {
-              cb(null, 'pr0gramm worker');
-            }, tout);
-          });
-        },
-        (cb) => {
           pr0gramm.ninegag('hot', (d) => {
             setTimeout(() => {
               cb(null, 'ninegag worker');
