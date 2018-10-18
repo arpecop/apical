@@ -9,7 +9,7 @@ const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
 
 const db2 = new PouchDB(process.env.PORT
   ? 'http://pouchdb.herokuapp.com/api'
-  : 'http://pouchdb.herokuapp.com/api', );
+  : 'http://pouchdb.herokuapp.com/api');
 const db1 = new PouchDB('http://1:1@pouchdb.herokuapp.com/content');
 
 function put(jsonx, callback) {
@@ -43,15 +43,14 @@ function get(id, callback) {
         (err, body) => {
           if (!err) {
             const arr = [];
-            Promise.all(body.rows.map((item) =>
-              new Promise((cb, rj) => {
-                arr.push(Object.assign(item.value, {
-                  key: item.id,
-                  id: item.id,
-                  _date: new Date(item.value.time),
-                }));
-                cb();
-              }))).then((data) => {
+            Promise.all(body.rows.map(item => new Promise((cb, rj) => {
+              arr.push(Object.assign(item.value, {
+                key: item.id,
+                id: item.id,
+                _date: new Date(item.value.time),
+              }));
+              cb();
+            }))).then((data) => {
               console.log(arr);
 
               callback(null, {

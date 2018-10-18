@@ -7,10 +7,23 @@ const leveldown = require('leveldown');
 const md5 = require('md5');
 const jsonizehtml = require('html2json').html2json;
 const sanitizeHtml = require('sanitize-html');
+
 const statii = require('./_statii.js');
 
 const localdb = levelup(leveldown(process.env.PORT ? '/tmp/twitter' : `/tmp/${new Date()}`));
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
+
+function postDynamo(json, callback) {
+  const options = {
+    uri: 'https://0v1bbke6eh.execute-api.eu-central-1.amazonaws.com/latest/db/',
+    method: 'POST',
+    json,
+  };
+
+  request(options, (error, response, body) => {
+    callback();
+  });
+}
 
 
 function populatedb(id, callback) {
@@ -56,7 +69,7 @@ function html2json(html, callback) {
 
         const tidkey = ['x', 'username', 'hashtag', 'id', 'url', 'photo'];
 
-        const doubles = file.child.map((item) => {
+        file.child.map((item) => {
           if (item.child && item.child[0].attr) {
             image = item.child[0].attr['data-srcset'];
           } else if (
@@ -83,7 +96,7 @@ function html2json(html, callback) {
           return item;
         });
 
-        const tweet = text.join(' ');
+        const tweet = text.join(' ').replace(/&quot;/g, '"');
         if (tweet.length > 15 && image) {
           // ...doubles,
           // ...tid,
@@ -93,10 +106,10 @@ function html2json(html, callback) {
             image,
             description,
           };
-          // console.log(tweet1.image);
 
 
           arr.push(tweet1);
+
           cb();
         } else {
           cb();
@@ -111,8 +124,7 @@ function html2json(html, callback) {
   );
 }
 
-//
-// http://maps.googleapis.com/maps/api/geocode/json?address=dobrich&sensor=false
+
 async function getFreshOnes(posts, type) {
   const arr = [];
   return new Promise((resolve) => {
@@ -120,31 +132,28 @@ async function getFreshOnes(posts, type) {
       posts,
       (post, cb) => {
         if (post) {
-          populatedb(post.id, (exist) => {
+          populatedb(process.env.PORT ? post.id : new Date().getTime().toString(), (exist) => {
             if (exist) {
               db.put(
                 {
-                  _id: md5(post.id),
+                  _id: md5(post.title),
                 },
-                (errx) => {
-                  if (!errx && post.url) {
-                  // !errx EDIT
-                    const objectDefined = Object.assign(post, {
-                      _id: `${post.id.split('/')[2]}_t`,
-                      created_time: post.id.split('/')[2],
-                      tid: post.id.split('/')[2],
-                      type,
-                    });
+                () => {
+                  const objectDefined = {
+                    ...post,
+                    _id: md5(post.title),
+                    sortable: [type],
+                    type,
+                  };
+                  console.log(objectDefined);
+                  postDynamo(objectDefined, (params) => {
+                    db.put(objectDefined, (err) => {
+                    // console.log(err);
 
-                    db.put(objectDefined, () => {
                       cb();
+                      arr.push(objectDefined);
                     });
-
-
-                    arr.push(objectDefined);
-                  } else {
-                    cb();
-                  }
+                  });
                 },
               );
             } else {
