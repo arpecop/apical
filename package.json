@@ -32,6 +32,7 @@
         "request": "^2.83.0",
         "request-promise": "^4.2.2",
         "sanitize-html": "^1.16.3",
+        "scrape-twitter": "^0.11.1",
         "slug": "^0.9.1",
         "twitter": "^1.7.1",
         "underscore": "^1.8.3"

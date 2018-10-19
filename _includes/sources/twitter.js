@@ -18,5 +18,6 @@ module.exports = {
     'WSJ',
   ],
   bg: ['dirbg', 'BGNES', 'Novini_bg', 'novinitebg', 'www24chasa', 'BNT_NEWS', 'btvnovinite', 'SegaBG', 'dariknews', 'wwwTrud', 'vestibg', 'OFFNewsBG', 'zajenata'],
+  bgQueries: ['във', 'със', 'българия', 'този', 'това', 'най'],
 };
 //
