@@ -65,6 +65,8 @@ async function getFreshOnes(posts, type) {
                     sortable: [type],
                     time: Math.round(post.id),
                     id: undefined,
+                    title: post.text,
+                    image: post.images ? post.images[0] : undefined,
                   };
 
                   postDynamo(objectDefined, (params) => {
