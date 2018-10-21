@@ -62,7 +62,7 @@ async function postPages() {
                     'https://graph.facebook.com/me/photos',
                     {
                       form: {
-                        caption: json.title,
+                        caption: item.title,
                         access_token: page.access_token,
                         url,
                       },
