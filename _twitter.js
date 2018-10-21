@@ -34,6 +34,11 @@ async function postPages() {
       (page, cb) => {
         // get links
         const item = _.shuffle(JSON.parse(items.body).docs)[0];
+
+        const child_attachments = _.shuffle(JSON.parse(items.body).docs).map(xitem => ({ picture: xitem.image, name: xitem.title, link: `https://0v1bbke6eh.execute-api.eu-central-1.amazonaws.com/latest/twitterbg/${xitem._rev}` }));
+        // console.log(child_attachments);
+
+
         const url = `https://0v1bbke6eh.execute-api.eu-central-1.amazonaws.com/latest/twitterbg/${item._rev}`;
         request.post(
           'https://graph.facebook.com/',
@@ -50,7 +55,8 @@ async function postPages() {
               'https://graph.facebook.com/me/feed',
               {
                 form: {
-                  link: url,
+                  child_attachments,
+                  link: 'https://0v1bbke6eh.execute-api.eu-central-1.amazonaws.com/latest/twitterbg',
                   access_token: page.access_token,
                 },
               },
@@ -193,7 +199,7 @@ async function gowork(params, callback) {
 }
 if (!process.env.PORT) {
   // test();
-
+  postPages();
   // gowork(1, () => {});
   process.stdin.resume();
 }
