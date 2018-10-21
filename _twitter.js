@@ -29,7 +29,7 @@ async function postPages() {
 
 
   return new Promise((resolve) => {
-    async.each(
+    async.eachSeries(
       _.shuffle(pages).slice(0, 5),
       (page, cb) => {
         // get links
