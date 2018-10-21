@@ -40,27 +40,24 @@ const tokens = [
 ];
 
 const domains = [
-  'https://arpecop.gitlab.io/izteglisi/post/',
+  "https://arpecop.gitlab.io/izteglisi/post/"
   //'https://wt-rudix_lab-gmail_com-0.sandbox.auth0-extend.com/share/',
- // 'https://now-yjirixakkv.now.sh/',
+  // 'https://now-yjirixakkv.now.sh/',
   //'http://izteglisi.club/izteglisi/post/'
-]
+];
 async function postPages() {
-
-  let domain = _.shuffle(domains)[0]
+  let domain = _.shuffle(domains)[0];
   return new Promise(resolve => {
     const dx = Math.round(new Date().getHours()) + 2;
     const timeId = `bg${new Date().getDay()}-date:${new Date().getDate()}-hours:${new Date().getHours()}-${Math.round(
       new Date().getMinutes()
     )}`;
-     
-    
+
     const mins = new Date().getMinutes();
 
     console.log("hours", dx, timeId);
     if (dx >= 7 || !process.env.PORT) {
       db.get(`${timeId}`, err => {
-      
         if (
           !process.env.PORT ||
           mins === 5 ||
@@ -90,68 +87,60 @@ async function postPages() {
           async.eachSeries(
             _.shuffle(pages),
             (page, cb) => {
-              db
-                .query("i/bgimgsx", {
-                  limit: 1,
-                  descending: true,
-                  include_docs: true,
-                  skip: Math.floor(Math.random() * 2689)
-                })
-                .then(doc => {
-                  request.post(
-                    "https://graph.facebook.com/",
-                    {
-                      form: {
-                        access_token: page.access_token,
-                        id: `${domain}${doc.rows[0].id}`,
-                        scrape: true,
-                        published: process.env.PORT ? false:true
-                      }
-                    },
-                    (error, d, body) => {
-                       
-                      
-                      request.post(
-                        "https://graph.facebook.com/me/feed",
-                        {
-                          form: {
-                            link: `${domain}${
-                              doc.rows[0].id
-                              }`,
-                            access_token: page.access_token
-                          }
-                        },
-                        (e, m, body) => {
-                          console.log(body);
-
-                          if (JSON.parse(body).error) {
-                            request.post(
-                              "https://graph.facebook.com/me/photos",
-                              {
-                                form: {
-                                  caption: `${
-                                    doc.rows[0].doc.title
-                                    } : ${domain}${
-                                    doc.rows[0].id
-                                    }`,
-                                  access_token: page.access_token,
-                                  url: _.shuffle(doc.rows[0].doc.images)[0]
-                                }
-                              },
-                              (e, m, bodyx) => {
-                                console.log(bodyx);
-
-                                cb();
-                              }
-                            );
-                          } else {
-                            cb();
-                          }
-                        }
-                      );
+              db.query("i/bgimgsx", {
+                limit: 1,
+                descending: true,
+                include_docs: true,
+                skip: Math.floor(Math.random() * 2689)
+              }).then(doc => {
+                request.post(
+                  "https://graph.facebook.com/",
+                  {
+                    form: {
+                      access_token: page.access_token,
+                      id: `${domain}${doc.rows[0].id}`,
+                      scrape: true,
+                      published: process.env.PORT ? false : true
                     }
-                  );
-                });
+                  },
+                  (error, d, body) => {
+                    request.post(
+                      "https://graph.facebook.com/me/feed",
+                      {
+                        form: {
+                          link: `${domain}${doc.rows[0].id}`,
+                          access_token: page.access_token
+                        }
+                      },
+                      (e, m, body) => {
+                        console.log(body);
+
+                        if (JSON.parse(body).error) {
+                          request.post(
+                            "https://graph.facebook.com/me/photos",
+                            {
+                              form: {
+                                caption: `${doc.rows[0].doc.title} : ${domain}${
+                                  doc.rows[0].id
+                                }`,
+                                access_token: page.access_token,
+                                url: _.shuffle(doc.rows[0].doc.images)[0]
+                              }
+                            },
+                            (e, m, bodyx) => {
+                              console.log(bodyx);
+
+                              cb();
+                            }
+                          );
+                        } else {
+                          cb();
+                        }
+                      }
+                    );
+                  }
+                );
+              });
             },
             () => {
               resolve();
@@ -168,7 +157,6 @@ async function postPages() {
     }
   });
 }
-
 
 function populatedb(id, callback) {
   if (id) {
@@ -218,7 +206,7 @@ async function get_pages(file) {
   });
 }
 
-    async function get_fresh_ones(posts, type) {
+async function get_fresh_ones(posts, type) {
   const arr = [];
   return new Promise(resolve => {
     async.each(
@@ -231,7 +219,7 @@ async function get_pages(file) {
               get({
                 uri: `https://graph.facebook.com/${post.id}?access_token=${
                   _.shuffle(tokens)[0]
-                  }`,
+                }`,
                 transform(body) {
                   return JSON.parse(body);
                 }
@@ -287,8 +275,8 @@ async function postAndInsertDbFresh(arr, collectiondb) {
             insertjson.source = insertjson.link;
             insertjson.url_big = insertjson.full_picture
               ? decodeURIComponent(
-                insertjson.full_picture.split("url=")[1].split("&")[0]
-              )
+                  insertjson.full_picture.split("url=")[1].split("&")[0]
+                )
               : "";
             insertjson._id = `${new Date(insertjson.created_time).getTime()}_1`;
             console.log(insertjson);
@@ -327,8 +315,6 @@ async function statiiBg(params, callback) {
   console.log(`== D O N E   N E W S   B G ==${ifarraypostx.length}`);
 }
 
-
- 
 // statii
 async function statiiEn(params, callback) {
   const step1 = await get_pages("en_source_statii");

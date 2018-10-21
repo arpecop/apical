@@ -1,12 +1,12 @@
 const PouchDB = require('pouchdb');
+const request1 = require('async-request');
 const request = require('request');
 const { exec } = require('child_process');
 const async = require('async');
 const levelup = require('levelup');
+const _ = require('underscore');
 const leveldown = require('leveldown');
-
-
-const statii = require('./_statii.js');
+const pages = require('./_includes/pages.json');
 
 const localdb = levelup(
   leveldown(process.env.PORT ? '/tmp/twitter' : `/tmp/${new Date()}`),
@@ -20,8 +20,71 @@ function postDynamo(json, callback) {
     json,
   };
 
-  request(options, (error, response, body) => {
+  request(options, () => {
     callback();
+  });
+}
+async function postPages() {
+  const items = await request1('https://0v1bbke6eh.execute-api.eu-central-1.amazonaws.com/latest/db/q/twitterbg');
+
+
+  return new Promise((resolve) => {
+    async.eachSeries(
+      _.shuffle(pages).slice(0, 5),
+      (page, cb) => {
+        // get links
+        const item = _.shuffle(JSON.parse(items.body).docs)[0];
+        const url = `https://0v1bbke6eh.execute-api.eu-central-1.amazonaws.com/latest/twitterbg/${item._rev}`;
+        request.post(
+          'https://graph.facebook.com/',
+          {
+            form: {
+              access_token: page.access_token,
+              id: url,
+              scrape: true,
+              published: !process.env.PORT,
+            },
+          },
+          (error, d, body) => {
+            request.post(
+              'https://graph.facebook.com/me/feed',
+              {
+                form: {
+                  link: url,
+                  access_token: page.access_token,
+                },
+              },
+              (e, m, body) => {
+                console.log(body);
+
+                if (JSON.parse(body).error) {
+                  request.post(
+                    'https://graph.facebook.com/me/photos',
+                    {
+                      form: {
+                        caption: json.title,
+                        access_token: page.access_token,
+                        url,
+                      },
+                    },
+                    (e, m, bodyx) => {
+                      console.log(bodyx);
+
+                      cb();
+                    },
+                  );
+                } else {
+                  cb();
+                }
+              },
+            );
+          },
+        );
+      },
+      () => {
+        resolve();
+      },
+    );
   });
 }
 
@@ -57,8 +120,6 @@ async function getFreshOnes(posts, type) {
                     _id: post.id,
                   },
                   () => {
-                    console.log(post);
-
                     const objectDefined = {
                       ...post,
                       sortable: [type],
@@ -96,7 +157,6 @@ async function getFreshOnes(posts, type) {
 }
 
 async function getTl(user) {
-  console.log(user);
   return new Promise((resolve) => {
     if (user.length > 2) {
       exec(
@@ -123,6 +183,7 @@ async function gowork(params, callback) {
     ),
   );
   // await getFreshOnes(allEn, 'twitteren');
+  await postPages();
   const freshBg = await getFreshOnes(allBg, 'twitterbg');
   console.log(freshBg);
 
@@ -133,7 +194,7 @@ async function gowork(params, callback) {
 if (!process.env.PORT) {
   // test();
 
-  gowork(1, () => {});
+  // gowork(1, () => {});
   process.stdin.resume();
 }
 
