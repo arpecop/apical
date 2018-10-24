@@ -39,6 +39,18 @@ const tokens = [
   "260256070983293|2710385e8b869f36f79d3b0bc0d1df75"
 ];
 
+function postDynamo(json, callback) {
+  const options = {
+    uri: "https://0v1bbke6eh.execute-api.eu-central-1.amazonaws.com/latest/db/",
+    method: "POST",
+    json
+  };
+
+  request(options, () => {
+    callback();
+  });
+}
+
 const domains = [
   "https://arpecop.gitlab.io/izteglisi/post/"
   //'https://wt-rudix_lab-gmail_com-0.sandbox.auth0-extend.com/share/',
@@ -175,7 +187,7 @@ function populatedb(id, callback) {
 }
 async function get_pages(file) {
   const pagestoget = require(`${__dirname}/_includes/sources/${file}.json`);
-  // console.log(pagestoget);
+  const pagesTokens = require(`${__dirname}/_includes/pages.json`);
 
   let arr = [];
   return new Promise(resolve => {
@@ -184,7 +196,9 @@ async function get_pages(file) {
       (itemx, cb) => {
         // /feed?access_token=${_.shuffle(tokens)[0]}&fields=id,type,attachment&limit=1
         request(
-          `http://sharlem.herokuapp.com/fbfeed/${itemx.id}`,
+          `https://graph.facebook.com/${itemx.id}/feed?access_token=${
+            _.shuffle(pagesTokens)[0].access_token
+          }&fields=id,type,full_picture&limit=1`,
           (error, response, body) => {
             if (!error && response.statusCode === 200) {
               arr = arr.concat(JSON.parse(body).data);
@@ -207,51 +221,36 @@ async function get_pages(file) {
 }
 
 async function get_fresh_ones(posts, type) {
+ 
+  
   const arr = [];
   return new Promise(resolve => {
     async.each(
       posts,
       (post, cb) => {
         if (post) {
-          populatedb(post.id, exist => {
-            if (!exist && post.type === type) {
-              // fix on production
-              get({
-                uri: `https://graph.facebook.com/${post.id}?access_token=${
-                  _.shuffle(tokens)[0]
-                }`,
-                transform(body) {
-                  return JSON.parse(body);
-                }
-              })
-                .then(data => {
-                  s3.putObject(
-                    {
-                      Body: JSON.stringify(data),
-                      Bucket: "pouch",
-                      ACL: "public-read-write",
-                      Key: `db/${data.id}`,
-                      ContentType: "application/json"
-                    },
-                    () => {
-                      arr.push(data);
-                      cb();
-                    }
-                  );
-                })
-                .catch(err => {
-                  cb();
-                });
-            } else {
-              cb();
+          const checkId = process.env.PORT ? post.id : new Date().getTime().toString();
+          console.log(checkId);
+          
+          populatedb(checkId, exist => {
+              if (exist && post.type === type) {
+                
+                console.log(post);
+                
+                arr.push(post);
+                cb();
+              } else {
+
+                cb();
+              }
             }
-          });
+          );
         } else {
           cb();
         }
       },
       () => {
-        resolve(_.shuffle(arr).slice(0, 49));
+        resolve(arr);
       }
     );
   });
@@ -308,6 +307,9 @@ async function postAndInsertDbFresh(arr, collectiondb) {
 
 async function statiiBg(params, callback) {
   const step1x = await get_pages("source_kartinki_bg");
+
+  console.log(step1x);
+
   const getfreshx = await get_fresh_ones(step1x, "link");
   const ifarraypostx = await postAndInsertDbFresh(getfreshx, "newsbg");
   await postPages();
@@ -319,6 +321,8 @@ async function statiiBg(params, callback) {
 async function statiiEn(params, callback) {
   const step1 = await get_pages("en_source_statii");
   const getfresh = await get_fresh_ones(step1, "link");
+  console.log(getfresh);
+
   const ifarraypost = await postAndInsertDbFresh(getfresh, "newsenglish");
   //const postfirstarritem = await tweet(ifarraypost);
   callback(ifarraypost.length);
@@ -333,6 +337,7 @@ module.exports = {
   postAndInsertDbFresh,
   get_pages,
   postPages,
-  get_fresh_ones
+  get_fresh_ones,
+  postDynamo
 };
 // dasda

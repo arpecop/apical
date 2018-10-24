@@ -30,20 +30,27 @@ if (cluster.isMaster) {
     process.env.appslug === 'apicall1'
   ) {
     request.get('https://apicall1.herokuapp.com/', () => { });
+    const unused = [{
+      db: 'enimgsx',
+      url: 'g/box/',
+      tok: process.env.article_token,
+      app: 'poparticles',
+      limit: 651,
+    },
+    {
+      db: 'enimgsx', // view to retrieve latest post and send the title
+      url: 'g/box/', // before the _id
+      tok: process.env.mystbox_token,
+      app: 'mystic',
+      limit: 651,
+    }];
     const train = [
+
       {
-        db: 'enimgsx',
-        url: 'g/box/',
-        tok: process.env.article_token,
-        app: 'poparticles',
-        limit: 651,
-      },
-      {
-        db: 'enimgsx', // view to retrieve latest post and send the title
-        url: 'g/box/', // before the _id
-        tok: process.env.mystbox_token,
-        app: 'mystic',
-        limit: 651,
+        tok: process.env.izvestie_token,
+        url: '#chat',
+        title: 'Каня те в общия чат',
+        app: 'bgusers',
       },
 
     ];

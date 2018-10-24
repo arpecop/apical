@@ -1,36 +1,30 @@
 const async = require('async');
 const request = require('request');
 
-const pouch = require(`${__dirname}/pouch.js`);
 
 const _ = require('lodash');
 //
 
-
 const PouchDB = require('pouchdb');
+const pouch = require('./pouch.js');
 
-const db = new PouchDB('http://pouchdb.herokuapp.com/api');
 const db1 = new PouchDB('http://pouchdb.herokuapp.com/db');
 function post(json, callback) {
   const arr = [];
   pouch.gimmethousend(json.app, (docs) => {
+    docs.push(process.env.PORT ? '5435' : '572383379');
     async.each(
       docs,
       (fr, cb) => {
-        const item = _.shuffle(json.latest)[0];
-        const title = item.value.title ? item.value.title : item.value.tweet;
-        const desc = item.value.desc ? item.value.desc : '';
-
-        if (title.length > 10) {
+        if (json.title.length > 3) {
           arr.push({
             method: 'POST',
-            relative_url: `${fr}/notifications?href=${json.url}${item.id}&template=${title} ${desc}`,
+            relative_url: `${fr}/notifications?href=${json.url}&template=${json.title}`,
           });
           // arr.push({method: 'POST',relative_url: `${fr}/apprequests?message=${item.value.title} ${item.value.desc ? item.value.desc : ''}`,});
 
           cb();
         } else {
-          console.log(item.value.title);
           cb();
         }
       },
@@ -64,7 +58,7 @@ function post(json, callback) {
             );
           },
           () => {
-            console.log(` 👍:${count} 🚨:${counterr} 💾:${json.db} `);
+            console.log(` 👍:${count} 🚨:${counterr} 💾:${json.title} `);
             callback();
           },
         );
@@ -87,9 +81,22 @@ function scheduled_post(json, callback) {
       } else {
         callback('not enough posts');
       }
-    }).catch((err) => {
+    })
+    .catch((err) => {
       callback(err);
     });
+}
+
+if (!process.env.PORT) {
+  console.log(process.env);
+
+  post({
+    tok: process.env.article_token || '181361935494|iii2yPaq_2q9kUKy1RWcM27d0n4',
+    url: '#chat',
+    title: 'Каня те в общия чат',
+    app: 'bgusers',
+  }, () => {});
+  process.stdin.resume();
 }
 module.exports = {
   scheduled_post,

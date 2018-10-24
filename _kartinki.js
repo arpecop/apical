@@ -1,10 +1,10 @@
-const statcore = require('./_statii.js');
 const async = require('async');
 const _ = require('underscore');
 const request = require('request');
 const axios = require('axios');
 const PouchDB = require('pouchdb');
 const md5 = require('md5');
+const statcore = require('./_statii.js');
 const pages = require('./_includes/pages.json');
 
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
@@ -58,64 +58,86 @@ async function post_to_bg(arritem) {
   });
 }
 
+async function postAndInsertDbFresh(arr, db) {
+  console.log(arr);
+
+  return new Promise((resolve, reject) => {
+    async.eachSeries(arr, (i, callback) => {
+      console.log({ image: i.full_picture, title: '' });
+
+      callback();
+    }, (err) => { resolve(); });
+  });
+}
+
 async function kartinkiBg(params, callback) {
   const step1 = await statcore.get_pages('source_kartinki_bg');
   const getfresh = await statcore.get_fresh_ones(step1, 'photo');
+  await postAndInsertDbFresh(getfresh, 'twitterbg');
 
-  const ifarraypost = await statcore.postAndInsertDbFresh(getfresh, 'bgimgsx');
+
+  // const ifarraypost = await postAndInsertDbFresh(getfresh, 'twitterbg');
+
 
   // const postfirstarritem = await post_to_bg(ifarraypost[0]);
-  console.log(`== D O N E  K A R T I N K I   B G ==${ifarraypost.length}`);
-  callback(ifarraypost.length);
+  console.log('== D O N E  K A R T I N K I   B G ==');
 }
 
 async function kartinkiEn(params, callback) {
   const step1 = await statcore.get_pages('en_source_kartinki');
   const getfresh = await statcore.get_fresh_ones(step1, 'photo');
-  const ifarraypost = await statcore.postAndInsertDbFresh(getfresh, 'enimgsx');
+  // await postAndInsertDbFresh(getfresh, 'twitterbg');
 
-  console.log(`== D O N E  K A R T I N K I   E N ==${ifarraypost.length}`);
-  callback(ifarraypost.length);
+  console.log('== D O N E  K A R T I N K I   E N ==');
 }
 
 async function rebuildPinterest(callback) {
   axios
     .all([
-      axios.get('https://widgets.pinterest.com/v3/pidgets/boards/yzrid/funny/pins'),
-      axios.get('https://widgets.pinterest.com/v3/pidgets/boards/rudixlab/funny/pins'),
-      axios.get('https://widgets.pinterest.com/v3/pidgets/boards/rudixrudix/worth/pins'),
-      axios.get('https://widgets.pinterest.com/v3/pidgets/boards/likewall/funny-hits/pins'),
-      axios.get('https://widgets.pinterest.com/v3/pidgets/boards/rudixlab1/news/pins'),
+      axios.get(
+        'https://widgets.pinterest.com/v3/pidgets/boards/yzrid/funny/pins',
+      ),
+      axios.get(
+        'https://widgets.pinterest.com/v3/pidgets/boards/rudixlab/funny/pins',
+      ),
+      axios.get(
+        'https://widgets.pinterest.com/v3/pidgets/boards/rudixrudix/worth/pins',
+      ),
+      axios.get(
+        'https://widgets.pinterest.com/v3/pidgets/boards/likewall/funny-hits/pins',
+      ),
+      axios.get(
+        'https://widgets.pinterest.com/v3/pidgets/boards/rudixlab1/news/pins',
+      ),
     ])
-    .then(axios.spread((one, two, three, four, five) => {
-      const test = Array.prototype.concat.apply(
-        [],
-        [
-          one.data.data.pins,
-          two.data.data.pins,
-          three.data.data.pins,
-          four.data.data.pins,
-          five.data.data.pins,
-        ],
-      );
-      const sorted = sortByKey(test, 'id').map((val, index) => {
-        const one = 1;
-        return Object.assign(val.images['237x'], {
+    .then(
+      axios.spread((one, two, three, four, five) => {
+        const test = Array.prototype.concat.apply(
+          [],
+          [
+            one.data.data.pins,
+            two.data.data.pins,
+            three.data.data.pins,
+            four.data.data.pins,
+            five.data.data.pins,
+          ],
+        );
+        const sorted = sortByKey(test, 'id').map(val => Object.assign(val.images['237x'], {
           id: val.id,
           color: val.dominant_color,
-        });
-      });
-      request.post(
-        'http://sharlem.herokuapp.com/',
-        {
-          json: { _id: 'kartinkien', payload: sorted.reverse() },
-        },
-        (e, a, body) => {
-          callback(sorted);
-          console.log('---P I N T E R E S T---');
-        },
-      );
-    }))
+        }));
+        request.post(
+          'http://sharlem.herokuapp.com/',
+          {
+            json: { _id: 'kartinkien', payload: sorted.reverse() },
+          },
+          () => {
+            callback(sorted);
+            console.log('---P I N T E R E S T---');
+          },
+        );
+      }),
+    )
     .catch((error) => {
       console.log(error);
       callback();
@@ -123,6 +145,7 @@ async function rebuildPinterest(callback) {
 }
 if (!process.env.PORT) {
   kartinkiBg('1', () => {});
+  process.stdin.resume();
 }
 
 module.exports = {

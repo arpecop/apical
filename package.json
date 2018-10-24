@@ -9,7 +9,7 @@
         "apicache": "^0.8.7",
         "async": "^2.6.0",
         "async-request": "^1.2.0",
-        "aws-sdk": "^2.339.0",
+        "aws-sdk": "^2.340.0",
         "axios": "^0.17.1",
         "body-parser": "^1.18.2",
         "cheerio": "^1.0.0-rc.2",

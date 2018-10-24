@@ -206,4 +206,5 @@ if (!process.env.PORT) {
 
 module.exports = {
   gowork,
+  postDynamo,
 };
