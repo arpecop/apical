@@ -58,7 +58,7 @@ if (cluster.isMaster) {
     async.eachSeries(
       train,
       (val, cb) => {
-        promo.scheduled_post(val, () => {
+        promo.post(val, () => {
           cb(null, 'd');
         });
       },

@@ -67,29 +67,8 @@ function post(json, callback) {
   });
 }
 
-function scheduled_post(json, callback) {
-  db1
-    .query(`i/${json.db}`, {
-      limit: json.limit,
-      descending: true,
-    })
-    .then((doc) => {
-      if (doc.total_rows > 2) {
-        post(Object.assign({ latest: doc.rows }, json), () => {
-          callback('posting scheduled promo notification');
-        });
-      } else {
-        callback('not enough posts');
-      }
-    })
-    .catch((err) => {
-      callback(err);
-    });
-}
 
 if (!process.env.PORT) {
-  console.log(process.env);
-
   post({
     tok: process.env.article_token || '181361935494|iii2yPaq_2q9kUKy1RWcM27d0n4',
     url: '#chat',
@@ -99,6 +78,6 @@ if (!process.env.PORT) {
   process.stdin.resume();
 }
 module.exports = {
-  scheduled_post,
+
   post,
 };
