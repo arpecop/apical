@@ -81,6 +81,7 @@ async function kartinkiBg(params, callback) {
 
   // const postfirstarritem = await post_to_bg(ifarraypost[0]);
   console.log('== D O N E  K A R T I N K I   B G ==');
+  callback();
 }
 
 async function kartinkiEn(params, callback) {
@@ -89,6 +90,7 @@ async function kartinkiEn(params, callback) {
   // await postAndInsertDbFresh(getfresh, 'twitterbg');
 
   console.log('== D O N E  K A R T I N K I   E N ==');
+  callback();
 }
 
 async function rebuildPinterest(callback) {
