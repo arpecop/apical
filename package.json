@@ -1,51 +1,51 @@
 {
-    "name": "vault",
-    "version": "1.0.0",
-    "description": "vaudsdlt runnindsdg underground heroku lands",
-    "engines": {
-        "node": ">=10.11.0"
-    },
-    "dependencies": {
-        "apicache": "^0.8.7",
-        "async": "^2.6.0",
-        "async-request": "^1.2.0",
-        "aws-sdk": "^2.340.0",
-        "axios": "^0.17.1",
-        "body-parser": "^1.18.2",
-        "cheerio": "^1.0.0-rc.2",
-        "chokidar": "^1.7.0",
-        "compression": "^1.7.1",
-        "cors": "^2.8.4",
-        "express": "^4.16.4",
-        "express-http-proxy": "^1.1.0",
-        "express-pouchdb": "^2.3.7",
-        "har-validator": "^5.1.0",
-        "html2json": "^1.0.2",
-        "level": "^2.1.2",
-        "leveldown": "^2.1.1",
-        "levelup": "^2.0.2",
-        "lodash": "^4.17.10",
-        "md5": "^2.2.1",
-        "nano": "^6.4.2",
-        "node-pinterest": "0.0.4",
-        "node-readability": "^2.2.0",
-        "pouchdb": "^5.4.5",
-        "request": "^2.83.0",
-        "request-promise": "^4.2.2",
-        "sanitize-html": "^1.19.1",
-        "scrape-twitter": "^0.11.1",
-        "slug": "^0.9.1",
-        "twitter": "^1.7.1",
-        "underscore": "^1.8.3"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/arpecop/vault.git"
-    },
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/arpecop/vault/issues"
-    },
-    "homepage": "https://github.com/arpecop/vault#readme"
+  "name": "vault",
+  "version": "1.0.0",
+  "description": "vaudsdlt runnindsdg underground heroku lands",
+  "engines": {
+    "node": ">=11.9.0"
+  },
+  "dependencies": {
+    "apicache": "^0.8.7",
+    "async": "^2.6.0",
+    "async-request": "^1.2.0",
+    "aws-sdk": "^2.340.0",
+    "axios": "^0.17.1",
+    "body-parser": "^1.18.2",
+    "cheerio": "^1.0.0-rc.2",
+    "chokidar": "^1.7.0",
+    "compression": "^1.7.1",
+    "cors": "^2.8.4",
+    "express": "^4.16.4",
+    "express-http-proxy": "^1.1.0",
+    "express-pouchdb": "^2.3.7",
+    "har-validator": "^5.1.0",
+    "html2json": "^1.0.2",
+    "level": "^2.1.2",
+    "leveldown": "^2.1.1",
+    "levelup": "^2.0.2",
+    "lodash": "^4.17.10",
+    "md5": "^2.2.1",
+    "nano": "^6.4.2",
+    "node-pinterest": "0.0.4",
+    "node-readability": "^2.2.0",
+    "pouchdb": "^5.4.5",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
+    "sanitize-html": "^1.19.1",
+    "scrape-twitter": "^0.11.1",
+    "slug": "^0.9.1",
+    "twitter": "^1.7.1",
+    "underscore": "^1.8.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arpecop/vault.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arpecop/vault/issues"
+  },
+  "homepage": "https://github.com/arpecop/vault#readme"
 }

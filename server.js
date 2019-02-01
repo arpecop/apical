@@ -1,4 +1,4 @@
-import express from 'express';
+const express = require('express');
 
 const cluster = require('cluster');
 
@@ -7,7 +7,7 @@ const port = process.env.PORT || 3001;
 if (cluster.isMaster) {
   cluster.fork();
 
-  cluster.on('exit', worker => {
+  cluster.on('exit', (worker) => {
     console.log(`👷 ${worker.process.pid}`);
     cluster.fork();
   });
@@ -63,11 +63,11 @@ if (cluster.isMaster) {
         // });
         cb();
       },
-      err => {
+      (err) => {
         console.log('=== SHIFT DONE ===');
 
         process.exit(0);
-      }
+      },
     );
   } else {
     request.get('https://collector1.herokuapp.com/', () => {});
@@ -79,43 +79,43 @@ if (cluster.isMaster) {
     // statii.statiiBg , kartinkiEn , statiiEn
     async.series(
       [
-        cb => {
-          kartinki.kartinkiEn('1', d => {
+        (cb) => {
+          kartinki.kartinkiEn('1', (d) => {
             setTimeout(() => {
               cb(null, d);
             }, tout);
           });
         },
-        cb => {
-          kartinki.kartinkiBg('1', d => {
+        (cb) => {
+          kartinki.kartinkiBg('1', (d) => {
             setTimeout(() => {
               cb(null, d);
             }, tout);
           });
         },
-        cb => {
-          twitter.gowork('1', d => {
+        (cb) => {
+          twitter.gowork('1', (d) => {
             setTimeout(() => {
               cb(null, 'twitter worker');
             }, tout);
           });
         },
-        cb => {
-          pr0gramm.imgur('hot/time', d => {
+        (cb) => {
+          pr0gramm.imgur('hot/time', (d) => {
             setTimeout(() => {
               cb(null, 'imgur worker 2');
             }, tout);
           });
         },
-        cb => {
-          pr0gramm.imgur('new/time', d => {
+        (cb) => {
+          pr0gramm.imgur('new/time', (d) => {
             setTimeout(() => {
               cb(null, 'imgur worker 2');
             }, tout);
           });
         },
-        cb => {
-          pr0gramm.ninegag('hot', d => {
+        (cb) => {
+          pr0gramm.ninegag('hot', (d) => {
             setTimeout(() => {
               cb(null, 'ninegag worker');
             }, tout);
@@ -125,17 +125,12 @@ if (cluster.isMaster) {
       (err, result) => {
         console.log('== SHIFT DONE 🤷🏻‍ ==\n\n');
         process.exit(0);
-      }
+      },
     );
   }
 
   process.on('unhandledRejection', (reason, p) => {
-    console.log(
-      'Possibly Unhandled Rejection at: Promise ',
-      p,
-      ' reason: ',
-      reason
-    );
+    console.log('Possibly Unhandled Rejection at: Promise ', p, ' reason: ', reason);
     process.exit(0);
   });
 }
