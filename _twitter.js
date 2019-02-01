@@ -12,7 +12,7 @@ const localdb = levelup(leveldown(process.env.PORT ? '/tmp/twitter' : `/tmp/${ne
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/twitter');
 const dbX = new PouchDB('https://1:1@b1mr8p25ec0zgu1f.v1.p.beameio.net/twitter');
 
-dbx
+dbX
   .sync(db)
   .on('complete', () => {
     console.log('SYNc completed');
