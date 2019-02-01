@@ -12,14 +12,14 @@ const localdb = levelup(leveldown(process.env.PORT ? '/tmp/twitter' : `/tmp/${ne
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/twitter');
 const dbX = new PouchDB('https://1:1@b1mr8p25ec0zgu1f.v1.p.beameio.net/twitter');
 // dsds
-dbX
-  .sync(db)
+
+dbX.replicate
+  .from(db)
   .on('complete', () => {
     console.log('SYNc completed');
   })
   .on('error', (err) => {
     console.log('SYNc compleDEAD');
-    // boo, we hit an error!
   });
 
 function postDynamo(json, callback) {
@@ -106,14 +106,18 @@ async function getTl(user) {
     }
   });
 }
-const timelinesArr = require(`${__dirname}/_includes/sources/twitter.js`);
+const { bgQueries, enQueries } = require(`${__dirname}/_includes/sources/twitter.js`);
 async function gowork(params, callback) {
   const allBg = [].concat.apply(
     [],
-    await Promise.all(timelinesArr.bgQueries.map(async q => await getTl(q, 'twitterbg'))),
+    await Promise.all(bgQueries.map(async q => await getTl(q, 'twitterbg'))),
   );
-
-  const freshBg = await getFreshOnes(allBg, 'twitterbg');
+  const allEn = [].concat.apply(
+    [],
+    await Promise.all(enQueries.map(async q => await getTl(q, 'twitteren'))),
+  );
+  await getFreshOnes(allBg, 'twitterbg');
+  await getFreshOnes(allEn, 'twitteren');
 
   console.log('== D O N E   T W I T T E R ==');
   callback({});
