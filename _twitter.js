@@ -1,11 +1,10 @@
 const PouchDB = require('pouchdb');
- 
+
 const { exec } = require('child_process');
 const async = require('async');
 const levelup = require('levelup');
- 
+
 const leveldown = require('leveldown');
- 
 
 const localdb = levelup(leveldown(process.env.PORT ? '/tmp/twitter' : `/tmp/${new Date()}`));
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/twitter');
@@ -106,21 +105,27 @@ async function getTl(user) {
   });
 }
 const { bgQueries, enQueries } = require(`${__dirname}/_includes/sources/twitter.js`);
+async function queries(quries, type) {
+  return new Promise((resolve, reject) => {
+    async.eachLimit(
+      quries,
+      3,
+      (q, callback) => {
+        getTl(q, type).then(() => callback());
+      },
+      () => {
+        resolve({});
+      },
+    );
+  });
+}
 async function gowork(params, callback) {
-  const allBg = [].concat.apply(
-    [],
-    await Promise.all(bgQueries.map(async q => await getTl(q, 'twitterbg'))),
-  );
-  const allEn = [].concat.apply(
-    [],
-    await Promise.all(enQueries.map(async q => await getTl(q, 'twitteren'))),
-  );
-  await getFreshOnes(allBg, 'twitterbg');
-  await getFreshOnes(allEn, 'twitteren');
-
+  await queries(bgQueries, 'twitterbg');
+  await queries(enQueries, 'twitteren');
   console.log('== D O N E   T W I T T E R ==');
   callback({});
 }
+
 if (!process.env.PORT) {
   gowork(1, () => {});
   process.stdin.resume();
