@@ -109,7 +109,7 @@ async function queries(quries, type) {
   return new Promise((resolve, reject) => {
     async.eachLimit(
       quries,
-      3,
+      5,
       (q, callback) => {
         getTl(q, type).then((data) => {
           getFreshOnes(data, type).then(() => callback());
