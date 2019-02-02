@@ -90,8 +90,8 @@ async function getTl(user) {
   return new Promise((resolve) => {
     if (user.length > 2) {
       exec(
-        `./node_modules/scrape-twitter/bin/scrape-twitter.js search --query="${user}" --count 5  --type latest`,
-        (err, stdout, stderr) => {
+        `./node_modules/scrape-twitter/bin/scrape-twitter.js search --query="${user}" --count 2  --type latest`,
+        (err, stdout) => {
           if (err) {
             resolve();
           } else {
@@ -111,7 +111,9 @@ async function queries(quries, type) {
       quries,
       3,
       (q, callback) => {
-        getTl(q, type).then(() => callback());
+        getTl(q, type).then((data) => {
+          getFreshOnes(data, type).then(() => callback());
+        });
       },
       () => {
         resolve({});
