@@ -1,3 +1,5 @@
+import request from 'request';
+
 const PouchDB = require('pouchdb');
 
 const { exec } = require('child_process');
@@ -7,9 +9,15 @@ const levelup = require('levelup');
 const leveldown = require('leveldown');
 
 const localdb = levelup(leveldown(process.env.PORT ? '/tmp/twitter' : `/tmp/${new Date()}`));
+const rdburl = 'https://1:1@b1mr8p25ec0zgu1f.v1.p.beameio.net/twitter';
+
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/twitter');
-const dbX = new PouchDB('https://1:1@b1mr8p25ec0zgu1f.v1.p.beameio.net/twitter');
+const dbX = new PouchDB(rdburl);
 // dsds
+
+request.get(`${rdburl}/_design/api/_view/bg?limit=21&reduce=false`, () => {});
+request.get(`${rdburl}/_design/api/_view/en?limit=21&reduce=false`, () => {});
+request.get(`${rdburl}/_design/api/_view/tags?limit=21&reduce=false`, () => {});
 
 dbX.replicate
   .from(db)
