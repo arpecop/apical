@@ -1,12 +1,11 @@
 const PouchDB = require('pouchdb');
-const request1 = require('async-request');
-const request = require('request');
+ 
 const { exec } = require('child_process');
 const async = require('async');
 const levelup = require('levelup');
-const _ = require('underscore');
+ 
 const leveldown = require('leveldown');
-const pages = require('./_includes/pages.json');
+ 
 
 const localdb = levelup(leveldown(process.env.PORT ? '/tmp/twitter' : `/tmp/${new Date()}`));
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/twitter');
