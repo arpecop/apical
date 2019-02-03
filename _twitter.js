@@ -98,7 +98,7 @@ async function getTl(user) {
   return new Promise((resolve) => {
     if (user.length > 2) {
       exec(
-        `./node_modules/scrape-twitter/bin/scrape-twitter.js search --query="${user}" --count 2  --type latest`,
+        `./node_modules/scrape-twitter/bin/scrape-twitter.js search --query="${user}" --count 20  --type latest`,
         (err, stdout) => {
           if (err) {
             resolve();
