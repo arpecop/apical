@@ -18,14 +18,14 @@ const dbX = new PouchDB(rdburl);
 request.get(`${rdburl}/_design/api/_view/bg?limit=21&reduce=false`, () => {});
 request.get(`${rdburl}/_design/api/_view/en?limit=21&reduce=false`, () => {});
 request.get(`${rdburl}/_design/api/_view/tags?limit=21&reduce=false`, () => {});
-
+request.get(`${rdburl}/_design/api/_view/username?limit=21&reduce=false`, () => {});
 dbX.replicate
   .from(db)
   .on('complete', () => {
     console.log('SYNc completed');
   })
   .on('error', (err) => {
-    console.log('SYNc compleDEAD');
+    console.log('SYNc compleDEAD', err);
   });
 
 function postDynamo(json, callback) {
