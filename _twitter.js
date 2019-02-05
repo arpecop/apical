@@ -9,7 +9,7 @@ const levelup = require('levelup');
 const leveldown = require('leveldown');
 
 const localdb = levelup(leveldown(process.env.PORT ? '/tmp/twitter' : `/tmp/${new Date()}`));
-const rdburl = 'https://1:1@b1mr8p25ec0zgu1f.v1.p.beameio.net/twitter';
+const rdburl = 'https://1:1@arpecop.serveo.net/twitter';
 
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/twitter');
 const dbX = new PouchDB(rdburl);
@@ -139,6 +139,7 @@ async function gowork(params, callback) {
 
 if (!process.env.PORT) {
   gowork(1, () => {});
+
   process.stdin.resume();
 }
 // dasd
