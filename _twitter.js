@@ -9,16 +9,18 @@ const levelup = require('levelup');
 const leveldown = require('leveldown');
 
 const localdb = levelup(leveldown(process.env.PORT ? '/tmp/twitter' : `/tmp/${new Date()}`));
+const urlx = 'https://arpecop.serveo.net/twitter';
 const rdburl = 'https://1:1@arpecop.serveo.net/twitter';
 
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/twitter');
 const dbX = new PouchDB(rdburl);
 // dsds
 
-request.get(`${rdburl}/_design/api/_view/bg?limit=21&reduce=false`, () => {});
-request.get(`${rdburl}/_design/api/_view/en?limit=21&reduce=false`, () => {});
-request.get(`${rdburl}/_design/api/_view/tags?limit=21&reduce=false`, () => {});
-request.get(`${rdburl}/_design/api/_view/username?limit=21&reduce=false`, () => {});
+request.get(`${urlx}/_design/api/_view/bg?limit=1&reduce=false&update=true`, () => {});
+request.get(`${urlx}/_design/api/_view/en?limit=1&reduce=false&update=true`, () => {});
+request.get(`${urlx}/_design/api/_view/tags?limit=1&reduce=false&update=true`, () => {});
+request.get(`${urlx}/_design/api/_view/u?limit=1&reduce=false&update=true`, () => {});
+request.get(`${urlx}/_design/api/_view/read?limit=1&reduce=false&update=true`, () => {});
 dbX.replicate
   .from(db)
   .on('complete', () => {

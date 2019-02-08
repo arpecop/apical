@@ -28,6 +28,7 @@
     "md5": "^2.2.1",
     "nano": "^6.4.2",
     "node-pinterest": "0.0.4",
+    "node-read": "^0.1.7",
     "node-readability": "^2.2.0",
     "pouchdb": "^5.4.5",
     "request": "^2.83.0",
