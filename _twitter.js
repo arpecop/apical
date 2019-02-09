@@ -76,7 +76,9 @@ async function getFreshOnes(posts, type) {
                     date: new Date().getTime().toString(),
                     image: post.images ? post.images[0] : undefined,
                   };
-
+                  request.get(
+                    `https://lambdata.herokuapp.com/la/twitterusername?id=${post.screenName}`,
+                  );
                   db.put(objectDefined, (err) => {
                     cb();
                   });
@@ -117,7 +119,7 @@ async function getTl(user) {
 }
 const { bgQueries, enQueries } = require(`${__dirname}/_includes/sources/twitter.js`);
 async function queries(quries, type) {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     async.eachLimit(
       quries,
       5,
