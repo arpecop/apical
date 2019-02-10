@@ -73,13 +73,10 @@ async function getFreshOnes(posts, type) {
                     _id: Math.round(post.id).toString(),
                     id: undefined,
                     title: post.text,
-                    text:null,
+                    text: null,
                     date: new Date().getTime().toString(),
                     image: post.images ? post.images[0] : undefined,
                   };
-                  request.get(
-                    `https://lambdata.herokuapp.com/la/twitterusername?id=${post.screenName}`,
-                  );
                   db.put(objectDefined, (err) => {
                     cb();
                   });
