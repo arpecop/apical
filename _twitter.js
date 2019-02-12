@@ -16,11 +16,44 @@ const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/twitter');
 const dbX = new PouchDB(rdburl);
 // dsds
 
-request.get(`${urlx}/_design/api/_view/bg?limit=1&reduce=false&update=true`, () => {});
-request.get(`${urlx}/_design/api/_view/en?limit=1&reduce=false&update=true`, () => {});
-request.get(`${urlx}/_design/api/_view/tags?limit=1&reduce=false&update=true`, () => {});
-request.get(`${urlx}/_design/api/_view/u?limit=1&reduce=false&update=true`, () => {});
-request.get(`${urlx}/_design/api/_view/read?limit=1&reduce=false&update=true`, () => {});
+const options = [
+  {
+    uri: `${urlx}/_find`,
+    method: 'POST',
+    json: {
+      selector: {
+        screenName: {
+          $eq: '_________scotch',
+        },
+      },
+      fields: ['time', '_id', 'title', 'urls', 'screenName'],
+      update: true,
+      limit: 1,
+    },
+  },
+  {
+    uri: `${urlx}/_find`,
+    method: 'POST',
+    json: {
+      selector: {
+        screenName: {
+          $ne: 1,
+        },
+      },
+      fields: ['time', '_id', 'title', 'urls', 'screenName'],
+      update: true,
+      limit: 1,
+    },
+  },
+];
+
+request(options[0], (error, response, body) => {
+  console.log(body); // Print the shortened url.
+});
+request(options[1], (error, response, body) => {
+  console.log(body); // Print the shortened url.
+});
+
 dbX.replicate
   .from(db)
   .on('complete', () => {
@@ -77,7 +110,7 @@ async function getFreshOnes(posts, type) {
                     date: new Date().getTime().toString(),
                     image: post.images ? post.images[0] : undefined,
                   };
-                  db.put(objectDefined, (err) => {
+                  db.put(objectDefined, () => {
                     cb();
                   });
                 },
