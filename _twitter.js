@@ -31,26 +31,9 @@ const options = [
       limit: 1,
     },
   },
-  {
-    uri: `${urlx}/_find`,
-    method: 'POST',
-    json: {
-      selector: {
-        screenName: {
-          $ne: 1,
-        },
-      },
-      fields: ['time', '_id', 'title', 'urls', 'screenName'],
-      update: true,
-      limit: 1,
-    },
-  },
 ];
 
 request(options[0], (error, response, body) => {
-  console.log(body); // Print the shortened url.
-});
-request(options[1], (error, response, body) => {
   console.log(body); // Print the shortened url.
 });
 
@@ -68,6 +51,7 @@ function postDynamo(json, callback) {
   db.put();
   callback();
 }
+request.get(`${urlx}/_design/api/_view/feed?reduce=false&skip=0&limit=1`, () => {});
 
 function populatedb(id, callback) {
   if (id) {
