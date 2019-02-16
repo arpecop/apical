@@ -52,7 +52,7 @@ function postDynamo(json, callback) {
   callback();
 }
 request.get(`${urlx}/_design/api/_view/feed?reduce=false&skip=0&limit=1`, () => {});
-
+request.get(`${urlx}/_design/api/_view/users?reduce=false&skip=0&limit=1`, () => {});
 function populatedb(id, callback) {
   if (id) {
     localdb.get(id, (err) => {
