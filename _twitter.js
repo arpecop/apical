@@ -9,13 +9,13 @@ const levelup = require('levelup');
 const leveldown = require('leveldown');
 
 const localdb = levelup(leveldown(process.env.PORT ? '/tmp/twitter' : `/tmp/${new Date()}`));
-	const urlx = 'https://gigi.local/twitter';
+	const urlx = 'https://gigi.localhost.run/twitter';
 const rdburl = 'https://1:1@gigi.localhost.run/twitter';
 
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/twitter');
 const dbX = new PouchDB(rdburl);
 // dsds
- 
+
 const options = [
   {
     uri: `${urlx}/_find`,
