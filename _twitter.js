@@ -1,4 +1,4 @@
-const request = require('request');
+	const request = require('request');
 
 const PouchDB = require('pouchdb');
 
@@ -9,13 +9,13 @@ const levelup = require('levelup');
 const leveldown = require('leveldown');
 
 const localdb = levelup(leveldown(process.env.PORT ? '/tmp/twitter' : `/tmp/${new Date()}`));
-const urlx = 'https://arpecop.serveo.net/twitter';
-const rdburl = 'https://1:1@arpecop.serveo.net/twitter';
+	const urlx = 'https://gigi.local/twitter';
+const rdburl = 'https://1:1@gigi.localhost.run/twitter';
 
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/twitter');
 const dbX = new PouchDB(rdburl);
 // dsds
-
+ 
 const options = [
   {
     uri: `${urlx}/_find`,
@@ -151,17 +151,17 @@ async function queries(quries, type) {
 }
 async function gowork(params, callback) {
   await queries(bgQueries, 'twitterbg');
-  await queries(enQueries, 'twitteren');
+ 	 await queries(enQueries, 'twitteren');
   console.log('== D O N E   T W I T T E R ==');
   callback({});
 }
 
 if (!process.env.PORT) {
   gowork(1, () => {});
-
+ 
   process.stdin.resume();
 }
-// dasd
+// dasddsad
 module.exports = {
   gowork,
   postDynamo,
