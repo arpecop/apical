@@ -1,23 +1,23 @@
-const PouchDB = require("pouchdb");
-const levelup = require("levelup");
-const leveldown = require("leveldown");
-const request = require("request");
-const Twitter = require("twitter");
-const get = require("request-promise");
-const async = require("async");
-const _ = require("underscore");
-const AWS = require("aws-sdk");
-const pages = require("./_includes/pages.json");
+const PouchDB = require('pouchdb');
+const levelup = require('levelup');
+const leveldown = require('leveldown');
+const request = require('request');
+const Twitter = require('twitter');
+const get = require('request-promise');
+const async = require('async');
+const _ = require('underscore');
+const AWS = require('aws-sdk');
+const pages = require('./_includes/pages.json');
 
 const s3 = new AWS.S3({
-  endpoint: new AWS.Endpoint("nyc3.digitaloceanspaces.com"),
+  endpoint: new AWS.Endpoint('nyc3.digitaloceanspaces.com'),
   accessKeyId: process.env.s31,
-  secretAccessKey: process.env.s32
+  secretAccessKey: process.env.s32,
 });
 
-const localdb = levelup(leveldown("/tmp/localx1"));
+const localdb = levelup(leveldown('/tmp/localx1'));
 
-const db = new PouchDB("http://1:1@pouchdb.herokuapp.com/db");
+const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
 // const db = require('nano')('http://pouchdb.herokuapp.com/api/');
 
 // const pagestoget = require (`${__dirname}/_includes/source.json`);
@@ -25,25 +25,24 @@ const db = new PouchDB("http://1:1@pouchdb.herokuapp.com/db");
 // const promo = require(`${__dirname}/_includes/promo.js`);
 
 const tokens = [
-  "210665145671703|2GFZgdD3y5uR2I-GfxvzIncSjRY",
-  "1776695622588995|k60zRml6f3HxHufsUzGCnGX1m2U",
-  "767881309896992|QqTxcQFDCBx5KfE2Ap4EKZfYEsc",
-  "127550380613969|eH3FkmqOZV8Y5HO12V1yU1wm63s",
-  "1626293370948828|UZw8jNqS7NSFYpape_fR2xjx1K4",
-  "925645240820290|QiKOZd7-6lSKZHB2KFeP1_BiM4E",
-  "146470212065341|lj4ImMpgMkFzmkKN3rQWJU5cGB0",
-  "368897760172030|K9B3e77oCGfnYG6_k_txCfcUBG8",
-  "646098862244678|4WrxTQays9OoJa2PmVaiN3e-tyg",
-  "177579968987113|m1mxZVGLJOSN8DxjnyotKakgKOs",
-  "1803576159873324|EioW4GdMxJbBAHSrn-KhFana4eE",
-  "260256070983293|2710385e8b869f36f79d3b0bc0d1df75"
+  '210665145671703|2GFZgdD3y5uR2I-GfxvzIncSjRY',
+
+  '767881309896992|QqTxcQFDCBx5KfE2Ap4EKZfYEsc',
+  '127550380613969|eH3FkmqOZV8Y5HO12V1yU1wm63s',
+
+  '925645240820290|QiKOZd7-6lSKZHB2KFeP1_BiM4E',
+  '146470212065341|lj4ImMpgMkFzmkKN3rQWJU5cGB0',
+
+  '177579968987113|m1mxZVGLJOSN8DxjnyotKakgKOs',
+  '1803576159873324|EioW4GdMxJbBAHSrn-KhFana4eE',
+  '260256070983293|2710385e8b869f36f79d3b0bc0d1df75',
 ];
 
 function postDynamo(json, callback) {
   const options = {
-    uri: "https://0v1bbke6eh.execute-api.eu-central-1.amazonaws.com/latest/db/",
-    method: "POST",
-    json
+    uri: 'https://0v1bbke6eh.execute-api.eu-central-1.amazonaws.com/latest/db/',
+    method: 'POST',
+    json,
   };
 
   request(options, () => {
@@ -52,7 +51,7 @@ function postDynamo(json, callback) {
 }
 
 const domains = [
-  "https://arpecop.gitlab.io/izteglisi/post/"
+  'https://arpecop.gitlab.io/izteglisi/post/',
   //'https://wt-rudix_lab-gmail_com-0.sandbox.auth0-extend.com/share/',
   // 'https://now-yjirixakkv.now.sh/',
   //'http://izteglisi.club/izteglisi/post/'
@@ -62,12 +61,12 @@ async function postPages() {
   return new Promise(resolve => {
     const dx = Math.round(new Date().getHours()) + 2;
     const timeId = `bg${new Date().getDay()}-date:${new Date().getDate()}-hours:${new Date().getHours()}-${Math.round(
-      new Date().getMinutes()
+      new Date().getMinutes(),
     )}`;
 
     const mins = new Date().getMinutes();
 
-    console.log("hours", dx, timeId);
+    console.log('hours', dx, timeId);
     if (dx >= 7 || !process.env.PORT) {
       db.get(`${timeId}`, err => {
         if (
@@ -99,72 +98,70 @@ async function postPages() {
           async.eachSeries(
             _.shuffle(pages),
             (page, cb) => {
-              db.query("i/bgimgsx", {
+              db.query('i/bgimgsx', {
                 limit: 1,
                 descending: true,
                 include_docs: true,
-                skip: Math.floor(Math.random() * 2689)
+                skip: Math.floor(Math.random() * 2689),
               }).then(doc => {
                 request.post(
-                  "https://graph.facebook.com/",
+                  'https://graph.facebook.com/',
                   {
                     form: {
                       access_token: page.access_token,
                       id: `${domain}${doc.rows[0].id}`,
                       scrape: true,
-                      published: process.env.PORT ? false : true
-                    }
+                      published: process.env.PORT ? false : true,
+                    },
                   },
                   (error, d, body) => {
                     request.post(
-                      "https://graph.facebook.com/me/feed",
+                      'https://graph.facebook.com/me/feed',
                       {
                         form: {
                           link: `${domain}${doc.rows[0].id}`,
-                          access_token: page.access_token
-                        }
+                          access_token: page.access_token,
+                        },
                       },
                       (e, m, body) => {
                         console.log(body);
 
                         if (JSON.parse(body).error) {
                           request.post(
-                            "https://graph.facebook.com/me/photos",
+                            'https://graph.facebook.com/me/photos',
                             {
                               form: {
-                                caption: `${doc.rows[0].doc.title} : ${domain}${
-                                  doc.rows[0].id
-                                }`,
+                                caption: `${doc.rows[0].doc.title} : ${domain}${doc.rows[0].id}`,
                                 access_token: page.access_token,
-                                url: _.shuffle(doc.rows[0].doc.images)[0]
-                              }
+                                url: _.shuffle(doc.rows[0].doc.images)[0],
+                              },
                             },
                             (e, m, bodyx) => {
                               console.log(bodyx);
 
                               cb();
-                            }
+                            },
                           );
                         } else {
                           cb();
                         }
-                      }
+                      },
                     );
-                  }
+                  },
                 );
               });
             },
             () => {
               resolve();
-            }
+            },
           );
         } else {
-          console.log("too often");
+          console.log('too often');
           resolve();
         }
       });
     } else {
-      console.log("its late in Bulgaria");
+      console.log('its late in Bulgaria');
       resolve();
     }
   });
@@ -174,7 +171,7 @@ function populatedb(id, callback) {
   if (id) {
     localdb.get(id, err => {
       if (err) {
-        localdb.put(id, "c", () => {
+        localdb.put(id, 'c', () => {
           callback(true);
         });
       } else {
@@ -206,23 +203,21 @@ async function get_pages(file) {
             } else {
               cb();
             }
-          }
+          },
         );
       },
       () => {
         if (arr.length < 5) {
-          resolve({ err: "something wrong" });
+          resolve({ err: 'something wrong' });
         } else {
           resolve(arr);
         }
-      }
+      },
     );
   });
 }
 
 async function get_fresh_ones(posts, type) {
- 
-  
   const arr = [];
   return new Promise(resolve => {
     async.each(
@@ -231,27 +226,24 @@ async function get_fresh_ones(posts, type) {
         if (post) {
           const checkId = process.env.PORT ? post.id : new Date().getTime().toString();
           console.log(checkId);
-          
-          populatedb(checkId, exist => {
-              if (exist && post.type === type) {
-                
-                console.log(post);
-                
-                arr.push(post);
-                cb();
-              } else {
 
-                cb();
-              }
+          populatedb(checkId, exist => {
+            if (exist && post.type === type) {
+              console.log(post);
+
+              arr.push(post);
+              cb();
+            } else {
+              cb();
             }
-          );
+          });
         } else {
           cb();
         }
       },
       () => {
         resolve(arr);
-      }
+      },
     );
   });
 }
@@ -262,28 +254,24 @@ async function postAndInsertDbFresh(arr, collectiondb) {
       async.each(
         arr,
         (item, cb) => {
-          if (item.type === "link") {
+          if (item.type === 'link') {
             const insertjson = item;
             insertjson.type = collectiondb;
             insertjson.title = insertjson.name;
-            insertjson.description = insertjson.message
-              ? insertjson.message
-              : " ";
+            insertjson.description = insertjson.message ? insertjson.message : ' ';
             insertjson.url = insertjson.picture;
-            insertjson.provider = insertjson.link.split("/")[2];
+            insertjson.provider = insertjson.link.split('/')[2];
             insertjson.source = insertjson.link;
             insertjson.url_big = insertjson.full_picture
-              ? decodeURIComponent(
-                  insertjson.full_picture.split("url=")[1].split("&")[0]
-                )
-              : "";
+              ? decodeURIComponent(insertjson.full_picture.split('url=')[1].split('&')[0])
+              : '';
             insertjson._id = `${new Date(insertjson.created_time).getTime()}_1`;
             console.log(insertjson);
 
             db.put(insertjson, (err, nonerr) => {
               cb();
             });
-          } else if (item.type === "photo") {
+          } else if (item.type === 'photo') {
             const insertjson = item;
             insertjson.type = collectiondb;
             insertjson._id = `${new Date(insertjson.created_time).getTime()}_1`;
@@ -297,7 +285,7 @@ async function postAndInsertDbFresh(arr, collectiondb) {
         },
         () => {
           resolve(arr);
-        }
+        },
       );
     } else {
       resolve([]);
@@ -306,12 +294,12 @@ async function postAndInsertDbFresh(arr, collectiondb) {
 }
 
 async function statiiBg(params, callback) {
-  const step1x = await get_pages("source_kartinki_bg");
+  const step1x = await get_pages('source_kartinki_bg');
 
   console.log(step1x);
 
-  const getfreshx = await get_fresh_ones(step1x, "link");
-  const ifarraypostx = await postAndInsertDbFresh(getfreshx, "newsbg");
+  const getfreshx = await get_fresh_ones(step1x, 'link');
+  const ifarraypostx = await postAndInsertDbFresh(getfreshx, 'newsbg');
   await postPages();
   callback(ifarraypostx.length);
   console.log(`== D O N E   N E W S   B G ==${ifarraypostx.length}`);
@@ -319,11 +307,11 @@ async function statiiBg(params, callback) {
 
 // statii
 async function statiiEn(params, callback) {
-  const step1 = await get_pages("en_source_statii");
-  const getfresh = await get_fresh_ones(step1, "link");
+  const step1 = await get_pages('en_source_statii');
+  const getfresh = await get_fresh_ones(step1, 'link');
   console.log(getfresh);
 
-  const ifarraypost = await postAndInsertDbFresh(getfresh, "newsenglish");
+  const ifarraypost = await postAndInsertDbFresh(getfresh, 'newsenglish');
   //const postfirstarritem = await tweet(ifarraypost);
   callback(ifarraypost.length);
   console.log(`== D O N E   N E W S   E N ==${ifarraypost.length}`);
@@ -338,6 +326,6 @@ module.exports = {
   get_pages,
   postPages,
   get_fresh_ones,
-  postDynamo
+  postDynamo,
 };
 // dasda

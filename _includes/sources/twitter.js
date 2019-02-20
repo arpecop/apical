@@ -1,5 +1,5 @@
 module.exports = {
-  en: [
+  enUsers: [
     'whatstrending',
     'TwitterMoments',
     'TechCrunch',
@@ -17,7 +17,7 @@ module.exports = {
     'TIME',
     'WSJ',
   ],
-  bg: [
+  bgUsers: [
     'dirbg',
     'BGNES',
     'Novini_bg',
@@ -27,7 +27,6 @@ module.exports = {
     'btvnovinite',
     'SegaBG',
     'dariknews',
-    'wwwTrud',
     'vestibg',
     'OFFNewsBG',
     'zajenata',
