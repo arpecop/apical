@@ -15,27 +15,7 @@ const rdburl = 'https://1:1@arpecop.serveo.net/twitter';
 const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/twitter');
 const dbX = new PouchDB(rdburl);
 // dsds
-
-const options = [
-  {
-    uri: `${urlx}/_find`,
-    method: 'POST',
-    json: {
-      selector: {
-        screenName: {
-          $eq: '_________scotch',
-        },
-      },
-      fields: ['time', '_id', 'title', 'urls', 'screenName'],
-      update: true,
-      limit: 1,
-    },
-  },
-];
-
-request(options[0], (error, response, body) => {
-  console.log(body); // Print the shortened url.
-});
+ 
 
 dbX.replicate
   .from(db)
@@ -48,6 +28,7 @@ dbX.replicate
 
 request.get(`${urlx}/_design/api/_view/feed?reduce=false&skip=0&limit=1`, () => {});
 request.get(`${urlx}/_design/api/_view/users?reduce=false&skip=0&limit=1`, () => {});
+request.get(`${urlx}/_design/api/_view/tags?reduce=false&skip=0&limit=1`, () => {});
 function populatedb(id, callback) {
   if (id) {
     localdb.get(id, (err) => {
@@ -150,7 +131,7 @@ async function users(queries, type) {
   return new Promise((resolve) => {
     async.eachLimit(
       queries,
-      5,
+      8,
       (q, callback) => {
         getTl(q, 'user').then((data) => {
           getFreshOnes(data, type).then(() => callback());
