@@ -10,12 +10,10 @@ const leveldown = require('leveldown');
 
 const localdb = levelup(leveldown(process.env.PORT ? '/tmp/twitter' : `/tmp/${new Date()}`));
 const urlx = 'https://arpecop.serveo.net/proxy/twitter';
-const rdburl = 'https://1:1@arpecop.serveo.net/proxy/twitter';
+const rdburl = 'https://arpecop.serveo.net/proxy/twitter';
 
-const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/proxy/twitter');
+const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/twitter');
 const dbX = new PouchDB(rdburl);
-// dsds
- 
 
 dbX.replicate
   .from(db)
@@ -143,7 +141,7 @@ async function users(queries, type) {
     );
   });
 }
-//dsadas
+// dsadas
 
 async function gowork(params, callback) {
   await users(bgUsers, 'bgNews');
