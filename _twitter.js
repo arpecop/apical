@@ -143,6 +143,7 @@ async function users(queries, type) {
     );
   });
 }
+//dsadas
 
 async function gowork(params, callback) {
   await users(bgUsers, 'bgNews');
