@@ -16,7 +16,7 @@ if (cluster.isMaster) {
   const async = require('async');
   const http = require('http');
 
-  // const promo = require('./_includes/promo.js');
+  const promo = require('./_includes/promo.js');
 
   const server = http.createServer((req, resp) => {
     resp.end('i got work to do mmmkay!');
