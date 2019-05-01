@@ -16,7 +16,7 @@ if (cluster.isMaster) {
   const async = require('async');
   const http = require('http');
 
-  const promo = require('./_includes/promo.js');
+  // const promo = require('./_includes/promo.js');
 
   const server = http.createServer((req, resp) => {
     resp.end('i got work to do mmmkay!');
@@ -58,9 +58,9 @@ if (cluster.isMaster) {
     async.eachSeries(
       train,
       (val, cb) => {
-        //  promo.post(val, () => {
-        //  cb(null, 'd');
-        // });
+        promo.post(val, () => {
+          cb(null, 'd');
+        });
         cb();
       },
       err => {
@@ -73,7 +73,7 @@ if (cluster.isMaster) {
     request.get('https://collector1.herokuapp.com/', () => {});
     const kartinki = require('./_kartinki.js');
     // const statii = require('./_statii.js');
-    const twitter = require('./_twitter.js');
+    // const twitter = require('./_twitter.js');
     const pr0gramm = require('./_pr0gramm.js');
     const tout = 0;
     // statii.statiiBg , kartinkiEn , statiiEn
@@ -93,13 +93,7 @@ if (cluster.isMaster) {
             }, tout);
           });
         },
-        cb => {
-          twitter.gowork('1', d => {
-            setTimeout(() => {
-              cb(null, 'twitter worker');
-            }, tout);
-          });
-        },
+
         cb => {
           pr0gramm.imgur('hot/time', d => {
             setTimeout(() => {
