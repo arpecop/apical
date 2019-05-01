@@ -1,35 +1,34 @@
 const request = require('request');
 
-const PouchDB = require('pouchdb');
-
 const { exec } = require('child_process');
 const async = require('async');
 const levelup = require('levelup');
 
 const leveldown = require('leveldown');
 
-const localdb = levelup(leveldown(process.env.PORT ? '/tmp/twitter' : `/tmp/${new Date()}`));
+const localdb = levelup(
+  leveldown(process.env.PORT ? '/tmp/twitter' : `/tmp/${new Date()}`)
+);
 const urlx = 'https://arpecop.serveo.net/proxy/twitter';
 const rdburl = 'https://arpecop.serveo.net/proxy/twitter';
 
-const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/twitter');
-const dbX = new PouchDB(rdburl);
-// test
-dbX.replicate
-  .from(db)
-  .on('complete', () => {
-    console.log('SYNc completed');
-  })
-  .on('error', (err) => {
-    console.log('SYNc compleDEAD', err);
-  });
+const db = require('nano')('http://1:1@pouchdb.herokuapp.com/db');
 
-request.get(`${urlx}/_design/api/_view/feed?reduce=false&skip=0&limit=1`, () => {});
-request.get(`${urlx}/_design/api/_view/users?reduce=false&skip=0&limit=1`, () => {});
-request.get(`${urlx}/_design/api/_view/tags?reduce=false&skip=0&limit=1`, () => {});
+request.get(
+  `${urlx}/_design/api/_view/feed?reduce=false&skip=0&limit=1`,
+  () => {}
+);
+request.get(
+  `${urlx}/_design/api/_view/users?reduce=false&skip=0&limit=1`,
+  () => {}
+);
+request.get(
+  `${urlx}/_design/api/_view/tags?reduce=false&skip=0&limit=1`,
+  () => {}
+);
 function populatedb(id, callback) {
   if (id) {
-    localdb.get(id, (err) => {
+    localdb.get(id, err => {
       if (err) {
         localdb.put(id, 'c', () => {
           callback(true);
@@ -45,54 +44,58 @@ function populatedb(id, callback) {
 
 async function getFreshOnes(posts, type) {
   const arr = [];
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     async.each(
       posts,
       (post, cb) => {
         if (post) {
-          populatedb(process.env.PORT ? post.id : new Date().getTime().toString(), (exist) => {
-            if (exist) {
-              db.put(
-                {
-                  _id: post.id,
-                },
-                () => {
-                  const objectDefined = {
-                    ...post,
-                    sortable: [type],
-                    time: Math.round(post.id),
-                    _id: Math.round(post.id).toString(),
-                    id: undefined,
-                    title: post.text,
-                    text: null,
-                    date: new Date().getTime().toString(),
-                    image: post.images ? post.images[0] : undefined,
-                  };
-                  db.put(objectDefined, () => {
-                    cb();
-                  });
-                },
-              );
-            } else {
-              cb();
+          populatedb(
+            process.env.PORT ? post.id : new Date().getTime().toString(),
+            exist => {
+              if (exist) {
+                db.insert(
+                  {
+                    _id: post.id
+                  },
+                  () => {
+                    const objectDefined = {
+                      ...post,
+                      sortable: [type],
+                      time: Math.round(post.id),
+                      _id: Math.round(post.id).toString(),
+                      id: undefined,
+                      title: post.text,
+                      text: null,
+                      date: new Date().getTime().toString(),
+                      image: post.images ? post.images[0] : undefined
+                    };
+                    db.insert(objectDefined, () => {
+                      cb();
+                    });
+                  }
+                );
+              } else {
+                cb();
+              }
             }
-          });
+          );
         } else {
           cb();
         }
       },
       () => {
         resolve(arr);
-      },
+      }
     );
   });
 }
 
 async function getTl(q, type) {
-  return new Promise((resolve) => {
-    const q1 = type === 'user'
-      ? `./node_modules/scrape-twitter/bin/scrape-twitter.js timeline ${q} --count 20`
-      : `./node_modules/scrape-twitter/bin/scrape-twitter.js search --query="${q}" --count 20  --type latest`;
+  return new Promise(resolve => {
+    const q1 =
+      type === 'user'
+        ? `./node_modules/scrape-twitter/bin/scrape-twitter.js timeline ${q} --count 20`
+        : `./node_modules/scrape-twitter/bin/scrape-twitter.js search --query="${q}" --count 20  --type latest`;
     if (q.length > 2) {
       exec(q1, (err, stdout) => {
         if (err || !stdout) {
@@ -108,36 +111,40 @@ async function getTl(q, type) {
     }
   });
 }
-const { bgQueries, enQueries, bgUsers } = require(`${__dirname}/_includes/sources/twitter.js`);
+const {
+  bgQueries,
+  enQueries,
+  bgUsers
+} = require(`${__dirname}/_includes/sources/twitter.js`);
 async function queries(quries, type) {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     async.eachLimit(
       quries,
       8,
       (q, callback) => {
-        getTl(q, 'query').then((data) => {
+        getTl(q, 'query').then(data => {
           getFreshOnes(data, type).then(() => callback());
         });
       },
       () => {
         resolve({});
-      },
+      }
     );
   });
 }
 async function users(queries, type) {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     async.eachLimit(
       queries,
       8,
       (q, callback) => {
-        getTl(q, 'user').then((data) => {
+        getTl(q, 'user').then(data => {
           getFreshOnes(data, type).then(() => callback());
         });
       },
       () => {
         resolve({});
-      },
+      }
     );
   });
 }
@@ -159,5 +166,5 @@ if (!process.env.PORT) {
 }
 // dasddsad
 module.exports = {
-  gowork,
+  gowork
 };

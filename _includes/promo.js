@@ -1,17 +1,16 @@
 const async = require('async');
 const request = require('request');
 
-
 const _ = require('lodash');
 //
 
-const PouchDB = require('pouchdb');
 const pouch = require('./pouch.js');
 
-const db1 = new PouchDB('http://pouchdb.herokuapp.com/db');
+const db1 = require('nano')('http://1:1@pouchdb.herokuapp.com/db');
+
 function post(json, callback) {
   const arr = [];
-  pouch.gimmethousend(json.app, (docs) => {
+  pouch.gimmethousend(json.app, docs => {
     docs.push(process.env.PORT ? '5435' : '572383379');
     async.each(
       docs,
@@ -19,7 +18,9 @@ function post(json, callback) {
         if (json.title.length > 3) {
           arr.push({
             method: 'POST',
-            relative_url: `${fr}/notifications?href=${json.url}&template=${json.title}`,
+            relative_url: `${fr}/notifications?href=${json.url}&template=${
+              json.title
+            }`
           });
           // arr.push({method: 'POST',relative_url: `${fr}/apprequests?message=${item.value.title} ${item.value.desc ? item.value.desc : ''}`,});
 
@@ -40,12 +41,12 @@ function post(json, callback) {
                 url: 'https://graph.facebook.com/',
                 form: {
                   access_token: json.tok,
-                  batch: JSON.stringify(chunk),
-                },
+                  batch: JSON.stringify(chunk)
+                }
               },
               (err, httpResponse, body) => {
                 if (body) {
-                  JSON.parse(body).forEach((item) => {
+                  JSON.parse(body).forEach(item => {
                     if (item.body === '{"success":true}') {
                       count++;
                     } else {
@@ -54,30 +55,32 @@ function post(json, callback) {
                   });
                 }
                 cb();
-              },
+              }
             );
           },
           () => {
             console.log(` 👍:${count} 🚨:${counterr} 💾:${json.title} `);
             callback();
-          },
+          }
         );
-      },
+      }
     );
   });
 }
 
-
 if (!process.env.PORT) {
-  post({
-    tok: process.env.article_token || '181361935494|iii2yPaq_2q9kUKy1RWcM27d0n4',
-    url: '#chat',
-    title: 'Каня те в общия чат',
-    app: 'bgusers',
-  }, () => {});
+  post(
+    {
+      tok:
+        process.env.article_token || '181361935494|iii2yPaq_2q9kUKy1RWcM27d0n4',
+      url: '#chat',
+      title: 'Каня те в общия чат',
+      app: 'bgusers'
+    },
+    () => {}
+  );
   process.stdin.resume();
 }
 module.exports = {
-
-  post,
+  post
 };

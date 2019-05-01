@@ -1,4 +1,4 @@
-const PouchDB = require('pouchdb');
+ 
 const levelup = require('levelup');
 const leveldown = require('leveldown');
 const request = require('request');
@@ -17,7 +17,7 @@ const s3 = new AWS.S3({
 
 const localdb = levelup(leveldown('/tmp/localx1'));
 
-const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
+const db = require('nano')('http://1:1@pouchdb.herokuapp.com/db');
 // const db = require('nano')('http://pouchdb.herokuapp.com/api/');
 
 // const pagestoget = require (`${__dirname}/_includes/source.json`);
@@ -92,7 +92,7 @@ async function postPages() {
           mins === 50 ||
           mins === 55
         ) {
-          db.put({ _id: timeId }, (err, ddd) => {
+          db.insert({ _id: timeId }, (err, ddd) => {
             console.log(err);
           });
           async.eachSeries(
@@ -268,7 +268,7 @@ async function postAndInsertDbFresh(arr, collectiondb) {
             insertjson._id = `${new Date(insertjson.created_time).getTime()}_1`;
             console.log(insertjson);
 
-            db.put(insertjson, (err, nonerr) => {
+            db.insert(insertjson, (err, nonerr) => {
               cb();
             });
           } else if (item.type === 'photo') {
@@ -276,7 +276,7 @@ async function postAndInsertDbFresh(arr, collectiondb) {
             insertjson.type = collectiondb;
             insertjson._id = `${new Date(insertjson.created_time).getTime()}_1`;
             console.log(insertjson);
-            db.put(insertjson, (err, nonerr) => {
+            db.insert(insertjson, (err, nonerr) => {
               cb();
             });
           } else {
