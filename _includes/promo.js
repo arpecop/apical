@@ -22,7 +22,6 @@ function post(json, callback) {
               json.title
             }`
           });
-          // arr.push({method: 'POST',relative_url: `${fr}/apprequests?message=${item.value.title} ${item.value.desc ? item.value.desc : ''}`,});
 
           cb();
         } else {
