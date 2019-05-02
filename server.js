@@ -28,7 +28,7 @@ if (cluster.isMaster) {
     process.exit(0);
   }, 960000);
 
-  if (process.env.appslug === 'apicall1' || process.env.USE === 'rudix') {
+  if (process.env.appslug === 'apicall1') {
     request.get('https://apicall1.herokuapp.com/', () => {});
     const unused = [
       {
