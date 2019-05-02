@@ -52,7 +52,7 @@ if (cluster.isMaster) {
       {
         tok: '181361935494|iii2yPaq_2q9kUKy1RWcM27d0n4',
         url: '#chat',
-        title: 'Каня те в общия чат',
+        title: '📩 имаш 1 нови съобщения ',
         app: 'bgusers'
       }
     ];
