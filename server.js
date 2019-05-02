@@ -28,8 +28,10 @@ if (cluster.isMaster) {
     process.exit(0);
   }, 960000);
 
-  if (process.env.appslug === 'apicall1' || process.env.USE === 'rudix') {
+  if (process.env.appslug === 'apicall1' || process.env.USER === 'rudix') {
     request.get('https://apicall1.herokuapp.com/', () => {});
+    console.log('apicall worker');
+
     const unused = [
       {
         db: 'enimgsx',
@@ -48,7 +50,7 @@ if (cluster.isMaster) {
     ];
     const train = [
       {
-        tok: process.env.izvestie_token,
+        tok: '181361935494|iii2yPaq_2q9kUKy1RWcM27d0n4',
         url: '#chat',
         title: 'Каня те в общия чат',
         app: 'bgusers'
@@ -61,7 +63,6 @@ if (cluster.isMaster) {
         promo.post(val, () => {
           cb(null, 'd');
         });
-        cb();
       },
       err => {
         console.log('=== SHIFT DONE ===');
@@ -70,6 +71,8 @@ if (cluster.isMaster) {
       }
     );
   } else {
+    console.log('collector worker');
+
     request.get('https://collector1.herokuapp.com/', () => {});
     const kartinki = require('./_kartinki.js');
     // const statii = require('./_statii.js');
