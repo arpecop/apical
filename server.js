@@ -1,8 +1,9 @@
-const express = require('express');
-
 const cluster = require('cluster');
 
 const port = process.env.PORT || 3001;
+const statii = require('./_statii.js');
+const kartinki = require('./_kartinki.js');
+const pr0gramm = require('./_pr0gramm.js');
 
 if (cluster.isMaster) {
   cluster.fork();
@@ -32,22 +33,6 @@ if (cluster.isMaster) {
     request.get('https://apicall1.herokuapp.com/', () => {});
     console.log('apicall worker');
 
-    const unused = [
-      {
-        db: 'enimgsx',
-        url: 'g/box/',
-        tok: `${process.env.article_token}1`,
-        app: 'poparticles',
-        limit: 651
-      },
-      {
-        db: 'enimgsx', // view to retrieve latest post and send the title
-        url: 'g/box/', // before the _id
-        tok: `${process.env.mystbox_token}1`,
-        app: 'mystic',
-        limit: 651
-      }
-    ];
     const train = [
       {
         tok: '181361935494|iii2yPaq_2q9kUKy1RWcM27d0n4',
@@ -64,7 +49,7 @@ if (cluster.isMaster) {
           cb(null, 'd');
         });
       },
-      err => {
+      () => {
         console.log('=== SHIFT DONE ===');
 
         process.exit(0);
@@ -74,10 +59,10 @@ if (cluster.isMaster) {
     console.log('collector worker');
 
     request.get('https://collector1.herokuapp.com/', () => {});
-    const kartinki = require('./_kartinki.js');
-    // const statii = require('./_statii.js');
+
     // const twitter = require('./_twitter.js');
-    const pr0gramm = require('./_pr0gramm.js');
+    statii.postPages();
+
     const tout = 0;
     // statii.statiiBg , kartinkiEn , statiiEn
     async.series(
@@ -98,14 +83,14 @@ if (cluster.isMaster) {
         },
 
         cb => {
-          pr0gramm.imgur('hot/time', d => {
+          pr0gramm.imgur('hot/time', () => {
             setTimeout(() => {
               cb(null, 'imgur worker 2');
             }, tout);
           });
         },
         cb => {
-          pr0gramm.imgur('new/time', d => {
+          pr0gramm.imgur('new/time', () => {
             setTimeout(() => {
               cb(null, 'imgur worker 2');
             }, tout);

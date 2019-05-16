@@ -10,7 +10,6 @@ const localdb = levelup(
   leveldown(process.env.PORT ? '/tmp/twitter' : `/tmp/${new Date()}`)
 );
 const urlx = 'https://arpecop.serveo.net/proxy/twitter';
-const rdburl = 'https://arpecop.serveo.net/proxy/twitter';
 
 const db = require('nano')('http://1:1@pouchdb.herokuapp.com/db');
 
@@ -115,7 +114,7 @@ const {
   bgQueries,
   enQueries,
   bgUsers
-} = require(`${__dirname}/_includes/sources/twitter.js`);
+} = require(`./_includes/sources/twitter.js`);
 async function queries(quries, type) {
   return new Promise(resolve => {
     async.eachLimit(
@@ -132,6 +131,7 @@ async function queries(quries, type) {
     );
   });
 }
+
 async function users(queries, type) {
   return new Promise(resolve => {
     async.eachLimit(

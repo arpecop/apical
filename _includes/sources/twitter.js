@@ -15,7 +15,7 @@ module.exports = {
     'Reuters',
     'Forbes',
     'TIME',
-    'WSJ',
+    'WSJ'
   ],
   bgUsers: [
     'dirbg',
@@ -29,7 +29,7 @@ module.exports = {
     'dariknews',
     'vestibg',
     'OFFNewsBG',
-    'zajenata',
+    'zajenata'
   ],
   bgQueries: ['във', 'със', 'българия', 'този', 'това', 'най'],
   enQueries: [
@@ -153,7 +153,7 @@ module.exports = {
     'just',
     'don',
     'should',
-    'now',
-  ],
+    'now'
+  ]
 };
 //
