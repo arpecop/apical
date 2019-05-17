@@ -2,8 +2,6 @@ const cluster = require('cluster');
 
 const port = process.env.PORT || 3001;
 const statii = require('./_statii.js');
-const kartinki = require('./_kartinki.js');
-const pr0gramm = require('./_pr0gramm.js');
 
 if (cluster.isMaster) {
   cluster.fork();
@@ -56,6 +54,8 @@ if (cluster.isMaster) {
       }
     );
   } else {
+    const kartinki = require('./_kartinki.js');
+    const pr0gramm = require('./_pr0gramm.js');
     console.log('collector worker');
 
     request.get('https://collector1.herokuapp.com/', () => {});
@@ -64,7 +64,7 @@ if (cluster.isMaster) {
     statii.postPages();
 
     const tout = 0;
-    // statii.statiiBg , kartinkiEn , statiiEn
+
     async.series(
       [
         cb => {
