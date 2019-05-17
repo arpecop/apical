@@ -62,9 +62,7 @@ async function postPages() {
           mins === 50 ||
           mins === 55
         ) {
-          db.insert({ _id: timeId }, err => {
-            console.log(err);
-          });
+          db.insert({ _id: timeId }, () => {});
           async.eachSeries(
             _.shuffle(pages),
             (page, cb) => {

@@ -53,7 +53,7 @@ if (cluster.isMaster) {
       }
     );
   } else {
-    const kartinki = require('./_kartinki.js');
+    // const kartinki = require('./_kartinki.js');
     const pr0gramm = require('./_pr0gramm.js');
     const statii = require('./_statii.js');
     console.log('collector worker');
