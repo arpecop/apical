@@ -90,7 +90,7 @@ async function kartinkiBg(params, callback) {
 
 async function kartinkiEn(params, callback) {
   const step1 = await statcore.get_pages('en_source_kartinki');
-  const getfresh = await statcore.get_fresh_ones(step1, 'photo');
+  await statcore.get_fresh_ones(step1, 'photo');
   // await postAndInsertDbFresh(getfresh, 'twitterbg');
 
   console.log('== D O N E  K A R T I N K I   E N ==');

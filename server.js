@@ -68,21 +68,6 @@ if (cluster.isMaster) {
     async.series(
       [
         cb => {
-          kartinki.kartinkiEn('1', d => {
-            setTimeout(() => {
-              cb(null, d);
-            }, tout);
-          });
-        },
-        cb => {
-          kartinki.kartinkiBg('1', d => {
-            setTimeout(() => {
-              cb(null, d);
-            }, tout);
-          });
-        },
-
-        cb => {
           pr0gramm.imgur('hot/time', () => {
             setTimeout(() => {
               cb(null, 'imgur worker 2');
