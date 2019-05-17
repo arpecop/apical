@@ -104,7 +104,7 @@ if (cluster.isMaster) {
           });
         }
       ],
-      (err, result) => {
+      () => {
         console.log('== SHIFT DONE 🤷🏻‍ ==\n\n');
         process.exit(0);
       }
