@@ -73,7 +73,7 @@ if (!process.env.PORT) {
       tok:
         process.env.article_token || '181361935494|iii2yPaq_2q9kUKy1RWcM27d0n4',
       url: '#chat',
-      title: '📩 имаш 1 нови съобщения ',
+      title: 'имаш 1 ново съобщение от Петър',
       app: 'bgusers'
     },
     () => {}
