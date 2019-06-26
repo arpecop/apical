@@ -93,6 +93,8 @@ async function postPages() {
                           }
                         },
                         (e, m, body) => {
+                          console.log(body);
+
                           if (JSON.parse(body).error) {
                             request.post(
                               'https://graph.facebook.com/me/photos',
@@ -113,6 +115,7 @@ async function postPages() {
                               }
                             );
                           } else {
+                            console.log(body);
                             cb();
                           }
                         }
@@ -295,6 +298,7 @@ async function statiiEn(params, callback) {
 }
 
 if (!process.env.PORT) {
+  statiiBg();
 }
 // dsadasdasddadsadsd
 
