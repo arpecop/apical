@@ -61,12 +61,14 @@ if (cluster.isMaster) {
     request.get('https://collector1.herokuapp.com/', () => {});
 
     // const twitter = require('./_twitter.js');
-    statii.postPages();
 
     const tout = 0;
 
     async.series(
       [
+        cb => {
+          statii.postPages().then(() => cb());
+        },
         cb => {
           pr0gramm.imgur('hot/time', () => {
             setTimeout(() => {
