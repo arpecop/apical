@@ -8,14 +8,6 @@ const _ = require('underscore');
 const db = require('nano')('http://1:1@pouchdb.herokuapp.com/chetiva');
 const pages = require('./_includes/pages.json');
 
-const meta = `<html><head>
-<meta charset="utf-8"><link rel="shortcut icon" href="/favicon.ico"><title>Хейли потвърди брака си с Джъстин. Стана Бийбър в Инстаграм</title><meta property="og:title" content="Хейли потвърди брака си с Джъстин. Стана Бийбър в Инстаграм" data-react-helmet="true"><meta property="og:description" content="Veed is a simple but powerfull video editor, try our free video editor to, resize video, trim video add loads more!" data-react-helmet="true"><meta property="og:image" content="https://www.veed.io/fav/og-image.png" data-react-helmet="true"><meta property="og:image:url" content="https://www.veed.io/fav/og-image.png" data-react-helmet="true"></head>${x}
-</html>`;
-
-const meta = function(req,res) {
-  res.end('o')
-}
-
 // const s3 = new AWS.S3({
 // endpoint: new AWS.Endpoint('nyc3.digitaloceanspaces.com'),
 // accessKeyId: process.env.s31,
