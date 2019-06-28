@@ -65,7 +65,7 @@ async function postPages() {
           db.insert({ _id: timeId }, () => {});
           async.eachLimit(
             _.shuffle(pages),
-            5,
+            1,
             (page, cb) => {
               request.get(
                 'https://pouchdb.herokuapp.com/chetiva/_design/i/_view/News?limit=20&descending=true',
