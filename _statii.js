@@ -68,7 +68,7 @@ async function postPages() {
             1,
             (page, cb) => {
               request.get(
-                'https://pouchdb.herokuapp.com/chetiva/_design/i/_view/News?limit=20&descending=false',
+                'https://pouchdb.herokuapp.com/chetiva/_design/i/_view/News?limit=20&descending=true',
                 (ex, xx, doc1) => {
                   const doc = JSON.parse(doc1);
                   request.post(
