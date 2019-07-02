@@ -87,9 +87,18 @@ async function postPages() {
                         'https://graph.facebook.com/me/feed',
                         {
                           form: {
-                            link: `https://novinata.netlify.com/${
-                              doc.rows[0].id
-                            }`,
+                            child_attachments: [
+                              {
+                                link: `https://novinata.netlify.com/${
+                                  doc.rows[0].id
+                                }`
+                              },
+                              {
+                                link: `https://novinata.netlify.com/${
+                                  doc.rows[1].id
+                                }`
+                              }
+                            ],
                             access_token: page.access_token
                           }
                         },
