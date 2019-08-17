@@ -1,23 +1,23 @@
-const async = require('async');
-const request = require('request');
+const async = require("async");
+const request = require("request");
 
-const _ = require('lodash');
+const _ = require("lodash");
 //
 
-const pouch = require('./pouch.js');
+const pouch = require("./pouch.js");
 
-const db1 = require('nano')('http://1:1@pouchdb.herokuapp.com/db');
+const db1 = require("nano")("http://1:1@pouchdb.herokuapp.com/db");
 
 function post(json, callback) {
   const arr = [];
   pouch.gimmethousend(json.app, docs => {
-    docs.push(process.env.PORT ? '5435' : '572383379');
+    docs.push(process.env.PORT ? "5435" : "572383379");
     async.each(
       docs,
       (fr, cb) => {
         if (json.title.length > 3) {
           arr.push({
-            method: 'POST',
+            method: "POST",
             relative_url: `${fr}/notifications?href=${json.url}&template=${
               json.title
             }`
@@ -37,7 +37,7 @@ function post(json, callback) {
           (chunk, cb) => {
             request.post(
               {
-                url: 'https://graph.facebook.com/',
+                url: "https://graph.facebook.com/",
                 form: {
                   access_token: json.tok,
                   batch: JSON.stringify(chunk)
@@ -71,10 +71,10 @@ if (!process.env.PORT) {
   post(
     {
       tok:
-        process.env.article_token || '181361935494|iii2yPaq_2q9kUKy1RWcM27d0n4',
-      url: '#chat',
-      title: 'имаш 1 ново съобщение от Петър',
-      app: 'bgusers'
+        process.env.article_token || "181361935494|iii2yPaq_2q9kUKy1RWcM27d0n4",
+      url: "#chat",
+      title: "имаш 1 ново съобщение от Петър",
+      app: "bgusers"
     },
     () => {}
   );
