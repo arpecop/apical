@@ -1,12 +1,12 @@
-const levelup = require('levelup');
-const leveldown = require('leveldown');
-const request = require('request');
+const levelup = require("levelup");
+const leveldown = require("leveldown");
+const request = require("request");
 
-const async = require('async');
-const _ = require('underscore');
+const async = require("async");
+const _ = require("underscore");
 // const AWS = require('aws-sdk');
-const db = require('nano')('http://1:1@pouchdb.herokuapp.com/chetiva');
-const pages = require('./_includes/pages.json');
+const db = require("nano")("http://1:1@pouchdb.herokuapp.com/chetiva");
+const pages = require("./_includes/pages.json");
 
 // const s3 = new AWS.S3({
 // endpoint: new AWS.Endpoint('nyc3.digitaloceanspaces.com'),
@@ -14,12 +14,12 @@ const pages = require('./_includes/pages.json');
 // secretAccessKey: process.env.s32
 // });
 
-const localdb = levelup(leveldown('/tmp/localx1'));
+const localdb = levelup(leveldown("/tmp/localx1"));
 
 function postDynamo(json, callback) {
   const options = {
-    uri: 'https://0v1bbke6eh.execute-api.eu-central-1.amazonaws.com/latest/db/',
-    method: 'POST',
+    uri: "https://0v1bbke6eh.execute-api.eu-central-1.amazonaws.com/latest/db/",
+    method: "POST",
     json
   };
 
@@ -37,29 +37,29 @@ async function postPages() {
 
     const mins = new Date().getMinutes();
 
-    console.log('hours', dx, timeId);
+    console.log("hours", dx, timeId);
     if (dx >= 7 || !process.env.PORT) {
       db.get(`${timeId}`, () => {
         if (
           !process.env.PORT ||
           mins === 5 ||
           mins === 10 ||
-         // mins === 12 ||
+          mins === 12 ||
           mins === 15 ||
           mins === 17 ||
-        //  mins === 20 ||
+          mins === 20 ||
           mins === 22 ||
-        //  mins === 25 ||
+          mins === 25 ||
           mins === 27 ||
-        //  mins === 30 ||
+          mins === 30 ||
           mins === 32 ||
-        //  mins === 35 ||
+          mins === 35 ||
           mins === 37 ||
-        //  mins === 40 ||
+          mins === 40 ||
           mins === 42 ||
-        //  mins === 45 ||
+          mins === 45 ||
           mins === 47 ||
-         // mins === 50 ||
+          mins === 50 ||
           mins === 55
         ) {
           db.insert({ _id: timeId }, () => {});
@@ -68,11 +68,11 @@ async function postPages() {
             1,
             (page, cb) => {
               request.get(
-                'https://pouchdb.herokuapp.com/chetiva/_design/i/_view/News?limit=20&descending=true',
+                "https://pouchdb.herokuapp.com/chetiva/_design/i/_view/News?limit=20&descending=true",
                 (ex, xx, doc1) => {
                   const doc = JSON.parse(doc1);
                   request.post(
-                    'https://graph.facebook.com/',
+                    "https://graph.facebook.com/",
                     {
                       form: {
                         access_token: page.access_token,
@@ -84,22 +84,11 @@ async function postPages() {
                     // eslint-disable-next-line no-unused-vars
                     (_error, d, body1) => {
                       request.post(
-                        'https://graph.facebook.com/me/feed',
+                        "https://graph.facebook.com/me/feed",
                         {
                           form: {
-                            child_attachments: [
-                              {
-                                link: `https://novinata.netlify.com/${
-                                  doc.rows[0].id
-                                }`
-                              },
-                              {
-                                link: `https://novinata.netlify.com/${
-                                  doc.rows[1].id
-                                }`
-                              }
-                            ],
-                            access_token: page.access_token
+                            access_token: page.access_token,
+                            link: `https://novinata.netlify.com/${doc.rows[0].id}`
                           }
                         },
                         (e, m, body) => {
@@ -107,14 +96,10 @@ async function postPages() {
 
                           if (JSON.parse(body).error) {
                             request.post(
-                              'https://graph.facebook.com/me/photos',
+                              "https://graph.facebook.com/me/photos",
                               {
                                 form: {
-                                  caption: `${
-                                    doc.rows[0].value.title
-                                  } : https://novinata.netlify.com/${
-                                    doc.rows[0].id
-                                  }`,
+                                  caption: `${doc.rows[0].value.title} : https://novinata.netlify.com/${doc.rows[0].id}`,
                                   access_token: page.access_token,
                                   url: doc.rows[0].value.image
                                 }
@@ -140,12 +125,12 @@ async function postPages() {
             }
           );
         } else {
-          console.log('too often');
+          console.log("too often");
           resolve();
         }
       });
     } else {
-      console.log('its late in Bulgaria');
+      console.log("its late in Bulgaria");
       resolve();
     }
   });
@@ -155,7 +140,7 @@ function populatedb(id, callback) {
   if (id) {
     localdb.get(id, err => {
       if (err) {
-        localdb.put(id, 'c', () => {
+        localdb.put(id, "c", () => {
           callback(true);
         });
       } else {
@@ -168,7 +153,7 @@ function populatedb(id, callback) {
 }
 async function getPages(file) {
   const pagestoget = require(`./_includes/sources/${file}.json`);
-  const pagesTokens = require('./_includes/pages.json');
+  const pagesTokens = require("./_includes/pages.json");
 
   let arr = [];
   return new Promise(resolve => {
@@ -192,7 +177,7 @@ async function getPages(file) {
       },
       () => {
         if (arr.length < 5) {
-          resolve({ err: 'something wrong' });
+          resolve({ err: "something wrong" });
         } else {
           resolve(arr);
         }
@@ -240,28 +225,28 @@ async function postAndInsertDbFresh(arr, collectiondb) {
       async.each(
         arr,
         (item, cb) => {
-          if (item.type === 'link') {
+          if (item.type === "link") {
             const insertjson = item;
             insertjson.type = collectiondb;
             insertjson.title = insertjson.name;
             insertjson.description = insertjson.message
               ? insertjson.message
-              : ' ';
+              : " ";
             insertjson.url = insertjson.picture;
-            insertjson.provider = insertjson.link.split('/')[2];
+            insertjson.provider = insertjson.link.split("/")[2];
             insertjson.source = insertjson.link;
             insertjson.url_big = insertjson.full_picture
               ? decodeURIComponent(
-                  insertjson.full_picture.split('url=')[1].split('&')[0]
+                  insertjson.full_picture.split("url=")[1].split("&")[0]
                 )
-              : '';
+              : "";
             insertjson._id = `${new Date(insertjson.created_time).getTime()}_1`;
             console.log(insertjson);
 
             db.insert(insertjson, () => {
               cb();
             });
-          } else if (item.type === 'photo') {
+          } else if (item.type === "photo") {
             const insertjson = item;
             insertjson.type = collectiondb;
             insertjson._id = `${new Date(insertjson.created_time).getTime()}_1`;
@@ -284,12 +269,12 @@ async function postAndInsertDbFresh(arr, collectiondb) {
 }
 
 async function statiiBg(params, callback) {
-  const step1x = await getPages('source_kartinki_bg');
+  const step1x = await getPages("source_kartinki_bg");
 
   console.log(step1x);
 
-  const getfreshx = await get_fresh_ones(step1x, 'link');
-  const ifarraypostx = await postAndInsertDbFresh(getfreshx, 'newsbg');
+  const getfreshx = await get_fresh_ones(step1x, "link");
+  const ifarraypostx = await postAndInsertDbFresh(getfreshx, "newsbg");
   await postPages();
   callback(ifarraypostx.length);
   console.log(`== D O N E   N E W S   B G ==${ifarraypostx.length}`);
@@ -297,11 +282,11 @@ async function statiiBg(params, callback) {
 
 // statii
 async function statiiEn(params, callback) {
-  const step1 = await getPages('en_source_statii');
-  const getfresh = await get_fresh_ones(step1, 'link');
+  const step1 = await getPages("en_source_statii");
+  const getfresh = await get_fresh_ones(step1, "link");
   console.log(getfresh);
 
-  const ifarraypost = await postAndInsertDbFresh(getfresh, 'newsenglish');
+  const ifarraypost = await postAndInsertDbFresh(getfresh, "newsenglish");
   // const postfirstarritem = await tweet(ifarraypost);
   callback(ifarraypost.length);
   console.log(`== D O N E   N E W S   E N ==${ifarraypost.length}`);
