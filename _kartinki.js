@@ -1,23 +1,23 @@
-const async = require('async');
-const _ = require('underscore');
-const request = require('request');
-const axios = require('axios');
+const async = require("async");
+const _ = require("underscore");
+const request = require("request");
+const axios = require("axios");
 
-const md5 = require('md5');
-const statcore = require('./_statii.js');
-const pages = require('./_includes/pages.json');
+const md5 = require("md5");
+const statcore = require("./_statii.js");
+const pages = require("./_includes/pages.json");
 
-const db = require('nano')('http://1:1@pouchdb.herokuapp.com/db');
+const db = require("nano")("http://1:1@pouchdb.herokuapp.com/db");
 
 function sortByKey(array, key) {
   return array.sort((a, b) => {
     let x = a[key];
     let y = b[key];
 
-    if (typeof x === 'string') {
+    if (typeof x === "string") {
       x = x.toLowerCase();
     }
-    if (typeof y === 'string') {
+    if (typeof y === "string") {
       y = y.toLowerCase();
     }
     return x < y ? -1 : x > y ? 1 : 0;
@@ -35,9 +35,7 @@ async function post_to_bg(arritem) {
                 `https://graph.facebook.com/${page.id}/photos`,
                 {
                   form: {
-                    caption: `😂😂😂 https://www.facebook.com/${
-                      page.id
-                    }/app/181361935494/ 😂😂😂`,
+                    caption: `😂😂😂 https://www.facebook.com/${page.id}/app/181361935494/ 😂😂😂`,
                     url: arritem.full_picture,
                     access_token: page.access_token
                   }
@@ -65,7 +63,7 @@ async function postAndInsertDbFresh(arr, db) {
     async.eachSeries(
       arr,
       (i, callback) => {
-        console.log({ image: i.full_picture, title: '' });
+        console.log({ image: i.full_picture, title: "" });
 
         callback();
       },
@@ -77,23 +75,23 @@ async function postAndInsertDbFresh(arr, db) {
 }
 
 async function kartinkiBg(params, callback) {
-  const step1 = await statcore.get_pages('source_kartinki_bg');
-  const getfresh = await statcore.get_fresh_ones(step1, 'photo');
-  await postAndInsertDbFresh(getfresh, 'twitterbg');
+  const step1 = await statcore.get_pages("source_kartinki_bg");
+  const getfresh = await statcore.get_fresh_ones(step1, "photo");
+  await postAndInsertDbFresh(getfresh, "twitterbg");
 
   // const ifarraypost = await postAndInsertDbFresh(getfresh, 'twitterbg');
 
   // const postfirstarritem = await post_to_bg(ifarraypost[0]);
-  console.log('== D O N E  K A R T I N K I   B G ==');
+  console.log("== D O N E  K A R T I N K I   B G ==");
   callback();
 }
 
 async function kartinkiEn(params, callback) {
-  const step1 = await statcore.get_pages('en_source_kartinki');
-  await statcore.get_fresh_ones(step1, 'photo');
+  const step1 = await statcore.get_pages("en_source_kartinki");
+  await statcore.get_fresh_ones(step1, "photo");
   // await postAndInsertDbFresh(getfresh, 'twitterbg');
 
-  console.log('== D O N E  K A R T I N K I   E N ==');
+  console.log("== D O N E  K A R T I N K I   E N ==");
   callback();
 }
 
@@ -101,19 +99,19 @@ async function rebuildPinterest(callback) {
   axios
     .all([
       axios.get(
-        'https://widgets.pinterest.com/v3/pidgets/boards/yzrid/funny/pins'
+        "https://widgets.pinterest.com/v3/pidgets/boards/yzrid/funny/pins"
       ),
       axios.get(
-        'https://widgets.pinterest.com/v3/pidgets/boards/rudixlab/funny/pins'
+        "https://widgets.pinterest.com/v3/pidgets/boards/rudixlab/funny/pins"
       ),
       axios.get(
-        'https://widgets.pinterest.com/v3/pidgets/boards/rudixrudix/worth/pins'
+        "https://widgets.pinterest.com/v3/pidgets/boards/rudixrudix/worth/pins"
       ),
       axios.get(
-        'https://widgets.pinterest.com/v3/pidgets/boards/likewall/funny-hits/pins'
+        "https://widgets.pinterest.com/v3/pidgets/boards/likewall/funny-hits/pins"
       ),
       axios.get(
-        'https://widgets.pinterest.com/v3/pidgets/boards/rudixlab1/news/pins'
+        "https://widgets.pinterest.com/v3/pidgets/boards/rudixlab1/news/pins"
       )
     ])
     .then(
@@ -128,20 +126,20 @@ async function rebuildPinterest(callback) {
             five.data.data.pins
           ]
         );
-        const sorted = sortByKey(test, 'id').map(val =>
-          Object.assign(val.images['237x'], {
+        const sorted = sortByKey(test, "id").map(val =>
+          Object.assign(val.images["237x"], {
             id: val.id,
             color: val.dominant_color
           })
         );
         request.post(
-          'http://sharlem.herokuapp.com/',
+          "http://sharlem.herokuapp.com/",
           {
-            json: { _id: 'kartinkien', payload: sorted.reverse() }
+            json: { _id: "kartinkien", payload: sorted.reverse() }
           },
           () => {
             callback(sorted);
-            console.log('---P I N T E R E S T---');
+            console.log("---P I N T E R E S T---");
           }
         );
       })
@@ -152,7 +150,7 @@ async function rebuildPinterest(callback) {
     });
 }
 if (!process.env.PORT) {
-  kartinkiBg('1', () => {});
+  kartinkiBg("1", () => {});
   process.stdin.resume();
 }
 
