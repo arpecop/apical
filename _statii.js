@@ -44,9 +44,11 @@ async function postPages() {
           !process.env.PORT ||
           mins === 5 ||
           mins === 10 ||
+          mins === 15 ||
           mins === 20 ||
-          mins === 35 ||
-          mins === 37 ||
+          mins === 25 ||
+          mins === 30 ||
+          mins === 40 ||
           mins === 50
         ) {
           db.insert({ _id: timeId }, () => {});
@@ -58,12 +60,13 @@ async function postPages() {
                 "https://pouchdb.herokuapp.com/chetiva/_design/i/_view/News?limit=20&descending=true",
                 (ex, xx, doc1) => {
                   const doc = JSON.parse(doc1);
+                  const docid = _.shuffle(doc.rows)[0].id;
                   request.post(
                     "https://graph.facebook.com/",
                     {
                       form: {
                         access_token: page.access_token,
-                        id: `https://novinata.netlify.com/${doc.rows[0].id}`,
+                        id: `https://novinata.netlify.com/${docid}`,
                         scrape: true,
                         published: !process.env.PORT
                       }
@@ -75,7 +78,7 @@ async function postPages() {
                         {
                           form: {
                             access_token: page.access_token,
-                            link: `https://novinata.netlify.com/${doc.rows[0].id}`
+                            link: `https://novinata.netlify.com/${docid}`
                           }
                         },
                         (e, m, body) => {
@@ -86,7 +89,7 @@ async function postPages() {
                               "https://graph.facebook.com/me/photos",
                               {
                                 form: {
-                                  caption: `${doc.rows[0].value.title} : https://novinata.netlify.com/${doc.rows[0].id}`,
+                                  caption: `${doc.rows[0].value.title} : https://novinata.netlify.com/${docid}`,
                                   access_token: page.access_token,
                                   url: doc.rows[0].value.image
                                 }
