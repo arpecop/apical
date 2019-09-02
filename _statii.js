@@ -67,23 +67,7 @@ async function postPages() {
           mins === 50
         ) {
           db.insert({ _id: timeId }, () => {});
-          request.get(
-            "https://pouchdb.herokuapp.com/chetiva/_design/i/_view/News?limit=20&descending=true",
-            (ex, xx, doc1) => {
-              const doc = JSON.parse(doc1);
-              const docid = _.shuffle(doc.rows)[0].id;
-              client
-                .post("statuses/update", {
-                  status: `https://novinata.netlify.com/${docid}`
-                })
-                .then(function(tweet) {
-                  //console.log(tweet);
-                })
-                .catch(function(error) {
-                  throw error;
-                });
-            }
-          );
+
           async.eachLimit(
             _.shuffle(pages),
             1,
