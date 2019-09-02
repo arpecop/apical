@@ -21,14 +21,8 @@ var client = new Twitter({
   access_token_secret: "Rh1qdX5DNoEhfW4bRzl4TaOD8ohIlIFcbR5JY3fYtCxdx"
 });
 
-client
-  .post("statuses/update", { status: "I Love Twitter" })
-  .then(function(tweet) {
-    console.log(tweet);
-  })
-  .catch(function(error) {
-    throw error;
-  });
+//client .post("statuses/update", { status: "I Love Twitter" })
+
 const localdb = levelup(leveldown("/tmp/localx1"));
 
 function postDynamo(json, callback) {
