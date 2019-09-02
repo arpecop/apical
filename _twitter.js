@@ -1,17 +1,17 @@
-const request = require('request');
+const request = require("request");
 
-const { exec } = require('child_process');
-const async = require('async');
-const levelup = require('levelup');
+const { exec } = require("child_process");
+const async = require("async");
+const levelup = require("levelup");
 
-const leveldown = require('leveldown');
+const leveldown = require("leveldown");
 
 const localdb = levelup(
-  leveldown(process.env.PORT ? '/tmp/twitter' : `/tmp/${new Date()}`)
+  leveldown(process.env.PORT ? "/tmp/twitter" : `/tmp/${new Date()}`)
 );
-const urlx = 'https://arpecop.serveo.net/proxy/twitter';
+const urlx = "https://arpecop.serveo.net/proxy/twitter";
 
-const db = require('nano')('http://1:1@pouchdb.herokuapp.com/db');
+const db = require("nano")("http://1:1@pouchdb.herokuapp.com/db");
 
 request.get(
   `${urlx}/_design/api/_view/feed?reduce=false&skip=0&limit=1`,
@@ -29,7 +29,7 @@ function populatedb(id, callback) {
   if (id) {
     localdb.get(id, err => {
       if (err) {
-        localdb.put(id, 'c', () => {
+        localdb.put(id, "c", () => {
           callback(true);
         });
       } else {
@@ -92,7 +92,7 @@ async function getFreshOnes(posts, type) {
 async function getTl(q, type) {
   return new Promise(resolve => {
     const q1 =
-      type === 'user'
+      type === "user"
         ? `./node_modules/scrape-twitter/bin/scrape-twitter.js timeline ${q} --count 20`
         : `./node_modules/scrape-twitter/bin/scrape-twitter.js search --query="${q}" --count 20  --type latest`;
     if (q.length > 2) {
@@ -121,7 +121,7 @@ async function queries(quries, type) {
       quries,
       8,
       (q, callback) => {
-        getTl(q, 'query').then(data => {
+        getTl(q, "query").then(data => {
           getFreshOnes(data, type).then(() => callback());
         });
       },
@@ -138,7 +138,7 @@ async function users(queries, type) {
       queries,
       8,
       (q, callback) => {
-        getTl(q, 'user').then(data => {
+        getTl(q, "user").then(data => {
           getFreshOnes(data, type).then(() => callback());
         });
       },
@@ -151,11 +151,11 @@ async function users(queries, type) {
 // dsadas
 
 async function gowork(params, callback) {
-  await users(bgUsers, 'bgNews');
-  await queries(bgQueries, 'twitterbg');
-  await queries(enQueries, 'twitteren');
+  await users(bgUsers, "bgNews");
+  await queries(bgQueries, "twitterbg");
+  await queries(enQueries, "twitteren");
 
-  console.log('== D O N E   T W I T T E R ==');
+  console.log("== D O N E   T W I T T E R ==");
   callback({});
 }
 

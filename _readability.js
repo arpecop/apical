@@ -1,6 +1,6 @@
-const read = require('node-read');
+const read = require("node-read");
 
-read('http://howtonode.org/really-simple-file-uploads', (err, article, res) => {
+read("http://howtonode.org/really-simple-file-uploads", (err, article, res) => {
   // Main Article.
   console.log(article.content);
 

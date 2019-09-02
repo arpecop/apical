@@ -1,15 +1,15 @@
-const PouchDB = require('pouchdb');
-const request = require('request');
-const async = require('async');
-const { json2html } = require('html2json');
-const pages = require('./_includes/pages.json');
+const PouchDB = require("pouchdb");
+const request = require("request");
+const async = require("async");
+const { json2html } = require("html2json");
+const pages = require("./_includes/pages.json");
 
-const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
+const db = new PouchDB("http://1:1@pouchdb.herokuapp.com/db");
 
 const approved_pages = [
   {
-    name: 'На колко години изглеждаш [Скенер]',
-    id: '246560865463407'
+    name: "На колко години изглеждаш [Скенер]",
+    id: "246560865463407"
   }
 ];
 async function filterPages() {
@@ -25,7 +25,7 @@ async function filterPages() {
 
 async function getSomeContent() {
   return new Promise(resolve => {
-    db.query('i/bgimgsx', {
+    db.query("i/bgimgsx", {
       limit: 1,
       descending: true,
       include_docs: true,
@@ -47,7 +47,7 @@ async function goPost(filtered, content) {
       (page, cb) => {
         console.log(page, json2html(content.content), content._id);
         request.post(
-          'https://graph.facebook.com/me/instant_articles',
+          "https://graph.facebook.com/me/instant_articles",
           {
             form: {
               development_mode: false,

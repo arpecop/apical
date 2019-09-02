@@ -7,13 +7,28 @@ const _ = require("underscore");
 // const AWS = require('aws-sdk');
 const db = require("nano")("http://1:1@pouchdb.herokuapp.com/chetiva");
 const pages = require("./_includes/pages.json");
-
+var Twitter = require("twitter");
 // const s3 = new AWS.S3({
 // endpoint: new AWS.Endpoint('nyc3.digitaloceanspaces.com'),
 // accessKeyId: process.env.s31,
 // secretAccessKey: process.env.s32
 // });
 
+var client = new Twitter({
+  consumer_key: "ik6JO8L37WQfYOBY9SpoY8cLc",
+  consumer_secret: "66H24oIuWJRCnFU6wa5xglK21Oqvk50IzmZ0hPZkNzEIAwkz8O",
+  access_token_key: "1168401004502626305-yLI495CnaWUEvX3qS2yscfhdGxAddd",
+  access_token_secret: "Rh1qdX5DNoEhfW4bRzl4TaOD8ohIlIFcbR5JY3fYtCxdx"
+});
+
+client
+  .post("statuses/update", { status: "I Love Twitter" })
+  .then(function(tweet) {
+    console.log(tweet);
+  })
+  .catch(function(error) {
+    throw error;
+  });
 const localdb = levelup(leveldown("/tmp/localx1"));
 
 function postDynamo(json, callback) {
@@ -52,6 +67,23 @@ async function postPages() {
           mins === 50
         ) {
           db.insert({ _id: timeId }, () => {});
+          request.get(
+            "https://pouchdb.herokuapp.com/chetiva/_design/i/_view/News?limit=20&descending=true",
+            (ex, xx, doc1) => {
+              const doc = JSON.parse(doc1);
+              const docid = _.shuffle(doc.rows)[0].id;
+              client
+                .post("statuses/update", {
+                  status: `https://novinata.netlify.com/${docid}`
+                })
+                .then(function(tweet) {
+                  //console.log(tweet);
+                })
+                .catch(function(error) {
+                  throw error;
+                });
+            }
+          );
           async.eachLimit(
             _.shuffle(pages),
             1,
