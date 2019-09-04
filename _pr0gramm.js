@@ -1,13 +1,13 @@
-const request = require('request');
-const async = require('async');
-const cheerio = require('cheerio');
-const firedb = require('./_includes/firedb.js');
+const request = require("request");
+const async = require("async");
+const cheerio = require("cheerio");
+const firedb = require("./_includes/firedb.js");
+const db = require("nano")("http://1:1@pouchdb.herokuapp.com/chetiva");
+const downloadnprocess = require("./_includes/downloadandprocess.js");
 
-const downloadnprocess = require('./_includes/downloadandprocess.js');
-
-function programm(ass, callbackyyy) {
+function programm(ass, callback) {
   request(
-    'http://pr0gramm.com/api/items/get?flags=1&promoted=1',
+    "http://pr0gramm.com/api/items/get?flags=1",
     (error, response, body) => {
       if (!error && response.statusCode == 200) {
         const json = JSON.parse(body);
@@ -16,18 +16,50 @@ function programm(ass, callbackyyy) {
           json.items,
           (item, callbackx) => {
             item.location = i++;
-            const checkmedia = item.image.split('.');
-            if (checkmedia[1] === 'jpg') {
-              firedb.get(`${item.id}-pr0`, (d) => {
+            const checkmedia = item.image.split(".");
+            if (checkmedia[1] === "jpg") {
+              firedb.get(item.id, d => {
                 if (d.err) {
-                  firedb.put(`${item.id}-pr0`, () => {
-                    downloadnprocess.go(
-                      `http://img.pr0gramm.com/${item.image}`,
-                      (shortie) => {
-                        callbackx();
-                      },
-                    );
-                  });
+                  firedb.put(
+                    `${
+                      process.env.PORT
+                        ? item.id
+                        : new Date().getTime().toString()
+                    }`,
+                    () => {
+                      request(
+                        "https://pr0gramm.com/api/items/info?itemId=" + item.id,
+                        (error, response, body) => {
+                          if (!error && response.statusCode == 200) {
+                            console.log(
+                              `http://img.pr0gramm.com/${item.image}`,
+                              JSON.parse(body)
+                            );
+                            db.insert(
+                              {
+                                _id: new Date().getTime().toString(),
+                                type: "pr0",
+                                image: `http://img.pr0gramm.com/${item.image}`,
+                                tags: JSON.parse(body),
+                                title:
+                                  "#" +
+                                  JSON.parse(body)
+                                    .tags.map(item => item.tag)
+                                    .join(" #")
+                              },
+                              function(err, x) {
+                                console.log(x);
+
+                                callbackx();
+                              }
+                            );
+                          } else {
+                            callbackx();
+                          }
+                        }
+                      );
+                    }
+                  );
                 } else {
                   callbackx();
                 }
@@ -37,11 +69,11 @@ function programm(ass, callbackyyy) {
             }
           },
           () => {
-            callbackyyy();
-          },
+            callback;
+          }
         );
       }
-    },
+    }
   );
 }
 
@@ -49,30 +81,30 @@ function ninegag(params, callback) {
   request.get(`http://9gag.com/${params}`, (err, d, body) => {
     const $ = cheerio.load(body);
     const arr = [];
-    $('article').each(function (i, elem) {
-      arr.push($(this).attr('data-entry-id'));
+    $("article").each(function(i, elem) {
+      arr.push($(this).attr("data-entry-id"));
     });
 
     async.each(
       arr,
       (item, cb) => {
-        firedb.get(`${item}-9`, (doc) => {
+        firedb.get(`${item}-9`, doc => {
           if (doc.err) {
             firedb.put(`${item}-9`, () => {
               request.get(
                 `http://img-9gag-fun.9cache.com/photo/${item}_700b.jpg`,
                 (e, h, bodyx) => {
-                  if (h.headers['content-type'] === 'image/jpeg') {
+                  if (h.headers["content-type"] === "image/jpeg") {
                     downloadnprocess.go(
                       `http://img-9gag-fun.9cache.com/photo/${item}_700b.jpg`,
-                      (shortie) => {
+                      shortie => {
                         cb();
-                      },
+                      }
                     );
                   } else {
                     cb();
                   }
-                },
+                }
               );
             });
           } else {
@@ -82,7 +114,7 @@ function ninegag(params, callback) {
       },
       () => {
         callback();
-      },
+      }
     );
   });
 }
@@ -91,20 +123,25 @@ function imgur(params, callback) {
   request.get(`http://imgur.com/${params}`, (err, d, body) => {
     const $ = cheerio.load(body);
     const arr = [];
-    $('.cards .post a').each(function (i, elem) {
-      arr.push($(this).attr('href').replace('/gallery/', ''));
+    $(".cards .post a").each(function(i, elem) {
+      arr.push(
+        $(this)
+          .attr("href")
+          .replace("/gallery/", "")
+      );
     });
 
     async.each(
-      arr, (item, cb) => {
-        firedb.get(`${item}-ur`, (doc) => {
+      arr,
+      (item, cb) => {
+        firedb.get(`${item}-ur`, doc => {
           if (doc.err) {
             firedb.put(`${item}-ur`, (err, ass) => {
               request.get(`http://imgur.com/gallery/${item}`, (e, r, body) => {
                 const $ = cheerio.load(body);
-                const img = $('link[rel="image_src"]').attr('href');
+                const img = $('link[rel="image_src"]').attr("href");
                 if (img) {
-                  downloadnprocess.go(img, (shortie) => {
+                  downloadnprocess.go(img, shortie => {
                     cb();
                   });
                 } else {
@@ -119,13 +156,17 @@ function imgur(params, callback) {
       },
       () => {
         callback();
-      },
+      }
     );
   });
+}
+
+if (!process.env.PORT) {
+  programm();
 }
 
 module.exports = {
   programm,
   imgur,
-  ninegag,
+  ninegag
 };
