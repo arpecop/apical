@@ -4,7 +4,14 @@ const cheerio = require("cheerio");
 const firedb = require("./_includes/firedb.js");
 const db = require("nano")("http://1:1@pouchdb.herokuapp.com/chetiva");
 const downloadnprocess = require("./_includes/downloadandprocess.js");
+const Twitter = require("twitter");
 
+var client = new Twitter({
+  consumer_key: 'ik6JO8L37WQfYOBY9SpoY8cLc',
+  consumer_secret: '66H24oIuWJRCnFU6wa5xglK21Oqvk50IzmZ0hPZkNzEIAwkz8O',
+  access_token_key: '1168401004502626305-yLI495CnaWUEvX3qS2yscfhdGxAddd',
+  access_token_secret: 'Rh1qdX5DNoEhfW4bRzl4TaOD8ohIlIFcbR5JY3fYtCxdx'
+});
 function programm(ass, callback) {
   request(
     "http://pr0gramm.com/api/items/get?flags=1",
@@ -22,9 +29,9 @@ function programm(ass, callback) {
                 if (d.err) {
                   firedb.put(
                     `${
-                      process.env.PORT
-                        ? item.id
-                        : new Date().getTime().toString()
+                    process.env.PORT
+                      ? item.id
+                      : new Date().getTime().toString()
                     }`,
                     () => {
                       request(
@@ -35,9 +42,10 @@ function programm(ass, callback) {
                               `http://img.pr0gramm.com/${item.image}`,
                               JSON.parse(body)
                             );
+                            const _id = new Date().getTime().toString();
                             db.insert(
                               {
-                                _id: new Date().getTime().toString(),
+                                _id,
                                 type: "pr0",
                                 image: `http://img.pr0gramm.com/${item.image}`,
                                 tags: JSON.parse(body),
@@ -47,9 +55,18 @@ function programm(ass, callback) {
                                     .tags.map(item => item.tag)
                                     .join(" #")
                               },
-                              function(err, x) {
+                              function (err, x) {
                                 console.log(x);
-
+                                client
+                                  .post("statuses/update", {
+                                    status: 'http://couched.herokuapp.com/chetiva/' + _id
+                                  })
+                                  .then(function (tweet) {
+                                    console.log(tweet);
+                                  })
+                                  .catch(function (error) {
+                                    throw error;
+                                  });
                                 callbackx();
                               }
                             );
@@ -81,7 +98,7 @@ function ninegag(params, callback) {
   request.get(`http://9gag.com/${params}`, (err, d, body) => {
     const $ = cheerio.load(body);
     const arr = [];
-    $("article").each(function(i, elem) {
+    $("article").each(function (i, elem) {
       arr.push($(this).attr("data-entry-id"));
     });
 
@@ -123,7 +140,7 @@ function imgur(params, callback) {
   request.get(`http://imgur.com/${params}`, (err, d, body) => {
     const $ = cheerio.load(body);
     const arr = [];
-    $(".cards .post a").each(function(i, elem) {
+    $(".cards .post a").each(function (i, elem) {
       arr.push(
         $(this)
           .attr("href")
