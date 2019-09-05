@@ -56,7 +56,7 @@ function programm(ass, callback) {
                                     .join(" #")
                               },
                               function (err, x) {
-                                console.log(x);
+
                                 client
                                   .post("statuses/update", {
                                     status: 'http://couched.herokuapp.com/chetiva/' + _id
@@ -66,6 +66,8 @@ function programm(ass, callback) {
                                     console.log(tweet);
                                   })
                                   .catch(function (error) {
+                                    console.log(error);
+
                                     callbackx();
                                   });
 
