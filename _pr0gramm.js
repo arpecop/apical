@@ -46,7 +46,7 @@ function programm(ass, callback) {
                             const _id = new Date().getTime().toString();
                             const title = `#${
                               JSON.parse(body)
-                                .tags.map((item) => item.tag)
+                                .tags.map((item) => item.tag.replace(/ /g,""))
                                 .join(' #')}`;
                             db.insert({
                                 _id,
