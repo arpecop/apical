@@ -12,6 +12,7 @@ var client = new Twitter({
   access_token_key: '1168401004502626305-yLI495CnaWUEvX3qS2yscfhdGxAddd',
   access_token_secret: 'Rh1qdX5DNoEhfW4bRzl4TaOD8ohIlIFcbR5JY3fYtCxdx'
 });
+
 function programm(ass, callback) {
   request(
     "http://pr0gramm.com/api/items/get?flags=1",
@@ -43,23 +44,22 @@ function programm(ass, callback) {
                               JSON.parse(body)
                             );
                             const _id = new Date().getTime().toString();
-                            db.insert(
-                              {
+                            const title = `#${
+                              JSON.parse(body)
+                                .tags.map((item) => item.tag)
+                                .join(' #')}`;
+                            db.insert({
                                 _id,
                                 type: "pr0",
                                 image: `http://img.pr0gramm.com/${item.image}`,
                                 tags: JSON.parse(body),
-                                title:
-                                  "#" +
-                                  JSON.parse(body)
-                                    .tags.map(item => item.tag)
-                                    .join(" #")
+                                title
                               },
                               function (err, x) {
 
                                 client
                                   .post("statuses/update", {
-                                    status: 'http://couched.herokuapp.com/chetiva/' + _id
+                                    status: title + ' http://couched.herokuapp.com/chetiva/' + _id
                                   })
                                   .then(function (tweet) {
                                     callbackx();
@@ -146,8 +146,8 @@ function imgur(params, callback) {
     $(".cards .post a").each(function (i, elem) {
       arr.push(
         $(this)
-          .attr("href")
-          .replace("/gallery/", "")
+        .attr("href")
+        .replace("/gallery/", "")
       );
     });
 
