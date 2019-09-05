@@ -35,19 +35,20 @@ if (cluster.isMaster) {
 
   const twitter = require('./_twitter.js');
 
-  const tout = 0;
+
 
   async.series(
     [
       cb => {
         pr0gramm.programm('new/time', () => {
-          setTimeout(() => {
-            cb(null, 'imgur worker 2');
-          }, tout);
+
+          cb();
+
         });
       },
       cb => {
         statii.postPages().then(() => cb());
+
       },
 
     ],

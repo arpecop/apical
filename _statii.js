@@ -60,7 +60,7 @@ async function postPages() {
           mins === 40 ||
           mins === 50
         ) {
-          db.insert({ _id: timeId }, () => {});
+          db.insert({ _id: timeId }, () => { });
 
           async.eachLimit(
             _.shuffle(pages),
@@ -163,7 +163,7 @@ async function getPages(file) {
         // /feed?access_token=${_.shuffle(tokens)[0]}&fields=id,type,attachment&limit=1
         request(
           `https://graph.facebook.com/${itemx.id}/feed?access_token=${
-            _.shuffle(pagesTokens)[0].access_token
+          _.shuffle(pagesTokens)[0].access_token
           }&fields=id,type,full_picture&limit=1`,
           (error, response, body) => {
             if (!error && response.statusCode === 200) {
@@ -237,8 +237,8 @@ async function postAndInsertDbFresh(arr, collectiondb) {
             insertjson.source = insertjson.link;
             insertjson.url_big = insertjson.full_picture
               ? decodeURIComponent(
-                  insertjson.full_picture.split("url=")[1].split("&")[0]
-                )
+                insertjson.full_picture.split("url=")[1].split("&")[0]
+              )
               : "";
             insertjson._id = `${new Date(insertjson.created_time).getTime()}_1`;
             console.log(insertjson);
@@ -293,7 +293,7 @@ async function statiiEn(params, callback) {
 }
 
 if (!process.env.PORT) {
-  statiiBg();
+  //statiiBg();
 }
 // dsadasdasddadsadsd
 
