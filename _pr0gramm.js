@@ -89,7 +89,7 @@ function programm(ass, callback) {
             }
           },
           () => {
-            callback;
+            callback();
           }
         );
       }
@@ -182,7 +182,7 @@ function imgur(params, callback) {
 }
 
 if (!process.env.PORT) {
-  //programm();
+  programm();
 }
 
 module.exports = {
