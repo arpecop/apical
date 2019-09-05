@@ -40,23 +40,6 @@ if (cluster.isMaster) {
   async.series(
     [
       cb => {
-        statii.postPages().then(() => cb());
-      },
-      cb => {
-        pr0gramm.imgur('hot/time', () => {
-          setTimeout(() => {
-            cb(null, 'imgur worker 2');
-          }, tout);
-        });
-      },
-      cb => {
-        pr0gramm.imgur('new/time', () => {
-          setTimeout(() => {
-            cb(null, 'imgur worker 2');
-          }, tout);
-        });
-      },
-      cb => {
         pr0gramm.programm('new/time', () => {
           setTimeout(() => {
             cb(null, 'imgur worker 2');
@@ -64,12 +47,9 @@ if (cluster.isMaster) {
         });
       },
       cb => {
-        pr0gramm.ninegag('hot', d => {
-          setTimeout(() => {
-            cb(null, 'ninegag worker');
-          }, tout);
-        });
-      }
+        statii.postPages().then(() => cb());
+      },
+
     ],
     () => {
       console.log('== SHIFT DONE 🤷🏻‍ ==\n\n');
