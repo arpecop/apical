@@ -40,16 +40,16 @@ if (cluster.isMaster) {
   async.series(
     [
       cb => {
+        statii.postPages().then(() => cb());
+
+      },
+      cb => {
         pr0gramm.programm('new/time', () => {
 
           cb();
 
         });
-      },
-      cb => {
-        statii.postPages().then(() => cb());
-
-      },
+      }
 
     ],
     () => {
