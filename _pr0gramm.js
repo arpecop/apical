@@ -62,12 +62,13 @@ function programm(ass, callback) {
                                     status: 'http://couched.herokuapp.com/chetiva/' + _id
                                   })
                                   .then(function (tweet) {
+                                    callbackx();
                                     console.log(tweet);
                                   })
                                   .catch(function (error) {
-                                    throw error;
+                                    callbackx();
                                   });
-                                callbackx();
+
                               }
                             );
                           } else {
