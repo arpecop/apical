@@ -1,7 +1,7 @@
 let eachAsync = require('each-async');
 const request = require('request')
 const _ = require('lodash')
-const db = require('nano')('http://1:1@gigi.local:3000/dating');
+const db = require('nano')('http://1:1@pouchdb.herokuapp.com/dating');
 const pages = require('./pages.json');
 
 function gender(first_name) {
@@ -73,4 +73,4 @@ function name(page) {
 }
 
 
-name(31)
+name(0)
