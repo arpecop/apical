@@ -22,7 +22,7 @@ function gender(first_name) {
     }
 
 }
-console.log();
+
 
 
 function name(page) {
@@ -61,7 +61,7 @@ function name(page) {
             })
 
         }, function (error) {
-            const next = page++;
+            const next = page + 1;
             console.log('finished', next);
 
             name(next)
@@ -73,4 +73,4 @@ function name(page) {
 }
 
 
-name(0)
+name(3)
