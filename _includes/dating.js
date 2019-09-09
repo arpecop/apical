@@ -3,7 +3,7 @@ const request = require('request')
 const _ = require('lodash')
 const db = require('nano')('http://1:1@pouchdb.herokuapp.com/dating');
 const pages = require('./pages.json');
-
+//ddd
 function gender(first_name) {
 
     const arr_female = ['a', 'e', 'i', 'j', 'o', 'u', 'y', 'а', 'е', 'и', 'о', 'у', 'я']
@@ -49,7 +49,7 @@ function name(page) {
                             _id: x.id.toString()
                         };
                         db.insert(json, function (params) {
-                            console.log(params, counter++);
+                            console.log(counter++);
 
                         })
 
