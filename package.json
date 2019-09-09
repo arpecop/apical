@@ -16,6 +16,7 @@
     "chokidar": "^1.7.0",
     "compression": "^1.7.4",
     "cors": "^2.8.4",
+    "each-async": "^1.1.1",
     "express": "^4.17.1",
     "express-http-proxy": "^1.1.0",
     "express-pouchdb": "^2.3.7",
