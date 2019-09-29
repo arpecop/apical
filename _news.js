@@ -4,6 +4,8 @@ const md5 = require('md5');
 const request = require('request');
 const async = require('async');
 const Twitter = require('twitter');
+const { BitlyClient } = require('bitly');
+const bitly = new BitlyClient('f8bdbf2ceb9fd448629e4f9a4a1d635cfeab6cfd', {});
 let client = new Twitter({
   consumer_key: 'ik6JO8L37WQfYOBY9SpoY8cLc',
   consumer_secret: '66H24oIuWJRCnFU6wa5xglK21Oqvk50IzmZ0hPZkNzEIAwkz8O',
@@ -29,6 +31,8 @@ const getApi = async url => {
     });
   });
 };
+
+//AIzaSyBhUE0lrn9J-TA8sgCre1-GXHKGnR4RP5g
 async function go() {
   const content = await getApi(
     'https://newsapi.org/v2/everything?q=a&sortBy=publishedAt&apiKey=d734ebaa11aa4ad0b2df9e074d202869'
@@ -42,13 +46,20 @@ async function go() {
       combined,
       function(file, callback) {
         console.log(file);
-        client
-          .post('statuses/update', {
-            status: file.url + '' + file.title,
-          })
-          .then(function(tweet) {
-            callback();
-            console.log(tweet);
+        bitly
+          .shorten('https://github.com/tanepiper/node-bitly')
+          .then(function(result) {
+            console.log(result);
+
+            client
+              .post('statuses/update', {
+                status: result.url + '' + file.title,
+              })
+              .then(function(tweet) {
+                callback();
+                console.log(tweet);
+              })
+              .catch(function(error) {});
           })
           .catch(function(error) {
             callback();
@@ -67,4 +78,6 @@ function news(x, callback) {
     callback();
   });
 }
+//
+
 module.exports = { news };
