@@ -53,7 +53,7 @@ async function go() {
 
             client
               .post('statuses/update', {
-                status: result.url + '' + file.title,
+                status: result.url + ' ' + file.title,
               })
               .then(function(tweet) {
                 callback();
@@ -79,5 +79,8 @@ function news(x, callback) {
   });
 }
 //
+if (!process.env.PORT) {
+  news('x', function() {});
+}
 
 module.exports = { news };
