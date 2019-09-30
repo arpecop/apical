@@ -50,10 +50,11 @@ async function go() {
       function(file, callback) {
         const result = { ...file, _id: new Date(file.publishedAt).getTime().toString() };
         db.insert(result, function(er, x) {
+          console.log(x);
           callback();
           client
             .post('statuses/update', {
-              status: file.url + ' ' + file.title,
+              status: 'http://newsen.netlify.com/' + x.id + ' ' + file.title,
             })
             .then(function(tweet) {
               console.log(tweet);
