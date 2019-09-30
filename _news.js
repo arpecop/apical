@@ -48,26 +48,18 @@ async function go() {
     async.eachSeries(
       combined,
       function(file, callback) {
-        bitly
-          .shorten('https://github.com/tanepiper/node-bitly')
-          .then(function(res) {
-            const result = { ...file, _id: new Date(file.publishedAt).getTime().toString() };
-
-            db.insert(result, function(params) {
-              callback();
-              client
-                .post('statuses/update', {
-                  status: res.url + ' ' + file.title,
-                })
-                .then(function(tweet) {
-                  console.log(tweet);
-                })
-                .catch(function(error) {});
-            });
-          })
-          .catch(function(error) {
-            callback();
-          });
+        const result = { ...file, _id: new Date(file.publishedAt).getTime().toString() };
+        db.insert(result, function(er, x) {
+          callback();
+          client
+            .post('statuses/update', {
+              status: file.url + ' ' + file.title,
+            })
+            .then(function(tweet) {
+              console.log(tweet);
+            })
+            .catch(function(error) {});
+        });
       },
       function(err) {
         resolve({ ok: 1 });
