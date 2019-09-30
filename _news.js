@@ -5,6 +5,7 @@ const request = require('request');
 const async = require('async');
 const Twitter = require('twitter');
 const { BitlyClient } = require('bitly');
+const db = require('nano')('http://35.247.105.252/news');
 const bitly = new BitlyClient('f8bdbf2ceb9fd448629e4f9a4a1d635cfeab6cfd', {});
 let client = new Twitter({
   consumer_key: 'ik6JO8L37WQfYOBY9SpoY8cLc',
@@ -41,25 +42,28 @@ async function go() {
     'https://newsapi.org/v2/everything?q=to&sortBy=publishedAt&apiKey=d734ebaa11aa4ad0b2df9e074d202869'
   );
   const combined = [...content.articles, ...content2.articles];
+  console.log(combined);
+
   return new Promise((resolve, reject) => {
     async.eachSeries(
       combined,
       function(file, callback) {
-        console.log(file);
         bitly
           .shorten('https://github.com/tanepiper/node-bitly')
-          .then(function(result) {
-            console.log(result);
+          .then(function(res) {
+            const result = { ...file, _id: new Date(file.publishedAt).getTime().toString() };
 
-            client
-              .post('statuses/update', {
-                status: result.url + ' ' + file.title,
-              })
-              .then(function(tweet) {
-                callback();
-                console.log(tweet);
-              })
-              .catch(function(error) {});
+            db.insert(result, function(params) {
+              callback();
+              client
+                .post('statuses/update', {
+                  status: res.url + ' ' + file.title,
+                })
+                .then(function(tweet) {
+                  console.log(tweet);
+                })
+                .catch(function(error) {});
+            });
           })
           .catch(function(error) {
             callback();
