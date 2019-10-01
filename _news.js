@@ -54,7 +54,7 @@ async function go() {
           callback();
           client
             .post('statuses/update', {
-              status: 'http://newsen.netlify.com/' + x.id + ' ' + file.title,
+              status: x.url + ' ' + file.title,
             })
             .then(function(tweet) {
               console.log(tweet);
