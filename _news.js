@@ -54,7 +54,7 @@ async function go() {
           callback();
           client
             .post('statuses/update', {
-              status: x.id + ' ' + file.title,
+              status: 'https://couched.herokuapp.com/news/' + x.id + ' ' + file.title,
             })
             .then(function(tweet) {
               console.log(tweet);
