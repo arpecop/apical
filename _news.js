@@ -54,7 +54,7 @@ async function go() {
           callback();
           client
             .post('statuses/update', {
-              status: x.url + ' ' + file.title,
+              status: x.id + ' ' + file.title,
             })
             .then(function(tweet) {
               console.log(tweet);
