@@ -4,6 +4,7 @@ const md5 = require('md5');
 const request = require('request');
 const async = require('async');
 const Twitter = require('twitter');
+const keyword_extractor = require('keyword-extractor');
 const { BitlyClient } = require('bitly');
 const db = require('nano')('http://35.247.105.252/news');
 const bitly = new BitlyClient('f8bdbf2ceb9fd448629e4f9a4a1d635cfeab6cfd', {});
@@ -52,9 +53,15 @@ async function go() {
         db.insert(result, function(er, x) {
           console.log(x);
           callback();
+          var extraction_result = keyword_extractor.extract(result.title, {
+            language: 'english',
+            remove_digits: true,
+            return_changed_case: true,
+            remove_duplicates: false,
+          });
           client
             .post('statuses/update', {
-              status: 'https://couched.herokuapp.com/news/' + x.id + ' ' + file.title,
+              status: 'https://couched.herokuapp.com/news/' + result._id + ' ' + extraction_result.join(' #'),
             })
             .then(function(tweet) {
               console.log(tweet);
