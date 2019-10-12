@@ -5,6 +5,7 @@ const request = require('request');
 const async = require('async');
 const Twitter = require('twitter');
 const keyword_extractor = require('keyword-extractor');
+const _ = require('lodash');
 const { BitlyClient } = require('bitly');
 const db = require('nano')('http://35.247.105.252/news');
 const bitly = new BitlyClient('f8bdbf2ceb9fd448629e4f9a4a1d635cfeab6cfd', {});
@@ -33,14 +34,27 @@ const getApi = async url => {
     });
   });
 };
+console.log();
 
 //AIzaSyBhUE0lrn9J-TA8sgCre1-GXHKGnR4RP5g
 async function go() {
   const content = await getApi(
-    'https://newsapi.org/v2/everything?q=a&sortBy=publishedAt&apiKey=d734ebaa11aa4ad0b2df9e074d202869'
+    'https://newsapi.org/v2/everything?q=a&sortBy=publishedAt&apiKey=' +
+      _.shuffle([
+        '72ad658e84094dc083400582666a11b0',
+        'd734ebaa11aa4ad0b2df9e074d202869',
+        '48d2d4c8c9cf46cdb13982f5e83dcd68',
+        '3861d36cea0d421f8770a53be84f7ff2',
+      ])[0],
   );
   const content2 = await getApi(
-    'https://newsapi.org/v2/everything?q=to&sortBy=publishedAt&apiKey=d734ebaa11aa4ad0b2df9e074d202869'
+    'https://newsapi.org/v2/everything?q=to&sortBy=publishedAt&apiKey=' +
+      _.shuffle([
+        '72ad658e84094dc083400582666a11b0',
+        'd734ebaa11aa4ad0b2df9e074d202869',
+        '48d2d4c8c9cf46cdb13982f5e83dcd68',
+        '3861d36cea0d421f8770a53be84f7ff2',
+      ])[0],
   );
   const combined = [...content.articles, ...content2.articles];
   console.log(combined);
@@ -71,7 +85,7 @@ async function go() {
       },
       function(err) {
         resolve({ ok: 1 });
-      }
+      },
     );
   });
 }
