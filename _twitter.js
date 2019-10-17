@@ -56,9 +56,9 @@ async function getFreshOnes(posts, type) {
                     image: post.images ? post.images[0] : undefined,
                   };
 
-                  db.insert(objectDefined, e => {
+                  db.insert(objectDefined, (e, doc) => {
                     console.log('====================================');
-                    console.log(e ? e.statusCode : null);
+                    console.log(e ? e.statusCode : doc);
                     console.log('====================================');
                     cb();
                   });
