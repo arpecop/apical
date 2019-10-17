@@ -49,7 +49,6 @@ async function getFreshOnes(posts, type) {
                     sortable: [type],
                     time: Math.round(post.id),
                     _id: Math.round(post.id).toString(),
-                    id: undefined,
                     title: post.text,
                     text: null,
                     date: new Date().getTime().toString(),
