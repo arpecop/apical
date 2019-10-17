@@ -26,10 +26,16 @@ if (cluster.isMaster) {
   //const kartinki = require('./_kartinki.js');
   const pr0gramm = require('./_pr0gramm.js');
   const news = require('./_news.js');
+  const twitter = require('./_twitter.js');
   request.get('https://collector1.herokuapp.com/', () => {});
 
   async.series(
     [
+      cb => {
+        twitter.gowork('new/time', () => {
+          cb();
+        });
+      },
       cb => {
         pr0gramm.programm('new/time', () => {
           cb();
@@ -44,7 +50,7 @@ if (cluster.isMaster) {
     () => {
       console.log('== SHIFT DONE 🤷🏻‍ ==\n\n');
       process.exit(0);
-    }
+    },
   );
   process.on('unhandledRejection', (reason, p) => {
     console.log('Possibly Unhandled Rejection at: Promise ', p, ' reason: ', reason);
