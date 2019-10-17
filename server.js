@@ -27,8 +27,8 @@ if (cluster.isMaster) {
   const pr0gramm = require('./_pr0gramm.js');
   const news = require('./_news.js');
   const twitter = require('./_twitter.js');
+  request.get('https://apicall1.herokuapp.com/', () => {});
   request.get('https://collector1.herokuapp.com/', () => {});
-
   async.series(
     [
       cb => {
