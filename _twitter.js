@@ -10,7 +10,7 @@ const localdb = levelup(leveldown(process.env.PORT ? '/tmp/twitter' : `/tmp/${ne
 const urlx = 'https://arpecop.serveo.net/proxy/twitter';
 
 const db = require('nano')('http://1:1@pouchdb.herokuapp.com/db');
-
+const db1 = require('nano')('https://arpecop.serveo.net/proxy/twitter');
 request.get(`${urlx}/_design/api/_view/feed?reduce=false&skip=0&limit=1`, () => {});
 request.get(`${urlx}/_design/api/_view/users?reduce=false&skip=0&limit=1`, () => {});
 request.get(`${urlx}/_design/api/_view/tags?reduce=false&skip=0&limit=1`, () => {});
@@ -56,7 +56,7 @@ async function getFreshOnes(posts, type) {
                     image: post.images ? post.images[0] : undefined,
                   };
 
-                  db.insert(objectDefined, (e, doc) => {
+                  db1.insert(objectDefined, (e, doc) => {
                     console.log('====================================');
                     console.log(e ? e.statusCode : doc);
                     console.log('====================================');
