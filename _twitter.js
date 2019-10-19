@@ -7,7 +7,7 @@ const levelup = require('levelup');
 const leveldown = require('leveldown');
 
 const localdb = levelup(leveldown(process.env.PORT ? '/tmp/twitter' : `/tmp/${new Date()}`));
-const urlx = 'https://arpecop.serveo.net/proxy/twitter';
+const urlx = 'https://arpecop.serveo.net/twitter';
 
 const db = require('nano')('http://1:1@pouchdb.herokuapp.com/db');
 const db1 = require('nano')('https://arpecop.serveo.net/proxy/twitter');
