@@ -7,10 +7,10 @@ const levelup = require('levelup');
 const leveldown = require('leveldown');
 
 const localdb = levelup(leveldown(process.env.PORT ? '/tmp/twitter' : `/tmp/${new Date()}`));
-const urlx = 'https://arpecop.serveo.net/twitter';
+const urlx = 'http://3.120.176.89/twitter';
 
 const db = require('nano')('http://1:1@pouchdb.herokuapp.com/db');
-const db1 = require('nano')('https://arpecop.serveo.net/twitter');
+const db1 = require('nano')('http://3.120.176.89/twitter');
 request.get(`${urlx}/_design/api/_view/feed?reduce=false&skip=0&limit=1`, () => {});
 request.get(`${urlx}/_design/api/_view/users?reduce=false&skip=0&limit=1`, () => {});
 request.get(`${urlx}/_design/api/_view/tags?reduce=false&skip=0&limit=1`, () => {});
