@@ -22,7 +22,7 @@ function imgur(x, callback) {
     (e, r, body) => {
       async.eachSeries(
         JSON.parse(body).data,
-        function(file, callback) {
+        function(file, callback1) {
           if (file.images) {
             if (file.images[0].type === 'image/jpeg') {
               const tags = file.tags.map(item => item.name).join(' #');
@@ -41,34 +41,31 @@ function imgur(x, callback) {
                         status: '#' + tags + ' http://couched.herokuapp.com/chetiva/' + file.images[0].id + '1',
                       })
                       .then(function(tweet) {
-                        callback();
+                        callback1();
                         console.log(tweet);
                       })
                       .catch(function(error) {
                         console.log(error);
-                        callback();
+                        callback1();
                       });
                   } else {
-                    callback();
+                    callback1();
                   }
                 },
               );
             } else {
-              callback();
+              callback1();
             }
             //.link
           } else {
-            callback();
+            callback1();
           }
         },
         function(err) {
-          // if any of the file processing produced an error, err would equal that error
+          callback();
         },
       );
     },
   );
 }
 module.exports = { imgur };
-if (!process.env.PORT) {
-  imgur();
-}
