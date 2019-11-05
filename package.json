@@ -23,6 +23,7 @@
     "express-pouchdb": "^2.3.7",
     "har-validator": "^5.1.0",
     "html2json": "^1.0.2",
+    "imgur": "^0.3.1",
     "keyword-extractor": "0.0.17",
     "level": "^5.0.1",
     "leveldown": "^5.1.1",

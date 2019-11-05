@@ -27,6 +27,7 @@ if (cluster.isMaster) {
   const pr0gramm = require('./_pr0gramm.js');
   const news = require('./_news.js');
   const twitter = require('./_twitter.js');
+  const imgur = require('./_imgur.js');
   request.get('https://apicall1.herokuapp.com/', () => {});
   request.get('https://collector1.herokuapp.com/', () => {});
   async.series(
@@ -43,6 +44,11 @@ if (cluster.isMaster) {
       },
       cb => {
         news.news('new/time', () => {
+          cb();
+        });
+      },
+      cb => {
+        imgur.imgur('new/time', () => {
           cb();
         });
       },
