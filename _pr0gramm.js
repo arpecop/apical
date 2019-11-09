@@ -3,7 +3,7 @@ const request = require('request');
 const async = require('async');
 const cheerio = require('cheerio');
 const firedb = require('./_includes/firedb.js');
-const db = require('nano')('http://1:1@pouchdb.herokuapp.com/chetiva');
+const db = require('nano')('http://1:1@zoket.herokuapp.com/chetiva');
 const downloadnprocess = require('./_includes/downloadandprocess.js');
 const Twitter = require('twitter');
 
@@ -56,7 +56,7 @@ function programm(x, callback) {
                               console.log(error);
                               callbackx();
                             });
-                        }
+                        },
                       );
                     } else {
                       callbackx();
@@ -73,7 +73,7 @@ function programm(x, callback) {
         },
         () => {
           callback();
-        }
+        },
       );
     }
   });
@@ -87,7 +87,7 @@ function imgur(params, callback) {
       arr.push(
         $(this)
           .attr('href')
-          .replace('/gallery/', '')
+          .replace('/gallery/', ''),
       );
     });
 
@@ -116,7 +116,7 @@ function imgur(params, callback) {
       },
       () => {
         callback();
-      }
+      },
     );
   });
 }
