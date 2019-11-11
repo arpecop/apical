@@ -3,7 +3,7 @@ const request = require('request');
 const async = require('async');
 const cheerio = require('cheerio');
 const firedb = require('./_includes/firedb.js');
-const db = require('nano')('http://1:1@198.46.193.3/chetiva');
+const db = require('nano')('http://1:1@pouchdb.herokuapp.com/chetiva');
 const downloadnprocess = require('./_includes/downloadandprocess.js');
 const Twitter = require('twitter');
 
