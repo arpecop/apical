@@ -7,7 +7,7 @@ const Twitter = require('twitter');
 const keyword_extractor = require('keyword-extractor');
 const _ = require('lodash');
 const { BitlyClient } = require('bitly');
-const db = require('nano')('http://zoket.herokuapp.com/news');
+const db = require('nano')('http://198.46.193.3/news');
 const bitly = new BitlyClient('f8bdbf2ceb9fd448629e4f9a4a1d635cfeab6cfd', {});
 let client = new Twitter({
   consumer_key: 'ik6JO8L37WQfYOBY9SpoY8cLc',
