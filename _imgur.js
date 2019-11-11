@@ -1,6 +1,6 @@
 const request = require('request');
 const async = require('async');
-const db = require('nano')('http://1:1@pouchdb.herokuapp.com/chetiva');
+const db = require('nano')('http://1:1@198.46.193.3/chetiva');
 //59e95f4c71c614f884edc79df5e05a92eecbd3ac
 const Twitter = require('twitter');
 
