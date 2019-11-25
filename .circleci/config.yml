@@ -1,7 +1,16 @@
-version 2.1
 orbs:
-  welcome: circleci/welcome-orb@0.3.1
+  react: "thefrontside/react@dev:alpha"
+version: 2.1
 workflows:
-  Welcome:
+  push:
     jobs:
-      - welcome/run
+      - react/install
+      - react/eslint:
+          requires:
+            - react/install
+      - react/test:
+          requires:
+            - react/install
+      - react/coverage:
+          requires:
+            - react/install
