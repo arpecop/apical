@@ -40,6 +40,12 @@ function populatedb(id, callback) {
         callback(false)
     }
 }
+function reject(obj, keys) {
+    return Object.keys(obj)
+        .filter(k => !keys.includes(k))
+        .map(k => Object.assign({}, { [k]: obj[k] }))
+        .reduce((res, o) => Object.assign(res, o), {})
+}
 
 async function getFreshOnes(posts, type) {
     const arr = []
@@ -61,7 +67,6 @@ async function getFreshOnes(posts, type) {
                                     () => {
                                         const objectDefined = {
                                             ...post,
-                                            sortable: [type],
                                             time: Math.round(post.id),
                                             _id: Math.round(post.id).toString(),
                                             title: post.text,
@@ -74,16 +79,34 @@ async function getFreshOnes(posts, type) {
                                                 : undefined,
                                         }
 
-                                        db1.insert(objectDefined, (e, doc) => {
-                                            console.log(
-                                                '===================================='
-                                            )
-                                            console.log(e ? e.statusCode : doc)
-                                            console.log(
-                                                '===================================='
-                                            )
-                                            cb()
-                                        })
+                                        db1.insert(
+                                            reject(objectDefined, [
+                                                'isRetweet',
+                                                'isPinned',
+                                                'isReplyTo',
+                                                'text',
+                                                'urls',
+                                                'replyCount',
+                                                'retweetCount',
+                                                'sortable',
+                                                'favoriteCount',
+                                                'images',
+                                                'image',
+                                                'time',
+                                            ]),
+                                            (e, doc) => {
+                                                console.log(
+                                                    '===================================='
+                                                )
+                                                console.log(
+                                                    e ? e.statusCode : doc
+                                                )
+                                                console.log(
+                                                    '===================================='
+                                                )
+                                                cb()
+                                            }
+                                        )
                                     }
                                 )
                             } else {
