@@ -11,8 +11,8 @@ const localdb = levelup(
 )
 const urlx = 'http://3.120.176.89/twitter'
 
-const db = require('nano')('http://1:1@db.arpecop.xyz/db')
-const db1 = require('nano')('https://db.arpecop.xyz/twitter')
+const db = require('nano')('http://1:1@pouchdb.herokuapp.com/db')
+const db1 = require('nano')('https://pouchdb.herokuapp.com/twitter')
 request.get(
     `${urlx}/_design/api/_view/feed?reduce=false&skip=0&limit=1`,
     () => {}
