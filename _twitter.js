@@ -12,7 +12,7 @@ const localdb = levelup(
 const urlx = 'http://3.120.176.89/twitter'
 
 const db = require('nano')('http://1:1@db.arpecop.xyz/db')
-const db1 = require('nano')('http://db.arpecop.xyz/twitter')
+const db1 = require('nano')('https://db.arpecop.xyz/twitter')
 request.get(
     `${urlx}/_design/api/_view/feed?reduce=false&skip=0&limit=1`,
     () => {}
@@ -106,8 +106,8 @@ async function getTl(q, type) {
     return new Promise(resolve => {
         const q1 =
             type === 'user'
-                ? `./node_modules/scrape-twitter/bin/scrape-twitter.js timeline ${q} --count 20`
-                : `./node_modules/scrape-twitter/bin/scrape-twitter.js search --query="${q}" --count 20  --type latest`
+                ? `./node_modules/scrape-twitter/bin/scrape-twitter.js timeline ${q} --count 2`
+                : `./node_modules/scrape-twitter/bin/scrape-twitter.js search --query="${q}" --count 2  --type latest`
         if (q.length > 2) {
             exec(q1, (err, stdout) => {
                 if (err || !stdout) {
