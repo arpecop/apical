@@ -134,8 +134,6 @@ async function getTl(q, type) {
         if (q.length > 2) {
             exec(q1, (err, stdout) => {
                 if (err || !stdout) {
-                    console.log(q)
-
                     resolve()
                 } else {
                     resolve(JSON.parse(stdout))
