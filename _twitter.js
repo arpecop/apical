@@ -6,9 +6,7 @@ const levelup = require('levelup')
 
 const leveldown = require('leveldown')
 
-const localdb = levelup(
-    leveldown(process.env.PORT ? '/tmp/twitter' : `/tmp/${new Date()}`)
-)
+const localdb = levelup(leveldown('/tmp/twitter'))
 const urlx = 'http://3.120.176.89/twitter'
 
 const db = require('nano')('http://1:1@pouchdb.herokuapp.com/db')
@@ -54,66 +52,59 @@ async function getFreshOnes(posts, type) {
             posts,
             (post, cb) => {
                 if (post) {
-                    populatedb(
-                        process.env.PORT
-                            ? post.id
-                            : new Date().getTime().toString(),
-                        exist => {
-                            if (exist) {
-                                db.insert(
-                                    {
-                                        _id: post.id,
-                                    },
-                                    () => {
-                                        const objectDefined = {
-                                            ...post,
-                                            time: Math.round(post.id),
-                                            _id: Math.round(post.id).toString(),
-                                            title: post.text,
-                                            text: null,
-                                            date: new Date()
-                                                .getTime()
-                                                .toString(),
-                                            image: post.images
-                                                ? post.images[0]
-                                                : undefined,
-                                        }
-
-                                        db1.insert(
-                                            reject(objectDefined, [
-                                                'isRetweet',
-                                                'isPinned',
-                                                'isReplyTo',
-                                                'text',
-                                                'urls',
-                                                'replyCount',
-                                                'retweetCount',
-                                                'sortable',
-                                                'favoriteCount',
-                                                'images',
-                                                'image',
-                                                'time',
-                                            ]),
-                                            (e, doc) => {
-                                                console.log(
-                                                    '===================================='
-                                                )
-                                                console.log(
-                                                    e ? e.statusCode : doc
-                                                )
-                                                console.log(
-                                                    '===================================='
-                                                )
-                                                cb()
-                                            }
-                                        )
+                    populatedb(post.id, exist => {
+                        if (exist) {
+                            db.insert(
+                                {
+                                    _id: post.id,
+                                },
+                                () => {
+                                    const objectDefined = {
+                                        ...post,
+                                        time: Math.round(post.id),
+                                        _id: Math.round(post.id).toString(),
+                                        title: post.text,
+                                        text: null,
+                                        date: new Date().getTime().toString(),
+                                        image: post.images
+                                            ? post.images[0]
+                                            : undefined,
                                     }
-                                )
-                            } else {
-                                cb()
-                            }
+
+                                    db1.insert(
+                                        reject(objectDefined, [
+                                            'isRetweet',
+                                            'isPinned',
+                                            'isReplyTo',
+                                            'text',
+                                            'urls',
+                                            'replyCount',
+                                            'retweetCount',
+                                            'sortable',
+                                            'favoriteCount',
+                                            'images',
+                                            'image',
+                                            'time',
+                                        ]),
+                                        (e, doc) => {
+                                            console.log(
+                                                '===================================='
+                                            )
+                                            console.log(e ? e.statusCode : doc)
+                                            console.log(
+                                                '===================================='
+                                            )
+                                            cb()
+                                        }
+                                    )
+                                }
+                            )
+                        } else {
+                            console.log('already there')
+
+                            cb()
                         }
-                    )
+                    })
                 } else {
                     cb()
                 }
