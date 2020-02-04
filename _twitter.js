@@ -127,7 +127,12 @@ async function getTl(q, type) {
                 if (err || !stdout) {
                     resolve()
                 } else {
-                    resolve(JSON.parse(stdout))
+                    try {
+                        JSON.parse(response)
+                        resolve(JSON.parse(stdout))
+                    } catch (e) {
+                        resolve()
+                    }
                 }
             })
         } else {
