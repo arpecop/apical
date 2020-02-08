@@ -6,7 +6,7 @@ const Twitter = require('twitter')
 const keyword_extractor = require('keyword-extractor')
 
 const db = require('nano')('http://pouchdb.herokuapp.com/news')
-const bitly = new BitlyClient('f8bdbf2ceb9fd448629e4f9a4a1d635cfeab6cfd', {})
+
 let client = new Twitter({
     consumer_key: process.env.consumer_key,
     consumer_secret: process.env.consumer_secret,
@@ -15,9 +15,6 @@ let client = new Twitter({
 })
 
 //
-if (!process.env.PORT) {
-    // news('x', function() {})
-}
 
 const get = url => {
     return new Promise((resolve, reject) => {
