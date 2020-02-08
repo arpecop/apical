@@ -44,16 +44,6 @@ if (cluster.isMaster) {
                 })
             },
             cb => {
-                pr0gramm.programm('new/time', () => {
-                    cb()
-                })
-            },
-            cb => {
-                news.news('new/time', () => {
-                    cb()
-                })
-            },
-            cb => {
                 imgur.imgur('new/time', () => {
                     cb()
                 })
