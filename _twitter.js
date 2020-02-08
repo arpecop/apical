@@ -3,12 +3,9 @@ const request = require('request')
 const { exec } = require('child_process')
 const async = require('async')
 const levelup = require('levelup')
-
 const leveldown = require('leveldown')
-
 const localdb = levelup(leveldown('/tmp/twitter'))
 const urlx = 'http://3.120.176.89/twitter'
-
 const db = require('nano')('http://1:1@pouchdb.herokuapp.com/db')
 const db1 = require('nano')('https://db.arpecop.xyz/twitter')
 request.get(
