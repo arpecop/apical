@@ -30,7 +30,7 @@ const get = url => {
 }
 //module.exports = { news }
 async function gowork(params, callback) {
-    console.log('works')
+    console.log('works' + process.env.consumer_key)
 
     const mins = new Date().getMinutes()
     const randJoke = await get(
