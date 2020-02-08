@@ -65,6 +65,8 @@ async function gowork(params, callback) {
                 console.log(error)
                 callback()
             })
+    } else {
+        callback()
     }
 }
 module.exports = { gowork }
