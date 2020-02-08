@@ -1,12 +1,10 @@
 /* eslint-disable func-style */
-const firedb = require('./_includes/firedb.js')
-const md5 = require('md5')
+
 const request = require('request')
-const async = require('async')
+
 const Twitter = require('twitter')
 const keyword_extractor = require('keyword-extractor')
-const _ = require('lodash')
-const { BitlyClient } = require('bitly')
+
 const db = require('nano')('http://pouchdb.herokuapp.com/news')
 const bitly = new BitlyClient('f8bdbf2ceb9fd448629e4f9a4a1d635cfeab6cfd', {})
 let client = new Twitter({
@@ -47,7 +45,9 @@ async function gowork(params, callback) {
         mins === 30 ||
         mins === 35 ||
         mins === 40 ||
-        mins === 45
+        mins === 45 ||
+        mins === 50 ||
+        mins === 55
     ) {
         client
             .post('statuses/update', {
