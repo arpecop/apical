@@ -10,8 +10,8 @@ const { BitlyClient } = require('bitly')
 const db = require('nano')('http://pouchdb.herokuapp.com/news')
 const bitly = new BitlyClient('f8bdbf2ceb9fd448629e4f9a4a1d635cfeab6cfd', {})
 let client = new Twitter({
-    consumer_key: 'IMZ0EWSDSNQXjlMOLqkOTPfyv',
-    consumer_secret: 'rDtybN0FTJA0sHSm8M5lYn9BnWwQrGUpwTsBvraFy1LG9ymrhr',
+    consumer_key: process.env.consumer_key,
+    consumer_secret: process.env.consumer_secret,
     access_token_key: '1224673122420514818-iU62cqqa8MivUzFUem2HsPkZjTFHDx',
     access_token_secret: '6dAn8cpzCxq8cyHFzeaEHs99oQkB3YmmJa3V3OqHJxHEP',
 })
