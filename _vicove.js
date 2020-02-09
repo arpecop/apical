@@ -4,7 +4,9 @@ const request = require('request')
 
 const Twitter = require('twitter')
 const keyword_extractor = require('keyword-extractor')
-
+const levelup = require('levelup')
+const leveldown = require('leveldown')
+const localdb = levelup(leveldown('/tmp/twitter'))
 const db = require('nano')('http://pouchdb.herokuapp.com/news')
 
 let client = new Twitter({
@@ -15,7 +17,20 @@ let client = new Twitter({
 })
 
 //
-
+function populatedb() {
+    const id = new Date().getHours() + '' + new Date().getMinutes()
+    return new Promise(resolve => {
+        localdb.get(id, err => {
+            if (err) {
+                localdb.put(id, 'c', () => {
+                    resolve(true)
+                })
+            } else {
+                resolve(false)
+            }
+        })
+    })
+}
 const get = url => {
     return new Promise((resolve, reject) => {
         request.get(url, (x, v, body) => {
@@ -33,6 +48,9 @@ async function gowork(params, callback) {
             Math.random() * 59979
         ) + 1}&limit=1&include_docs=true`
     )
+    const isItTime = await populatedb()
+    console.log(isItTime)
+
     if (
         mins === 05 ||
         mins === 10 ||
@@ -46,24 +64,32 @@ async function gowork(params, callback) {
         mins === 50 ||
         mins === 55
     ) {
-        client
-            .post('statuses/update', {
-                status:
-                    'https://arpecop.xyz/' +
-                    randJoke.rows[0].doc._id +
-                    ' ' +
-                    randJoke.rows[0].doc.joke,
-            })
-            .then(function(tweet) {
-                console.log(tweet)
-                callback()
-            })
-            .catch(function(error) {
-                console.log(error)
-                callback()
-            })
+        if (isItTime) {
+            client
+                .post('statuses/update', {
+                    status:
+                        'https://arpecop.xyz/' +
+                        randJoke.rows[0].doc._id +
+                        ' ' +
+                        randJoke.rows[0].doc.joke +
+                        ' #bulgaria, #joke',
+                })
+                .then(function(tweet) {
+                    console.log(tweet)
+                    callback()
+                })
+                .catch(function(error) {
+                    console.log(error)
+                    callback()
+                })
+        } else {
+            callback()
+        }
     } else {
         callback()
     }
+}
+if (!process.env.PORT) {
+    gowork('', function() {})
 }
 module.exports = { gowork }
