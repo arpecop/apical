@@ -6,7 +6,7 @@ const Twitter = require('twitter')
 const keyword_extractor = require('keyword-extractor')
 const levelup = require('levelup')
 const leveldown = require('leveldown')
-const localdb = levelup(leveldown('/tmp/twitter'))
+const localdb = levelup(leveldown('/tmp/twitter1'))
 const db = require('nano')('http://pouchdb.herokuapp.com/news')
 
 let client = new Twitter({

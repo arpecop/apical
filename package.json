@@ -9,7 +9,7 @@
     "apicache": "^0.8.7",
     "async": "^2.6.3",
     "async-request": "^1.2.0",
-    "aws-sdk": "^2.522.0",
+    "aws-sdk": "^2.614.0",
     "axios": "^0.17.1",
     "bitly": "^6.1.0",
     "body-parser": "^1.19.0",
@@ -53,15 +53,15 @@
   },
   "homepage": "https://github.com/arpecop/vault#readme",
   "devDependencies": {
-    "eslint": "^6.1.0",
+    "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-equimper": "*",
     "eslint-config-prettier": "^3.1.0",
-    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.0.0",
-    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-react-hooks": "^1.7.0",
-    "prettier": "^1.14.3"
+    "prettier": "^1.19.1"
   }
 }
