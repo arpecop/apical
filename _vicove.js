@@ -72,8 +72,8 @@ async function gowork(params, callback) {
                         'https://arpecop.xyz/' +
                         randJoke.rows[0].doc._id +
                         ' ' +
-                        randJoke.rows[0].doc.joke +
-                        '',
+                        randJoke.rows[0].doc.joke.substring(0, 100) +
+                        ' ...',
                 })
                 .then(function(tweet) {
                     console.log(tweet)
