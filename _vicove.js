@@ -62,7 +62,8 @@ async function gowork(params, callback) {
         mins === 40 ||
         mins === 45 ||
         mins === 50 ||
-        mins === 55
+        mins === 55 ||
+        mins === 8
     ) {
         if (isItTime) {
             client
@@ -72,7 +73,7 @@ async function gowork(params, callback) {
                         randJoke.rows[0].doc._id +
                         ' ' +
                         randJoke.rows[0].doc.joke +
-                        ' #bulgaria, #joke',
+                        '',
                 })
                 .then(function(tweet) {
                     console.log(tweet)

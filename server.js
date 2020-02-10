@@ -39,12 +39,12 @@ if (cluster.isMaster) {
                 })
             },
             cb => {
-                twitter.gowork('new/time', () => {
+                imgur.imgur('new/time', () => {
                     cb()
                 })
             },
             cb => {
-                imgur.imgur('new/time', () => {
+                twitter.gowork('new/time', () => {
                     cb()
                 })
             },
