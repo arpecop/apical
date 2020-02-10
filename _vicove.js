@@ -65,6 +65,7 @@ async function gowork(params, callback) {
         mins === 55 ||
         mins === 8
     ) {
+        const joke = randJoke.rows[0].doc.joke
         if (isItTime) {
             client
                 .post('statuses/update', {
@@ -72,7 +73,7 @@ async function gowork(params, callback) {
                         'https://arpecop.xyz/' +
                         randJoke.rows[0].doc._id +
                         ' ' +
-                        randJoke.rows[0].doc.joke.substring(0, 100) +
+                        joke.substring(0, joke.length / 1.5) +
                         ' ...',
                 })
                 .then(function(tweet) {
