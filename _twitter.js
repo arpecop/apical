@@ -2,6 +2,7 @@ const request = require('request')
 
 const { exec } = require('child_process')
 const async = require('async')
+
 const levelup = require('levelup')
 const leveldown = require('leveldown')
 const localdb = levelup(leveldown('/tmp/twitter'))
@@ -20,6 +21,21 @@ request.get(
     `${urlx}/_design/api/_view/tags?reduce=false&skip=0&limit=1`,
     () => {}
 )
+function insert(json, callback) {
+    var options = {
+        uri: 'http://dockerx.herokuapp.com/',
+        method: 'POST',
+        json,
+    }
+
+    request(options, function(error, response, body) {
+        callback()
+        if (!error && response.statusCode == 200) {
+            console.log(body) // Print the shortened url.
+        }
+    })
+}
+
 function populatedb(id, callback) {
     if (id) {
         localdb.get(id, err => {
@@ -68,21 +84,24 @@ async function getFreshOnes(posts, type) {
                                             : undefined,
                                     }
 
-                                    db1.insert(
-                                        reject(objectDefined, [
-                                            'isRetweet',
-                                            'isPinned',
-                                            'isReplyTo',
-                                            'text',
-                                            'urls',
-                                            'replyCount',
-                                            'retweetCount',
-                                            'sortable',
-                                            'favoriteCount',
-                                            'images',
-                                            'image',
-                                            'time',
-                                        ]),
+                                    insert(
+                                        {
+                                            data: reject(objectDefined, [
+                                                'isRetweet',
+                                                'isPinned',
+                                                'isReplyTo',
+                                                'text',
+                                                'urls',
+                                                'replyCount',
+                                                'retweetCount',
+                                                'sortable',
+                                                'favoriteCount',
+                                                'images',
+                                                'image',
+                                                'time',
+                                            ]),
+                                            type: 'twitter',
+                                        },
                                         (e, doc) => {
                                             console.log(
                                                 '===================================='
