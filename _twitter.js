@@ -91,7 +91,6 @@ async function getFreshOnes(posts, type) {
                                                 'isPinned',
                                                 'isReplyTo',
                                                 'text',
-                                                'urls',
                                                 'replyCount',
                                                 'retweetCount',
                                                 'sortable',
