@@ -83,35 +83,31 @@ async function getFreshOnes(posts, type) {
                                             ? post.images[0]
                                             : undefined,
                                     }
+                                    const data = reject(objectDefined, [
+                                        'isRetweet',
+                                        'isPinned',
+                                        'isReplyTo',
+                                        'text',
+                                        'replyCount',
+                                        'retweetCount',
+                                        'sortable',
+                                        'favoriteCount',
+                                        'images',
+                                        'image',
+                                        'time',
+                                    ])
+                                    console.log(data)
 
-                                    insert(
-                                        {
-                                            data: reject(objectDefined, [
-                                                'isRetweet',
-                                                'isPinned',
-                                                'isReplyTo',
-                                                'text',
-                                                'replyCount',
-                                                'retweetCount',
-                                                'sortable',
-                                                'favoriteCount',
-                                                'images',
-                                                'image',
-                                                'time',
-                                            ]),
-                                            type: 'twitter',
-                                        },
-                                        (e, doc) => {
-                                            console.log(
-                                                '===================================='
-                                            )
-                                            console.log(e ? e.statusCode : doc)
-                                            console.log(
-                                                '===================================='
-                                            )
-                                            cb()
-                                        }
-                                    )
+                                    insert(data, (e, doc) => {
+                                        console.log(
+                                            '===================================='
+                                        )
+                                        console.log(e ? e.statusCode : doc)
+                                        console.log(
+                                            '===================================='
+                                        )
+                                        cb()
+                                    })
                                 }
                             )
                         } else {

@@ -31,6 +31,7 @@ if (cluster.isMaster) {
     const imgur = require('./_imgur.js')
     request.get('https://apicall1.herokuapp.com/', () => {})
     request.get('https://collector1.herokuapp.com/', () => {})
+    request.get('https://graphqldbone.herokuapp.com/', () => {})
     async.series(
         [
             cb => {
