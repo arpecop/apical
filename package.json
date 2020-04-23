@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "vaudsdlt runnindsdg underground heroku lands",
     "engines": {
-        "node": ">=13.0.0"
+        "node": ">=14.0.0"
     },
     "dependencies": {
         "apicache": "^0.8.7",
