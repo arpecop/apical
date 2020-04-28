@@ -46,12 +46,12 @@ if (cluster.isMaster) {
                 })
             },
             cb => {
-                twitter.gowork('new/time', () => {
+                programm.programm.gowork('new/time', () => {
                     cb()
                 })
             },
             cb => {
-                programm.programm.gowork('new/time', () => {
+                twitter.gowork('new/time', () => {
                     cb()
                 })
             },
