@@ -46,7 +46,7 @@ if (cluster.isMaster) {
                 })
             },
             cb => {
-                programm.programm.gowork('new/time', () => {
+                programm.programm('new/time', () => {
                     cb()
                 })
             },
