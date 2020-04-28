@@ -27,6 +27,7 @@ if (cluster.isMaster) {
     const pr0gramm = require('./_pr0gramm.js')
 
     const twitter = require('./_twitter.js')
+    const programm = require('./_pr0gramm.js')
     const vicove = require('./_vicove')
     const imgur = require('./_imgur.js')
     request.get('https://apicall1.herokuapp.com/', () => {})
@@ -46,6 +47,11 @@ if (cluster.isMaster) {
             },
             cb => {
                 twitter.gowork('new/time', () => {
+                    cb()
+                })
+            },
+            cb => {
+                programm.programm.gowork('new/time', () => {
                     cb()
                 })
             },
