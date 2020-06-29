@@ -50,11 +50,11 @@ if (cluster.isMaster) {
                     cb()
                 })
             },
-            cb => {
-                twitter.gowork('new/time', () => {
-                    cb()
-                })
-            },
+            //cb => {
+            //    twitter.gowork('new/time', () => {
+            //       cb()
+            //    })
+            // },
         ],
         () => {
             console.log('== SHIFT DONE 🤷🏻‍ ==\n\n')
