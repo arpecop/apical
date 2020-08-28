@@ -88,9 +88,9 @@ async function darik(params, callback) {
   async.eachSeries(
     extended,
     (i, cb) => {
-      db.get(i._id, (e, data) => {
+      db.get(i.vreme, (e, data) => {
         if (!data) {
-          db.put(i._id, "xxx", function() {
+          db.put(i.vreme, "xxx", function() {
             insert(i, () => {
               cb();
             });
@@ -106,6 +106,9 @@ async function darik(params, callback) {
       callback(extended);
     }
   );
+}
+if (!process.env.PORT) {
+  darik("", () => {});
 }
 
 module.exports = {
