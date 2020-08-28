@@ -1,16 +1,18 @@
-const shortid = require('shortid');
-const extend = require('extend');
-const async = require('async');
-const request = require('request');
-const fs = require('fs');
-const PouchDB = require('pouchdb');
+const shortid = require("shortid");
+const extend = require("extend");
+const async = require("async");
+const request = require("request");
+const fs = require("fs");
+const PouchDB = require("pouchdb");
 
-const db = new PouchDB('http://1:1@pouchdb.herokuapp.com/db');
+const db = new PouchDB("http://1:1@pouchdb.herokuapp.com/db");
 
-const db2 = new PouchDB(process.env.PORT
-  ? 'http://pouchdb.herokuapp.com/api'
-  : 'http://pouchdb.herokuapp.com/api');
-const db1 = new PouchDB('http://1:1@pouchdb.herokuapp.com/content');
+const db2 = new PouchDB(
+  process.env.PORT
+    ? "http://pouchdb.herokuapp.com/api"
+    : "http://pouchdb.herokuapp.com/api"
+);
+const db1 = new PouchDB("http://1:1@pouchdb.herokuapp.com/content");
 
 function put(jsonx, callback) {
   db.get(jsonx._id, (err, old_doc) => {
@@ -31,7 +33,7 @@ function put(jsonx, callback) {
 
 function get(id, callback) {
   if (id) {
-    const sid = typeof id === 'object' ? id.id || id._id : id;
+    const sid = typeof id === "object" ? id.id || id._id : id;
     if (id.limit) {
       db.query(
         `i/${id.id}`,
@@ -43,14 +45,21 @@ function get(id, callback) {
         (err, body) => {
           if (!err) {
             const arr = [];
-            Promise.all(body.rows.map(item => new Promise((cb, rj) => {
-              arr.push(Object.assign(item.value, {
-                key: item.id,
-                id: item.id,
-                _date: new Date(item.value.time),
-              }));
-              cb();
-            }))).then((data) => {
+            Promise.all(
+              body.rows.map(
+                (item) =>
+                  new Promise((cb, rj) => {
+                    arr.push(
+                      Object.assign(item.value, {
+                        key: item.id,
+                        id: item.id,
+                        _date: new Date(item.value.time),
+                      })
+                    );
+                    cb();
+                  })
+              )
+            ).then((data) => {
               console.log(arr);
 
               callback(null, {
@@ -60,14 +69,14 @@ function get(id, callback) {
           } else {
             callback(err);
           }
-        },
+        }
       );
     } else {
       db.get(sid, (err, doc) => {
         if (err) {
           callback({}, {});
         } else {
-          console.log('---');
+          console.log("---");
           console.log(doc.value);
 
           callback(null, doc);
