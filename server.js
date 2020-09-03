@@ -35,11 +35,6 @@ if (cluster.isMaster) {
   async.series(
     [
       (cb) => {
-        vicove.gowork("new/time", () => {
-          cb();
-        });
-      },
-      (cb) => {
         imgur.imgur("new/time", () => {
           cb();
         });
