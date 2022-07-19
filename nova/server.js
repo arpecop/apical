@@ -67,11 +67,12 @@ async.eachLimit(
   250,
   function (url, callback) {
     get_content('https://nova.bg/filter/all/' + url).then(data => {
-      console.log(`🔘 ${url}  `)
-      db.insert(data, url, function (err, body) {})
-      db.bulk({ docs: data })
+      console.log(`🔘 ${url}  {${data.length}}`)
 
-      callback()
+      db.bulk({ docs: data }, function (err, body) {
+        console.log(body)
+        callback()
+      })
     })
   },
   function (err) {
