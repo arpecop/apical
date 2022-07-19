@@ -64,7 +64,7 @@ const pages = Array(NUM)
   .map((_, i) => i + 1)
 async.eachLimit(
   pages.reverse(),
-  5,
+  25,
   function (url, callback) {
     get_content('https://nova.bg/filter/all/' + url).then(data => {
       db.bulk({ docs: data }, function (err, body) {
@@ -81,3 +81,7 @@ async.eachLimit(
 )
 //   }
 //   browser
+
+process.on('uncaughtException', function (err) {
+  console.log(err)
+})
