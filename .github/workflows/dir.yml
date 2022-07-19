@@ -1,4 +1,4 @@
-name: dirfetcher
+name: DIR_ST_1
 on:
   workflow_dispatch:
 jobs:
