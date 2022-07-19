@@ -22,22 +22,23 @@ function run_bitch () {
         function (task, callback) {
           db.get(task.id, function (err, doc) {
             if (!doc.content) {
-              gethtml(task.value.url).then(html2 => {
-                let $ = cheerio.load(html2)
-                const html = cheerio.load(
+              gethtml(task.value.url).then(html_full => {
+                console.log(html_full.length)
+                const $ = cheerio.load(html_full)
+                const htmlz = cheerio.load(
                   $('.article-content .article-body').html()
                 )
-                if (html) {
-                  html('script').each((index, item) => {
+                if (htmlz) {
+                  htmlz('script').each((index, item) => {
                     html(item).remove()
                   })
-                  html('div').each((index, item) => {
+                  htmlz('div').each((index, item) => {
                     html(item).remove()
                   })
-                  html('img').each((index, item) => {
+                  htmlz('img').each((index, item) => {
                     html(item).remove()
                   })
-                  const lines = html('body')
+                  const lines = htmlz('body')
                     .text()
                     .split('\n')
                     .map(item => item.trim())
