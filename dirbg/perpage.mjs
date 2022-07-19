@@ -27,39 +27,31 @@ function run_bitch () {
                 console.log(task.value.url)
                 const $ = cheerio.load(html_full)
                 const htmlz = cheerio.load(
-                  $('.article-content .article-body').html()
+                  $('.article-content .article-body').html() || 'empty'
                 )
-                if (htmlz) {
-                  htmlz('script').each((index, item) => {
-                    htmlz(item).remove()
-                  })
-                  htmlz('div').each((index, item) => {
-                    htmlz(item).remove()
-                  })
-                  htmlz('img').each((index, item) => {
-                    htmlz(item).remove()
-                  })
-                  const lines = htmlz('body')
-                    .text()
-                    .split('\n')
-                    .map(item => item.trim())
-                  console.log(lines.length, 'added')
-                  const newDoc = {
-                    ...task.doc,
-                    content: {
-                      html: lines
-                    }
+
+                htmlz('script').each((index, item) => {
+                  htmlz(item).remove()
+                })
+                htmlz('div').each((index, item) => {
+                  htmlz(item).remove()
+                })
+                htmlz('img').each((index, item) => {
+                  htmlz(item).remove()
+                })
+                const lines = htmlz('body')
+                  .text()
+                  .split('\n')
+                  .map(item => item.trim())
+                console.log(lines.length, 'added')
+                const newDoc = {
+                  ...task.doc,
+                  content: {
+                    html: lines
                   }
-                  db.insert(newDoc)
-                  insert('news', newDoc)
-                } else {
-                  db.insert({
-                    ...task.doc,
-                    content: {
-                      html: ''
-                    }
-                  })
                 }
+                db.insert(newDoc)
+                insert('news', newDoc)
 
                 callback()
               })
@@ -69,7 +61,7 @@ function run_bitch () {
             }
           })
         },
-        function (err) {
+        function () {
           run_bitch()
         }
       )
