@@ -29,29 +29,38 @@ function run_bitch () {
                 const html = cheerio.load(
                   $('.article-content .article-body').html()
                 )
-
-                html('script').each((index, item) => {
-                  html(item).remove()
-                })
-                html('div').each((index, item) => {
-                  html(item).remove()
-                })
-                html('img').each((index, item) => {
-                  html(item).remove()
-                })
-                const lines = html('body')
-                  .text()
-                  .split('\n')
-                  .map(item => item.trim())
-                console.log(lines.length, 'added')
-                const newDoc = {
-                  ...task.doc,
-                  content: {
-                    html: lines
+                if (html) {
+                  html('script').each((index, item) => {
+                    html(item).remove()
+                  })
+                  html('div').each((index, item) => {
+                    html(item).remove()
+                  })
+                  html('img').each((index, item) => {
+                    html(item).remove()
+                  })
+                  const lines = html('body')
+                    .text()
+                    .split('\n')
+                    .map(item => item.trim())
+                  console.log(lines.length, 'added')
+                  const newDoc = {
+                    ...task.doc,
+                    content: {
+                      html: lines
+                    }
                   }
+                  db.insert(newDoc)
+                  insert('news', newDoc)
+                } else {
+                  db.insert({
+                    ...task.doc,
+                    content: {
+                      html: ''
+                    }
+                  })
                 }
-                db.insert(newDoc)
-                insert('news', newDoc)
+
                 callback()
               })
             } else {
