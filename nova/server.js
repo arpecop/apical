@@ -8,18 +8,15 @@ function dateformat (date) {
   const source = date.split(' ')
   const day = source[0].length === 1 ? '0' + source[0] : source[0]
   const month = source[1]
-    .replace('януари', '01')
-    .replace('февруари', '02')
-    .replace('март', '03')
-    .replace('април', '04')
-    .replace('май', '05')
-    .replace('юни', '06')
-    .replace('юли', '07')
-    .replace('август', '08')
-    .replace('септември', '09')
-    .replace('октомври', '10')
-    .replace('ноември', '11')
-    .replace('декември', '12')
+    .replace('ян', '01')
+    .replace('фев', '02')
+    .replace('мар', '03')
+    .replace('апр', '04')
+    .replace('авг', '08')
+    .replace('сеп', '09')
+    .replace('окт', '10')
+    .replace('ное', '11')
+    .replace('дек', '12')
   const year = source[2].slice(2, 4)
   return `${day}/${month}/${year}`
 }

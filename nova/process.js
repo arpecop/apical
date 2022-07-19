@@ -54,4 +54,9 @@ function run_bitch () {
     })
   })
 }
-run_bitch()
+
+db.compact().then(result => {
+  console.log(result)
+})
+
+//run_bitch()
