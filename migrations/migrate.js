@@ -1,4 +1,5 @@
 //const { request, gql } = require('graphql-request')
+const fetch = require('node-fetch')
 const db = require('nano')('http://1:1@34.242.41.16:5984/que')
 const slugify = require('slugify')
 function dateformat (date) {
