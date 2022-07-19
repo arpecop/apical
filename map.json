@@ -1,0 +1,3158 @@
+[
+    {
+        "cat": "Данъчни",
+        "alt": "Вицове за данъчни",
+        "url": "http://m.vicove.biz/danachni",
+        "pages": 21
+    },
+    {
+        "cat": "Джуджета",
+        "alt": "Вицове за джуджета",
+        "url": "http://m.vicove.biz/dzhudzheta",
+        "pages": 14
+    },
+    {
+        "cat": "Господ",
+        "alt": "Вицове за Господ",
+        "url": "http://m.vicove.biz/gospod",
+        "pages": 65
+    },
+    {
+        "cat": "Вторник",
+        "alt": "Вицове за вторник",
+        "url": "http://m.vicove.biz/vtornik",
+        "pages": 14
+    },
+    {
+        "cat": "Водопроводчик",
+        "alt": "Вицове за водопроводчици",
+        "url": "http://m.vicove.biz/vodoprovodchik",
+        "pages": 13
+    },
+    {
+        "cat": "Германия",
+        "alt": "Вицове за Германия и германци",
+        "url": "http://m.vicove.biz/germaniya",
+        "pages": 30
+    },
+    {
+        "cat": "Гинеколози",
+        "alt": "Вицове за гинеколози",
+        "url": "http://m.vicove.biz/ginekolozi",
+        "pages": 57
+    },
+    {
+        "cat": "Градове",
+        "alt": "Вицове за градове",
+        "url": "http://m.vicove.biz/gradove",
+        "pages": 204
+    },
+    {
+        "cat": "Герои",
+        "alt": "Вицове с известни герои",
+        "url": "http://m.vicove.biz/geroi",
+        "pages": 157
+    },
+    {
+        "cat": "Грозни",
+        "alt": "Вицове за грозни",
+        "url": "http://m.vicove.biz/grozni",
+        "pages": 43
+    },
+    {
+        "cat": "Гъбари",
+        "alt": "Вицове за гъби и гъбари",
+        "url": "http://m.vicove.biz/gabari",
+        "pages": 15
+    },
+    {
+        "cat": "Депутати",
+        "alt": "Вицове за депутати",
+        "url": "http://m.vicove.biz/deputati",
+        "pages": 29
+    },
+    {
+        "cat": "Глупави",
+        "alt": "Вицове за глупави хора",
+        "url": "http://m.vicove.biz/glupavi",
+        "pages": 73
+    },
+    {
+        "cat": "Готвачи",
+        "alt": "Вицове за готвачи",
+        "url": "http://m.vicove.biz/gotvachi",
+        "pages": 36
+    },
+    {
+        "cat": "Гейове",
+        "alt": "Вицове за гейове",
+        "url": "http://m.vicove.biz/geyove",
+        "pages": 65
+    },
+    {
+        "cat": "Джин",
+        "alt": "Вицове за Джин",
+        "url": "http://m.vicove.biz/dzhin",
+        "pages": 7
+    },
+    {
+        "cat": "Грузинци",
+        "alt": "Вицове за грузинци",
+        "url": "http://m.vicove.biz/gruzintsi",
+        "pages": 11
+    },
+    {
+        "cat": "Джипове",
+        "alt": "Вицове за джипове",
+        "url": "http://m.vicove.biz/dzhipove",
+        "pages": 23
+    },
+    {
+        "cat": "Генко",
+        "alt": "Вицове за Генко",
+        "url": "http://m.vicove.biz/genko",
+        "pages": 24
+    },
+    {
+        "cat": "Дракони",
+        "alt": "Вицове за дракони",
+        "url": "http://m.vicove.biz/drakoni",
+        "pages": 9
+    },
+    {
+        "cat": "Директори",
+        "alt": "Вицове за директори",
+        "url": "http://m.vicove.biz/direktori",
+        "pages": 58
+    },
+    {
+        "cat": "Горбачов",
+        "alt": "Вицове за Горбачов",
+        "url": "http://m.vicove.biz/gorbachov",
+        "pages": 2
+    },
+    {
+        "cat": "Деца",
+        "alt": "Вицове за деца",
+        "url": "http://m.vicove.biz/detsa",
+        "pages": 257
+    },
+    {
+        "cat": "Доктори",
+        "alt": "Вицове за доктори",
+        "url": "http://m.vicove.biz/doktori",
+        "pages": 461
+    },
+    {
+        "cat": "Дъщери",
+        "alt": "Вицове за дъщери",
+        "url": "http://m.vicove.biz/dashteri",
+        "pages": 136
+    },
+    {
+        "cat": "Джентълмени",
+        "alt": "Вицове за джентълмени",
+        "url": "http://m.vicove.biz/dzhentalmeni",
+        "pages": 25
+    },
+    {
+        "cat": "Даскало",
+        "alt": "Вицове за даскало и даскали",
+        "url": "http://m.vicove.biz/daskalo",
+        "pages": 11
+    },
+    {
+        "cat": "Дженивър Лопес",
+        "alt": "Вицове за Дженивър Лопес",
+        "url": "http://m.vicove.biz/dzhenivar-lopes",
+        "pages": 1
+    },
+    {
+        "cat": "Дързост и красота",
+        "alt": "Вицове за Дързост и красота",
+        "url": "http://m.vicove.biz/darzost-i-krasota",
+        "pages": 3
+    },
+    {
+        "cat": "Евгени Минчев",
+        "alt": "Вицове за Евгени Минчев",
+        "url": "http://m.vicove.biz/evgeni-minchev",
+        "pages": 3
+    },
+    {
+        "cat": "Дебели",
+        "alt": "Вицове за дебели",
+        "url": "http://m.vicove.biz/debeli",
+        "pages": 51
+    },
+    {
+        "cat": "Дъртаци",
+        "alt": "Вицове за дъртаци",
+        "url": "http://m.vicove.biz/dartatsi",
+        "pages": 5
+    },
+    {
+        "cat": "Египет",
+        "alt": "Вицове за Египет",
+        "url": "http://m.vicove.biz/egipet",
+        "pages": 8
+    },
+    {
+        "cat": "Дядовци",
+        "alt": "Вицове за дядовци",
+        "url": "http://m.vicove.biz/dyadovtsi",
+        "pages": 174
+    },
+    {
+        "cat": "Дискотеки",
+        "alt": "Вицове за Дискотеки",
+        "url": "http://m.vicove.biz/diskoteki",
+        "pages": 36
+    },
+    {
+        "cat": "Дядо Мраз",
+        "alt": "Вицове за Дядо Мраз / Дядо коледа",
+        "url": "http://m.vicove.biz/dyado-mraz",
+        "pages": 39
+    },
+    {
+        "cat": "Дърводелци",
+        "alt": "Вицове за дърводелци и дървари",
+        "url": "http://m.vicove.biz/darvodeltsi",
+        "pages": 7
+    },
+    {
+        "cat": "Демокрация",
+        "alt": "Вицове за демокрация",
+        "url": "http://m.vicove.biz/demokratsiya",
+        "pages": 11
+    },
+    {
+        "cat": "Джо",
+        "alt": "Вицове за Джо",
+        "url": "http://m.vicove.biz/dzho",
+        "pages": 4
+    },
+    {
+        "cat": "Елени",
+        "alt": "Вицове за елени",
+        "url": "http://m.vicove.biz/eleni",
+        "pages": 11
+    },
+    {
+        "cat": "Електротехници",
+        "alt": "Вицове за електротехници",
+        "url": "http://m.vicove.biz/elektrotehnitsi",
+        "pages": 8
+    },
+    {
+        "cat": "Джордж Буш",
+        "alt": "Вицове за Джордж Буш",
+        "url": "http://m.vicove.biz/dzhordzh-bush",
+        "pages": 9
+    },
+    {
+        "cat": "Журналисти",
+        "alt": "Вицове за журналисти",
+        "url": "http://m.vicove.biz/zhurnalisti",
+        "pages": 29
+    },
+    {
+        "cat": "Жирафи",
+        "alt": "Вицове за жирафи",
+        "url": "http://m.vicove.biz/zhirafi",
+        "pages": 8
+    },
+    {
+        "cat": "Евреи",
+        "alt": "Вицове за евреи",
+        "url": "http://m.vicove.biz/evrei",
+        "pages": 61
+    },
+    {
+        "cat": "Животните в гората",
+        "alt": "Вицове за животните в гората",
+        "url": "http://m.vicove.biz/zhivotnite-v-gorata",
+        "pages": 3
+    },
+    {
+        "cat": "Европа",
+        "alt": "Вицове за Европа и европейците",
+        "url": "http://m.vicove.biz/evropa",
+        "pages": 21
+    },
+    {
+        "cat": "Енергото",
+        "alt": "Вицове за енергото",
+        "url": "http://m.vicove.biz/energoto",
+        "pages": 3
+    },
+    {
+        "cat": "Ергени",
+        "alt": "Вицове за ергени",
+        "url": "http://m.vicove.biz/ergeni",
+        "pages": 20
+    },
+    {
+        "cat": "Европейското",
+        "alt": "Вицове за европейското",
+        "url": "http://m.vicove.biz/evropeyskoto",
+        "pages": 2
+    },
+    {
+        "cat": "Длъжници",
+        "alt": "Вицове за длъжници",
+        "url": "http://m.vicove.biz/dlazhnitsi",
+        "pages": 2
+    },
+    {
+        "cat": "Ескимоси",
+        "alt": "Вицове за Ескимоси",
+        "url": "http://m.vicove.biz/eskimosi",
+        "pages": 3
+    },
+    {
+        "cat": "Животни",
+        "alt": "Вицове за животни",
+        "url": "http://m.vicove.biz/jivotni",
+        "pages": 355
+    },
+    {
+        "cat": "Есен",
+        "alt": "Вицове за есента",
+        "url": "http://m.vicove.biz/esen",
+        "pages": 11
+    },
+    {
+        "cat": "Жоро",
+        "alt": "Вицове за Жоро",
+        "url": "http://m.vicove.biz/zhoro",
+        "pages": 9
+    },
+    {
+        "cat": "Заекващи",
+        "alt": "Вицове за заекващи",
+        "url": "http://m.vicove.biz/zaekvashti",
+        "pages": 12
+    },
+    {
+        "cat": "Жаби",
+        "alt": "Вицове за жаби",
+        "url": "http://m.vicove.biz/zhabi",
+        "pages": 24
+    },
+    {
+        "cat": "Жан-Клод",
+        "alt": "Вицове за Жан-Клод Ван Дам",
+        "url": "http://m.vicove.biz/zhan-klod",
+        "pages": 2
+    },
+    {
+        "cat": "Ежко Бежко",
+        "alt": "Вицове за Ежко Бежко",
+        "url": "http://m.vicove.biz/ezhko-bezhko",
+        "pages": 2
+    },
+    {
+        "cat": "Жени",
+        "alt": "Вицове за жени",
+        "url": "http://m.vicove.biz/zheni",
+        "pages": 1632
+    },
+    {
+        "cat": "Европейския съюз",
+        "alt": "Вицове за Европейския съюз",
+        "url": "http://m.vicove.biz/evropeyskiya-sayuz",
+        "pages": 4
+    },
+    {
+        "cat": "Застрахователи",
+        "alt": "Вицове за застраховки и застрахователи",
+        "url": "http://m.vicove.biz/zastrahovateli",
+        "pages": 11
+    },
+    {
+        "cat": "Зоопарк",
+        "alt": "Вицове за зоопарка",
+        "url": "http://m.vicove.biz/zoopark",
+        "pages": 20
+    },
+    {
+        "cat": "Житената питка",
+        "alt": "Вицове за Житената питка",
+        "url": "http://m.vicove.biz/zhitenata-pitka",
+        "pages": 6
+    },
+    {
+        "cat": "Завещания",
+        "alt": "Вицове за завещания",
+        "url": "http://m.vicove.biz/zaveshtaniya",
+        "pages": 7
+    },
+    {
+        "cat": "Зетьове",
+        "alt": "Вицове за зетьове",
+        "url": "http://m.vicove.biz/zetyove",
+        "pages": 27
+    },
+    {
+        "cat": "Жена шофьор",
+        "alt": "Вицове за жени шофьори",
+        "url": "http://m.vicove.biz/zhena-shofyor",
+        "pages": 4
+    },
+    {
+        "cat": "Зомбита",
+        "alt": "Вицове за зомбита",
+        "url": "http://m.vicove.biz/zombita",
+        "pages": 3
+    },
+    {
+        "cat": "Знаете ли защо",
+        "alt": "Вицове - Знаете ли защо",
+        "url": "http://m.vicove.biz/znaete-li-zashto",
+        "pages": 12
+    },
+    {
+        "cat": "Зодии",
+        "alt": "Вицове за зодии и хороскопи",
+        "url": "http://m.vicove.biz/zodii",
+        "pages": 17
+    },
+    {
+        "cat": "Знаете ли че",
+        "alt": "Вицове - знаете ли че",
+        "url": "http://m.vicove.biz/znaete-li-che",
+        "pages": 26
+    },
+    {
+        "cat": "Зима",
+        "alt": "Вицове за зимата",
+        "url": "http://m.vicove.biz/zima",
+        "pages": 44
+    },
+    {
+        "cat": "Затворници",
+        "alt": "Вицове за затвора и затворниците",
+        "url": "http://m.vicove.biz/zatvornitsi",
+        "pages": 51
+    },
+    {
+        "cat": "Зайо Байо",
+        "alt": "Вицове за Зайо Байо",
+        "url": "http://m.vicove.biz/zayo-bayo",
+        "pages": 31
+    },
+    {
+        "cat": "Златната рибка",
+        "alt": "Вицове за златната рибка",
+        "url": "http://m.vicove.biz/zlatnata-ribka",
+        "pages": 28
+    },
+    {
+        "cat": "Земеделци",
+        "alt": "Вицове за земеделци",
+        "url": "http://m.vicove.biz/zemedeltsi",
+        "pages": 4
+    },
+    {
+        "cat": "Зъболекари",
+        "alt": "Вицове за зъболекари",
+        "url": "http://m.vicove.biz/zabolekari",
+        "pages": 25
+    },
+    {
+        "cat": "Избори",
+        "alt": "Вицове за избори",
+        "url": "http://m.vicove.biz/izbori",
+        "pages": 21
+    },
+    {
+        "cat": "Земетресения",
+        "alt": "Вицове за земетресения",
+        "url": "http://m.vicove.biz/zemetreseniya",
+        "pages": 7
+    },
+    {
+        "cat": "Заплати",
+        "alt": "Вицове за заплати",
+        "url": "http://m.vicove.biz/zaplati",
+        "pages": 94
+    },
+    {
+        "cat": "Иванчо",
+        "alt": "Вицове за Иванчо",
+        "url": "http://m.vicove.biz/ivancho",
+        "pages": 290
+    },
+    {
+        "cat": "Змии",
+        "alt": "Вицове за змии и змейове",
+        "url": "http://m.vicove.biz/zmii",
+        "pages": 30
+    },
+    {
+        "cat": "Изневери",
+        "alt": "Вицове за изневери",
+        "url": "http://m.vicove.biz/izneveri",
+        "pages": 97
+    },
+    {
+        "cat": "Зубъри",
+        "alt": "Вицове за зубъри",
+        "url": "http://m.vicove.biz/zubari",
+        "pages": 3
+    },
+    {
+        "cat": "Интелигентни",
+        "alt": "Вицове за интелигентни",
+        "url": "http://m.vicove.biz/inteligentni",
+        "pages": 27
+    },
+    {
+        "cat": "Извънземни",
+        "alt": "Вицове за извънземни",
+        "url": "http://m.vicove.biz/izvanzemni",
+        "pages": 16
+    },
+    {
+        "cat": "Изпити",
+        "alt": "Вицове за изпити",
+        "url": "http://m.vicove.biz/izpiti",
+        "pages": 50
+    },
+    {
+        "cat": "Индианци",
+        "alt": "Вицове за индианци",
+        "url": "http://m.vicove.biz/indiantsi",
+        "pages": 12
+    },
+    {
+        "cat": "Испания",
+        "alt": "Вицове за Испания",
+        "url": "http://m.vicove.biz/ispaniya",
+        "pages": 14
+    },
+    {
+        "cat": "Игумени",
+        "alt": "Вицове за игумени",
+        "url": "http://m.vicove.biz/igumeni",
+        "pages": 6
+    },
+    {
+        "cat": "Интелектуалци",
+        "alt": "Вицове за интелектуалци",
+        "url": "http://m.vicove.biz/intelektualtsi",
+        "pages": 4
+    },
+    {
+        "cat": "Израел",
+        "alt": "Вицове за Израел и израелци",
+        "url": "http://m.vicove.biz/izrael",
+        "pages": 7
+    },
+    {
+        "cat": "Истории",
+        "alt": "Вицове със смешни и забавни истории",
+        "url": "http://m.vicove.biz/istorii",
+        "pages": 31
+    },
+    {
+        "cat": "Интернет",
+        "alt": "Вицове за интернет",
+        "url": "http://m.vicove.biz/internet",
+        "pages": 65
+    },
+    {
+        "cat": "Индия",
+        "alt": "Вицове за Индия и индийците",
+        "url": "http://m.vicove.biz/indiya",
+        "pages": 15
+    },
+    {
+        "cat": "Инструктори",
+        "alt": "Вицове за инструктори",
+        "url": "http://m.vicove.biz/instruktori",
+        "pages": 14
+    },
+    {
+        "cat": "Исус Христос",
+        "alt": "Вицове за Исус Христос",
+        "url": "http://m.vicove.biz/isus-hristos",
+        "pages": 22
+    },
+    {
+        "cat": "Импотентни",
+        "alt": "Вицове за импотентни",
+        "url": "http://m.vicove.biz/impotentni",
+        "pages": 15
+    },
+    {
+        "cat": "Казарма",
+        "alt": "Вицове за казармата",
+        "url": "http://m.vicove.biz/kazarma",
+        "pages": 22
+    },
+    {
+        "cat": "Кафе",
+        "alt": "Вицове за кафе",
+        "url": "http://m.vicove.biz/kafe",
+        "pages": 131
+    },
+    {
+        "cat": "Ирландци",
+        "alt": "Вицове за Ирландия и ирландците",
+        "url": "http://m.vicove.biz/irlandtsi",
+        "pages": 7
+    },
+    {
+        "cat": "Катаджии",
+        "alt": "Вицове за катаджии",
+        "url": "http://m.vicove.biz/katadzhii",
+        "pages": 63
+    },
+    {
+        "cat": "Италия",
+        "alt": "Вицове за Италия и италянците",
+        "url": "http://m.vicove.biz/italiya",
+        "pages": 11
+    },
+    {
+        "cat": "Каква е приликата",
+        "alt": "Вицове - каква е приликата",
+        "url": "http://m.vicove.biz/kakva-e-prilikata",
+        "pages": 11
+    },
+    {
+        "cat": "Камиони",
+        "alt": "Вицове за камиони и тираджии",
+        "url": "http://m.vicove.biz/kamioni",
+        "pages": 30
+    },
+    {
+        "cat": "Комар",
+        "alt": "Вицове за комари",
+        "url": "http://m.vicove.biz/komar",
+        "pages": 25
+    },
+    {
+        "cat": "Климатици",
+        "alt": "Вицове за климатици",
+        "url": "http://m.vicove.biz/klimatitsi",
+        "pages": 9
+    },
+    {
+        "cat": "Китай",
+        "alt": "Вицове за Китай",
+        "url": "http://m.vicove.biz/kitay",
+        "pages": 41
+    },
+    {
+        "cat": "Кметове",
+        "alt": "Вицове за кметове",
+        "url": "http://m.vicove.biz/kmetove",
+        "pages": 20
+    },
+    {
+        "cat": "Красиви",
+        "alt": "Вицове за красиви",
+        "url": "http://m.vicove.biz/krasivi",
+        "pages": 178
+    },
+    {
+        "cat": "Кумчо Вълчо",
+        "alt": "Вицове за Кумчо Вълчо",
+        "url": "http://m.vicove.biz/kumcho-valcho",
+        "pages": 10
+    },
+    {
+        "cat": "Къдрави",
+        "alt": "Вицове за къдрави",
+        "url": "http://m.vicove.biz/kadravi",
+        "pages": 6
+    },
+    {
+        "cat": "Каква е разликата",
+        "alt": "Вицове - каква е разликата",
+        "url": "http://m.vicove.biz/kakva-e-razlikata",
+        "pages": 54
+    },
+    {
+        "cat": "Инжинери",
+        "alt": "Вицове за инжинери",
+        "url": "http://m.vicove.biz/inzhineri",
+        "pages": 1
+    },
+    {
+        "cat": "Кръчми",
+        "alt": "Вицове за кръчми и кръчмари",
+        "url": "http://m.vicove.biz/krachmi",
+        "pages": 79
+    },
+    {
+        "cat": "Келнери",
+        "alt": "Вицове за келнери",
+        "url": "http://m.vicove.biz/kelneri",
+        "pages": 46
+    },
+    {
+        "cat": "Катерици",
+        "alt": "Вицове за катерици",
+        "url": "http://m.vicove.biz/kateritsi",
+        "pages": 8
+    },
+    {
+        "cat": "Канибали",
+        "alt": "Вицове за канибали",
+        "url": "http://m.vicove.biz/kanibali",
+        "pages": 16
+    },
+    {
+        "cat": "Кредити",
+        "alt": "Вицове за кредити",
+        "url": "http://m.vicove.biz/krediti",
+        "pages": 35
+    },
+    {
+        "cat": "Котки",
+        "alt": "Вицове за котки",
+        "url": "http://m.vicove.biz/kotki",
+        "pages": 35
+    },
+    {
+        "cat": "Кюфтета",
+        "alt": "Вицове за кюфтета",
+        "url": "http://m.vicove.biz/kyufteta",
+        "pages": 19
+    },
+    {
+        "cat": "Клоуни",
+        "alt": "Вицове за клоуни",
+        "url": "http://m.vicove.biz/klouni",
+        "pages": 5
+    },
+    {
+        "cat": "Кокошки",
+        "alt": "Вицове за кокошки",
+        "url": "http://m.vicove.biz/kokoshki",
+        "pages": 39
+    },
+    {
+        "cat": "Косъм в супата",
+        "alt": "Вицове за косъм в супата",
+        "url": "http://m.vicove.biz/kosam-v-supata",
+        "pages": 1
+    },
+    {
+        "cat": "Купони",
+        "alt": "Вицове за купони",
+        "url": "http://m.vicove.biz/kuponi",
+        "pages": 45
+    },
+    {
+        "cat": "Кенеф",
+        "alt": "Вицове за кенеф",
+        "url": "http://m.vicove.biz/kenef",
+        "pages": 11
+    },
+    {
+        "cat": "Капитани",
+        "alt": "Вицове за капитани",
+        "url": "http://m.vicove.biz/kapitani",
+        "pages": 33
+    },
+    {
+        "cat": "Китаристи",
+        "alt": "Вицове за китаристи",
+        "url": "http://m.vicove.biz/kitaristi",
+        "pages": 8
+    },
+    {
+        "cat": "Колеги",
+        "alt": "Вицове за колеги",
+        "url": "http://m.vicove.biz/kolegi",
+        "pages": 115
+    },
+    {
+        "cat": "Кифли",
+        "alt": "Вицове за кифли",
+        "url": "http://m.vicove.biz/kifli",
+        "pages": 14
+    },
+    {
+        "cat": "Какво е общото",
+        "alt": "Вицове - какво е общото",
+        "url": "http://m.vicove.biz/kakvo-e-obshtoto",
+        "pages": 12
+    },
+    {
+        "cat": "Клошари",
+        "alt": "Вицове за клошари",
+        "url": "http://m.vicove.biz/kloshari",
+        "pages": 6
+    },
+    {
+        "cat": "Командировки",
+        "alt": "Вицове за командировки",
+        "url": "http://m.vicove.biz/komandirovki",
+        "pages": 72
+    },
+    {
+        "cat": "Крави",
+        "alt": "Вицове за крави",
+        "url": "http://m.vicove.biz/kravi",
+        "pages": 50
+    },
+    {
+        "cat": "Кубрат Пулев",
+        "alt": "Вицове за Кубрат Пулев",
+        "url": "http://m.vicove.biz/kubrat-pulev",
+        "pages": 2
+    },
+    {
+        "cat": "Крикор и Гарабед ",
+        "alt": "Вицове за Крикор и Гарабед",
+        "url": "http://m.vicove.biz/krikor-i-garabed",
+        "pages": 11
+    },
+    {
+        "cat": "Комунизъм",
+        "alt": "Вицове за комунизъм",
+        "url": "http://m.vicove.biz/komunizam",
+        "pages": 12
+    },
+    {
+        "cat": "Кухня",
+        "alt": "Вицове за кухня",
+        "url": "http://m.vicove.biz/kuhnya",
+        "pages": 89
+    },
+    {
+        "cat": "Кино",
+        "alt": "Вицове за кино",
+        "url": "http://m.vicove.biz/kino",
+        "pages": 27
+    },
+    {
+        "cat": "Католици",
+        "alt": "Вицове За Католици",
+        "url": "http://m.vicove.biz/katolitsi",
+        "pages": 3
+    },
+    {
+        "cat": "Касиери",
+        "alt": "Вицове за касиери",
+        "url": "http://m.vicove.biz/kasieri",
+        "pages": 17
+    },
+    {
+        "cat": "Клиенти",
+        "alt": "Вицове за клиенти",
+        "url": "http://m.vicove.biz/klienti",
+        "pages": 94
+    },
+    {
+        "cat": "Клюкари",
+        "alt": "Вицове за клюкари",
+        "url": "http://m.vicove.biz/klyukari",
+        "pages": 5
+    },
+    {
+        "cat": "Коняк",
+        "alt": "Вицове за Коняк",
+        "url": "http://m.vicove.biz/konyak",
+        "pages": 19
+    },
+    {
+        "cat": "Каубои",
+        "alt": "Вицове за каубои",
+        "url": "http://m.vicove.biz/kauboi",
+        "pages": 11
+    },
+    {
+        "cat": "Културисти",
+        "alt": "Вицове за културисти",
+        "url": "http://m.vicove.biz/kulturisti",
+        "pages": 2
+    },
+    {
+        "cat": "Крадци",
+        "alt": "Вицове за Крадци",
+        "url": "http://m.vicove.biz/kradtsi",
+        "pages": 18
+    },
+    {
+        "cat": "Лекари",
+        "alt": "Вицове за лекари",
+        "url": "http://m.vicove.biz/lekari",
+        "pages": 390
+    },
+    {
+        "cat": "Кучета",
+        "alt": "Вицове за кучета",
+        "url": "http://m.vicove.biz/kucheta",
+        "pages": 87
+    },
+    {
+        "cat": "Любовник",
+        "alt": "Вицове за любовник",
+        "url": "http://m.vicove.biz/lyubovnik",
+        "pages": 71
+    },
+    {
+        "cat": "Лисици",
+        "alt": "Вицове за лисици",
+        "url": "http://m.vicove.biz/lisitsi",
+        "pages": 22
+    },
+    {
+        "cat": "Крокодили",
+        "alt": "Вицове за крокодили",
+        "url": "http://m.vicove.biz/krokodili",
+        "pages": 29
+    },
+    {
+        "cat": "Лондон",
+        "alt": "Вицове за Лондон",
+        "url": "http://m.vicove.biz/london",
+        "pages": 12
+    },
+    {
+        "cat": "Лесбийки",
+        "alt": "Вицове за лесбийки",
+        "url": "http://m.vicove.biz/lesbiyki",
+        "pages": 7
+    },
+    {
+        "cat": "Лада",
+        "alt": "Вицове за Лада",
+        "url": "http://m.vicove.biz/lada",
+        "pages": 7
+    },
+    {
+        "cat": "Кума Лиса",
+        "alt": "Вицове за Кума Лиса",
+        "url": "http://m.vicove.biz/kuma-lisa",
+        "pages": 6
+    },
+    {
+        "cat": "Магарета",
+        "alt": "Вицове за магарета",
+        "url": "http://m.vicove.biz/magareta",
+        "pages": 27
+    },
+    {
+        "cat": "Любовница",
+        "alt": "Вицове за любовница",
+        "url": "http://m.vicove.biz/lyubovnitsa",
+        "pages": 46
+    },
+    {
+        "cat": "Луната",
+        "alt": "Вицове за луната",
+        "url": "http://m.vicove.biz/lunata",
+        "pages": 19
+    },
+    {
+        "cat": "Ловци",
+        "alt": "Вицове за ловци",
+        "url": "http://m.vicove.biz/lovtsi",
+        "pages": 22
+    },
+    {
+        "cat": "Лудница",
+        "alt": "Вицове за лудницата",
+        "url": "http://m.vicove.biz/ludnitsa",
+        "pages": 13
+    },
+    {
+        "cat": "Литература",
+        "alt": "Вицове за литература",
+        "url": "http://m.vicove.biz/literatura",
+        "pages": 11
+    },
+    {
+        "cat": "Логика",
+        "alt": "Вицове за логика",
+        "url": "http://m.vicove.biz/logika",
+        "pages": 19
+    },
+    {
+        "cat": "Ламята Спаска",
+        "alt": "Вицове за Ламята Спаска",
+        "url": "http://m.vicove.biz/lamyata-spaska",
+        "pages": 8
+    },
+    {
+        "cat": "Ленин",
+        "alt": "Вицове за Ленин",
+        "url": "http://m.vicove.biz/lenin",
+        "pages": 8
+    },
+    {
+        "cat": "Левски",
+        "alt": "Вицове за Левски",
+        "url": "http://m.vicove.biz/levski",
+        "pages": 14
+    },
+    {
+        "cat": "Лято",
+        "alt": "Вицове за лятото",
+        "url": "http://m.vicove.biz/lyato",
+        "pages": 48
+    },
+    {
+        "cat": "Мазохисти",
+        "alt": "Вицове за мазохисти",
+        "url": "http://m.vicove.biz/mazohisti",
+        "pages": 7
+    },
+    {
+        "cat": "Москвич",
+        "alt": "Вицове за Москвич",
+        "url": "http://m.vicove.biz/moskvich",
+        "pages": 9
+    },
+    {
+        "cat": "Милиционери",
+        "alt": "Вицове за милиционери",
+        "url": "http://m.vicove.biz/militsioneri",
+        "pages": 7
+    },
+    {
+        "cat": "Марийка",
+        "alt": "Вицове за Марийка",
+        "url": "http://m.vicove.biz/mariyka",
+        "pages": 83
+    },
+    {
+        "cat": "Майкъл Джексън",
+        "alt": "Вицове за Майкъл Джексън",
+        "url": "http://m.vicove.biz/maykal-dzheksan",
+        "pages": 4
+    },
+    {
+        "cat": "Лили Иванова",
+        "alt": "Вицове за Лили Иванова",
+        "url": "http://m.vicove.biz/lili-ivanova",
+        "pages": 8
+    },
+    {
+        "cat": "Митничари",
+        "alt": "Вицове за митничари",
+        "url": "http://m.vicove.biz/mitnichari",
+        "pages": 17
+    },
+    {
+        "cat": "Мексиканци",
+        "alt": "Вицове за Мексико и мексиканци",
+        "url": "http://m.vicove.biz/meksikantsi",
+        "pages": 6
+    },
+    {
+        "cat": "Монтьори",
+        "alt": "Вицове за монтьори",
+        "url": "http://m.vicove.biz/montyori",
+        "pages": 4
+    },
+    {
+        "cat": "Мъже",
+        "alt": "Вицове за мъже",
+        "url": "http://m.vicove.biz/mazhe",
+        "pages": 1015
+    },
+    {
+        "cat": "Махмурлук",
+        "alt": "Вицове за махмурлук",
+        "url": "http://m.vicove.biz/mahmurluk",
+        "pages": 15
+    },
+    {
+        "cat": "Морето",
+        "alt": "Вицове за морето",
+        "url": "http://m.vicove.biz/moreto",
+        "pages": 82
+    },
+    {
+        "cat": "Младежи",
+        "alt": "Вицове за младежи",
+        "url": "http://m.vicove.biz/mladezhi",
+        "pages": 121
+    },
+    {
+        "cat": "Маймуни",
+        "alt": "Вицове за маймуни",
+        "url": "http://m.vicove.biz/maymuni",
+        "pages": 38
+    },
+    {
+        "cat": "Музиканти",
+        "alt": "Вицове за музиканти",
+        "url": "http://m.vicove.biz/muzikanti",
+        "pages": 17
+    },
+    {
+        "cat": "Министри",
+        "alt": "Вицове за Министри",
+        "url": "http://m.vicove.biz/ministri",
+        "pages": 27
+    },
+    {
+        "cat": "Метъли",
+        "alt": "Вицове за метъли",
+        "url": "http://m.vicove.biz/metali",
+        "pages": 7
+    },
+    {
+        "cat": "Марихуана",
+        "alt": "Вицове за марихуана",
+        "url": "http://m.vicove.biz/marihuana",
+        "pages": 5
+    },
+    {
+        "cat": "МВР",
+        "alt": "Вицове за МВР",
+        "url": "http://m.vicove.biz/mvr",
+        "pages": 13
+    },
+    {
+        "cat": "Мравки",
+        "alt": "Вицове за мравки",
+        "url": "http://m.vicove.biz/mravki",
+        "pages": 17
+    },
+    {
+        "cat": "Мотори",
+        "alt": "Вицове за мотори и мотористи",
+        "url": "http://m.vicove.biz/motori",
+        "pages": 19
+    },
+    {
+        "cat": "Македония",
+        "alt": "Вицове за Македония",
+        "url": "http://m.vicove.biz/makedoniya",
+        "pages": 14
+    },
+    {
+        "cat": "Майки",
+        "alt": "Вицове за майки",
+        "url": "http://m.vicove.biz/mayki",
+        "pages": 416
+    },
+    {
+        "cat": "Монаси",
+        "alt": "Вицове за монаси и монахини",
+        "url": "http://m.vicove.biz/monasi",
+        "pages": 60
+    },
+    {
+        "cat": "Младоженци",
+        "alt": "Вицове за младоженци",
+        "url": "http://m.vicove.biz/mladozhentsi",
+        "pages": 81
+    },
+    {
+        "cat": "Мутри",
+        "alt": "Вицове за мутри",
+        "url": "http://m.vicove.biz/mutri",
+        "pages": 110
+    },
+    {
+        "cat": "Математика",
+        "alt": "Вицове за математика",
+        "url": "http://m.vicove.biz/matematika",
+        "pages": 38
+    },
+    {
+        "cat": "Маса",
+        "alt": "Вицове за маса",
+        "url": "http://m.vicove.biz/masa",
+        "pages": 48
+    },
+    {
+        "cat": "Майстори",
+        "alt": "Вицове за майстори",
+        "url": "http://m.vicove.biz/maystori",
+        "pages": 25
+    },
+    {
+        "cat": "Медицински сестри",
+        "alt": "Вицове за медицински сестри",
+        "url": "http://m.vicove.biz/meditsinski-sestri",
+        "pages": 15
+    },
+    {
+        "cat": "Милионери",
+        "alt": "Вицове за милионери",
+        "url": "http://m.vicove.biz/milioneri",
+        "pages": 12
+    },
+    {
+        "cat": "Моряци",
+        "alt": "Вицове за моряци",
+        "url": "http://m.vicove.biz/moryatsi",
+        "pages": 13
+    },
+    {
+        "cat": "Мюсюлмани",
+        "alt": "Вицове за мюсюлмани",
+        "url": "http://m.vicove.biz/myusyulmani",
+        "pages": 5
+    },
+    {
+        "cat": "Мечо Пух",
+        "alt": "Вицове за Мечо Пух",
+        "url": "http://m.vicove.biz/mecho-puh",
+        "pages": 17
+    },
+    {
+        "cat": "Миньори",
+        "alt": "Вицове за миньори",
+        "url": "http://m.vicove.biz/minyori",
+        "pages": 4
+    },
+    {
+        "cat": "Майк Тайсън",
+        "alt": "Вицове за Майк Тайсън",
+        "url": "http://m.vicove.biz/mayk-taysan",
+        "pages": 2
+    },
+    {
+        "cat": "Нотариуси",
+        "alt": "Вицове за нотариуси",
+        "url": "http://m.vicove.biz/notariusi",
+        "pages": 3
+    },
+    {
+        "cat": "Мед. Университет",
+        "alt": "Вицове за Медицински Университет",
+        "url": "http://m.vicove.biz/med-universitet",
+        "pages": 2
+    },
+    {
+        "cat": "Надписи",
+        "alt": "Вицове и надписи",
+        "url": "http://m.vicove.biz/nadpisi",
+        "pages": 63
+    },
+    {
+        "cat": "Минута е много",
+        "alt": "Вицове за минута е много",
+        "url": "http://m.vicove.biz/minuta-e-mnogo",
+        "pages": 2
+    },
+    {
+        "cat": "Муха в супата",
+        "alt": "Вицове за муха в супата",
+        "url": "http://m.vicove.biz/muha-v-supata",
+        "pages": 1
+    },
+    {
+        "cat": "НЛО",
+        "alt": "Вицове за НЛО",
+        "url": "http://m.vicove.biz/nlo",
+        "pages": 4
+    },
+    {
+        "cat": "Неграмотни",
+        "alt": "Вицове за неграмотни",
+        "url": "http://m.vicove.biz/negramotni",
+        "pages": 6
+    },
+    {
+        "cat": "Москва",
+        "alt": "Вицове за Москва",
+        "url": "http://m.vicove.biz/moskva",
+        "pages": 15
+    },
+    {
+        "cat": "Некрофили",
+        "alt": "Вицове за некрофили",
+        "url": "http://m.vicove.biz/nekrofili",
+        "pages": 4
+    },
+    {
+        "cat": "Нане и Вуте",
+        "alt": "Вицове за Нане и Вуте",
+        "url": "http://m.vicove.biz/nane-i-vute",
+        "pages": 29
+    },
+    {
+        "cat": "Нацисти",
+        "alt": "Вицове за нацисти",
+        "url": "http://m.vicove.biz/natsisti",
+        "pages": 2
+    },
+    {
+        "cat": "Обири",
+        "alt": "Вицове за обири",
+        "url": "http://m.vicove.biz/obiri",
+        "pages": 24
+    },
+    {
+        "cat": "Началници",
+        "alt": "Вицове за началници",
+        "url": "http://m.vicove.biz/nachalnitsi",
+        "pages": 122
+    },
+    {
+        "cat": "Нова година",
+        "alt": "Вицове за Нова година",
+        "url": "http://m.vicove.biz/nova-godina",
+        "pages": 38
+    },
+    {
+        "cat": "Настроение",
+        "alt": "Вицове за настроение",
+        "url": "http://m.vicove.biz/nastroenie",
+        "pages": 19
+    },
+    {
+        "cat": "Негри",
+        "alt": "Вицове за негри",
+        "url": "http://m.vicove.biz/negri",
+        "pages": 31
+    },
+    {
+        "cat": "Новородени",
+        "alt": "Вицове за новородени",
+        "url": "http://m.vicove.biz/novorodeni",
+        "pages": 6
+    },
+    {
+        "cat": "Офицери",
+        "alt": "Вицове за офицери",
+        "url": "http://m.vicove.biz/ofitseri",
+        "pages": 14
+    },
+    {
+        "cat": "Образованието",
+        "alt": "Вицове за образованието",
+        "url": "http://m.vicove.biz/obrazovanieto",
+        "pages": 23
+    },
+    {
+        "cat": "Несебър",
+        "alt": "Вицове за Несебър",
+        "url": "http://m.vicove.biz/nesebar",
+        "pages": 1
+    },
+    {
+        "cat": "Огледало",
+        "alt": "Вицове за огледало",
+        "url": "http://m.vicove.biz/ogledalo",
+        "pages": 55
+    },
+    {
+        "cat": "Осми Март",
+        "alt": "Вицове за Осми Март",
+        "url": "http://m.vicove.biz/osmi-mart",
+        "pages": 17
+    },
+    {
+        "cat": "Охлюви",
+        "alt": "Вицове за охлюви",
+        "url": "http://m.vicove.biz/ohlyuvi",
+        "pages": 12
+    },
+    {
+        "cat": "Обяд",
+        "alt": "Вицове за обяд",
+        "url": "http://m.vicove.biz/obyad",
+        "pages": 38
+    },
+    {
+        "cat": "Отслабване",
+        "alt": "Вицове за отслабване",
+        "url": "http://m.vicove.biz/otslabvane",
+        "pages": 40
+    },
+    {
+        "cat": "Ноевият ковчег",
+        "alt": "Вицове за Ноевият ковчег",
+        "url": "http://m.vicove.biz/noeviyat-kovcheg",
+        "pages": 4
+    },
+    {
+        "cat": "Охранители",
+        "alt": "Вицове за охранители",
+        "url": "http://m.vicove.biz/ohraniteli",
+        "pages": 26
+    },
+    {
+        "cat": "НОИ",
+        "alt": "Вицове за НОИ",
+        "url": "http://m.vicove.biz/noi",
+        "pages": 2
+    },
+    {
+        "cat": "Наркомански",
+        "alt": "Вицове за наркомани",
+        "url": "http://m.vicove.biz/narkomanski",
+        "pages": 54
+    },
+    {
+        "cat": "Отличници",
+        "alt": "Вицове за отличници",
+        "url": "http://m.vicove.biz/otlichnitsi",
+        "pages": 5
+    },
+    {
+        "cat": "Пайнер",
+        "alt": "Вицове за Пайнер",
+        "url": "http://m.vicove.biz/payner",
+        "pages": 3
+    },
+    {
+        "cat": "Петък",
+        "alt": "Вицове за петък",
+        "url": "http://m.vicove.biz/petak",
+        "pages": 40
+    },
+    {
+        "cat": "Обувки",
+        "alt": "Вицове за обувки",
+        "url": "http://m.vicove.biz/obuvki",
+        "pages": 41
+    },
+    {
+        "cat": "Оптимисти",
+        "alt": "Вицове за оптимисти",
+        "url": "http://m.vicove.biz/optimisti",
+        "pages": 17
+    },
+    {
+        "cat": "Онанисти",
+        "alt": "Вицове за онанисти",
+        "url": "http://m.vicove.biz/onanisti",
+        "pages": 4
+    },
+    {
+        "cat": "Овен",
+        "alt": "Вицове за зодия Овен",
+        "url": "http://m.vicove.biz/oven",
+        "pages": 5
+    },
+    {
+        "cat": "Отпускари",
+        "alt": "Вицове за отпускари",
+        "url": "http://m.vicove.biz/otpuskari",
+        "pages": 25
+    },
+    {
+        "cat": "Овчари",
+        "alt": "Вицове за овце и овчари",
+        "url": "http://m.vicove.biz/ovchari",
+        "pages": 38
+    },
+    {
+        "cat": "Осми Декември",
+        "alt": "Вицове за Осми Декември",
+        "url": "http://m.vicove.biz/osmi-dekemvri",
+        "pages": 2
+    },
+    {
+        "cat": "Плажове",
+        "alt": "Вицове за плажове",
+        "url": "http://m.vicove.biz/plazhove",
+        "pages": 60
+    },
+    {
+        "cat": "Пари",
+        "alt": "Вицове за пари",
+        "url": "http://m.vicove.biz/pari",
+        "pages": 291
+    },
+    {
+        "cat": "Обратни",
+        "alt": "Вицове за Обратни",
+        "url": "http://m.vicove.biz/obratni",
+        "pages": 68
+    },
+    {
+        "cat": "Прилепи",
+        "alt": "Вицове за прилепи",
+        "url": "http://m.vicove.biz/prilepi",
+        "pages": 8
+    },
+    {
+        "cat": "Пловдив",
+        "alt": "Вицове за Пловдив и пловдивчани",
+        "url": "http://m.vicove.biz/plovdiv",
+        "pages": 16
+    },
+    {
+        "cat": "Пожарникари",
+        "alt": "Вицове за пожарникари",
+        "url": "http://m.vicove.biz/pozharnikari",
+        "pages": 10
+    },
+    {
+        "cat": "Пилоти",
+        "alt": "Вицове за пилоти",
+        "url": "http://m.vicove.biz/piloti",
+        "pages": 12
+    },
+    {
+        "cat": "Преводачи",
+        "alt": "Вицове за преводачи",
+        "url": "http://m.vicove.biz/prevodachi",
+        "pages": 5
+    },
+    {
+        "cat": "Партизани",
+        "alt": "Вицове за партизани",
+        "url": "http://m.vicove.biz/partizani",
+        "pages": 4
+    },
+    {
+        "cat": "Париж",
+        "alt": "Вицове за Париж",
+        "url": "http://m.vicove.biz/parizh",
+        "pages": 21
+    },
+    {
+        "cat": "Пътуване",
+        "alt": "Вицове за пътуване",
+        "url": "http://m.vicove.biz/patuvane",
+        "pages": 97
+    },
+    {
+        "cat": "Патки",
+        "alt": "Вицове за патки",
+        "url": "http://m.vicove.biz/patki",
+        "pages": 17
+    },
+    {
+        "cat": "Първа среща",
+        "alt": "Вицове за първа среща",
+        "url": "http://m.vicove.biz/parva-sreshta",
+        "pages": 13
+    },
+    {
+        "cat": "Палатки",
+        "alt": "Вицове за палатки",
+        "url": "http://m.vicove.biz/palatki",
+        "pages": 13
+    },
+    {
+        "cat": "Професори",
+        "alt": "Вицове за професори",
+        "url": "http://m.vicove.biz/profesori",
+        "pages": 58
+    },
+    {
+        "cat": "Поручик Ржевски",
+        "alt": "Вицове за Поручик Ржевски",
+        "url": "http://m.vicove.biz/poruchik-rzhevski",
+        "pages": 17
+    },
+    {
+        "cat": "Пингвини",
+        "alt": "Вицове за пингвини",
+        "url": "http://m.vicove.biz/pingvini",
+        "pages": 7
+    },
+    {
+        "cat": "Продавачи",
+        "alt": "Вицове за продавачи",
+        "url": "http://m.vicove.biz/prodavachi",
+        "pages": 17
+    },
+    {
+        "cat": "Путин",
+        "alt": "Вицове за Путин",
+        "url": "http://m.vicove.biz/putin",
+        "pages": 11
+    },
+    {
+        "cat": "Петърчо",
+        "alt": "Вицове за Петърчо",
+        "url": "http://m.vicove.biz/petarcho",
+        "pages": 13
+    },
+    {
+        "cat": "Психиатрия",
+        "alt": "Вицове за психиатри и психиатрията",
+        "url": "http://m.vicove.biz/psihiatriya",
+        "pages": 46
+    },
+    {
+        "cat": "Пламен Орешарски",
+        "alt": "Вицове за Пламен Орешарски",
+        "url": "http://m.vicove.biz/plamen-oresharski",
+        "pages": 2
+    },
+    {
+        "cat": "Плуване",
+        "alt": "Вицове за плуване",
+        "url": "http://m.vicove.biz/pluvane",
+        "pages": 42
+    },
+    {
+        "cat": "Пушачи",
+        "alt": "Вицове за пушачи",
+        "url": "http://m.vicove.biz/pushachi",
+        "pages": 7
+    },
+    {
+        "cat": "Пролет",
+        "alt": "Вицове за пролетта",
+        "url": "http://m.vicove.biz/prolet",
+        "pages": 18
+    },
+    {
+        "cat": "Празнични",
+        "alt": "Вицове за празници",
+        "url": "http://m.vicove.biz/praznichni",
+        "pages": 53
+    },
+    {
+        "cat": "Пешо",
+        "alt": "Вицове за Пешо",
+        "url": "http://m.vicove.biz/pesho",
+        "pages": 104
+    },
+    {
+        "cat": "Приятели",
+        "alt": "Вицове за приятели",
+        "url": "http://m.vicove.biz/priyateli",
+        "pages": 590
+    },
+    {
+        "cat": "Подаръци",
+        "alt": "Вицове за подаръци",
+        "url": "http://m.vicove.biz/podaratsi",
+        "pages": 82
+    },
+    {
+        "cat": "Принцове и принцеси",
+        "alt": "Вицове за принцове и принцеси",
+        "url": "http://m.vicove.biz/printsove-i-printsesi",
+        "pages": 45
+    },
+    {
+        "cat": "Папагали",
+        "alt": "Вицове за папагали",
+        "url": "http://m.vicove.biz/papagali",
+        "pages": 24
+    },
+    {
+        "cat": "Прасета",
+        "alt": "Вицове за прасета",
+        "url": "http://m.vicove.biz/praseta",
+        "pages": 61
+    },
+    {
+        "cat": "Перничани",
+        "alt": "Вицове за Перник и перничаните",
+        "url": "http://m.vicove.biz/pernichani",
+        "pages": 42
+    },
+    {
+        "cat": "Полицаи",
+        "alt": "Вицове за полицаи",
+        "url": "http://m.vicove.biz/policai",
+        "pages": 179
+    },
+    {
+        "cat": "Планина",
+        "alt": "Вицове за планина",
+        "url": "http://m.vicove.biz/planina",
+        "pages": 37
+    },
+    {
+        "cat": "Преподаватели",
+        "alt": "Вицове за преподаватели",
+        "url": "http://m.vicove.biz/prepodavateli",
+        "pages": 25
+    },
+    {
+        "cat": "Проститутки",
+        "alt": "Вицове за проститутки",
+        "url": "http://m.vicove.biz/prostitutki",
+        "pages": 53
+    },
+    {
+        "cat": "Президентски",
+        "alt": "Вицове за президенти",
+        "url": "http://m.vicove.biz/prezidentski",
+        "pages": 28
+    },
+    {
+        "cat": "Парламент",
+        "alt": "Вицове за парламента",
+        "url": "http://m.vicove.biz/parlament",
+        "pages": 15
+    },
+    {
+        "cat": "Пинокио",
+        "alt": "Вицове за Пинокио",
+        "url": "http://m.vicove.biz/pinokio",
+        "pages": 7
+    },
+    {
+        "cat": "Професии",
+        "alt": "Вицове за професии",
+        "url": "http://m.vicove.biz/profesii",
+        "pages": 468
+    },
+    {
+        "cat": "Първанов",
+        "alt": "Вицове за Първанов",
+        "url": "http://m.vicove.biz/parvanov",
+        "pages": 4
+    },
+    {
+        "cat": "Рожденици",
+        "alt": "Вицове за рожденици",
+        "url": "http://m.vicove.biz/rozhdenitsi",
+        "pages": 60
+    },
+    {
+        "cat": "Психолози",
+        "alt": "Вицове за психолози",
+        "url": "http://m.vicove.biz/psiholozi",
+        "pages": 13
+    },
+    {
+        "cat": "Първата брачна нощ",
+        "alt": "Вицове за първата брачна нощ",
+        "url": "http://m.vicove.biz/parvata-brachna-nosht",
+        "pages": 22
+    },
+    {
+        "cat": "Радио ереван",
+        "alt": "Вицове за радио ереван",
+        "url": "http://m.vicove.biz/radio-erevan",
+        "pages": 67
+    },
+    {
+        "cat": "Папата",
+        "alt": "Вицове за папата",
+        "url": "http://m.vicove.biz/papata",
+        "pages": 10
+    },
+    {
+        "cat": "Пчели",
+        "alt": "Вицове за пчели",
+        "url": "http://m.vicove.biz/pcheli",
+        "pages": 9
+    },
+    {
+        "cat": "Песимисти",
+        "alt": "Вицове за песимисти",
+        "url": "http://m.vicove.biz/pesimisti",
+        "pages": 12
+    },
+    {
+        "cat": "Пароли",
+        "alt": "Вицове за пароли",
+        "url": "http://m.vicove.biz/paroli",
+        "pages": 18
+    },
+    {
+        "cat": "Пустиня",
+        "alt": "Вицове за пустинята",
+        "url": "http://m.vicove.biz/pustinya",
+        "pages": 28
+    },
+    {
+        "cat": "Ракия",
+        "alt": "Вицове за ракия",
+        "url": "http://m.vicove.biz/rakiya",
+        "pages": 136
+    },
+    {
+        "cat": "Понеделник",
+        "alt": "Вицове за понеделник",
+        "url": "http://m.vicove.biz/ponedelnik",
+        "pages": 27
+    },
+    {
+        "cat": "Плешиви",
+        "alt": "Вицове за плешиви",
+        "url": "http://m.vicove.biz/pleshivi",
+        "pages": 17
+    },
+    {
+        "cat": "Ресторанти",
+        "alt": "Вицове за ресторанти",
+        "url": "http://m.vicove.biz/restoranti",
+        "pages": 85
+    },
+    {
+        "cat": "Свалки",
+        "alt": "Вицове за свалки",
+        "url": "http://m.vicove.biz/svalki",
+        "pages": 306
+    },
+    {
+        "cat": "Работници",
+        "alt": "Вицове за работници",
+        "url": "http://m.vicove.biz/rabotnitsi",
+        "pages": 23
+    },
+    {
+        "cat": "Програмисти",
+        "alt": "Вицове за програмисти",
+        "url": "http://m.vicove.biz/programisti",
+        "pages": 50
+    },
+    {
+        "cat": "Първи април",
+        "alt": "Вицове за първи април",
+        "url": "http://m.vicove.biz/parvi-april",
+        "pages": 5
+    },
+    {
+        "cat": "Прасчо",
+        "alt": "Вицове за прасчо",
+        "url": "http://m.vicove.biz/prascho",
+        "pages": 14
+    },
+    {
+        "cat": "Русия",
+        "alt": "Вицове за Русия и руснаците",
+        "url": "http://m.vicove.biz/rusiya",
+        "pages": 70
+    },
+    {
+        "cat": "Рая и Ада",
+        "alt": "Вицове за Рая и Ада",
+        "url": "http://m.vicove.biz/raya-i-ada",
+        "pages": 25
+    },
+    {
+        "cat": "Рогоносци",
+        "alt": "Вицове за рогоносци",
+        "url": "http://m.vicove.biz/rogonostsi",
+        "pages": 9
+    },
+    {
+        "cat": "Подсъдими",
+        "alt": "Вицове за подсъдими",
+        "url": "http://m.vicove.biz/podsadimi",
+        "pages": 18
+    },
+    {
+        "cat": "Пънкари",
+        "alt": "Вицове за пънкари",
+        "url": "http://m.vicove.biz/pankari",
+        "pages": 3
+    },
+    {
+        "cat": "Риболов",
+        "alt": "Вицове за Риболов",
+        "url": "http://m.vicove.biz/ribolov",
+        "pages": 27
+    },
+    {
+        "cat": "Пианисти",
+        "alt": "Вицове за пианисти",
+        "url": "http://m.vicove.biz/pianisti",
+        "pages": 9
+    },
+    {
+        "cat": "С*кс",
+        "alt": "Вицове за с*кс",
+        "url": "http://m.vicove.biz/seks",
+        "pages": 517
+    },
+    {
+        "cat": "Родители",
+        "alt": "Вицове за родители",
+        "url": "http://m.vicove.biz/roditeli",
+        "pages": 481
+    },
+    {
+        "cat": "Разстройство",
+        "alt": "Вицове за разстройство",
+        "url": "http://m.vicove.biz/razstroystvo",
+        "pages": 8
+    },
+    {
+        "cat": "Слави Трифонов",
+        "alt": "Вицове за Слави Трифонов",
+        "url": "http://m.vicove.biz/slavi-trifonov",
+        "pages": 4
+    },
+    {
+        "cat": "Румъния",
+        "alt": "Вицове за Румъния и румънци",
+        "url": "http://m.vicove.biz/rumaniya",
+        "pages": 5
+    },
+    {
+        "cat": "Русалки",
+        "alt": "Вицове за русалки",
+        "url": "http://m.vicove.biz/rusalki",
+        "pages": 6
+    },
+    {
+        "cat": "Рокери",
+        "alt": "Вицове за рокери",
+        "url": "http://m.vicove.biz/rokeri",
+        "pages": 4
+    },
+    {
+        "cat": "Срамежливи",
+        "alt": "Вицове за срамежливи",
+        "url": "http://m.vicove.biz/sramezhlivi",
+        "pages": 8
+    },
+    {
+        "cat": "Рап",
+        "alt": "Вицове за рап музика и рапъри",
+        "url": "http://m.vicove.biz/rap",
+        "pages": 3
+    },
+    {
+        "cat": "Социализъм",
+        "alt": "Вицове за социализма",
+        "url": "http://m.vicove.biz/sotsializam",
+        "pages": 9
+    },
+    {
+        "cat": "Садисти",
+        "alt": "Вицове за садисти",
+        "url": "http://m.vicove.biz/sadisti",
+        "pages": 8
+    },
+    {
+        "cat": "Рейгън",
+        "alt": "Вицове за Рейгън",
+        "url": "http://m.vicove.biz/reygan",
+        "pages": 2
+    },
+    {
+        "cat": "Сервитьори",
+        "alt": "Вицове за Сервитьори",
+        "url": "http://m.vicove.biz/servityori",
+        "pages": 36
+    },
+    {
+        "cat": "Сирене",
+        "alt": "Вицове за сирене",
+        "url": "http://m.vicove.biz/sirene",
+        "pages": 15
+    },
+    {
+        "cat": "Сутрин",
+        "alt": "Вицове за сутрин",
+        "url": "http://m.vicove.biz/sutrin",
+        "pages": 131
+    },
+    {
+        "cat": "Старост",
+        "alt": "Вицове за пенсионери",
+        "url": "http://m.vicove.biz/starost",
+        "pages": 12
+    },
+    {
+        "cat": "Свети Петър",
+        "alt": "Вицове за Свети Петър",
+        "url": "http://m.vicove.biz/sveti-petar",
+        "pages": 20
+    },
+    {
+        "cat": "Слонове",
+        "alt": "Вицове за слонове",
+        "url": "http://m.vicove.biz/slonove",
+        "pages": 38
+    },
+    {
+        "cat": "Снахи",
+        "alt": "Вицове за снахи",
+        "url": "http://m.vicove.biz/snahi",
+        "pages": 8
+    },
+    {
+        "cat": "Стюардеси",
+        "alt": "Вицове за стюардеси",
+        "url": "http://m.vicove.biz/styuardesi",
+        "pages": 19
+    },
+    {
+        "cat": "Свекър и свекърва",
+        "alt": "Вицове за свекъри и свекърви",
+        "url": "http://m.vicove.biz/svekar-i-svekarva",
+        "pages": 20
+    },
+    {
+        "cat": "Сър Джон",
+        "alt": "Вицове за Сър Джон",
+        "url": "http://m.vicove.biz/sar-dzhon",
+        "pages": 6
+    },
+    {
+        "cat": "Силикон",
+        "alt": "Вицове за силикон",
+        "url": "http://m.vicove.biz/silikon",
+        "pages": 13
+    },
+    {
+        "cat": "Стефан Софиянски",
+        "alt": "Вицове за Стефан Софиянски",
+        "url": "http://m.vicove.biz/stefan-sofiyanski",
+        "pages": 1
+    },
+    {
+        "cat": "Срещи",
+        "alt": "Вицове за срещи",
+        "url": "http://m.vicove.biz/sreshti",
+        "pages": 123
+    },
+    {
+        "cat": "Сватба",
+        "alt": "Вицове за сватба",
+        "url": "http://m.vicove.biz/svatba",
+        "pages": 34
+    },
+    {
+        "cat": "Сладолед",
+        "alt": "Вицове за сладолед",
+        "url": "http://m.vicove.biz/sladoled",
+        "pages": 18
+    },
+    {
+        "cat": "Служители",
+        "alt": "Вицове за служители",
+        "url": "http://m.vicove.biz/sluzhiteli",
+        "pages": 32
+    },
+    {
+        "cat": "Секретарки",
+        "alt": "Вицове за Секретарки",
+        "url": "http://m.vicove.biz/sekretarki",
+        "pages": 55
+    },
+    {
+        "cat": "Счетоводители",
+        "alt": "Вицове за Счетоводители",
+        "url": "http://m.vicove.biz/schetovoditeli",
+        "pages": 10
+    },
+    {
+        "cat": "Снежанка",
+        "alt": "Вицове за снежанка",
+        "url": "http://m.vicove.biz/snezhanka",
+        "pages": 15
+    },
+    {
+        "cat": "Спин",
+        "alt": "Вицове за спин",
+        "url": "http://m.vicove.biz/spin",
+        "pages": 17
+    },
+    {
+        "cat": "Скелети",
+        "alt": "Вицове за скелети",
+        "url": "http://m.vicove.biz/skeleti",
+        "pages": 5
+    },
+    {
+        "cat": "Сергей Станишев",
+        "alt": "Вицове за Сергей Станишев",
+        "url": "http://m.vicove.biz/sergey-stanishev",
+        "pages": 7
+    },
+    {
+        "cat": "Съседи",
+        "alt": "Вицове за съседи",
+        "url": "http://m.vicove.biz/sasedi",
+        "pages": 215
+    },
+    {
+        "cat": "Сряда",
+        "alt": "Вицове за сряда",
+        "url": "http://m.vicove.biz/sryada",
+        "pages": 16
+    },
+    {
+        "cat": "Слънчев Бряг",
+        "alt": "Вицове за Слънчев Бряг",
+        "url": "http://m.vicove.biz/slanchev-bryag",
+        "pages": 6
+    },
+    {
+        "cat": "Сърби",
+        "alt": "Вицове за Сърбия и сърби",
+        "url": "http://m.vicove.biz/sarbi",
+        "pages": 7
+    },
+    {
+        "cat": "Селяни",
+        "alt": "Вицове за селяни",
+        "url": "http://m.vicove.biz/selyani",
+        "pages": 22
+    },
+    {
+        "cat": "Слепци",
+        "alt": "Вицове за слепци",
+        "url": "http://m.vicove.biz/sleptsi",
+        "pages": 9
+    },
+    {
+        "cat": "Скинари",
+        "alt": "Вицове за скинари",
+        "url": "http://m.vicove.biz/skinari",
+        "pages": 2
+    },
+    {
+        "cat": "Синове",
+        "alt": "Вицове за синове",
+        "url": "http://m.vicove.biz/sinove",
+        "pages": 198
+    },
+    {
+        "cat": "София",
+        "alt": "Вицове за София и софиянци",
+        "url": "http://m.vicove.biz/sofiya",
+        "pages": 69
+    },
+    {
+        "cat": "Сутиени",
+        "alt": "Вицове за сутиени",
+        "url": "http://m.vicove.biz/sutieni",
+        "pages": 38
+    },
+    {
+        "cat": "Събота",
+        "alt": "Вицове за събота",
+        "url": "http://m.vicove.biz/sabota",
+        "pages": 29
+    },
+    {
+        "cat": "Супи",
+        "alt": "Вицове за супи",
+        "url": "http://m.vicove.biz/supi",
+        "pages": 35
+    },
+    {
+        "cat": "Свети Валентин",
+        "alt": "Вицове за Свети Валентин",
+        "url": "http://m.vicove.biz/sveti-valentin",
+        "pages": 11
+    },
+    {
+        "cat": "Смърта",
+        "alt": "Вицове за смърта",
+        "url": "http://m.vicove.biz/smarta",
+        "pages": 22
+    },
+    {
+        "cat": "Сливи",
+        "alt": "Вицове за сливи",
+        "url": "http://m.vicove.biz/slivi",
+        "pages": 9
+    },
+    {
+        "cat": "Самозадоволяване",
+        "alt": "Вицове за Самозадоволяване",
+        "url": "http://m.vicove.biz/samozadovolyavane",
+        "pages": 13
+    },
+    {
+        "cat": "Стоичков",
+        "alt": "Вицове за Стоичков",
+        "url": "http://m.vicove.biz/stoichkov",
+        "pages": 5
+    },
+    {
+        "cat": "Татуировки",
+        "alt": "Вицове за татуировки",
+        "url": "http://m.vicove.biz/tatuirovki",
+        "pages": 14
+    },
+    {
+        "cat": "Соф. Университет",
+        "alt": "Вицове за Софийски Университет",
+        "url": "http://m.vicove.biz/sofiyski-universitet",
+        "pages": 2
+    },
+    {
+        "cat": "Сакскобургготски",
+        "alt": "Вицове за Симеон Сакскобургготски",
+        "url": "http://m.vicove.biz/sakskoburggotski",
+        "pages": 3
+    },
+    {
+        "cat": "Такси",
+        "alt": "Вицове за такси",
+        "url": "http://m.vicove.biz/taksi",
+        "pages": 40
+    },
+    {
+        "cat": "Спящата Красавица",
+        "alt": "Вицове за Спящата Красавица",
+        "url": "http://m.vicove.biz/spyashtata-krasavitsa",
+        "pages": 5
+    },
+    {
+        "cat": "Съдии",
+        "alt": "Вицове за съдии",
+        "url": "http://m.vicove.biz/sadii",
+        "pages": 34
+    },
+    {
+        "cat": "Сталин",
+        "alt": "Вицове за Сталин",
+        "url": "http://m.vicove.biz/stalin",
+        "pages": 7
+    },
+    {
+        "cat": "Строители",
+        "alt": "Вицове за строители и зидаро-мазачи",
+        "url": "http://m.vicove.biz/stroiteli",
+        "pages": 5
+    },
+    {
+        "cat": "Слаботелесни",
+        "alt": "Вицове за слаботелесни",
+        "url": "http://m.vicove.biz/slabotelesni",
+        "pages": 4
+    },
+    {
+        "cat": "Таралежи",
+        "alt": "Вицове за таралежи",
+        "url": "http://m.vicove.biz/taralezhi",
+        "pages": 14
+    },
+    {
+        "cat": "Телевизия",
+        "alt": "Вицове за телевизия",
+        "url": "http://m.vicove.biz/televiziya",
+        "pages": 114
+    },
+    {
+        "cat": "Текила",
+        "alt": "Вицове за текила",
+        "url": "http://m.vicove.biz/tekila",
+        "pages": 4
+    },
+    {
+        "cat": "Тираджии",
+        "alt": "Вицове за тираджии",
+        "url": "http://m.vicove.biz/tiradzhii",
+        "pages": 15
+    },
+    {
+        "cat": "Тенис",
+        "alt": "Вицове за тенис",
+        "url": "http://m.vicove.biz/tenis",
+        "pages": 8
+    },
+    {
+        "cat": "Трифон Зарезан",
+        "alt": "Вицове за Трифон Зарезан",
+        "url": "http://m.vicove.biz/trifon-zarezan",
+        "pages": 5
+    },
+    {
+        "cat": "Тостове",
+        "alt": "Вицове, бисери и лафове за тостове",
+        "url": "http://m.vicove.biz/tostove",
+        "pages": 7
+    },
+    {
+        "cat": "Танкисти",
+        "alt": "Вицове за танкове и танкисти",
+        "url": "http://m.vicove.biz/tankisti",
+        "pages": 11
+    },
+    {
+        "cat": "Тройки",
+        "alt": "Вицове за тройки",
+        "url": "http://m.vicove.biz/troyki",
+        "pages": 20
+    },
+    {
+        "cat": "Трактористи",
+        "alt": "Вицове за трактористи",
+        "url": "http://m.vicove.biz/traktoristi",
+        "pages": 11
+    },
+    {
+        "cat": "Тока",
+        "alt": "Вицове за тока",
+        "url": "http://m.vicove.biz/toka",
+        "pages": 18
+    },
+    {
+        "cat": "Титаник",
+        "alt": "Вицове за Титаник",
+        "url": "http://m.vicove.biz/titanik",
+        "pages": 9
+    },
+    {
+        "cat": "Тодор Живков",
+        "alt": "Вицове за Тодор Живков",
+        "url": "http://m.vicove.biz/todor-zhivkov",
+        "pages": 7
+    },
+    {
+        "cat": "Телефони",
+        "alt": "Вицове за телефони",
+        "url": "http://m.vicove.biz/telefoni",
+        "pages": 222
+    },
+    {
+        "cat": "Трабант",
+        "alt": "Вицове за Трабант",
+        "url": "http://m.vicove.biz/trabant",
+        "pages": 12
+    },
+    {
+        "cat": "Търговци",
+        "alt": "Вицове за търговци",
+        "url": "http://m.vicove.biz/targovtsi",
+        "pages": 7
+    },
+    {
+        "cat": "Татковци",
+        "alt": "Вицове за татковци",
+        "url": "http://m.vicove.biz/tatkovtsi",
+        "pages": 479
+    },
+    {
+        "cat": "Тъщи",
+        "alt": "Вицове за тъщи",
+        "url": "http://m.vicove.biz/tushti",
+        "pages": 133
+    },
+    {
+        "cat": "Туристи",
+        "alt": "Вицове за туристи",
+        "url": "http://m.vicove.biz/turisti",
+        "pages": 25
+    },
+    {
+        "cat": "Тинейджъри",
+        "alt": "Вицове тинейджъри",
+        "url": "http://m.vicove.biz/tineydzhari",
+        "pages": 7
+    },
+    {
+        "cat": "Тикви",
+        "alt": "Вицове за тикви",
+        "url": "http://m.vicove.biz/tikvi",
+        "pages": 11
+    },
+    {
+        "cat": "ТКЗС",
+        "alt": "Вицове за ТКЗС-то",
+        "url": "http://m.vicove.biz/tkzs",
+        "pages": 4
+    },
+    {
+        "cat": "Унгарци",
+        "alt": "Вицове за Унгария, унгарки и унгарци",
+        "url": "http://m.vicove.biz/ungartsi",
+        "pages": 2
+    },
+    {
+        "cat": "Университети",
+        "alt": "Вицове за университети",
+        "url": "http://m.vicove.biz/universiteti",
+        "pages": 26
+    },
+    {
+        "cat": "Топлофикация",
+        "alt": "Вицове за Топлофикация",
+        "url": "http://m.vicove.biz/toplofikatsiya",
+        "pages": 5
+    },
+    {
+        "cat": "Уволнение",
+        "alt": "Вицове за уволнение",
+        "url": "http://m.vicove.biz/uvolnenie",
+        "pages": 6
+    },
+    {
+        "cat": "Уикенд",
+        "alt": "Вицове за уикенда",
+        "url": "http://m.vicove.biz/uikend",
+        "pages": 15
+    },
+    {
+        "cat": "Техн. университет",
+        "alt": "Вицове за технически университет",
+        "url": "http://m.vicove.biz/tehn-universitet",
+        "pages": 2
+    },
+    {
+        "cat": "Управители",
+        "alt": "Вицове за управители",
+        "url": "http://m.vicove.biz/upraviteli",
+        "pages": 14
+    },
+    {
+        "cat": "Тоалетна",
+        "alt": "Вицове за тоалетна",
+        "url": "http://m.vicove.biz/toaletna",
+        "pages": 55
+    },
+    {
+        "cat": "Уиски",
+        "alt": "Вицове за Уиски",
+        "url": "http://m.vicove.biz/uiski",
+        "pages": 45
+    },
+    {
+        "cat": "Усмивки",
+        "alt": "Вицове за усмивките",
+        "url": "http://m.vicove.biz/usmivki",
+        "pages": 42
+    },
+    {
+        "cat": "Трева",
+        "alt": "Вицове за трева",
+        "url": "http://m.vicove.biz/treva",
+        "pages": 21
+    },
+    {
+        "cat": "Фитнес",
+        "alt": "Вицове за фитнес",
+        "url": "http://m.vicove.biz/fitnes",
+        "pages": 24
+    },
+    {
+        "cat": "Турция",
+        "alt": "Вицове за Турция",
+        "url": "http://m.vicove.biz/turtsiya",
+        "pages": 21
+    },
+    {
+        "cat": "Убийци",
+        "alt": "Вицове за убийци",
+        "url": "http://m.vicove.biz/ubiytsi",
+        "pages": 8
+    },
+    {
+        "cat": "Украйна",
+        "alt": "Вицове за Украйна, украинките и украинците",
+        "url": "http://m.vicove.biz/ukrayna",
+        "pages": 5
+    },
+    {
+        "cat": "Флегматици",
+        "alt": "Вицове за флегматици",
+        "url": "http://m.vicove.biz/flegmatitsi",
+        "pages": 2
+    },
+    {
+        "cat": "Филми",
+        "alt": "Вицове за филми",
+        "url": "http://m.vicove.biz/filmi",
+        "pages": 81
+    },
+    {
+        "cat": "Фармацевти",
+        "alt": "Вицове за фармацевти",
+        "url": "http://m.vicove.biz/farmatsevti",
+        "pages": 68
+    },
+    {
+        "cat": "Флирт",
+        "alt": "Вицове за флирт",
+        "url": "http://m.vicove.biz/flirt",
+        "pages": 8
+    },
+    {
+        "cat": "Фейсбук",
+        "alt": "Вицове за Фейсбук",
+        "url": "http://m.vicove.biz/feysbuk",
+        "pages": 53
+    },
+    {
+        "cat": "Умни",
+        "alt": "Вицове за умни",
+        "url": "http://m.vicove.biz/umni",
+        "pages": 87
+    },
+    {
+        "cat": "Уотсън",
+        "alt": "Вицове за Уотсън",
+        "url": "http://m.vicove.biz/uotsan",
+        "pages": 9
+    },
+    {
+        "cat": "Удавници",
+        "alt": "Вицове за удавници",
+        "url": "http://m.vicove.biz/udavnitsi",
+        "pages": 6
+    },
+    {
+        "cat": "Умрели",
+        "alt": "Вицове за умрели",
+        "url": "http://m.vicove.biz/umreli",
+        "pages": 55
+    },
+    {
+        "cat": "Футбол",
+        "alt": "Вицове за футбол",
+        "url": "http://m.vicove.biz/futbol",
+        "pages": 78
+    },
+    {
+        "cat": "Феи",
+        "alt": "Вицове за феи",
+        "url": "http://m.vicove.biz/fei",
+        "pages": 9
+    },
+    {
+        "cat": "Хасан и Айшето",
+        "alt": "Вицове за Хасан и Айшето",
+        "url": "http://m.vicove.biz/hasan-i-aysheto",
+        "pages": 34
+    },
+    {
+        "cat": "Торенти",
+        "alt": "Вицове за торенти",
+        "url": "http://m.vicove.biz/torenti",
+        "pages": 2
+    },
+    {
+        "cat": "Фашисти",
+        "alt": "Вицове за фашисти",
+        "url": "http://m.vicove.biz/fashisti",
+        "pages": 2
+    },
+    {
+        "cat": "Хирурзи",
+        "alt": "Вицове за хирурзи",
+        "url": "http://m.vicove.biz/hirurzi",
+        "pages": 25
+    },
+    {
+        "cat": "Храна",
+        "alt": "Вицове за храна",
+        "url": "http://m.vicove.biz/hrana",
+        "pages": 45
+    },
+    {
+        "cat": "Хляб",
+        "alt": "Вицове за хляб",
+        "url": "http://m.vicove.biz/hlyab",
+        "pages": 39
+    },
+    {
+        "cat": "Франция",
+        "alt": "Вицове за Франция и французи",
+        "url": "http://m.vicove.biz/frantsiya",
+        "pages": 41
+    },
+    {
+        "cat": "Хемороиди",
+        "alt": "Вицове за хемороиди",
+        "url": "http://m.vicove.biz/hemoroidi",
+        "pages": 7
+    },
+    {
+        "cat": "Фермери",
+        "alt": "Вицове за фермери",
+        "url": "http://m.vicove.biz/fermeri",
+        "pages": 10
+    },
+    {
+        "cat": "Хъркане",
+        "alt": "Вицове за хъркане",
+        "url": "http://m.vicove.biz/harkane",
+        "pages": 17
+    },
+    {
+        "cat": "ФБР",
+        "alt": "Вицове за ФБР",
+        "url": "http://m.vicove.biz/fbr",
+        "pages": 3
+    },
+    {
+        "cat": "Ходжи",
+        "alt": "Вицове за ходжи",
+        "url": "http://m.vicove.biz/hodzhi",
+        "pages": 3
+    },
+    {
+        "cat": "Химия",
+        "alt": "Вицове за химия и химици",
+        "url": "http://m.vicove.biz/himiya",
+        "pages": 12
+    },
+    {
+        "cat": "Холандия",
+        "alt": "Вицове за Холандия",
+        "url": "http://m.vicove.biz/holandiya",
+        "pages": 7
+    },
+    {
+        "cat": "Хитлер",
+        "alt": "Вицове за Хитлер",
+        "url": "http://m.vicove.biz/hitler",
+        "pages": 7
+    },
+    {
+        "cat": "Хайдути",
+        "alt": "Вицове за хайдути",
+        "url": "http://m.vicove.biz/hayduti",
+        "pages": 3
+    },
+    {
+        "cat": "Художници",
+        "alt": "Вицове за художници",
+        "url": "http://m.vicove.biz/hudozhnitsi",
+        "pages": 11
+    },
+    {
+        "cat": "Християни",
+        "alt": "Вицове за християни",
+        "url": "http://m.vicove.biz/hristiyani",
+        "pages": 6
+    },
+    {
+        "cat": "Финансисти",
+        "alt": "Вицове за финансисти",
+        "url": "http://m.vicove.biz/finansisti",
+        "pages": 1
+    },
+    {
+        "cat": "Хотели",
+        "alt": "Вицове за хотели",
+        "url": "http://m.vicove.biz/hoteli",
+        "pages": 42
+    },
+    {
+        "cat": "Хакери",
+        "alt": "Вицове за хакери",
+        "url": "http://m.vicove.biz/hakeri",
+        "pages": 12
+    },
+    {
+        "cat": "Хан Крум",
+        "alt": "Вицове За Хан Крум",
+        "url": "http://m.vicove.biz/han-krum",
+        "pages": 2
+    },
+    {
+        "cat": "Хитър Петър",
+        "alt": "Вицове за Хитър Петър",
+        "url": "http://m.vicove.biz/hitar-petar",
+        "pages": 2
+    },
+    {
+        "cat": "Целувки",
+        "alt": "Вицове за целувките",
+        "url": "http://m.vicove.biz/tseluvki",
+        "pages": 17
+    },
+    {
+        "cat": "Хипопотами",
+        "alt": "Вицове за хипопотами",
+        "url": "http://m.vicove.biz/hipopotami",
+        "pages": 6
+    },
+    {
+        "cat": "Хладилник",
+        "alt": "Вицове за хладилник",
+        "url": "http://m.vicove.biz/hladilnik",
+        "pages": 13
+    },
+    {
+        "cat": "Хари Потър",
+        "alt": "Вицове за Хари Потър",
+        "url": "http://m.vicove.biz/hari-potar",
+        "pages": 2
+    },
+    {
+        "cat": "Цигари",
+        "alt": "Вицове за Цигари",
+        "url": "http://m.vicove.biz/tsigari",
+        "pages": 65
+    },
+    {
+        "cat": "Цигани",
+        "alt": "Вицове за цигани",
+        "url": "http://m.vicove.biz/cigani",
+        "pages": 68
+    },
+    {
+        "cat": "Чък Норис",
+        "alt": "Вицове за Чък Норис",
+        "url": "http://m.vicove.biz/chuck-norris",
+        "pages": 48
+    },
+    {
+        "cat": "Цигулари",
+        "alt": "Вицове за цигулари",
+        "url": "http://m.vicove.biz/tsigulari",
+        "pages": 2
+    },
+    {
+        "cat": "Цар Киро",
+        "alt": "Вицове за Цар Киро",
+        "url": "http://m.vicove.biz/tsar-kiro",
+        "pages": 1
+    },
+    {
+        "cat": "Червената шапчица",
+        "alt": "Вицове за Червената шапчица",
+        "url": "http://m.vicove.biz/chervenata-shapchitsa",
+        "pages": 27
+    },
+    {
+        "cat": "Църквата",
+        "alt": "Вицове за църквата",
+        "url": "http://m.vicove.biz/tsarkvata",
+        "pages": 31
+    },
+    {
+        "cat": "Цикъл",
+        "alt": "Вицове за цикъл",
+        "url": "http://m.vicove.biz/tsikal",
+        "pages": 18
+    },
+    {
+        "cat": "Царе",
+        "alt": "Вицове за царе",
+        "url": "http://m.vicove.biz/tsare",
+        "pages": 27
+    },
+    {
+        "cat": "Чернобил",
+        "alt": "Вицове за Чернобил",
+        "url": "http://m.vicove.biz/chernobil",
+        "pages": 6
+    },
+    {
+        "cat": "Чалга",
+        "alt": "Вицове за чалгата",
+        "url": "http://m.vicove.biz/chalga",
+        "pages": 14
+    },
+    {
+        "cat": "Цветан Цветанов",
+        "alt": "Вицове за Цветан Цветанов",
+        "url": "http://m.vicove.biz/tsvetan-tsvetanov",
+        "pages": 2
+    },
+    {
+        "cat": "ЦСКА",
+        "alt": "Вицове за ЦСКА",
+        "url": "http://m.vicove.biz/tsska",
+        "pages": 12
+    },
+    {
+        "cat": "ЦРУ",
+        "alt": "Вицове за ЦРУ",
+        "url": "http://m.vicove.biz/tsru",
+        "pages": 3
+    },
+    {
+        "cat": "Целулит",
+        "alt": "Вицове за целулит",
+        "url": "http://m.vicove.biz/tselulit",
+        "pages": 5
+    },
+    {
+        "cat": "Цар Лъв",
+        "alt": "Вицове за Цар Лъв",
+        "url": "http://m.vicove.biz/tsar-lav",
+        "pages": 6
+    },
+    {
+        "cat": "Човекоядци",
+        "alt": "Вицове за човекоядци",
+        "url": "http://m.vicove.biz/chovekoyadtsi",
+        "pages": 8
+    },
+    {
+        "cat": "Чудовища",
+        "alt": "Вицове за чудовища",
+        "url": "http://m.vicove.biz/chudovishta",
+        "pages": 8
+    },
+    {
+        "cat": "Чапай и Петка",
+        "alt": "Вицове за Чапай и Петка",
+        "url": "http://m.vicove.biz/chapai-i-petka",
+        "pages": 27
+    },
+    {
+        "cat": "Четвъртък",
+        "alt": "Вицове за четвъртък",
+        "url": "http://m.vicove.biz/chetvartak",
+        "pages": 9
+    },
+    {
+        "cat": "Черен дроб",
+        "alt": "Вицове за черен дроб",
+        "url": "http://m.vicove.biz/cheren-drob",
+        "pages": 9
+    },
+    {
+        "cat": "Червенокоси",
+        "alt": "Вицове за червенокоси",
+        "url": "http://m.vicove.biz/chervenokosi",
+        "pages": 7
+    },
+    {
+        "cat": "Чукчи",
+        "alt": "Вицове за Чукчи",
+        "url": "http://m.vicove.biz/chukchi",
+        "pages": 5
+    },
+    {
+        "cat": "Шоколад",
+        "alt": "Вицове за шоколад",
+        "url": "http://m.vicove.biz/shokolad",
+        "pages": 35
+    },
+    {
+        "cat": "Челси",
+        "alt": "Вицове за Челси",
+        "url": "http://m.vicove.biz/chelsi",
+        "pages": 2
+    },
+    {
+        "cat": "Шампанско",
+        "alt": "Вицове за шампанско",
+        "url": "http://m.vicove.biz/shampansko",
+        "pages": 18
+    },
+    {
+        "cat": "Чистачки",
+        "alt": "Вицове за чистачки и миячки",
+        "url": "http://m.vicove.biz/chistachki",
+        "pages": 12
+    },
+    {
+        "cat": "Шофьори",
+        "alt": "Вицове за шофьори",
+        "url": "http://m.vicove.biz/shofyori",
+        "pages": 70
+    },
+    {
+        "cat": "Чужденци",
+        "alt": "Вицове за чужденци",
+        "url": "http://m.vicove.biz/chuzhdentsi",
+        "pages": 6
+    },
+    {
+        "cat": "Чужди езици",
+        "alt": "Вицове за чужди езици",
+        "url": "http://m.vicove.biz/chuzhdi-ezitsi",
+        "pages": 6
+    },
+    {
+        "cat": "Чиновници",
+        "alt": "Вицове за чиновници",
+        "url": "http://m.vicove.biz/chinovnitsi",
+        "pages": 9
+    },
+    {
+        "cat": "Ченгета",
+        "alt": "Вицове за ченгета",
+        "url": "http://m.vicove.biz/chengeta",
+        "pages": 12
+    },
+    {
+        "cat": "Швеция",
+        "alt": "Вицове за Швеция и шведи",
+        "url": "http://m.vicove.biz/shvetsiya",
+        "pages": 10
+    },
+    {
+        "cat": "Шивачки",
+        "alt": "Вицове за шивачки",
+        "url": "http://m.vicove.biz/shivachki",
+        "pages": 3
+    },
+    {
+        "cat": "Шопи",
+        "alt": "Вицове за шопи",
+        "url": "http://m.vicove.biz/shopi",
+        "pages": 13
+    },
+    {
+        "cat": "Шейхове",
+        "alt": "Вицове за шейхове",
+        "url": "http://m.vicove.biz/sheyhove",
+        "pages": 6
+    },
+    {
+        "cat": "Шарани",
+        "alt": "Вицове за шарани",
+        "url": "http://m.vicove.biz/sharani",
+        "pages": 9
+    },
+    {
+        "cat": "Шахмат",
+        "alt": "Вицове за шахмат и шахматисти",
+        "url": "http://m.vicove.biz/shahmat",
+        "pages": 15
+    },
+    {
+        "cat": "Шкембе чорба",
+        "alt": "Вицове за шкембе чорба",
+        "url": "http://m.vicove.biz/shkembe-chorba",
+        "pages": 3
+    },
+    {
+        "cat": "Шумахер",
+        "alt": "Вицове за шумахер",
+        "url": "http://m.vicove.biz/shumaher",
+        "pages": 2
+    },
+    {
+        "cat": "Щрауси",
+        "alt": "Вицове за щрауси",
+        "url": "http://m.vicove.biz/shtrausi",
+        "pages": 7
+    },
+    {
+        "cat": "Шпиони",
+        "alt": "Вицове за шпиони",
+        "url": "http://m.vicove.biz/shpioni",
+        "pages": 4
+    },
+    {
+        "cat": "Шерлок Холмс",
+        "alt": "Вицове за Шерлок Холмс",
+        "url": "http://m.vicove.biz/sherlok-holms",
+        "pages": 5
+    },
+    {
+        "cat": "Шизофреници",
+        "alt": "Вицове за шизофреници",
+        "url": "http://m.vicove.biz/shizofrenitsi",
+        "pages": 2
+    },
+    {
+        "cat": "Шефове",
+        "alt": "Вицове за шефове",
+        "url": "http://m.vicove.biz/shefove",
+        "pages": 161
+    },
+    {
+        "cat": "Щерки",
+        "alt": "Вицове за щерки",
+        "url": "http://m.vicove.biz/shterki",
+        "pages": 87
+    },
+    {
+        "cat": "Щастие",
+        "alt": "Вицове за щастието",
+        "url": "http://m.vicove.biz/shtastie",
+        "pages": 98
+    },
+    {
+        "cat": "Шкумбата",
+        "alt": "Вицове Шкумбата",
+        "url": "http://m.vicove.biz/shkumbata",
+        "pages": 1
+    },
+    {
+        "cat": "Японци",
+        "alt": "Вицове за Япония и японци",
+        "url": "http://m.vicove.biz/yapontsi",
+        "pages": 34
+    },
+    {
+        "cat": "Щъркели",
+        "alt": "Вицове за щъркели",
+        "url": "http://m.vicove.biz/shtarkeli",
+        "pages": 20
+    },
+    {
+        "cat": "Шрек",
+        "alt": "Вицове за Шрек",
+        "url": "http://m.vicove.biz/shrek",
+        "pages": 2
+    },
+    {
+        "cat": "Ядене",
+        "alt": "Вицове за ядене",
+        "url": "http://m.vicove.biz/yadene",
+        "pages": 34
+    },
+    {
+        "cat": "Ясновидци",
+        "alt": "Вицове за ясновидци",
+        "url": "http://m.vicove.biz/yasnovidtsi",
+        "pages": 4
+    },
+    {
+        "cat": "Швейцария",
+        "alt": "Вицове за Швейцария и швейцарци",
+        "url": "http://m.vicove.biz/shveytsariya",
+        "pages": 8
+    },
+    {
+        "cat": "Шотландци",
+        "alt": "Вицове за шотландци",
+        "url": "http://m.vicove.biz/shotlandtsi",
+        "pages": 8
+    },
+    {
+        "cat": "Щирлиц",
+        "alt": "Вицове за Щирлиц",
+        "url": "http://m.vicove.biz/shtirlits",
+        "pages": 17
+    },
+    {
+        "cat": "Юристи",
+        "alt": "Вицове за юристи",
+        "url": "http://m.vicove.biz/yuristi",
+        "pages": 5
+    },
+    {
+        "cat": "Щангисти",
+        "alt": "Вицове за щангисти",
+        "url": "http://m.vicove.biz/shtangisti",
+        "pages": 2
+    },
+    {
+        "cat": "GSM",
+        "alt": "Вицове за GSM",
+        "url": "http://m.vicove.biz/gsm",
+        "pages": 10
+    },
+    {
+        "cat": "BMW",
+        "alt": "Вицове за BMW",
+        "url": "http://m.vicove.biz/bmw",
+        "pages": 19
+    },
+    {
+        "cat": "iPhone",
+        "alt": "Вицове за iPhone",
+        "url": "http://m.vicove.biz/iphone",
+        "pages": 14
+    },
+    {
+        "cat": "Google",
+        "alt": "Вицове за google",
+        "url": "http://m.vicove.biz/google",
+        "pages": 13
+    },
+    {
+        "cat": "Яхти",
+        "alt": "Вицове за яхти",
+        "url": "http://m.vicove.biz/yahti",
+        "pages": 11
+    },
+    {
+        "cat": "Ferari",
+        "alt": "Вицове за Ferari",
+        "url": "http://m.vicove.biz/ferari",
+        "pages": 10
+    },
+    {
+        "cat": "Юрий Гагарин",
+        "alt": "Вицове за Юрий Гагарин",
+        "url": "http://m.vicove.biz/yuriy-gagarin",
+        "pages": 2
+    },
+    {
+        "cat": "Skype",
+        "alt": "Вицове за Skype",
+        "url": "http://m.vicove.biz/skype",
+        "pages": 4
+    },
+    {
+        "cat": "Юнайтед",
+        "alt": "Вицове за Юнайтед",
+        "url": "http://m.vicove.biz/yunayted",
+        "pages": 2
+    },
+    {
+        "cat": "SMS",
+        "alt": "Вицове за SMS-и",
+        "url": "http://m.vicove.biz/sms",
+        "pages": 38
+    },
+    {
+        "cat": "Nokia",
+        "alt": "Вицове за Nokia",
+        "url": "http://m.vicove.biz/nokia",
+        "pages": 3
+    },
+    {
+        "cat": "Шкода",
+        "alt": "Вицове за Шкода",
+        "url": "http://m.vicove.biz/shkoda",
+        "pages": 1
+    },
+    {
+        "cat": "Ювентус",
+        "alt": "Вицове за Ювентус",
+        "url": "http://m.vicove.biz/yuventus",
+        "pages": 1
+    },
+    {
+        "cat": "Opel",
+        "alt": "Вицове за Opel",
+        "url": "http://m.vicove.biz/opel",
+        "pages": 4
+    },
+    {
+        "cat": "Halloween",
+        "alt": "Вицове за Halloween",
+        "url": "http://m.vicove.biz/halloween",
+        "pages": 8
+    },
+    {
+        "cat": "Mercedes",
+        "alt": "Вицове за Mercedes",
+        "url": "http://m.vicove.biz/mercedes",
+        "pages": 40
+    },
+    {
+        "cat": "Linux",
+        "alt": "Вицове за Linux",
+        "url": "http://m.vicove.biz/linux",
+        "pages": 4
+    },
+    {
+        "cat": "Peugeot",
+        "alt": "Вицове за Peugeot",
+        "url": "http://m.vicove.biz/peugeot",
+        "pages": 4
+    },
+    {
+        "cat": "Volkswagen",
+        "alt": "Вицове за Volkswagen",
+        "url": "http://m.vicove.biz/volkswagen",
+        "pages": 3
+    },
+    {
+        "cat": "Ford",
+        "alt": "Вицове за Ford",
+        "url": "http://m.vicove.biz/ford",
+        "pages": 5
+    },
+    {
+        "cat": "Fiat",
+        "alt": "Вицове за Fiat",
+        "url": "http://m.vicove.biz/fiat",
+        "pages": 3
+    },
+    {
+        "cat": "Renault",
+        "alt": "Вицове за Renault",
+        "url": "http://m.vicove.biz/renault",
+        "pages": 3
+    },
+    {
+        "cat": "Microsoft",
+        "alt": "Вицове за Microsoft",
+        "url": "http://m.vicove.biz/microsoft",
+        "pages": 13
+    },
+    {
+        "cat": "Honda",
+        "alt": "Вицове за Honda",
+        "url": "http://m.vicove.biz/honda",
+        "pages": 3
+    }
+]

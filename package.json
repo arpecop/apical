@@ -1,0 +1,58 @@
+{
+  "name": "vault",
+  "version": "1.0.0",
+  "description": "vaudsdlt runnindsdg underground heroku lands",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.131.0",
+    "async": "^2.6.4",
+    "async-request": "^1.2.0",
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.2",
+    "chokidar": "^3.5.3",
+    "combined-slugify": "^2.1.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "cyrillic-slug": "^1.0.1",
+    "each-async": "^1.1.1",
+    "express": "^4.18.1",
+    "graphql-request": "^4.3.0",
+    "lodash": "^4.17.21",
+    "md5": "^2.3.0",
+    "nano": "^10.0.0",
+    "node-csv": "^0.1.2",
+    "node-scrapy": "^0.5.0",
+    "puppeteer": "^15.4.0",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
+    "sanitize-html": "^2.7.0",
+    "shortid": "^2.2.16",
+    "slug": "^0.9.4",
+    "slugify": "^1.6.5",
+    "striptags": "^3.2.0",
+    "twitter": "^1.7.1",
+    "underscore": "^1.13.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arpecop/vault.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arpecop/vault/issues"
+  },
+  "homepage": "https://github.com/arpecop/vault#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-equimper": "^2.2.2",
+    "eslint-config-prettier": "^3.6.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.0",
+    "eslint-plugin-prettier": "^3.4.1",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "prettier": "^1.19.1"
+  }
+}

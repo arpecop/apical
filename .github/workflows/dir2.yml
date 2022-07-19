@@ -1,0 +1,14 @@
+name: DIRARTICLE
+on:
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: master
+      - name: Run
+        run: |
+          npm install
+          node dirbg/perpage.mjs
