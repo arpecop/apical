@@ -30,13 +30,13 @@ function run_bitch () {
                 )
                 if (htmlz) {
                   htmlz('script').each((index, item) => {
-                    html(item).remove()
+                    htmlz(item).remove()
                   })
                   htmlz('div').each((index, item) => {
-                    html(item).remove()
+                    htmlz(item).remove()
                   })
                   htmlz('img').each((index, item) => {
-                    html(item).remove()
+                    htmlz(item).remove()
                   })
                   const lines = htmlz('body')
                     .text()
