@@ -6,7 +6,7 @@ const db = require('nano')('http://1:1@34.242.41.16:5984/que')
 const puppeteer = require('puppeteer')
 
 // edit bellow
-const pages = Array(5951)
+const pages = Array(5900)
   .fill(0)
   .map((_, i) => i + 1)
 puppeteer.launch({ headless: true }).then(async browser => {
