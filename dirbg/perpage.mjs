@@ -24,6 +24,7 @@ function run_bitch () {
             if (!doc.content) {
               gethtml(task.value.url).then(html_full => {
                 console.log(html_full.length)
+                console.log(task.value.url)
                 const $ = cheerio.load(html_full)
                 const htmlz = cheerio.load(
                   $('.article-content .article-body').html()
