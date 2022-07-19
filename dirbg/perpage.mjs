@@ -40,8 +40,6 @@ function run_bitch () {
             const lines = htmlz('body')
               .text()
               .split('\n')
-              .map(item => item.trim())
-            console.log(lines.length, 'added')
             const newDoc = {
               ...task.doc,
               content: {
@@ -50,7 +48,6 @@ function run_bitch () {
             }
             db.insert(newDoc)
             insert('news', newDoc)
-
             callback()
           })
         },
