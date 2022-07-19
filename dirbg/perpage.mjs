@@ -18,7 +18,7 @@ function run_bitch () {
     res.json().then(tasks => {
       async.eachLimit(
         tasks.rows,
-        1,
+        150,
         function (task, callback) {
           gethtml(task.value.url).then(html_full => {
             console.log(task.value.url + ' ' + html_full.length)
