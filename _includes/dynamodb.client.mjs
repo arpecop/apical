@@ -34,6 +34,7 @@ const insert = async (type, insert_object) => {
       .replaceAll('"', "'")
       .replaceAll('\n', ' ')} `
   }
+  console.log(params)
   const res = await partiQL(params)
 
   return res
