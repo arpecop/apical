@@ -2,7 +2,7 @@ import fetch from 'node-fetch'
 import async from 'async'
 import nano from 'nano'
 import * as cheerio from 'cheerio'
-import striptags from 'striptags'
+import insert from '../_includes/dynamodb.client.mjs'
 let n = nano('http://1:1@34.242.41.16:5984')
 
 let db = n.db.use('que')
@@ -42,12 +42,14 @@ function run_bitch () {
                   .split('\n')
                   .map(item => item.trim())
                 console.log(lines.length, 'added')
-                db.insert({
+                const newDoc = {
                   ...task.doc,
                   content: {
                     html: lines
                   }
-                })
+                }
+                db.insert(newDoc)
+                insert(newDoc)
                 callback()
               })
             } else {
