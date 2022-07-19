@@ -43,7 +43,7 @@ const insert = async (type, insert_object) => {
   }
 
   const res = await partiQL(params)
-  console.log(params)
+
   return res
 }
 export default partiQL
