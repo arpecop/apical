@@ -6,13 +6,13 @@ const db = require('nano')('http://1:1@34.242.41.16:5984/que')
 const puppeteer = require('puppeteer')
 
 // edit bellow
-const pages = Array(2930)
+const pages = Array(2500)
   .fill(0)
   .map((_, i) => i + 1)
 puppeteer.launch({ headless: true }).then(async browser => {
   async.eachLimit(
     pages.reverse(),
-    140,
+    39,
     function (url, callback) {
       async function get_content (url) {
         const page = await browser.newPage()
