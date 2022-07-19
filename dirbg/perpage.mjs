@@ -20,45 +20,38 @@ function run_bitch () {
         tasks.rows,
         100,
         function (task, callback) {
-          db.get(task.id, function (err, doc) {
-            if (!doc.content) {
-              gethtml(task.value.url).then(html_full => {
-                console.log(html_full.length)
-                console.log(task.value.url)
-                const $ = cheerio.load(html_full)
-                const htmlz = cheerio.load(
-                  $('.article-content .article-body').html() || 'empty'
-                )
+          gethtml(task.value.url).then(html_full => {
+            console.log(html_full.length)
+            console.log(task.value.url)
+            const $ = cheerio.load(html_full)
+            const htmlz = cheerio.load(
+              $('.article-content .article-body').html() || 'empty'
+            )
 
-                htmlz('script').each((index, item) => {
-                  htmlz(item).remove()
-                })
-                htmlz('div').each((index, item) => {
-                  htmlz(item).remove()
-                })
-                htmlz('img').each((index, item) => {
-                  htmlz(item).remove()
-                })
-                const lines = htmlz('body')
-                  .text()
-                  .split('\n')
-                  .map(item => item.trim())
-                console.log(lines.length, 'added')
-                const newDoc = {
-                  ...task.doc,
-                  content: {
-                    html: lines
-                  }
-                }
-                db.insert(newDoc)
-                insert('news', newDoc)
-
-                callback()
-              })
-            } else {
-              console.log('already exists')
-              callback()
+            htmlz('script').each((index, item) => {
+              htmlz(item).remove()
+            })
+            htmlz('div').each((index, item) => {
+              htmlz(item).remove()
+            })
+            htmlz('img').each((index, item) => {
+              htmlz(item).remove()
+            })
+            const lines = htmlz('body')
+              .text()
+              .split('\n')
+              .map(item => item.trim())
+            console.log(lines.length, 'added')
+            const newDoc = {
+              ...task.doc,
+              content: {
+                html: lines
+              }
             }
+            db.insert(newDoc)
+            insert('news', newDoc)
+
+            callback()
           })
         },
         function () {
