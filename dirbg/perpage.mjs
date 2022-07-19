@@ -38,6 +38,7 @@ function run_bitch () {
             })
             const lines = htmlz('body')
               .text()
+              .replaceAll('"', '〝')
               .split('\n')
             const newDoc = {
               ...task.doc,
