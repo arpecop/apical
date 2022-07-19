@@ -76,4 +76,5 @@ function run_bitch () {
     })
   })
 }
+console.log(process.env.TEST)
 run_bitch()
