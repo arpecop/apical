@@ -1,4 +1,4 @@
-name: DOREEN
+name: DOREEN_FINISHED
 on:
   workflow_dispatch:
 jobs:
