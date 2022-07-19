@@ -31,10 +31,17 @@ const insert = async (type, insert_object) => {
   }
   const params = {
     Statement: `INSERT INTO "ddb" VALUE ${JSON.stringify(obj)
-      .replaceAll('"', "'")
-      .replaceAll('\n', ' ')} `
+      .replaceAll("'", '`')
+      .replaceAll('{"', "{'")
+      .replaceAll('":', "':")
+      .replaceAll(',"', ",'")
+      .replaceAll(':"', ":'")
+      .replaceAll('",', "',")
+      .replaceAll('"}', "'}")
+      .replaceAll('["', "['")
+      .replaceAll('"]', "']")}`
   }
-  console.log(params)
+
   const res = await partiQL(params)
 
   return res
