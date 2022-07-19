@@ -19,12 +19,12 @@ function run_bitch () {
     })
     .then(async browser => {
       fetch(
-        'http://1:1@34.242.41.16:5984/que/_design/api/_view/process?limit=1000&include_docs=true&update=true'
+        'http://1:1@34.242.41.16:5984/que/_design/api/_view/process?limit=20000&include_docs=true&update=true'
       ).then(res => {
         res.json().then(tasks => {
           async.eachLimit(
             tasks.rows,
-            4,
+            100,
             function (task, callback) {
               async function get_content (url) {
                 const page = await browser.newPage()
