@@ -12,7 +12,7 @@ const pages = Array(5900)
 puppeteer.launch({ headless: true }).then(async browser => {
   async.eachLimit(
     pages.reverse(),
-    40,
+    140,
     function (url, callback) {
       async function get_content (url) {
         const page = await browser.newPage()
