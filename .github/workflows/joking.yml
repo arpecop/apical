@@ -1,4 +1,4 @@
-name: JOKING
+name: JOKING_FINISHED
 on:
   workflow_dispatch:
 jobs:
