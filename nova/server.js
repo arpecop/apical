@@ -1,5 +1,5 @@
 //https://nova.bg/filter/all/21774
-const NUM = 20370
+const NUM = 18466
 const fetch = require('node-fetch')
 const cheerio = require('cheerio')
 const async = require('async')
