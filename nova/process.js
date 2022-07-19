@@ -1,6 +1,15 @@
+const async = require('async')
+const db = require('nano')('http://1:1@34.242.41.16:5984/que')
+const fetch = require('node-fetch')
+const cheerio = require('cheerio')
+
+async function gethtml (url) {
+  return fetch(url).then(res => res.text())
+}
+
 function run_bitch () {
   fetch(
-    'http://1:1@34.242.41.16:5984/que/_design/api/_view/process?limit=1000&include_docs=true&update=true'
+    'http://34.242.41.16:5984/que/_design/api/_view/processnova?limit=1000&include_docs=true&update=true'
   ).then(res => {
     res.json().then(tasks => {
       async.eachLimit(
@@ -10,32 +19,33 @@ function run_bitch () {
           gethtml(task.value.url).then(html_full => {
             console.log(task.value.url + ' ' + html_full.length)
             const $ = cheerio.load(html_full)
-            const htmlz = cheerio.load(
-              $('.article-content .article-body').html() || 'empty\n'
+            const description = $("meta[property='og:description']").attr(
+              'content'
+            )
+            var list = []
+            const lines = $('span[itemprop="description"] p').each(
+              (index, item) => {
+                list.push(
+                  $(item)
+                    .text()
+                    .trim()
+                )
+              }
             )
 
-            htmlz('script').each((index, item) => {
-              htmlz(item).remove()
-            })
-            htmlz('div').each((index, item) => {
-              htmlz(item).remove()
-            })
-            htmlz('img').each((index, item) => {
-              htmlz(item).remove()
-            })
-            const lines = htmlz('body')
-              .text()
-              .replaceAll('"', '〝')
-              .split('\n')
             const newDoc = {
               ...task.doc,
               content: {
-                html: lines
+                description,
+                html: list
               }
             }
-            db.insert(newDoc)
+
+            db.insert(newDoc, function () {
+              console.log('inserted')
+              callback()
+            })
             //insert('news', newDoc)
-            callback()
           })
         },
         function () {
@@ -45,3 +55,4 @@ function run_bitch () {
     })
   })
 }
+run_bitch()

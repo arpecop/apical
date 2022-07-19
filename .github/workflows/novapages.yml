@@ -1,4 +1,4 @@
-name: NOWA_ST_1
+name: NOWARTICLES
 on:
   workflow_dispatch:
 jobs:
@@ -11,4 +11,4 @@ jobs:
       - name: Run
         run: |
           npm install
-          node nova/server.js
+          node nova/process.js
