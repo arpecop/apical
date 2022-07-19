@@ -30,13 +30,12 @@ const insert = async (type, insert_object) => {
     content: insert_object
   }
   const params = {
-    Statement: `INSERT INTO "ddb" VALUE   ${JSON.stringify(obj).replaceAll(
-      '"',
-      "'"
-    )} `
+    Statement: `INSERT INTO "ddb" VALUE ${JSON.stringify(obj)
+      .replaceAll('"', "'")
+      .replaceAll('\n', ' ')} `
   }
   const res = await partiQL(params)
-  console.log(res)
+
   return res
 }
 export default partiQL

@@ -25,7 +25,7 @@ function run_bitch () {
             console.log(task.value.url)
             const $ = cheerio.load(html_full)
             const htmlz = cheerio.load(
-              $('.article-content .article-body').html() || 'empty'
+              $('.article-content .article-body').html() || 'empty\n'
             )
 
             htmlz('script').each((index, item) => {
