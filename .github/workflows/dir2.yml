@@ -15,7 +15,8 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::445820032868:user/dynamodb2
+          aws-access-key-id: ${{ secrets.AWS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET }}
           aws-region: eu-west-1
       - uses: oNaiPs/secrets-to-env-action@v1
         with:
