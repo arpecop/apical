@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: master
+          ref: main
       - uses: oNaiPs/secrets-to-env-action@v1
         with:
           secrets: ${{ toJSON(secrets) }}
