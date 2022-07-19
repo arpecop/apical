@@ -17,7 +17,6 @@ function run_bitch () {
         250,
         function (task, callback) {
           gethtml(task.value.url).then(html_full => {
-            console.log(task.value.url + ' ' + html_full.length)
             const $ = cheerio.load(html_full)
             const description = $("meta[property='og:description']").attr(
               'content'
