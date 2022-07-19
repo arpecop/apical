@@ -1,5 +1,5 @@
 //https://nova.bg/filter/all/21774
-
+const NUM = 21760
 const fetch = require('node-fetch')
 const cheerio = require('cheerio')
 const async = require('async')
@@ -59,7 +59,7 @@ async function get_content (url) {
     .get()
   return result
 }
-const pages = Array(21773)
+const pages = Array(NUM)
   .fill(0)
   .map((_, i) => i + 1)
 async.eachLimit(
@@ -67,10 +67,8 @@ async.eachLimit(
   250,
   function (url, callback) {
     get_content('https://nova.bg/filter/all/' + url).then(data => {
-      console.log(`🔘 ${url}  {${data.length}}`)
-
       db.bulk({ docs: data }, function (err, body) {
-        console.log(body)
+        console.log(`🔘 ${url}  {${body.length}}`)
         callback()
       })
     })
