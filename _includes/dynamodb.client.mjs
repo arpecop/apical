@@ -11,7 +11,7 @@ const awsConfig = {
 }
 const client = new DynamoDBClient(awsConfig)
 
-export const partiQL = async query => {
+const partiQL = async query => {
   try {
     const res = await client.send(new ExecuteStatementCommand(query))
     return new Promise((resolve, reject) => {
@@ -22,7 +22,7 @@ export const partiQL = async query => {
   }
 }
 
-export const insert = async (type, insert_object) => {
+const insert = async (type, insert_object) => {
   const obj = {
     added: Date.now(),
     type: type,
@@ -38,3 +38,6 @@ export const insert = async (type, insert_object) => {
   const res = await partiQL(params)
   return res
 }
+export default partiQL
+
+export { insert }

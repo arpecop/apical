@@ -11,8 +11,6 @@ async function gethtml (url) {
   return fetch(url).then(res => res.text())
 }
 
-insert('rudix', { _id: 1, age: 42, emperor: true })
-
 function run_bitch () {
   fetch(
     'http://1:1@34.242.41.16:5984/que/_design/api/_view/process?limit=1000&include_docs=true&update=true'
