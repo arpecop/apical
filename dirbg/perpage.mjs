@@ -2,7 +2,7 @@ import fetch from 'node-fetch'
 import async from 'async'
 import nano from 'nano'
 import * as cheerio from 'cheerio'
-import insert from '../_includes/dynamodb.client.mjs'
+import { insert } from '../_includes/dynamodb.client.mjs'
 let n = nano('http://1:1@34.242.41.16:5984')
 
 let db = n.db.use('que')
@@ -10,6 +10,8 @@ let db = n.db.use('que')
 async function gethtml (url) {
   return fetch(url).then(res => res.text())
 }
+
+insert('rudix', { _id: 1, age: 42, emperor: true })
 
 function run_bitch () {
   fetch(
@@ -49,7 +51,7 @@ function run_bitch () {
                   }
                 }
                 db.insert(newDoc)
-                insert(newDoc)
+                insert('news', newDoc)
                 callback()
               })
             } else {
@@ -65,4 +67,4 @@ function run_bitch () {
     })
   })
 }
-run_bitch()
+//run_bitch()
