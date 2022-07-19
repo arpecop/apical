@@ -18,7 +18,7 @@ function run_bitch () {
     res.json().then(tasks => {
       async.eachLimit(
         tasks.rows,
-        150,
+        250,
         function (task, callback) {
           gethtml(task.value.url).then(html_full => {
             console.log(task.value.url + ' ' + html_full.length)
@@ -47,7 +47,7 @@ function run_bitch () {
               }
             }
             db.insert(newDoc)
-            insert('news', newDoc)
+            //insert('news', newDoc)
             callback()
           })
         },
