@@ -63,7 +63,8 @@ function run_bitch () {
       })
       const forcouch = rows.map(i => {
         return {
-          ...i.doc,
+          _id: i.doc._id,
+          _rev: i.doc._rev,
           synced: true
         }
       })
