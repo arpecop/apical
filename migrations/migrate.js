@@ -32,13 +32,14 @@ async function insert (objects) {
       }
     })
   })
-  await data.json()
+  const x = await data.json()
+  console.log(x)
   return null
 }
 
 function run_bitch () {
   fetch(
-    'http://34.242.41.16:5984/que/_design/api/_view/processed?limit=100&include_docs=true&update=true'
+    'http://34.242.41.16:5984/que/_design/api/_view/processed?limit=500&include_docs=true&update=true'
   ).then(res => {
     res.json().then(async ({ rows }) => {
       const forhasura = rows.map(i => {
