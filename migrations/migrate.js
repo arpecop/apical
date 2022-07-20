@@ -16,22 +16,25 @@ function dateformat (date) {
 }
 
 async function insert (objects) {
-  const data = await fetch('http://34.242.41.16/v2/query', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-hasura-admin-secret': process.env.HASURA_ADMIN_SECRET
-    },
-    body: JSON.stringify({
-      type: 'insert',
-      args: {
-        table: { name: 'newsbg', schema: 'public' },
-        source: 'DB',
-        objects,
-        returning: null
-      }
-    })
-  })
+  const data = await fetch(
+    'https://container-service-1.ijgils88742po.eu-west-1.cs.amazonlightsail.com/v2/query',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-hasura-admin-secret': process.env.HASURA_ADMIN_SECRET
+      },
+      body: JSON.stringify({
+        type: 'insert',
+        args: {
+          table: { name: 'newsbg', schema: 'public' },
+          source: 'DB',
+          objects,
+          returning: null
+        }
+      })
+    }
+  )
   const x = await data.json()
   console.log(x)
   return null
@@ -39,7 +42,7 @@ async function insert (objects) {
 
 function run_bitch () {
   fetch(
-    'http://34.242.41.16:5984/que/_design/api/_view/processed?limit=150&include_docs=true&update=true'
+    'http://34.242.41.16:5984/que/_design/api/_view/processed?limit=1000&include_docs=true&update=true'
   ).then(res => {
     res.json().then(async ({ rows }) => {
       const forhasura = rows.map(i => {
