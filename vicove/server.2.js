@@ -24,7 +24,10 @@ async function insertx (object) {
       }
     })
   })
-  console.log(await data.json())
+  const res = await data.json()
+  if (!res.error) {
+    console.log(res)
+  }
 }
 
 async function get_content (url) {
@@ -54,7 +57,7 @@ const pages = Array(NUM)
   .map((_, i) => i + 1)
 async.eachLimit(
   pages.reverse(),
-  100,
+  10,
   function (url, callback) {
     get_content(
       'https://vicove.top/c/vicove?page=' + url + '&template=infinite'
@@ -62,8 +65,7 @@ async.eachLimit(
       data.forEach(async element => {
         await insertx(element)
       })
-
-      console.log(data)
+      console.log(url)
       callback()
     })
   },
@@ -76,6 +78,4 @@ async.eachLimit(
 //   }
 //   browser
 
-process.on('uncaughtException', function (err) {
-  console.log(err)
-})
+process.on('uncaughtException', function (err) {})
