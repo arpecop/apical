@@ -15,4 +15,4 @@ jobs:
       - name: Run
         run: |
           npm install
-          node vicove/refactor.mjs
+          node vicove/server.2.js
