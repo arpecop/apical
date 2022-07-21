@@ -11,7 +11,7 @@ const async = require('async')
 const pages = require('./map.json')
 
 async function insertx (object) {
-  const data = await fetch('http://db.kloun.lol/v2/query', {
+  await fetch('http://db.kloun.lol/v2/query', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -27,10 +27,7 @@ async function insertx (object) {
       }
     })
   })
-  const res = await data.json()
-  if (!res.error) {
-    console.log(res)
-  }
+  await data.json()
 }
 
 async function get_content (url) {
@@ -59,7 +56,7 @@ async function get_data (url, letter) {
       .join(' ')
   }
   const format_date = str => {
-    return str.split(' ').filter(x => x.length === 4)[0]
+    return str.split(' ').filter(x => x.length === 4 && Number(x) > 1900)[0]
   }
   const column = $('table tbody tr[onclick]')
     .map(function (i, el) {
@@ -106,12 +103,17 @@ async function get_data (url, letter) {
 }
 
 const arr = []
+
 async.eachLimit(
   pages,
   20,
   function (url, callback) {
     get_data(url).then(async data => {
-      console.log(url)
+      const rid = Math.floor(Math.random() * 100)
+      if (rid === 100) {
+        console.log(url)
+      }
+
       data.forEach(async element => {
         await insertx(element)
       })
