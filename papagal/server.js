@@ -106,14 +106,11 @@ const arr = []
 
 async.eachLimit(
   pages,
-  20,
+  100,
   function (url, callback) {
     get_data(url).then(async data => {
+      console.log(url)
       data.forEach(async element => {
-        const rid = Math.floor(Math.random() * 101)
-        if (rid === 100) {
-          console.log(url)
-        }
         await insertx(element)
       })
 
