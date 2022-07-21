@@ -108,7 +108,7 @@ async function get_data (url, letter) {
 const arr = []
 async.eachLimit(
   pages,
-  150,
+  20,
   function (url, callback) {
     get_data(url).then(async data => {
       console.log(url)
