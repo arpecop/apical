@@ -1,7 +1,7 @@
 //vicove.top/c/vicove?page=5116&template=infinite
 
 //https://nova.bg/filter/all/21774
-const NUM = 5114
+const NUM = 4000
 const fetch = require('node-fetch')
 const cheerio = require('cheerio')
 const async = require('async')
