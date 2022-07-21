@@ -109,12 +109,11 @@ async.eachLimit(
   20,
   function (url, callback) {
     get_data(url).then(async data => {
-      const rid = Math.floor(Math.random() * 100)
-      if (rid === 100) {
-        console.log(url)
-      }
-
       data.forEach(async element => {
+        const rid = Math.floor(Math.random() * 101)
+        if (rid === 100) {
+          console.log(url)
+        }
         await insertx(element)
       })
 
@@ -124,6 +123,4 @@ async.eachLimit(
   function (err) {}
 )
 
-process.on('uncaughtException', function (err) {
-  console.log('е')
-})
+process.on('uncaughtException', function (err) {})
