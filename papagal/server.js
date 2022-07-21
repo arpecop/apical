@@ -122,4 +122,6 @@ async.eachLimit(
   function (err) {}
 )
 
-process.on('uncaughtException', function (err) {})
+process.on('uncaughtException', function (err) {
+  console.log('е')
+})
